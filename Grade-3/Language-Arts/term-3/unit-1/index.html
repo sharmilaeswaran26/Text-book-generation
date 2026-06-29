@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade 3 Jamaica Language Arts Textbook</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .nav-tabs {
+            display: flex;
+            background: #f8f9fa;
+            border-bottom: 2px solid #ddd;
+            overflow-x: auto;
+            flex-wrap: wrap;
+        }
+
+        .nav-tabs button {
+            flex: 1;
+            padding: 15px 20px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 500;
+            color: #666;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+            min-width: 150px;
+        }
+
+        .nav-tabs button:hover {
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        .nav-tabs button.active {
+            color: #2a5298;
+            border-bottom-color: #2a5298;
+            background: white;
+        }
+
+        .content {
+            padding: 30px;
+            min-height: 600px;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 1.8em;
+            color: #1e3c72;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .subsection {
+            background: #f8f9fa;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 4px solid #667eea;
+            border-radius: 5px;
+        }
+
+        .subsection h3 {
+            color: #2a5298;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+
+        .learning-objectives {
+            background: #e3f2fd;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #2196F3;
+        }
+
+        .learning-objectives h4 {
+            color: #1565c0;
+            margin-bottom: 10px;
+        }
+
+        .learning-objectives ul {
+            margin-left: 20px;
+        }
+
+        .learning-objectives li {
+            margin: 8px 0;
+            color: #333;
+        }
+
+        .activity-box {
+            background: #fff3e0;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #ff9800;
+        }
+
+        .activity-box h4 {
+            color: #e65100;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .activity-box h4::before {
+            content: "✏️";
+            font-size: 1.2em;
+        }
+
+        .assessment-box {
+            background: #f3e5f5;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #9c27b0;
+        }
+
+        .assessment-box h4 {
+            color: #6a1b9a;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .assessment-box h4::before {
+            content: "📋";
+            font-size: 1.2em;
+        }
+
+        .extension-box {
+            background: #e8f5e9;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #4caf50;
+        }
+
+        .extension-box h4 {
+            color: #2e7d32;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .extension-box h4::before {
+            content: "⭐";
+            font-size: 1.2em;
+        }
+
+        .teacher-notes {
+            background: #ffe0b2;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #ff6f00;
+        }
+
+        .teacher-notes h4 {
+            color: #bf360c;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .teacher-notes h4::before {
+            content: "👨‍🏫";
+            font-size: 1.2em;
+        }
+
+        .content-text {
+            margin: 15px 0;
+            text-align: justify;
+        }
+
+        .content-text strong {
+            color: #1e3c72;
+        }
+
+        .diagram {
+            background: #f0f0f0;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            text-align: center;
+            border: 2px dashed #ddd;
+        }
+
+        .diagram img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+        }
+
+        table th {
+            background: #2a5298;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+
+        table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        table tr:hover {
+            background: #f5f5f5;
+        }
+
+        .key-terms {
+            background: #f5f5f5;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .key-terms h4 {
+            color: #1e3c72;
+            margin-bottom: 10px;
+        }
+
+        .term {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+
+        .term strong {
+            color: #2a5298;
+        }
+
+        .learning-outcomes {
+            background: #c8e6c9;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .learning-outcomes h4 {
+            color: #1b5e20;
+            margin-bottom: 10px;
+        }
+
+        .learning-outcomes ul {
+            margin-left: 20px;
+        }
+
+        .learning-outcomes li {
+            margin: 8px 0;
+            color: #333;
+        }
+
+        .checklist {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-left: 3px solid #2a5298;
+        }
+
+        .checklist input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        footer {
+            background: #1e3c72;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            .nav-tabs button {
+                min-width: 120px;
+                padding: 12px 15px;
+                font-size: 0.9em;
+            }
+        }
+
+        .collapsible {
+            background: #e3f2fd;
+            cursor: pointer;
+            padding: 15px;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 1em;
+            color: #1565c0;
+            font-weight: bold;
+            border-radius: 5px;
+            margin: 10px 0;
+            width: 100%;
+            transition: 0.3s;
+        }
+
+        .collapsible:hover {
+            background: #bbdefb;
+        }
+
+        .collapsible-content {
+            padding: 0 15px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .collapsible-content.show {
+            max-height: 1000px;
+        }
+
+        .print-btn {
+            background: #2a5298;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            margin: 20px 0;
+            transition: 0.3s;
+        }
+
+        .print-btn:hover {
+            background: #1e3c72;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            .nav-tabs {
+                display: none;
+            }
+            .print-btn {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📚 Grade 3 Language Arts Textbook</h1>
+            <p>Jamaica National Standards Curriculum - Term 3, Unit 1</p>
+            <p style="font-size: 0.9em; margin-top: 10px;">Speaking &amp; Listening | Word Skills | Comprehension | Grammar | Writing</p>
+            <p style="margin-top:14px;"><a href="../../index.html" style="color:#fff; background:rgba(255,255,255,0.15); padding:6px 14px; border-radius:5px; text-decoration:none; font-size:0.9em;">← Language Arts Home</a></p>
+        </header>
+
+        <div class="nav-tabs">
+            <button class="tab-btn active" data-tab="speaking-listening">Speaking &amp; Listening</button>
+            <button class="tab-btn" data-tab="word-skills">Word Skills</button>
+            <button class="tab-btn" data-tab="comprehension">Comprehension</button>
+            <button class="tab-btn" data-tab="grammar">Grammar</button>
+            <button class="tab-btn" data-tab="writing">Writing</button>
+            <button class="tab-btn" data-tab="glossary">Word Power</button>
+            <button class="tab-btn" data-tab="answers">Answer Key</button>
+        </div>
+
+        <div class="content">
+            <!-- SPEAKING AND LISTENING -->
+            <div id="speaking-listening" class="tab-content active">
+                <button class="print-btn" onclick="window.print()">🖨️ Print This Section</button>
+
+                <div class="section">
+                    <h2 class="section-title">Speaking and Listening</h2>
+
+                    <div class="content-text">
+                        <p>You listen and speak every single day. You listen to your teacher, your friends, and your family, and you speak when you answer a question, share a story, or ask for help. Doing these two things well is one of the most useful skills in the whole world, and in this unit you will become even better at both.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Listening Carefully</h3>
+                        <div class="content-text">
+                            <p>Listening is more than just hearing. You hear birds singing in the background without really thinking about them. But <strong>listening</strong> means giving someone your full attention so that you truly understand what they are saying.</p>
+                            <p>A good listener looks at the person who is speaking, keeps quiet and waits for a turn, and thinks carefully about the words. Imagine your teacher is giving instructions for a fun activity. If you listen carefully, you will know exactly what to do. But if your mind wanders off, you might miss an important step and feel lost. Careful listening saves you from confusion.</p>
+                        </div>
+                        <div class="learning-objectives">
+                            <h4>Quick Check</h4>
+                            <ul>
+                                <li>Name two things a good listener does with their eyes and ears.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Speaking Clearly</h3>
+                        <div class="content-text">
+                            <p>When it is your turn to speak, the goal is to be understood. <strong>Speaking clearly</strong> means saying your words at a steady pace, not too fast and not in a mumble, and loudly enough for others to hear. It helps to sit up tall and to look at the people you are speaking to.</p>
+                            <p>In class, we practise speaking in Standard Jamaican English, which we use for school and for talking to people we do not know well. At home and with friends you may speak in our warm Jamaican Creole, and that is a part of who we are. A clever speaker knows how to use the right one at the right time.</p>
+                        </div>
+                        <div class="learning-objectives">
+                            <h4>Think About It</h4>
+                            <ul>
+                                <li>Think of a time you had to explain something to a younger child. How did you make your words easy for them to understand?</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Asking and Answering Questions Politely</h3>
+                        <div class="content-text">
+                            <p>When a classmate finishes giving a talk, you might ask a question to learn more, like, "Why did you choose that topic?" That is called a <strong>clarifying question</strong>, because it helps make things clear.</p>
+                            <p>When we ask and answer questions, we must always be polite and kind. This is called having sensitivity to your audience. You wait until the speaker is finished, you ask your question in a gentle voice, and you remember to say "please" and "thank you." If you do not agree with someone, you can say so in a friendly way, without making them feel bad.</p>
+                        </div>
+                        <div class="key-terms">
+                            <h4>Let's Explore</h4>
+                            <div class="term">Suppose your friend says, "I think dogs make the best pets," but you like cats better. A polite way to share your opinion would be: "That is a good point. I like cats best, but I understand why you love dogs." Kind words keep everyone happy, even when we do not agree.</div>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Joining a Discussion and Giving Your Opinion</h3>
+                        <div class="content-text">
+                            <p>A <strong>discussion</strong> is when a group talks together about a topic, and everyone gets a turn to share. To be good at discussions, you make helpful contributions. That means you say something that adds to the talk, instead of saying something off-topic.</p>
+                            <p>You can also give your opinion, as long as you do it politely. After a nature walk, you might say, "I think we should plant more trees in the schoolyard, because they give us shade." When you share an opinion, it helps to give a reason for it. That little word <strong>because</strong> makes your idea much stronger.</p>
+                        </div>
+                        <div class="key-terms">
+                            <h4>Remember</h4>
+                            <div class="term">Listen with kindness, speak clearly, and share your ideas politely. Everyone deserves a turn to be heard.</div>
+                        </div>
+                    </div>
+
+                    <div class="activity-box">
+                        <h4>Let's Practice</h4>
+                        <p>With a partner, take turns. One person speaks for one minute about something special to them, while the other listens carefully without interrupting. Then the listener asks one polite clarifying question, and the speaker answers. Swap roles and try again. Remember to look at each other, use clear words, and be kind.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- WORD SKILLS -->
+            <div id="word-skills" class="tab-content">
+                <button class="print-btn" onclick="window.print()">🖨️ Print This Section</button>
+
+                <div class="section">
+                    <h2 class="section-title">Word Skills</h2>
+
+                    <div class="content-text">
+                        <p>When you read, you meet hundreds of words. Some you know in a flash, and others are new and tricky. In this part, you will sharpen the skills that help you read every word smoothly and work out the ones you do not know. Let us become word detectives.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>R-Controlled Vowels</h3>
+                        <div class="content-text">
+                            <p>When the letter <strong>r</strong> comes right after a vowel, it bosses that vowel around and changes its sound. We call these <strong>r-controlled vowels</strong>, and some people call the r a "bossy r." There are five of them, and they are worth learning by heart.</p>
+                        </div>
+                        <table>
+                            <tr>
+                                <th>Sound</th>
+                                <th>Example Words</th>
+                            </tr>
+                            <tr><td>ar</td><td>star, car, farm</td></tr>
+                            <tr><td>er</td><td>fern, her, water</td></tr>
+                            <tr><td>ir</td><td>girl, bird, shirt</td></tr>
+                            <tr><td>or</td><td>fork, corn, storm</td></tr>
+                            <tr><td>ur</td><td>turn, hurt, church</td></tr>
+                        </table>
+                        <div class="content-text">
+                            <p>Here is a clever thing to notice: the middle three — <strong>er</strong>, <strong>ir</strong>, and <strong>ur</strong> — all make almost the same sound. Say <em>fern</em>, <em>girl</em>, and <em>turn</em> one after the other and listen. They rhyme at the end!</p>
+                        </div>
+                        <div class="learning-objectives">
+                            <h4>Quick Check</h4>
+                            <ul>
+                                <li>Read aloud and find the bossy r: <em>market, garden, dirt, morning, burger.</em></li>
+                                <li>Which two words have the same vowel sound: <em>bird, fork, turn</em>?</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Diphthongs</h3>
+                        <div class="content-text">
+                            <p>A <strong>diphthong</strong> is when two vowels work together and your mouth slides from one sound to another, all in one go. Say the word <em>coin</em> slowly and feel how your mouth glides. That sliding sound is a diphthong.</p>
+                            <p>Two pairs make a sound like the <em>oy</em> in <em>boy</em>: <strong>oi</strong> (coin, oil, point) and <strong>oy</strong> (boy, toy, enjoy). Two pairs make a sound like the <em>ow</em> in <em>cow</em>: <strong>ou</strong> (out, house, mouse) and <strong>ow</strong> (cow, down, flower). Remember them with little phrases: "the boy has a coin" and "the cow runs out."</p>
+                        </div>
+                        <div class="key-terms">
+                            <h4>Did You Know?</h4>
+                            <div class="term">The word <em>diphthong</em> comes from old words meaning "two sounds." So a diphthong really is two vowel sounds gliding into one. Now you know a secret that even some grown-ups have forgotten!</div>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Inflectional Endings</h3>
+                        <div class="content-text">
+                            <p>Sometimes we add a little ending to a word to change it slightly. These endings are called <strong>inflectional endings</strong>, and the most common ones are <strong>-s</strong>, <strong>-ed</strong>, and <strong>-ing</strong>. Look at the base word <em>play</em>: <em>play</em> + s = <em>plays</em>, <em>play</em> + ed = <em>played</em>, <em>play</em> + ing = <em>playing</em>.</p>
+                            <p>The base word stays the same, and the ending tells us a little more. The ending <strong>-ed</strong> usually tells us the action already happened, and <strong>-ing</strong> usually tells us it is happening right now. When you meet a long word, try covering the ending and reading the base word first. <em>Laughing</em> becomes <em>laugh</em> plus <em>ing</em>.</p>
+                        </div>
+                        <div class="learning-objectives">
+                            <h4>Quick Check</h4>
+                            <ul>
+                                <li>Add <em>-ed</em> and <em>-ing</em> to the word <em>jump</em>. What two new words do you get?</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Context Clues</h3>
+                        <div class="content-text">
+                            <p>When you bump into a word you have never seen, you do not have to give up. You can look for <strong>context clues</strong> — hints hidden in the other words around the tricky word. Read this: <em>The clever dog found a way to open the gate.</em> Even if <em>clever</em> is new to you, the rest of the sentence shows the dog was smart enough to open a gate. So <em>clever</em> must mean smart!</p>
+                            <p>Here is another: <em>He was a good scholar who got straight A's.</em> The words "good" and "straight A's" tell you a scholar must be a very good student. The clues are right there, waiting for you to notice them.</p>
+                        </div>
+                        <div class="key-terms">
+                            <h4>Let's Explore</h4>
+                            <div class="term">Guess the meaning of the underlined word from the clues: "The soup was so <em>scrumptious</em> that everyone asked for a second bowl." What do you think <em>scrumptious</em> means?</div>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Reading Fluently and Sight Words</h3>
+                        <div class="content-text">
+                            <p><strong>Reading fluently</strong> means reading smoothly, at a comfortable pace, with feeling in your voice. A fluent reader does not stop and stumble over every word; their reading sounds like a flowing river, not a bumpy road.</p>
+                            <p>One big helper is your <strong>sight words</strong> — common little words like <em>the, said, was, come,</em> and <em>because</em> that pop up again and again. You learn to know them on sight, in a flash, without sounding them out. The more sight words you know by heart, the smoother your reading becomes. The secret is simple: read often, and read aloud.</p>
+                        </div>
+                        <div class="key-terms">
+                            <h4>Remember</h4>
+                            <div class="term">Use the bossy r and diphthongs to sound out words, break long words into chunks, hunt for context clues, and know your sight words by heart. These are your tools for reading anything!</div>
+                        </div>
+                    </div>
+
+                    <div class="activity-box">
+                        <h4>Let's Practice</h4>
+                        <p>Read these words aloud and sort them into two groups — words with an r-controlled vowel and words with a diphthong: <em>star, coin, fork, cow, girl, boy, turn, house.</em> Then choose two of the words and use each one in a sentence of your own.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- COMPREHENSION -->
+            <div id="comprehension" class="tab-content">
+                <button class="print-btn" onclick="window.print()">🖨️ Print This Section</button>
+
+                <div class="section">
+                    <h2 class="section-title">Comprehension</h2>
+
+                    <div class="content-text">
+                        <p>Reading the words is only half the job. The other half is understanding what they mean. We call this <strong>comprehension</strong>. In this part, you will learn to find the main idea and to tell the difference between a fact and an opinion.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Finding the Main Idea</h3>
+                        <div class="content-text">
+                            <p>Every story and every paragraph is mostly about one big thing. That one big thing is called the <strong>main idea</strong>, and all the other sentences are helpers that tell you more about it. Think of a paragraph as a tree: the main idea is the strong trunk, and the details are the branches.</p>
+                            <p>Read this little paragraph: <em>Mongoose are busy little animals. They wake up early and hunt for food all day. They eat insects, eggs, and even snakes. When they are tired, they curl up to sleep.</em> What is it mostly about? It is mostly about mongoose and what they do. That is the main idea.</p>
+                        </div>
+                        <div class="learning-objectives">
+                            <h4>Think About It</h4>
+                            <ul>
+                                <li>When you tell a friend about a movie, you usually tell them the main idea first, like "It was about a boy who could fly." Why is the main idea a good place to start?</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Fact and Opinion</h3>
+                        <div class="content-text">
+                            <p>A <strong>fact</strong> is something that is true and can be checked. A fact is true for everyone, no matter who they are or how they feel. For example, <em>Jamaica is an island</em> is a fact — you can check it on a map, and it is true for every person in the world. Here are more facts: <em>A spider has eight legs. Water is wet. Kingston is the capital city of Jamaica.</em></p>
+                            <p>An <strong>opinion</strong> is different. An opinion is what a person feels, thinks, or believes, and it is not true for everyone. For example, <em>Mango is the best fruit</em> is an opinion — you might love mango, but your friend might think otherwise. Here are more opinions: <em>Saturday is the most fun day. Blue is a beautiful colour. Football is more exciting than cricket.</em></p>
+                            <p>So here is the big difference: a fact can be checked and is true for everyone, while an opinion is what someone feels, and others may not agree. A clue can help you: opinions often use feeling words like <em>best, nicest, prettiest, worst,</em> or <em>I think</em> and <em>I feel.</em></p>
+                        </div>
+                        <div class="key-terms">
+                            <h4>Let's Explore</h4>
+                            <div class="term">Decide if each sentence is a fact or an opinion: (1) The sun is hot. (2) Summer is the nicest season. (3) A week has seven days. (4) Ice cream tastes better than cake. Which ones can be checked, and which are just what someone feels?</div>
+                        </div>
+                        <div class="learning-objectives">
+                            <h4>Quick Check</h4>
+                            <ul>
+                                <li>Make up one fact about your school and one opinion about your school.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Using Context Clues for Meaning</h3>
+                        <div class="content-text">
+                            <p>When you read a non-fiction text about a real subject, you will sometimes meet a new word. Use the words around it, and even the pictures, to help you work out what it means. Good readers are always using clues to gain meaning, page after page.</p>
+                        </div>
+                        <div class="key-terms">
+                            <h4>Remember</h4>
+                            <div class="term">Find the main idea by asking what the text is mostly about. A fact can be checked and is true for everyone. An opinion is what someone feels, and others may not agree.</div>
+                        </div>
+                    </div>
+
+                    <div class="activity-box">
+                        <h4>Let's Practice</h4>
+                        <p>Read each sentence and write <strong>F</strong> for fact or <strong>O</strong> for opinion: (1) A cow gives milk. (2) Cricket is the best game. (3) The Jamaican flag has black, green, and gold. (4) Reading is more fun than maths. Then write one fact and one opinion of your own.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GRAMMAR -->
+            <div id="grammar" class="tab-content">
+                <button class="print-btn" onclick="window.print()">🖨️ Print This Section</button>
+
+                <div class="section">
+                    <h2 class="section-title">Grammar</h2>
+
+                    <div class="content-text">
+                        <p>Grammar is the set of rules that makes our sentences neat, clear, and correct. When you follow these rules, your reader understands you easily. In this part, you will learn about the future tense, subject-verb agreement, plural nouns, conjunctions, and punctuation.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>The Future Tense</h3>
+                        <div class="content-text">
+                            <p>When you talk about something that has not happened yet, but will happen later, you are using the <strong>future tense</strong>. The magic word is <strong>will</strong>. You simply put <em>will</em> in front of the action word: <em>I will read a story tomorrow. We will visit Grandma on Sunday. She will play netball after school.</em> Whenever you make a plan or a promise about later, you reach for the word <em>will</em>.</p>
+                        </div>
+                        <div class="key-terms">
+                            <h4>Let's Explore</h4>
+                            <div class="term">Change these sentences to the future tense using <em>will</em>: "I eat lunch." becomes "I will eat lunch." Now try: "We sing a song." and "He cleans his room."</div>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Subject-Verb Agreement</h3>
+                        <div class="content-text">
+                            <p>Every sentence has a <strong>subject</strong> (the person or thing doing the action) and a <strong>verb</strong> (the action word). For a sentence to sound right, they must agree. When the subject is just one (like <em>he, she,</em> or <em>the dog</em>), the verb often takes an <strong>-s</strong>: <em>She walks to school. The bird sings.</em> But when the subject is more than one, or is <em>we, you,</em> or <em>they</em>, the verb does not take the <strong>-s</strong>: <em>We walk to school. They sing. The birds sing.</em></p>
+                            <p>So we say <em>She walks</em> but <em>They walk</em>; <em>The cat plays</em> but <em>The cats play</em>. Reading your sentence aloud will often tell you if it sounds right.</p>
+                        </div>
+                        <div class="learning-objectives">
+                            <h4>Quick Check</h4>
+                            <ul>
+                                <li>Choose the correct verb: "The boys (run / runs) in the yard." "My sister (read / reads) every night."</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Singular and Plural Nouns</h3>
+                        <div class="content-text">
+                            <p>A <strong>noun</strong> is a naming word for a person, place, animal, or thing. When there is just one, it is <strong>singular</strong>; when there is more than one, it is <strong>plural</strong>. The simplest way to make a noun plural is to add an <strong>-s</strong>: one <em>cat</em> becomes two <em>cats</em>, one <em>book</em> becomes three <em>books</em>.</p>
+                            <p>When a word ends in <em>s, x, ch,</em> or <em>sh,</em> we add <strong>-es</strong> instead: one <em>box</em> becomes two <em>boxes</em>, one <em>bus</em> becomes three <em>buses</em>. And when a word ends in a <em>y</em> with a consonant before it, we change the <em>y</em> to <em>i</em> and add <strong>-es</strong>: one <em>baby</em> becomes two <em>babies</em>, one <em>city</em> becomes many <em>cities</em>.</p>
+                        </div>
+                        <div class="key-terms">
+                            <h4>Did You Know?</h4>
+                            <div class="term">A few special nouns do not follow any rule. One <em>child</em> becomes <em>children</em>, one <em>man</em> becomes <em>men</em>, and one <em>foot</em> becomes <em>feet</em>. These old words have kept their own special plurals for hundreds of years.</div>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Conjunctions: The Joining Words</h3>
+                        <div class="content-text">
+                            <p><strong>Conjunctions</strong> are joining words, like little bridges that connect ideas. Four of the most useful are <strong>and, but, because,</strong> and <strong>so</strong>. <em>And</em> joins ideas that go together (<em>I like rice and I like peas</em>). <em>But</em> shows a difference (<em>I wanted to play, but it started to rain</em>). <em>Because</em> gives a reason (<em>I was happy because I won</em>). <em>So</em> shows a result (<em>It was raining, so I took my umbrella</em>).</p>
+                            <p>Without conjunctions, writing sounds choppy. With one, it flows. Much nicer!</p>
+                        </div>
+                        <div class="key-terms">
+                            <h4>Let's Explore</h4>
+                            <div class="term">Join each pair with the best conjunction: "I was tired. I went to bed." (use <em>so</em>) and "She is small. She is strong." (use <em>but</em>).</div>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Punctuation Marks</h3>
+                        <div class="content-text">
+                            <p><strong>Punctuation</strong> marks are the small but mighty signs that tell your reader how to read a sentence. Every sentence must begin with a <strong>capital letter</strong>. We also use capitals for names of people and places, like <em>Mary</em> and <em>Kingston</em>, and for the special word <em>I</em>.</p>
+                            <p>At the end of a sentence, we use one of three marks. The <strong>full stop</strong> ( . ) ends a telling sentence (<em>The sky is blue.</em>). The <strong>question mark</strong> ( ? ) ends an asking sentence (<em>What is your name?</em>). The <strong>exclamation mark</strong> ( ! ) shows strong feeling (<em>Watch out! Hurrah, we won!</em>).</p>
+                        </div>
+                        <div class="learning-objectives">
+                            <h4>Quick Check</h4>
+                            <ul>
+                                <li>Which mark belongs at the end? "Where are my shoes ___" "I found a dollar ___" (excited!) "We had rice for dinner ___"</li>
+                            </ul>
+                        </div>
+                        <div class="key-terms">
+                            <h4>Remember</h4>
+                            <div class="term">Use <em>will</em> for the future, make your subjects and verbs agree, add <em>-s, -es,</em> or <em>-ies</em> to make nouns plural, join ideas with conjunctions, and end every sentence with the right punctuation mark.</div>
+                        </div>
+                    </div>
+
+                    <div class="activity-box">
+                        <h4>Let's Practice</h4>
+                        <p>Write three sentences about what you will do this weekend. Use a future tense verb with <em>will</em> in each one. Make sure each sentence begins with a capital letter and ends with the correct punctuation mark, and try to use a conjunction (<em>and, but, because, so</em>) in at least one of them.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- WRITING -->
+            <div id="writing" class="tab-content">
+                <button class="print-btn" onclick="window.print()">🖨️ Print This Section</button>
+
+                <div class="section">
+                    <h2 class="section-title">Writing</h2>
+
+                    <div class="content-text">
+                        <p>Writing is how you share your ideas on paper so that others can read them, even when you are not there to speak. A good writer plans first, then drafts, then makes the writing better. Let us learn how.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Writing Clear, Correct Sentences</h3>
+                        <div class="content-text">
+                            <p>A good piece of writing is built from good sentences, the way a wall is built from good bricks. A clear sentence tells one idea, begins with a capital letter, and ends with the right punctuation mark.</p>
+                            <p>Look at the difference. A weak sentence might be: <em>me and tim went the shop</em> — no capital letter, no full stop, words jumbled. A clear, correct sentence would be: <em>Tim and I went to the shop.</em> It begins with a capital, ends with a full stop, and the words are in good order.</p>
+                        </div>
+                        <div class="learning-objectives">
+                            <h4>Think About It</h4>
+                            <ul>
+                                <li>Why is it important to use capital letters and full stops? Imagine reading a whole page with no stops at all. How would that feel?</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Organising a Paragraph</h3>
+                        <div class="content-text">
+                            <p>A <strong>paragraph</strong> is a group of sentences that are all about one main idea. A good paragraph usually starts with a topic sentence that tells the reader what it is about, then a few detail sentences that tell more, then a closing thought.</p>
+                            <p>Here is a tidy little paragraph: <em>My favourite place is the beach. I love to feel the warm sand under my feet. I splash in the cool blue water and look for pretty shells. The beach always makes me feel happy.</em> The first sentence tells the main idea, the middle sentences give details, and the last sentence wraps it up.</p>
+                        </div>
+                        <div class="learning-objectives">
+                            <h4>Look Around You</h4>
+                            <ul>
+                                <li>Look at a page in any of your reading books. Notice how the writing is split into paragraphs, each one starting on a new line. Writers do this to keep their ideas neat and easy to follow.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Plan, Draft, and Improve</h3>
+                        <div class="content-text">
+                            <p>The best writers do not write a perfect piece on the first try. Instead, they work in three friendly steps. First comes <strong>planning</strong>: before you write, you think about your topic and jot down ideas, like drawing a map before a journey. Next comes the <strong>draft</strong>: you write your sentences and paragraphs, turning your plan into real writing, without worrying about making it perfect yet.</p>
+                            <p>Last comes <strong>improving</strong>, which we also call revising and editing. You read over your draft and make it better — checking that each sentence is clear, fixing capital letters, full stops, and spelling, and adding a detail to make an idea richer. This is the step that turns good writing into great writing.</p>
+                        </div>
+                        <div class="key-terms">
+                            <h4>Did You Know?</h4>
+                            <div class="term">Even famous authors who write books for grown-ups go back and improve their writing many, many times. Improving your work is not a sign that you did badly. It is a sign that you are a real writer!</div>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Writing in a Journal</h3>
+                        <div class="content-text">
+                            <p>A <strong>journal</strong> is your very own special notebook where you write down your thoughts, your feelings, and the things that happen to you. The more you write, the easier writing becomes. You can write about your day, a dream you had, or a wish for the future. There are no marks and no wrong answers in a journal — it is just for you.</p>
+                            <p>You might write: <em>Today was a good day. I will play football with my cousin on the weekend, and I cannot wait!</em> Notice how that entry even uses the future tense and an exclamation mark. Everything you have learned comes together when you write.</p>
+                        </div>
+                        <div class="key-terms">
+                            <h4>Remember</h4>
+                            <div class="term">Write clear sentences with capital letters and the right punctuation. Group your sentences into tidy paragraphs. Plan, draft, and improve. And write in your journal often to grow stronger every day.</div>
+                        </div>
+                    </div>
+
+                    <div class="activity-box">
+                        <h4>Let's Practice</h4>
+                        <p>Write a short, tidy paragraph (three or four sentences) about your favourite food. Begin with a topic sentence, give two details, and end with a closing thought. When you finish, read it over and improve it: check your capital letters, your full stops, and your spelling.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- WORD POWER (GLOSSARY) -->
+            <div id="glossary" class="tab-content">
+                <div class="section">
+                    <h2 class="section-title">Word Power</h2>
+
+                    <div class="subsection">
+                        <h3>Speaking and Listening</h3>
+                        <div class="term"><strong>Listening:</strong> Giving someone your full attention so that you truly understand what they say.</div>
+                        <div class="term"><strong>Discussion:</strong> When a group talks together about a topic and everyone gets a turn to share.</div>
+                        <div class="term"><strong>Clarifying question:</strong> A question you ask to make something clearer.</div>
+                        <div class="term"><strong>Standard Jamaican English (SJE):</strong> The kind of English used for school, writing, and speaking to people we do not know well.</div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Word Skills</h3>
+                        <div class="term"><strong>R-controlled vowel:</strong> A vowel whose sound is changed by the letter <em>r</em> next to it, like <em>ar</em> in <em>star</em>.</div>
+                        <div class="term"><strong>Diphthong:</strong> Two vowels that glide together to make one sliding sound, like <em>oi</em> in <em>coin</em>.</div>
+                        <div class="term"><strong>Inflectional ending:</strong> A small ending such as <em>-s, -ed,</em> or <em>-ing</em> added to a base word.</div>
+                        <div class="term"><strong>Base word:</strong> The main word before any ending is added, like <em>play</em> in <em>playing</em>.</div>
+                        <div class="term"><strong>Context clue:</strong> A hint in the words around a new word that helps you guess its meaning.</div>
+                        <div class="term"><strong>Sight word:</strong> A common word you know in a flash without sounding it out, like <em>the</em> or <em>said</em>.</div>
+                        <div class="term"><strong>Fluency:</strong> Reading smoothly, at a comfortable pace, with feeling in your voice.</div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Comprehension</h3>
+                        <div class="term"><strong>Comprehension:</strong> Understanding what you read.</div>
+                        <div class="term"><strong>Main idea:</strong> What a story or paragraph is mostly about.</div>
+                        <div class="term"><strong>Fact:</strong> Something that is true, can be checked, and is true for everyone. <em>Jamaica is an island.</em></div>
+                        <div class="term"><strong>Opinion:</strong> What a person feels, thinks, or believes; others may not agree. <em>Mango is the best fruit.</em></div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Grammar and Conventions</h3>
+                        <div class="term"><strong>Future tense:</strong> A way of talking about what will happen later, using the word <em>will</em>. <em>I will play tomorrow.</em></div>
+                        <div class="term"><strong>Subject:</strong> The person or thing in a sentence that does the action.</div>
+                        <div class="term"><strong>Verb:</strong> An action word, like <em>run, sing,</em> or <em>read</em>.</div>
+                        <div class="term"><strong>Subject-verb agreement:</strong> Making the subject and verb match, like <em>She walks</em> but <em>They walk</em>.</div>
+                        <div class="term"><strong>Noun:</strong> A naming word for a person, place, animal, or thing.</div>
+                        <div class="term"><strong>Singular:</strong> Just one of something. <em>one cat</em></div>
+                        <div class="term"><strong>Plural:</strong> More than one of something. <em>two cats, boxes, babies</em></div>
+                        <div class="term"><strong>Conjunction:</strong> A joining word, such as <em>and, but, because,</em> and <em>so</em>.</div>
+                        <div class="term"><strong>Punctuation:</strong> The marks that help us read a sentence the right way.</div>
+                        <div class="term"><strong>Full stop:</strong> The mark ( . ) at the end of a telling sentence.</div>
+                        <div class="term"><strong>Question mark:</strong> The mark ( ? ) at the end of an asking sentence.</div>
+                        <div class="term"><strong>Exclamation mark:</strong> The mark ( ! ) that shows strong feeling.</div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Writing</h3>
+                        <div class="term"><strong>Paragraph:</strong> A group of sentences that are all about one main idea.</div>
+                        <div class="term"><strong>Topic sentence:</strong> The sentence that tells the reader what a paragraph is about.</div>
+                        <div class="term"><strong>Draft:</strong> A first try at a piece of writing, before you improve it.</div>
+                        <div class="term"><strong>Revising and editing:</strong> Reading over your writing to make it clearer and to fix mistakes.</div>
+                        <div class="term"><strong>Journal:</strong> Your own special notebook for writing your thoughts and feelings.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ANSWER KEY -->
+            <div id="answers" class="tab-content">
+                <div class="section">
+                    <h2 class="section-title">Answer Key</h2>
+
+                    <div class="subsection">
+                        <h3>Speaking and Listening</h3>
+                        <ul style="margin-left: 20px;">
+                            <li><strong>Quick Check (a good listener):</strong> With the eyes — look at the person who is speaking. With the ears — keep quiet and listen carefully to the words. (Any two reasonable answers.)</li>
+                            <li><strong>Let's Practice:</strong> Answers will vary. A good clarifying question is polite and about the speaker's topic, such as "Why is that special to you?"</li>
+                        </ul>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Word Skills</h3>
+                        <ul style="margin-left: 20px;">
+                            <li><strong>Bossy r words:</strong> mar<strong>k</strong>et (ar), gar<strong>d</strong>en (ar), dirt (ir), morning (or), burger (ur and er).</li>
+                            <li><strong>Same vowel sound:</strong> <em>bird</em> and <em>turn</em> sound the same; <em>fork</em> is different.</li>
+                            <li><strong>Add endings to <em>jump</em>:</strong> jumped, jumping.</li>
+                            <li><strong>Scrumptious:</strong> very tasty or delicious (the clue is that everyone wanted a second bowl).</li>
+                            <li><strong>Let's Practice sort:</strong> R-controlled vowels — star, fork, girl, turn. Diphthongs — coin, cow, boy, house.</li>
+                        </ul>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Comprehension</h3>
+                        <ul style="margin-left: 20px;">
+                            <li><strong>Fact or opinion (Let's Explore):</strong> (1) Fact. (2) Opinion. (3) Fact. (4) Opinion. Facts can be checked; opinions are what someone feels.</li>
+                            <li><strong>Quick Check:</strong> Answers will vary. A fact about your school can be checked (for example, "My school has a library"). An opinion tells a feeling (for example, "My school is the best").</li>
+                            <li><strong>Let's Practice (F or O):</strong> (1) F. (2) O. (3) F. (4) O.</li>
+                        </ul>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Grammar</h3>
+                        <ul style="margin-left: 20px;">
+                            <li><strong>Future tense:</strong> "We will sing a song." "He will clean his room."</li>
+                            <li><strong>Subject-verb agreement:</strong> "The boys <strong>run</strong> in the yard." "My sister <strong>reads</strong> every night."</li>
+                            <li><strong>Join with a conjunction:</strong> "I was tired, <strong>so</strong> I went to bed." "She is small, <strong>but</strong> she is strong."</li>
+                            <li><strong>Punctuation:</strong> "Where are my shoes<strong>?</strong>" "I found a dollar<strong>!</strong>" "We had rice for dinner<strong>.</strong>"</li>
+                            <li><strong>Let's Practice:</strong> Answers will vary. Each sentence should use <em>will</em>, start with a capital letter, and end with the correct mark.</li>
+                        </ul>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Writing</h3>
+                        <ul style="margin-left: 20px;">
+                            <li><strong>Let's Practice (paragraph):</strong> Answers will vary. A good paragraph begins with a topic sentence (for example, "My favourite food is rice and peas"), gives two details, and ends with a closing thought. Check for capital letters and full stops.</li>
+                        </ul>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Plural Nouns Review</h3>
+                        <ul style="margin-left: 20px;">
+                            <li><strong>dog</strong> → dogs &nbsp; <strong>box</strong> → boxes &nbsp; <strong>baby</strong> → babies</li>
+                            <li><strong>brush</strong> → brushes &nbsp; <strong>city</strong> → cities</li>
+                            <li><strong>lady</strong> → ladies &nbsp; <strong>bus</strong> → buses &nbsp; <strong>foot</strong> → feet</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Grade 3 Jamaica Language Arts Textbook | Ministry of Education, Youth and Information, Jamaica</p>
+            <p>Term 3, Unit 1 — bringing together three years of primary Language Arts across all five strands.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Tab navigation
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const tabName = button.getAttribute('data-tab');
+
+                // Remove active class from all buttons and contents
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+
+                // Add active class to clicked button and corresponding content
+                button.classList.add('active');
+                document.getElementById(tabName).classList.add('active');
+
+                // Scroll to top
+                window.scrollTo(0, 0);
+            });
+        });
+
+        // Collapsible sections
+        const collapsibles = document.querySelectorAll('.collapsible');
+        collapsibles.forEach(button => {
+            button.addEventListener('click', function() {
+                this.classList.toggle('active');
+                const content = this.nextElementSibling;
+                if (content && content.classList.contains('collapsible-content')) {
+                    content.classList.toggle('show');
+                }
+            });
+        });
+
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

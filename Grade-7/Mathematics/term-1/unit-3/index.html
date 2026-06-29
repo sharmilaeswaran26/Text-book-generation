@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade 7 Mathematics Textbook - Solids</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .nav-tabs {
+            display: flex;
+            background: #f8f9fa;
+            border-bottom: 2px solid #ddd;
+            overflow-x: auto;
+            flex-wrap: wrap;
+        }
+
+        .nav-tabs button {
+            flex: 1;
+            padding: 15px 20px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 500;
+            color: #666;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+            min-width: 150px;
+        }
+
+        .nav-tabs button:hover {
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        .nav-tabs button.active {
+            color: #2a5298;
+            border-bottom-color: #2a5298;
+            background: white;
+        }
+
+        .content {
+            padding: 30px;
+            min-height: 600px;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 1.8em;
+            color: #1e3c72;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .subsection {
+            background: #f8f9fa;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 4px solid #667eea;
+            border-radius: 5px;
+        }
+
+        .subsection h3 {
+            color: #2a5298;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+
+        .learning-objectives {
+            background: #e3f2fd;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #2196F3;
+        }
+
+        .learning-objectives h4 {
+            color: #1565c0;
+            margin-bottom: 10px;
+        }
+
+        .learning-objectives ul {
+            margin-left: 20px;
+        }
+
+        .learning-objectives li {
+            margin: 8px 0;
+            color: #333;
+        }
+
+        .activity-box {
+            background: #fff3e0;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #ff9800;
+        }
+
+        .activity-box h4 {
+            color: #e65100;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .activity-box h4::before {
+            content: "✏️";
+            font-size: 1.2em;
+        }
+
+        .assessment-box {
+            background: #f3e5f5;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #9c27b0;
+        }
+
+        .assessment-box h4 {
+            color: #6a1b9a;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .assessment-box h4::before {
+            content: "📋";
+            font-size: 1.2em;
+        }
+
+        .extension-box {
+            background: #e8f5e9;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #4caf50;
+        }
+
+        .extension-box h4 {
+            color: #2e7d32;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .extension-box h4::before {
+            content: "⭐";
+            font-size: 1.2em;
+        }
+
+        .teacher-notes {
+            background: #ffe0b2;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #ff6f00;
+        }
+
+        .teacher-notes h4 {
+            color: #bf360c;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .teacher-notes h4::before {
+            content: "👨‍🏫";
+            font-size: 1.2em;
+        }
+
+        .content-text {
+            margin: 15px 0;
+            text-align: justify;
+        }
+
+        .content-text strong {
+            color: #1e3c72;
+        }
+
+        .diagram {
+            background: #f0f0f0;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            text-align: center;
+            border: 2px dashed #ddd;
+        }
+
+        .diagram img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+        }
+
+        table th {
+            background: #2a5298;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+
+        table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        table tr:hover {
+            background: #f5f5f5;
+        }
+
+        .key-terms {
+            background: #f5f5f5;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .key-terms h4 {
+            color: #1e3c72;
+            margin-bottom: 10px;
+        }
+
+        .term {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+
+        .term strong {
+            color: #2a5298;
+        }
+
+        .learning-outcomes {
+            background: #c8e6c9;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .learning-outcomes h4 {
+            color: #1b5e20;
+            margin-bottom: 10px;
+        }
+
+        .learning-outcomes ul {
+            margin-left: 20px;
+        }
+
+        .learning-outcomes li {
+            margin: 8px 0;
+            color: #333;
+        }
+
+        .checklist {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-left: 3px solid #2a5298;
+        }
+
+        .checklist input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        footer {
+            background: #1e3c72;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            .nav-tabs button {
+                min-width: 120px;
+                padding: 12px 15px;
+                font-size: 0.9em;
+            }
+        }
+
+        .collapsible {
+            background: #e3f2fd;
+            cursor: pointer;
+            padding: 15px;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 1em;
+            color: #1565c0;
+            font-weight: bold;
+            border-radius: 5px;
+            margin: 10px 0;
+            width: 100%;
+            transition: 0.3s;
+        }
+
+        .collapsible:hover {
+            background: #bbdefb;
+        }
+
+        .collapsible-content {
+            padding: 0 15px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .collapsible-content.show {
+            max-height: 1000px;
+        }
+
+        .print-btn {
+            background: #2a5298;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            margin: 20px 0;
+            transition: 0.3s;
+        }
+
+        .print-btn:hover {
+            background: #1e3c72;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            .nav-tabs {
+                display: none;
+            }
+            .print-btn {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📚 Grade 7 Mathematics Textbook</h1>
+            <p>Jamaica National Standards Curriculum - Term 1, Unit 3: Solids</p>
+            <p style="font-size: 0.9em; margin-top: 10px;">Faces, Edges &amp; Vertices | Euler's Formula | Nets of Solids</p>
+            <p style="margin-top:14px;"><a href="../../index.html" style="color:#fff; background:rgba(255,255,255,0.15); padding:6px 14px; border-radius:5px; text-decoration:none; font-size:0.9em;">← Mathematics (Grade 7)</a></p>
+        </header>
+
+        <div class="nav-tabs">
+            <button class="tab-btn active" data-tab="solids-properties">Solids: Faces, Edges, Vertices</button>
+            <button class="tab-btn" data-tab="eulers-formula">Euler's Formula</button>
+            <button class="tab-btn" data-tab="nets">Nets of Solids</button>
+            <button class="tab-btn" data-tab="glossary">Key Vocabulary</button>
+            <button class="tab-btn" data-tab="answers">Answer Key</button>
+        </div>
+
+        <div class="content">
+            <!-- TAB 1: SOLIDS PROPERTIES -->
+            <div id="solids-properties" class="tab-content active">
+                <button class="print-btn" onclick="window.print()">🖨️ Print This Section</button>
+
+                <div class="section">
+                    <h2 class="section-title">Solids: Faces, Edges and Vertices</h2>
+
+                    <div class="content-text">
+                        <p>Look around you. A cereal box, a die from a board game, a tin of Milo, an ice-cream cone, a football — every one of these is a <strong>solid</strong>. A solid is a three-dimensional (3-D) object: it has length, width and height, and it takes up space. Unlike a flat shape drawn on paper, you can hold a solid and turn it over to look at it from many sides.</p>
+                        <p>Every ordinary solid is built from three kinds of part. A <strong>face</strong> is a surface of the solid. An <strong>edge</strong> is the straight line where two faces meet. A <strong>vertex</strong> is a corner, the point where edges come together. The plural of vertex is <strong>vertices</strong>.</p>
+                    </div>
+
+                    <div class="key-terms">
+                        <h4>The Three Parts of a Solid</h4>
+                        <div class="term"><strong>Face:</strong> a flat (or curved) surface of a solid. A cube has 6 flat square faces.</div>
+                        <div class="term"><strong>Edge:</strong> a line where two faces meet. Run your finger along the sharp line at the side of a box.</div>
+                        <div class="term"><strong>Vertex (plural vertices):</strong> a corner point where edges meet. The pointed corners of a die are its vertices.</div>
+                    </div>
+
+                    <div class="diagram">
+                        <h4>Figure 1</h4>
+                        <p><em>A cube with one face shaded, one edge marked with a bold line, and one vertex circled, to show the difference between a face, an edge and a vertex.</em></p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Families of Solids</h3>
+                        <div class="content-text">
+                            <p>We sort solids into families by looking at their faces. A <strong>polyhedron</strong> is a solid whose faces are all flat polygons — no curved surfaces. Cubes, cuboids, prisms and pyramids are all polyhedra.</p>
+                        </div>
+                        <div class="key-terms">
+                            <h4>The Solid Families</h4>
+                            <div class="term"><strong>Cube:</strong> 6 equal square faces (a game die).</div>
+                            <div class="term"><strong>Cuboid:</strong> box-shaped, 6 rectangular faces (a cereal box, a brick). A cube is a special cuboid.</div>
+                            <div class="term"><strong>Prism:</strong> two identical parallel ends joined by rectangles (a Toblerone bar is a triangular prism).</div>
+                            <div class="term"><strong>Pyramid:</strong> a flat base with triangular faces meeting at an apex (the Pyramids of Egypt).</div>
+                            <div class="term"><strong>Cylinder:</strong> two circular ends joined by a curved surface (a tin of Milo). Not a polyhedron.</div>
+                            <div class="term"><strong>Cone:</strong> a circular base narrowing to a point (an ice-cream cone). Not a polyhedron.</div>
+                            <div class="term"><strong>Sphere:</strong> perfectly round (a football). No flat faces, edges or vertices. Not a polyhedron.</div>
+                        </div>
+                        <div class="diagram">
+                            <h4>Figure 2</h4>
+                            <p><em>A row of seven solids labelled cube, cuboid, triangular prism, square pyramid, cylinder, cone and sphere.</em></p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Counting the Parts of a Cube</h3>
+                        <div class="content-text">
+                            <p>Counting carefully, in a fixed order, prevents mistakes. Hold a die and count.</p>
+                            <p><strong>Faces:</strong> top, bottom, front, back, left, right — that is 6 faces, each a square.<br>
+                            <strong>Vertices:</strong> 4 corners on the top and 4 on the bottom — that is 8 vertices.<br>
+                            <strong>Edges:</strong> 4 around the top, 4 around the bottom, and 4 going up the sides — that is 12 edges.</p>
+                            <p>So for a cube: <strong>F = 6, V = 8, E = 12</strong>. We will use these numbers again in the next section.</p>
+                        </div>
+                    </div>
+
+                    <div class="learning-objectives">
+                        <h4>Helpful Tips</h4>
+                        <ul>
+                            <li>Whenever you can, hold the real solid and turn it as you count.</li>
+                            <li>Count in a fixed order every time: faces, then vertices, then edges.</li>
+                            <li>Break each count into "top, bottom, sides" so you do not miss hidden parts.</li>
+                            <li>An edge is a <em>line</em>; a vertex is a <em>corner point</em> — do not confuse them.</li>
+                        </ul>
+                    </div>
+
+                    <div class="activity-box">
+                        <h4>Practice</h4>
+                        <p>Find a real box (a cuboid) at home. Count its faces, vertices and edges. Then find a tin (a cylinder) and decide: is it a polyhedron? Why or why not?</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 2: EULER'S FORMULA -->
+            <div id="eulers-formula" class="tab-content">
+                <button class="print-btn" onclick="window.print()">🖨️ Print This Section</button>
+
+                <div class="section">
+                    <h2 class="section-title">Euler's Formula</h2>
+
+                    <div class="content-text">
+                        <p>More than 250 years ago, a Swiss mathematician named <strong>Leonhard Euler</strong> (his name is said "Oiler") noticed that for every polyhedron the number of faces, vertices and edges are always linked by the same rule.</p>
+                    </div>
+
+                    <div class="key-terms">
+                        <h4>Euler's Formula</h4>
+                        <div class="term"><strong>F + V − E = 2</strong></div>
+                        <div class="term"><strong>F</strong> is the number of <strong>faces</strong>.</div>
+                        <div class="term"><strong>V</strong> is the number of <strong>vertices</strong>.</div>
+                        <div class="term"><strong>E</strong> is the number of <strong>edges</strong>.</div>
+                        <div class="term">In words: faces plus vertices, minus edges, always equals 2. This is the same as F + V = E + 2.</div>
+                        <div class="term"><strong>Important:</strong> Euler's Formula works only for polyhedra (flat-faced solids). It does not apply to cylinders, cones or spheres.</div>
+                    </div>
+
+                    <div class="learning-objectives">
+                        <h4>The Reasoning Behind the Formula</h4>
+                        <ul>
+                            <li>Euler's Formula is not magic — it is a pattern you can discover by collecting data.</li>
+                            <li>Fill in F, V and E for several polyhedra, work out F + V − E each time, and you always get 2.</li>
+                            <li>Discovering a rule that holds for <em>every</em> case is called making a <strong>generalisation</strong>.</li>
+                            <li>The formula fails for curved solids, which is why we apply it only to polyhedra.</li>
+                        </ul>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>The Faces–Vertices–Edges Table</h3>
+                        <div class="content-text">
+                            <p>Collect the counts for several solids into one table. Look down the last column — every answer is 2. That is Euler's Formula in action.</p>
+                        </div>
+                        <table>
+                            <tr>
+                                <th>Solid</th>
+                                <th>Faces (F)</th>
+                                <th>Vertices (V)</th>
+                                <th>Edges (E)</th>
+                                <th>F + V</th>
+                                <th>F + V − E</th>
+                            </tr>
+                            <tr>
+                                <td>Cube</td><td>6</td><td>8</td><td>12</td><td>14</td><td><strong>2</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Cuboid</td><td>6</td><td>8</td><td>12</td><td>14</td><td><strong>2</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Triangular prism</td><td>5</td><td>6</td><td>9</td><td>11</td><td><strong>2</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Square pyramid</td><td>5</td><td>5</td><td>8</td><td>10</td><td><strong>2</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Triangular pyramid (tetrahedron)</td><td>4</td><td>4</td><td>6</td><td>8</td><td><strong>2</strong></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Worked Example: Checking the Cube</h3>
+                        <div class="content-text">
+                            <p>For a cube, F = 6, V = 8 and E = 12. Substitute into the formula:</p>
+                            <p>F + V − E = 6 + 8 − 12 = 14 − 12 = <strong>2</strong>. It works.</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Worked Example: Finding a Missing Number</h3>
+                        <div class="content-text">
+                            <p>A polyhedron has F = 6 faces and E = 12 edges. How many vertices does it have?</p>
+                            <p>Use F + V − E = 2:  6 + V − 12 = 2, so V − 6 = 2, which gives <strong>V = 8</strong>. (These numbers match a cube or cuboid.)</p>
+                        </div>
+                    </div>
+
+                    <div class="key-terms">
+                        <h4>Common Mistake</h4>
+                        <div class="term">Do not apply Euler's Formula to a cylinder, cone or sphere. These have curved surfaces, so they are not polyhedra and the simple count of F, V and E does not give 2.</div>
+                    </div>
+
+                    <div class="activity-box">
+                        <h4>Practice</h4>
+                        <p>A triangular prism has F = 5 and E = 9. Use Euler's Formula to find the number of vertices, then check your answer against the table above.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 3: NETS OF SOLIDS -->
+            <div id="nets" class="tab-content">
+                <button class="print-btn" onclick="window.print()">🖨️ Print This Section</button>
+
+                <div class="section">
+                    <h2 class="section-title">Nets of Solids</h2>
+
+                    <div class="content-text">
+                        <p>A <strong>net</strong> is a flat pattern that you can fold up to make a solid. If you carefully cut open a cardboard box along its edges and flatten it out, the flat shape you get is a net of that box. Nets are the link between flat (2-D) shapes and solids (3-D).</p>
+                        <p>Every polyhedron can be unfolded into one or more nets, and every correct net folds back up into exactly one solid. Packaging designers work backwards: they design the net first, print it flat, then fold it into the box.</p>
+                    </div>
+
+                    <div class="learning-objectives">
+                        <h4>Why a Net Folds Into Its Solid</h4>
+                        <ul>
+                            <li>A net is simply the surface of a solid, opened out flat — like an orange peel pressed onto a table.</li>
+                            <li>The net contains exactly the faces of the solid, joined along the edges where they fold.</li>
+                            <li>When you fold along those lines, each face swings into place and the free edges meet.</li>
+                            <li>A correct net folds up with no overlaps and no gaps.</li>
+                        </ul>
+                    </div>
+
+                    <div class="diagram">
+                        <h4>Figure 3</h4>
+                        <p><em>The net of a cube — six squares arranged in a cross (a vertical strip of four squares with one square attached to each side of the second square).</em></p>
+                    </div>
+
+                    <div class="content-text">
+                        <p>A cube can be unfolded in several different ways, so it has more than one net. What every correct net of a cube has in common is that it is made of exactly <strong>six squares</strong> that fold up without overlapping and without leaving a gap.</p>
+                    </div>
+
+                    <div class="diagram">
+                        <h4>Figure 4</h4>
+                        <p><em>The net of a cuboid — six rectangles, with opposite rectangles equal in size.</em></p>
+                    </div>
+
+                    <div class="diagram">
+                        <h4>Figure 5</h4>
+                        <p><em>The net of a triangular prism — two triangles and three rectangles.</em></p>
+                    </div>
+
+                    <div class="diagram">
+                        <h4>Figure 6</h4>
+                        <p><em>The net of a square pyramid — one square in the centre with a triangle attached to each of its four sides.</em></p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>How to Draw a Net</h3>
+                        <div class="content-text">
+                            <p>1. Pick one face to be the base and draw it.<br>
+                            2. Draw each face that touches the base attached to the correct side, as if folded down flat.<br>
+                            3. Add the remaining faces, each joined along the edge it shares with a face already drawn.<br>
+                            4. Check the count: a cube needs 6 squares; a square pyramid needs 1 square and 4 triangles.<br>
+                            5. Mentally fold it back up. If every face reaches its place with no overlap and no gap, the net is correct.</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>How to Fold a Net Into a Solid</h3>
+                        <div class="content-text">
+                            <p>1. Cut out the net along its outer edges.<br>
+                            2. Fold gently along every internal line (the lines between faces).<br>
+                            3. Bring the free edges together so that matching edges meet.<br>
+                            4. Tape or glue the edges. The faces now enclose a space — you have built the solid.</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Worked Example: Naming a Solid From Its Net</h3>
+                        <div class="content-text">
+                            <p>A net is made of one square with a triangle attached to each of its four sides. The square is the base, and the four triangles fold up to meet at a point above it. This is the net of a <strong>square pyramid</strong>.</p>
+                        </div>
+                    </div>
+
+                    <div class="key-terms">
+                        <h4>Real-Life Application: Packaging</h4>
+                        <div class="term">Almost every box on a shop shelf is a net printed flat on cardboard, then cut out, folded and glued. Designers fit as many nets as possible onto one sheet so that little material is wasted — this saves money.</div>
+                    </div>
+
+                    <div class="activity-box">
+                        <h4>Practice</h4>
+                        <p>Carefully open out an empty matchbox or juice carton along its edges and flatten it. Draw the net you get, then count the faces. Can you fold it back into the box?</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 4: GLOSSARY -->
+            <div id="glossary" class="tab-content">
+                <button class="print-btn" onclick="window.print()">🖨️ Print This Section</button>
+
+                <div class="section">
+                    <h2 class="section-title">Key Vocabulary</h2>
+
+                    <div class="key-terms">
+                        <div class="term"><strong>Solid:</strong> a three-dimensional object that has length, width and height and takes up space. Example: a box of matches, a football.</div>
+                        <div class="term"><strong>Face:</strong> a flat (or curved) surface of a solid. Example: a cube has 6 flat square faces.</div>
+                        <div class="term"><strong>Edge:</strong> a line where two faces meet. Example: the straight line along the side of a box.</div>
+                        <div class="term"><strong>Vertex (plural vertices):</strong> a corner point where edges meet. Example: the pointed corner of a die.</div>
+                        <div class="term"><strong>Polyhedron:</strong> a solid whose faces are all flat polygons (no curved surfaces). Example: cube, cuboid, prism, pyramid.</div>
+                        <div class="term"><strong>Cube:</strong> a solid with 6 equal square faces. Example: a game die, a sugar cube.</div>
+                        <div class="term"><strong>Cuboid:</strong> a box-shaped solid with 6 rectangular faces. Example: a cereal box, a brick.</div>
+                        <div class="term"><strong>Prism:</strong> a solid with two identical, parallel end faces joined by rectangles. Example: a Toblerone bar (triangular prism).</div>
+                        <div class="term"><strong>Pyramid:</strong> a solid with a flat base and triangular faces meeting at one apex. Example: the Pyramids of Egypt.</div>
+                        <div class="term"><strong>Cylinder:</strong> a solid with two circular ends joined by a curved surface. Example: a tin of Milo, a battery.</div>
+                        <div class="term"><strong>Cone:</strong> a solid with one circular base narrowing to a point. Example: an ice-cream cone.</div>
+                        <div class="term"><strong>Sphere:</strong> a perfectly round solid; every point on its surface is the same distance from the centre. Example: a football, a marble.</div>
+                        <div class="term"><strong>Net:</strong> a flat pattern that folds up to make a solid. Example: six squares fold into a cube.</div>
+                        <div class="term"><strong>Apex:</strong> the single point at the top of a pyramid where the triangular faces meet.</div>
+                        <div class="term"><strong>Euler's Formula:</strong> the rule for polyhedra, F + V − E = 2. Example: cube: 6 + 8 − 12 = 2.</div>
+                        <div class="term"><strong>Generalisation:</strong> a rule found to hold for every case, discovered by reasoning from examples.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 5: ANSWER KEY -->
+            <div id="answers" class="tab-content">
+                <button class="print-btn" onclick="window.print()">🖨️ Print This Section</button>
+
+                <div class="section">
+                    <h2 class="section-title">Answer Key</h2>
+
+                    <div class="subsection">
+                        <h3>A. Multiple Choice</h3>
+                        <div class="content-text">
+                            <p>1. (b) 6<br>
+                            2. (c) vertex<br>
+                            3. (c) cylinder<br>
+                            4. (b) F + V − E = 2<br>
+                            5. (c) cube</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>B. True or False</h3>
+                        <div class="content-text">
+                            <p>6. True<br>
+                            7. False (a cylinder has a curved surface, so it is not a polyhedron)<br>
+                            8. True<br>
+                            9. True<br>
+                            10. True</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>C. Fill in the Blanks</h3>
+                        <div class="content-text">
+                            <p>11. face<br>
+                            12. net<br>
+                            13. E (edges)<br>
+                            14. prism<br>
+                            15. vertices</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>D. Short Answer</h3>
+                        <div class="content-text">
+                            <p>16. A face is a surface of the solid; an edge is the line where two faces meet; a vertex is a corner point where edges meet.<br>
+                            17. A cylinder has a curved surface (and circular ends), so its faces are not all flat polygons — it is not a polyhedron.<br>
+                            18. Any two cuboids, for example a cereal box and a packet of crackers, a brick, or a matchbox.<br>
+                            19. A cube can be unfolded along different sets of edges, so the six squares can be laid out in several different flat patterns that all fold back into the cube.<br>
+                            20. F + V − E = 2, where F is the number of faces, V is the number of vertices, and E is the number of edges.</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>E. Numerical / Counting</h3>
+                        <div class="content-text">
+                            <p>21. Cuboid: F = 6, V = 8, E = 12. Check: 6 + 8 − 12 = 2. ✓<br>
+                            22. 5 + V − 9 = 2, so V − 4 = 2, giving V = 6 vertices.<br>
+                            23. Cube: 6 + 8 − 12 = 2. Square pyramid: 5 + 5 − 8 = 2. Triangular pyramid: 4 + 4 − 6 = 2.</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Word Problems</h3>
+                        <div class="content-text">
+                            <p>24. The net must contain 6 squares. One arrangement is the "cross": a vertical strip of four squares with one square attached to each side of the second square.<br>
+                            25. 12 edges must be taped.<br>
+                            26. He needs to cut 4 triangular faces, and the finished square pyramid has 5 vertices.<br>
+                            27. 8 + 12 − E = 2, so 20 − E = 2, giving E = 18 edges.</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Challenge Problems</h3>
+                        <div class="content-text">
+                            <p>28. 7 + 7 − E = 2, so 14 − E = 2, giving E = 12 edges. A hexagonal pyramid (6-sided base) has 7 faces, 7 vertices and 12 edges, which fits.<br>
+                            29. All five regular polyhedra satisfy F + V − E = 2. For example: tetrahedron (F = 4, V = 4, E = 6: 4 + 4 − 6 = 2); cube (6 + 8 − 12 = 2); octahedron (F = 8, V = 6, E = 12: 8 + 6 − 12 = 2); dodecahedron (F = 12, V = 20, E = 30: 12 + 20 − 30 = 2); icosahedron (F = 20, V = 12, E = 30: 20 + 12 − 30 = 2).<br>
+                            30. Half a cube (a cuboid) still has F = 6, V = 8, E = 12, so 6 + 8 − 12 = 2. Euler's Formula still holds.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Grade 7 Mathematics Textbook | Jamaica National Standards Curriculum | Term 1, Unit 3: Solids</p>
+            <p>This interactive textbook covers solids, faces, edges and vertices, Euler's Formula, and nets of solids.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Tab navigation
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const tabName = button.getAttribute('data-tab');
+
+                // Remove active class from all buttons and contents
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+
+                // Add active class to clicked button and corresponding content
+                button.classList.add('active');
+                document.getElementById(tabName).classList.add('active');
+
+                // Scroll to top
+                window.scrollTo(0, 0);
+            });
+        });
+
+        // Collapsible sections
+        const collapsibles = document.querySelectorAll('.collapsible');
+        collapsibles.forEach(button => {
+            button.addEventListener('click', function() {
+                this.classList.toggle('active');
+                const content = this.nextElementSibling;
+                if (content && content.classList.contains('collapsible-content')) {
+                    content.classList.toggle('show');
+                }
+            });
+        });
+
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade 3 Jamaica Integrated Studies Textbook</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .nav-tabs {
+            display: flex;
+            background: #f8f9fa;
+            border-bottom: 2px solid #ddd;
+            overflow-x: auto;
+            flex-wrap: wrap;
+        }
+
+        .nav-tabs button {
+            flex: 1;
+            padding: 15px 20px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 500;
+            color: #666;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+            min-width: 150px;
+        }
+
+        .nav-tabs button:hover {
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        .nav-tabs button.active {
+            color: #2a5298;
+            border-bottom-color: #2a5298;
+            background: white;
+        }
+
+        .content {
+            padding: 30px;
+            min-height: 600px;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 1.8em;
+            color: #1e3c72;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .subsection {
+            background: #f8f9fa;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 4px solid #667eea;
+            border-radius: 5px;
+        }
+
+        .subsection h3 {
+            color: #2a5298;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+
+        .learning-objectives {
+            background: #e3f2fd;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #2196F3;
+        }
+
+        .learning-objectives h4 {
+            color: #1565c0;
+            margin-bottom: 10px;
+        }
+
+        .learning-objectives ul {
+            margin-left: 20px;
+        }
+
+        .learning-objectives li {
+            margin: 8px 0;
+            color: #333;
+        }
+
+        .activity-box {
+            background: #fff3e0;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #ff9800;
+        }
+
+        .activity-box h4 {
+            color: #e65100;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .activity-box h4::before {
+            content: "✏️";
+            font-size: 1.2em;
+        }
+
+        .assessment-box {
+            background: #f3e5f5;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #9c27b0;
+        }
+
+        .assessment-box h4 {
+            color: #6a1b9a;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .assessment-box h4::before {
+            content: "📋";
+            font-size: 1.2em;
+        }
+
+        .extension-box {
+            background: #e8f5e9;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #4caf50;
+        }
+
+        .extension-box h4 {
+            color: #2e7d32;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .extension-box h4::before {
+            content: "⭐";
+            font-size: 1.2em;
+        }
+
+        .teacher-notes {
+            background: #ffe0b2;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #ff6f00;
+        }
+
+        .teacher-notes h4 {
+            color: #bf360c;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .teacher-notes h4::before {
+            content: "👨‍🏫";
+            font-size: 1.2em;
+        }
+
+        .content-text {
+            margin: 15px 0;
+            text-align: justify;
+        }
+
+        .content-text strong {
+            color: #1e3c72;
+        }
+
+        .diagram {
+            background: #f0f0f0;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            text-align: center;
+            border: 2px dashed #ddd;
+        }
+
+        .diagram img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+        }
+
+        table th {
+            background: #2a5298;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+
+        table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        table tr:hover {
+            background: #f5f5f5;
+        }
+
+        .key-terms {
+            background: #f5f5f5;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .key-terms h4 {
+            color: #1e3c72;
+            margin-bottom: 10px;
+        }
+
+        .term {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+
+        .term strong {
+            color: #2a5298;
+        }
+
+        .learning-outcomes {
+            background: #c8e6c9;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .learning-outcomes h4 {
+            color: #1b5e20;
+            margin-bottom: 10px;
+        }
+
+        .learning-outcomes ul {
+            margin-left: 20px;
+        }
+
+        .learning-outcomes li {
+            margin: 8px 0;
+            color: #333;
+        }
+
+        .checklist {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-left: 3px solid #2a5298;
+        }
+
+        .checklist input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        footer {
+            background: #1e3c72;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            .nav-tabs button {
+                min-width: 120px;
+                padding: 12px 15px;
+                font-size: 0.9em;
+            }
+        }
+
+        .collapsible {
+            background: #e3f2fd;
+            cursor: pointer;
+            padding: 15px;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 1em;
+            color: #1565c0;
+            font-weight: bold;
+            border-radius: 5px;
+            margin: 10px 0;
+            width: 100%;
+            transition: 0.3s;
+        }
+
+        .collapsible:hover {
+            background: #bbdefb;
+        }
+
+        .collapsible-content {
+            padding: 0 15px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .collapsible-content.show {
+            max-height: 1000px;
+        }
+
+        .print-btn {
+            background: #2a5298;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            margin: 20px 0;
+            transition: 0.3s;
+        }
+
+        .print-btn:hover {
+            background: #1e3c72;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            .nav-tabs {
+                display: none;
+            }
+            .print-btn {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📚 Grade 3 Integrated Studies Textbook</h1>
+            <p>Jamaica National Standards Curriculum - Term 3, Unit 2: My Physical Environment</p>
+            <p style="font-size: 0.9em; margin-top: 10px;">What is my physical environment? | Caring for the Environment | Persuading Others to Care</p>
+            <p style="margin-top:14px;"><a href="../../index.html" style="color:#fff; background:rgba(255,255,255,0.15); padding:6px 14px; border-radius:5px; text-decoration:none; font-size:0.9em;">← Subject Home</a></p>
+        </header>
+
+        <div class="nav-tabs">
+            <button class="tab-btn active" data-tab="focus-q1">Focus Q1: My Environment</button>
+            <button class="tab-btn" data-tab="focus-q2">Focus Q2: Caring for It</button>
+            <button class="tab-btn" data-tab="focus-q3">Focus Q3: Persuading Others</button>
+            <button class="tab-btn" data-tab="glossary">Glossary</button>
+            <button class="tab-btn" data-tab="answers">Answer Key</button>
+        </div>
+
+        <div class="content">
+            <!-- FOCUS QUESTION 1 -->
+            <div id="focus-q1" class="tab-content active">
+                <button class="print-btn" onclick="window.print()">🖨️ Print This Section</button>
+
+                <div class="section">
+                    <h2 class="section-title">Focus Question 1: What is my physical environment?</h2>
+
+                    <div class="subsection">
+                        <h3>What Is the Physical Environment?</h3>
+                        <div class="content-text">
+                            <p>Your <strong>physical environment</strong> is everything around you that you can see, hear, smell, and touch. It is the world you live in, right where you are. When you stand in your schoolyard, your physical environment is all the things you can sense in that place: the ground beneath your feet, the air on your skin, the trees and grass, the buildings, and the people moving about.</p>
+                            <p>The physical environment is not the same everywhere. The environment of a child living high in the cool hills is different from the environment of a child living near a warm, sandy beach. A busy town has a different environment from a quiet country district. Yet every physical environment, no matter where it is, is made up of two big kinds of things: natural things and man-made things.</p>
+                        </div>
+
+                        <div class="learning-objectives">
+                            <h4>Think About It</h4>
+                            <p>Look around the place where you are sitting right now. Can you name three things you can see, one thing you can hear, and one thing you can touch in your physical environment?</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Using Your Senses to Explore</h3>
+                        <div class="content-text">
+                            <p>How do you come to know your physical environment? You use your five <strong>senses</strong>: sight, hearing, smell, touch, and taste. Your senses are like five helpful messengers that bring news of the world to your brain all day long.</p>
+                            <p>With your eyes, you <strong>see</strong> the green of the leaves, the blue of the sky, and the grey of the road. With your ears, you <strong>hear</strong> birds singing, a river rushing, a car passing, or the wind in the trees. With your nose, you <strong>smell</strong> flowers blooming, rain on the ground, or smoke in the air. With your skin, you <strong>feel</strong> the warmth of the sun, the cool of the breeze, and the rough bark of a tree. Your senses even help you to taste, such as the sweetness of a ripe mango picked from the tree.</p>
+                            <p>Your senses do something very important. They help you to notice the <strong>condition</strong> of your environment, which means whether it is healthy or unhealthy, clean or dirty, safe or unsafe. If you smell something foul near a gully, your nose is warning you that the water may be polluted. If you hear birds singing and see green plants growing, your eyes and ears are telling you the place is healthy. This is why your senses are such a useful gift. They are always helping you to read the world around you.</p>
+                        </div>
+
+                        <div class="key-terms">
+                            <h4>Did You Know?</h4>
+                            <p>Your senses work together as a team. If you walk past a flower, your eyes might see it first, but then your nose smells its sweet scent, and your fingers feel its soft petals. Each sense adds a little more to what you know.</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Natural and Man-Made Things</h3>
+                        <div class="content-text">
+                            <p>When you look closely at your physical environment, you will notice that some things were made by nature and some things were made by people. Learning to tell these two groups apart is one of the first steps in understanding the world around you.</p>
+                            <p>The <strong>natural environment</strong> is made up of all the things that nature gives us, without any help from people. The land, the hills, the soil, and the rocks are natural. The rivers, the sea, and the rain are natural. The air and the sky are natural. And every living plant and animal, every tree, flower, bird, fish, and insect, is natural too. Nobody built these things in a factory. They were here long before us, and they make up the beautiful world of nature.</p>
+                            <p>The <strong>man-made environment</strong>, sometimes called the built environment, is made up of all the things that people have made or built. Your house is man-made. So are roads, bridges, schools, shops, churches, cars, fences, and lamp posts. Everything that human hands have built or made belongs to the man-made environment.</p>
+                            <p>Imagine you are walking from your home to school. Along the way you pass a tall cotton tree, a flowing river, and a green hillside. Those are all natural. You also pass a paved road, a wooden bridge, a little shop, and the school gate. Those are all man-made. So even on one short walk, your physical environment is full of both natural things and man-made things, mixed together all around you.</p>
+                        </div>
+
+                        <table>
+                            <tr>
+                                <th>Natural Things (made by nature)</th>
+                                <th>Man-Made Things (made by people)</th>
+                            </tr>
+                            <tr>
+                                <td>Trees, plants, and flowers</td>
+                                <td>Houses and buildings</td>
+                            </tr>
+                            <tr>
+                                <td>Rivers, the sea, and rain</td>
+                                <td>Roads and bridges</td>
+                            </tr>
+                            <tr>
+                                <td>Hills, soil, and rocks</td>
+                                <td>Schools and shops</td>
+                            </tr>
+                            <tr>
+                                <td>Animals, birds, and fish</td>
+                                <td>Cars, fences, and lamp posts</td>
+                            </tr>
+                        </table>
+
+                        <div class="learning-objectives">
+                            <h4>Think About It</h4>
+                            <p>Look around your classroom or your yard. Can you point to two things that are natural and two things that are man-made?</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Living and Non-Living Things</h3>
+                        <div class="content-text">
+                            <p>There is another helpful way to sort the things in your environment. We can ask whether a thing is living or non-living.</p>
+                            <p><strong>Living things</strong> are things that are alive. They grow bigger, they need food and water, and they breathe. Plants are living things, because they grow and need water and sunlight. Animals are living things, and so are people. A dog, a goat, a fish, a butterfly, a mango tree, and a blade of grass are all living things.</p>
+                            <p><strong>Non-living things</strong> are things that are not alive. They do not grow, they do not need food, and they do not breathe. A rock is a non-living thing. So is water, air, a chair, a stone wall, and a metal gate. Non-living things can still be very important and useful, but they are not alive in the way that a plant or an animal is.</p>
+                        </div>
+
+                        <div class="key-terms">
+                            <h4>Did You Know?</h4>
+                            <p>Living things and non-living things depend on each other. A living plant needs the non-living things around it, such as soil, water, air, and sunlight, in order to grow. So even though a rock is not alive, the non-living parts of the environment help to keep the living parts healthy.</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Resources From the Environment</h3>
+                        <div class="content-text">
+                            <p>Your physical environment does more than surround you. It also gives you the things you need to live. We call these helpful things <strong>resources</strong>. A resource is anything from the environment that people use to meet their needs, such as food, water, shelter, and clothing.</p>
+                            <p>Think of all the resources nature provides. Water from a river or spring is a resource we drink, cook with, and wash with. Soil is a resource that lets farmers grow food. Trees are a resource that gives us wood, shade, fruit, and clean air. Sand, stones, and clay are resources we use to build. Even sunlight is a resource, because it helps plants to grow and warms the earth. People are resources too, because the skills and work of people in your community help everyone to live well.</p>
+                            <p>People use these resources to meet their <strong>basic needs</strong>, which are the things every person must have to live: food to eat, water to drink, clothes to wear, and shelter to keep them safe. The physical environment around you shapes how you meet these needs. A child who lives near the sea might eat plenty of fish, while a child who lives in the hills might grow yam and dasheen in the cool soil. In every place, people use the resources nearby to feed, clothe, and shelter themselves.</p>
+                            <p>This is exactly why our resources are so precious. Because we depend on the environment for everything we need, we must use its resources wisely and never waste or spoil them.</p>
+                        </div>
+
+                        <div class="learning-objectives">
+                            <h4>Think About It</h4>
+                            <p>Name three resources from the environment that your family uses every day. What would happen if one of them ran out?</p>
+                        </div>
+                    </div>
+
+                    <div class="activity-box">
+                        <h4>Let's Practice</h4>
+                        <p>Step outside and look carefully at your physical environment. Make two lists: one list of natural things you can see, and one list of man-made things. See how many you can find for each. Then use your five senses, one at a time, to explore the place: write down one thing you can see, one you can hear, one you can smell, and one you can touch, and decide whether the place is healthy or unhealthy.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FOCUS QUESTION 2 -->
+            <div id="focus-q2" class="tab-content">
+                <button class="print-btn" onclick="window.print()">🖨️ Print This Section</button>
+
+                <div class="section">
+                    <h2 class="section-title">Focus Question 2: Why and how should we care for our environment?</h2>
+
+                    <div class="subsection">
+                        <h3>Why We Should Care for Our Environment</h3>
+                        <div class="content-text">
+                            <p>Caring for the environment is one of the most important jobs we all share. But why does it matter so much? There are several good reasons, and once you understand them, you will want to do your part.</p>
+                            <p>The first reason is that a clean environment keeps us <strong>healthy</strong>. When the land, water, and air around us are clean, we stay well. But when they become dirty, people can fall sick. Dirty water can carry diseases. Dirty air can make it hard to breathe. Rubbish left lying about can attract flies, rats, and mosquitoes that spread illness. So keeping our environment clean keeps our bodies healthy.</p>
+                            <p>The second reason is that a cared-for environment keeps us <strong>safe</strong>. When people cut down too many trees on a hillside, the soil can slide down in a landslide. When drains and gullies are blocked with rubbish, the water has nowhere to go, and floods can follow. By caring for the environment, we help to keep ourselves and our families safe from these dangers.</p>
+                            <p>The third reason is that caring for the environment <strong>protects plants and animals</strong>. Plants and animals share this world with us, and they depend on a healthy environment just as we do. When we spoil a river, the fish that live in it suffer. When we cut down a forest, the birds and animals that lived there lose their homes.</p>
+                            <p>The fourth reason is that the environment is a <strong>gift</strong> we must pass on. The clean rivers, green hills, and fresh air we enjoy today were here long before us. If we look after them well, they will still be here for the children who come after us.</p>
+                        </div>
+
+                        <div class="key-terms">
+                            <h4>Did You Know?</h4>
+                            <p>Long ago, many people believed that we are caretakers of the earth, and that it is our duty to look after the land, the water, the plants, and the animals. People in many faiths and families still teach this today. Caring for the environment is something good people all over the world believe in.</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>What Is Pollution?</h3>
+                        <div class="content-text">
+                            <p>To care for the environment, you must first understand the biggest danger that harms it. That danger is called <strong>pollution</strong>. Pollution means harmful or dirty things that spoil the land, the water, or the air. When the environment is polluted, it becomes unhealthy and unsafe for people, plants, and animals.</p>
+                            <p><strong>Land pollution</strong> happens when rubbish and waste are left on the ground instead of being thrown away properly. When people drop <strong>litter</strong>, such as plastic bottles, food wrappers, and old bags, on the street or in an empty lot, they are causing land pollution. Litter makes a place look ugly, and it can harm animals and attract pests.</p>
+                            <p><strong>Water pollution</strong> happens when dirty or harmful things get into our rivers, ponds, gullies, and the sea. When people throw rubbish into a river, or when waste flows into the water, the water becomes polluted. Polluted water can make people sick if they drink it, and it harms the fish and other creatures that live in it.</p>
+                            <p><strong>Air pollution</strong> happens when dirty smoke and harmful gases get into the air. Smoke from burning rubbish, from factories, and from vehicles can pollute the air. Polluted air is unpleasant to breathe and can make people cough and feel unwell.</p>
+                            <p>Imagine a clear, pretty river where children once swam and fish darted about. Then people begin tossing their rubbish into it: plastic bottles, old tins, and bags. Soon the water turns dirty and smelly. The fish cannot live there anymore, and no one wants to swim. This sad change happened because of water pollution, and it shows just how quickly a beautiful place can be spoiled when we are careless.</p>
+                        </div>
+
+                        <div class="learning-objectives">
+                            <h4>Think About It</h4>
+                            <p>Have you ever seen a place near your home that was spoiled by litter or pollution? How did it make you feel? How do you think it could be cleaned up?</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>How We Can Care for Our Environment</h3>
+                        <div class="content-text">
+                            <p>Now for the happy part. There are many simple things that you, even as a young person, can do to care for your environment. None of them is difficult, and together they make a big difference.</p>
+                            <p>The first thing you can do is <strong>keep your environment clean and not litter</strong>. Always put your rubbish in a bin, never on the ground. Pick up litter when you see it, and help to keep your home, your school, and your community tidy. Keeping drains and gullies clear of rubbish also helps to stop floods.</p>
+                            <p>The second thing you can do is <strong>plant trees and care for plants</strong>. Trees are wonderful friends to the environment. They give us shade, fruit, and clean air, and their roots hold the soil in place to stop landslides. When you plant a tree or water a plant, you are helping the whole environment.</p>
+                            <p>The third thing you can do is <strong>save water and electricity</strong>. This is called <strong>conservation</strong>, which means using our resources carefully so they are not wasted. Turn off the tap while you brush your teeth. Turn off lights and fans when you leave a room.</p>
+                            <p>The fourth thing you can do is <strong>avoid causing pollution</strong>. Do not burn rubbish, do not throw waste into rivers or gullies, and do not drop litter. Every time you choose not to pollute, you keep the land, water, and air a little cleaner.</p>
+                            <p>The fifth and very powerful thing you can do is to follow the <strong>three Rs</strong>: reduce, reuse, and recycle.</p>
+                        </div>
+
+                        <div class="learning-objectives">
+                            <h4>Think About It</h4>
+                            <p>Which of these ways of caring for the environment do you already do? Which new one could you start doing today?</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>The Three Rs: Reduce, Reuse, Recycle</h3>
+                        <div class="content-text">
+                            <p>The <strong>three Rs</strong> stand for three important words that all begin with the letter R: <strong>reduce</strong>, <strong>reuse</strong>, and <strong>recycle</strong>. Together they help us to make less rubbish and to take better care of our resources.</p>
+                            <p>To <strong>reduce</strong> means to use less, so that we waste less. If you use only the paper you really need, or take only as much food as you will eat, you are reducing. The less we use and the less we throw away, the less rubbish there is to spoil the environment.</p>
+                            <p>To <strong>reuse</strong> means to use something again instead of throwing it away. An empty plastic bottle does not have to become rubbish. You can wash it and use it again to carry water. You can cut it in half to make a flower pot, a funnel, or a bird feeder. An old glass jar can hold pencils. When you reuse things, you give them a new life and keep them out of the rubbish heap.</p>
+                            <p>To <strong>recycle</strong> means to make something old into something new and useful again. Some materials, like certain plastics, paper, and tins, can be collected, taken to a special place, and made into brand-new things. Old paper can become new paper.</p>
+                            <p>Think of a single plastic bottle. First, you could <strong>reduce</strong> by drinking from one bottle all day instead of buying many. Then, when you are finished, you could <strong>reuse</strong> it by cutting it in half to make a little flower pot for a seedling. And if it can no longer be used, it could be <strong>recycled</strong> to help make something new. One small bottle, treated with the three Rs, never has to become litter at all.</p>
+                        </div>
+
+                        <table>
+                            <tr>
+                                <th>The R</th>
+                                <th>What It Means</th>
+                                <th>An Example</th>
+                            </tr>
+                            <tr>
+                                <td>Reduce</td>
+                                <td>Use less so you waste less</td>
+                                <td>Use only the paper you really need</td>
+                            </tr>
+                            <tr>
+                                <td>Reuse</td>
+                                <td>Use something again instead of throwing it away</td>
+                                <td>Turn a bottle into a flower pot</td>
+                            </tr>
+                            <tr>
+                                <td>Recycle</td>
+                                <td>Make something old into something new</td>
+                                <td>Old paper made into new paper</td>
+                            </tr>
+                        </table>
+
+                        <div class="key-terms">
+                            <h4>Did You Know?</h4>
+                            <p>Many useful and beautiful things can be made from items that people once threw away. Old bottles, tins, and boxes can be turned into pots, toys, decorations, and craft pieces. When you reuse and recycle, you are turning rubbish into treasure.</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Keeping Our Surroundings Safe</h3>
+                        <div class="content-text">
+                            <p>Caring for the environment is not only about keeping it clean. It is also about keeping it <strong>safe</strong>. A safe environment is one where people can live, play, and work without getting hurt.</p>
+                            <p>You can help to make your environment safer in many ways. At school and at home, keep walkways clear so that no one trips and falls. Make sure that broken glass, sharp tins, and other dangerous rubbish are cleared away. When you play, be aware of the space around you and the safety of others. Keeping drains and gullies clear also keeps the community safe from flooding.</p>
+                            <p>When everyone in a community works together to keep the environment clean and safe, wonderful things happen. The streets look beautiful, the air smells fresh, people stay healthy, and everyone feels proud of where they live. A well-cared-for community is a happy community.</p>
+                        </div>
+
+                        <div class="learning-objectives">
+                            <h4>Think About It</h4>
+                            <p>Think about your own schoolyard. Can you name one thing that could be made cleaner or safer there, and one way you and your friends could help to fix it?</p>
+                        </div>
+                    </div>
+
+                    <div class="activity-box">
+                        <h4>Let's Practice</h4>
+                        <p>Find one empty plastic bottle or container at home. With an adult's help, think of a new way to reuse it instead of throwing it away. Could it become a flower pot, a pencil holder, or a bird feeder? Then make a list of three ways your family could care for the environment this week.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FOCUS QUESTION 3 -->
+            <div id="focus-q3" class="tab-content">
+                <button class="print-btn" onclick="window.print()">🖨️ Print This Section</button>
+
+                <div class="section">
+                    <h2 class="section-title">Focus Question 3: How can I persuade others to care for the environment?</h2>
+
+                    <div class="subsection">
+                        <h3>What Does It Mean to Persuade?</h3>
+                        <div class="content-text">
+                            <p>To <strong>persuade</strong> someone means to use kind, convincing words and actions to help them change their mind or to encourage them to do something good. When you persuade, you are not forcing or fighting. Instead, you are sharing good reasons and showing a good example, so that other people choose, all on their own, to do the right thing.</p>
+                            <p>Persuading others to care for the environment is very important, because one person alone cannot keep a whole community clean. But if you can encourage your family, your friends, your classmates, and your neighbours to care too, then everyone working together can make a big and lasting difference. The more people who care, the cleaner and safer the environment becomes for all.</p>
+                            <p>When you want to persuade someone, the best words are kind, clear, and convincing. Tell people why caring for the environment matters. Remind them that it keeps everyone healthy and safe, and that it protects the plants and animals we love. Speak politely and with a smile, and most people will be glad to listen.</p>
+                        </div>
+
+                        <div class="key-terms">
+                            <h4>Did You Know?</h4>
+                            <p>Even grown-ups can be persuaded by children. When a child speaks up kindly about keeping the environment clean, parents, teachers, and neighbours often listen and feel proud. Your voice has more power than you might think.</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Many Ways to Persuade</h3>
+                        <div class="content-text">
+                            <p>There are many wonderful ways to persuade people to care for the environment, and the best part is that they are creative and fun. Here are some of the most powerful ones.</p>
+                            <p>You can make a <strong>poster</strong>. A bright, well-drawn poster with a clear message, such as "Keep our school clean" or "Do not litter," catches people's eyes and reminds them to do the right thing. Use bold lines, colours, and pictures to make your message strong.</p>
+                            <p>You can write a <strong>song or a jingle</strong>. A catchy little song about caring for the environment is easy to remember, and people may find themselves humming it long after they hear it. Music has a special way of carrying a message into people's hearts.</p>
+                            <p>You can write a <strong>poem</strong>. A poem can paint a picture of a clean, beautiful environment, or it can gently warn about the harm that pollution does. A well-written poem can move people to care.</p>
+                            <p>You can give a <strong>speech or a talk</strong>. When you stand up and speak clearly to your class or your community about why we must care for the environment, you can persuade many people at once. Speak with feeling, look at your listeners, and share good reasons.</p>
+                            <p>You can write a <strong>letter or an email</strong>. A kind, convincing letter to a family member, a neighbour, or even the newspaper can persuade people to care. In your letter, explain why the environment matters and ask the reader to help.</p>
+                            <p>And, most powerfully of all, you can <strong>set a good example</strong>. When people see you putting your rubbish in the bin, planting a tree, or picking up litter, they are quietly persuaded to do the same. Your good actions speak even louder than your words.</p>
+                            <p>Imagine a class that wants to stop litter in their schoolyard. They make colourful posters and put them up around the school. They write a short, catchy jingle and sing it at the morning assembly. One pupil gives a friendly speech asking everyone to use the bins. And every day, the whole class sets a good example by picking up any litter they see. Little by little, the other children begin to do the same, and soon the whole schoolyard is clean. That is the power of persuasion at work.</p>
+                        </div>
+
+                        <div class="learning-objectives">
+                            <h4>Think About It</h4>
+                            <p>If you could make one poster to persuade people to care for the environment, what would it say, and what picture would you draw on it?</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Speaking Up for the Environment</h3>
+                        <div class="content-text">
+                            <p>When you persuade others to care for the environment, you are doing something brave and good. You are speaking up for the land, the water, the air, and all the living things that cannot speak for themselves. The trees, the rivers, the birds, and the fish have no voice of their own, so people who care must be their voice.</p>
+                            <p>You can speak up in your own community in many ways. You can encourage your friends and family to keep your district clean. You can join or organise a clean-up day at a beach, a park, or your schoolyard. You can find out about the helpers in our country who work to protect the environment, such as the people who collect and manage our waste, and you can support their work. Every time you encourage someone else to care, you are helping the whole community to grow stronger and healthier.</p>
+                            <p>Remember that caring for the environment is a job we all share. Each person, no matter how young, has a part to play. When you do your part and help others to do theirs, you become a true friend of the environment, and you help to make the world a cleaner, safer, and more beautiful place for everyone.</p>
+                        </div>
+
+                        <div class="key-terms">
+                            <h4>Did You Know?</h4>
+                            <p>When a whole community decides to care for its environment, amazing things can happen. A dirty lot can become a green park. A polluted gully can be cleaned. A bare hillside can be planted with trees. All of this begins when people persuade one another to care.</p>
+                        </div>
+                    </div>
+
+                    <div class="activity-box">
+                        <h4>Let's Practice</h4>
+                        <p>Make a small poster with a kind message that persuades people to care for the environment. Use bold colours and a clear picture. Then think of a short jingle or a single sentence you could say to persuade a friend to stop littering.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GLOSSARY -->
+            <div id="glossary" class="tab-content">
+                <div class="section">
+                    <h2 class="section-title">📖 Glossary of Key Terms</h2>
+
+                    <div class="subsection">
+                        <h3>The Physical Environment</h3>
+                        <div class="term"><strong>Environment:</strong> Everything around you, including the land, water, air, living things, and the things people have made</div>
+                        <div class="term"><strong>Physical Environment:</strong> The part of your surroundings that you can see, hear, smell, and touch</div>
+                        <div class="term"><strong>Natural Environment:</strong> The things in your surroundings that were made by nature, not by people</div>
+                        <div class="term"><strong>Man-Made Environment:</strong> The things in your surroundings that were built or made by people (also called the built environment)</div>
+                        <div class="term"><strong>Senses:</strong> Sight, hearing, smell, touch, and taste, which help you to explore your environment</div>
+                        <div class="term"><strong>Condition:</strong> Whether the environment is healthy or unhealthy, clean or dirty, safe or unsafe</div>
+                        <div class="term"><strong>Living Things:</strong> Plants, animals, and people that grow, feed, and breathe</div>
+                        <div class="term"><strong>Non-Living Things:</strong> Things like rocks, water, and air that do not grow, feed, or breathe</div>
+                        <div class="term"><strong>Resource:</strong> Something from the environment that people use to meet their needs</div>
+                        <div class="term"><strong>Basic Needs:</strong> The things every person must have to live: food, water, clothing, and shelter</div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Caring for the Environment</h3>
+                        <div class="term"><strong>Pollution:</strong> Harmful or dirty things that spoil the land, water, or air</div>
+                        <div class="term"><strong>Land Pollution:</strong> Rubbish and waste left on the ground instead of being thrown away properly</div>
+                        <div class="term"><strong>Water Pollution:</strong> Dirty or harmful things that get into our rivers, ponds, gullies, and the sea</div>
+                        <div class="term"><strong>Air Pollution:</strong> Dirty smoke and harmful gases that get into the air</div>
+                        <div class="term"><strong>Litter:</strong> Rubbish dropped carelessly on the ground instead of in a bin</div>
+                        <div class="term"><strong>Conservation:</strong> Using and protecting our resources wisely so they are not wasted</div>
+                        <div class="term"><strong>Reduce:</strong> To use less of something so that less is wasted</div>
+                        <div class="term"><strong>Reuse:</strong> To use something again instead of throwing it away</div>
+                        <div class="term"><strong>Recycle:</strong> To make something old into something new and useful again</div>
+                        <div class="term"><strong>The Three Rs:</strong> Reduce, reuse, and recycle, three ways to make less rubbish and care for our resources</div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Persuading Others</h3>
+                        <div class="term"><strong>Persuade:</strong> To use kind, convincing words and actions to help someone change their mind or do something good</div>
+                        <div class="term"><strong>Poster:</strong> A bright drawing with a clear message used to remind people to do the right thing</div>
+                        <div class="term"><strong>Jingle:</strong> A short, catchy song that carries a message and is easy to remember</div>
+                        <div class="term"><strong>Speech:</strong> Speaking clearly to a group to share ideas and persuade them</div>
+                        <div class="term"><strong>Good Example:</strong> Doing the right thing yourself so that others are encouraged to do the same</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ANSWER KEY -->
+            <div id="answers" class="tab-content">
+                <div class="section">
+                    <h2 class="section-title">Answer Key</h2>
+
+                    <div class="subsection">
+                        <h3>Focus Question 1: What is my physical environment?</h3>
+                        <p><strong>1. What is the physical environment?</strong> The physical environment is everything around you that you can see, hear, smell, and touch. (Example: trees, the sky, a road, your school.)</p>
+                        <p><strong>2. Natural environment vs. man-made environment:</strong> The natural environment is made by nature (trees, rivers, hills, animals). The man-made environment is built or made by people (houses, roads, schools, cars).</p>
+                        <p><strong>3. How do the senses help?</strong> The five senses (sight, hearing, smell, touch, taste) help us notice the things around us and tell whether the environment is healthy or unhealthy, clean or dirty.</p>
+                        <p><strong>4. Living vs. non-living:</strong> Living things grow, feed, and breathe (a plant, a dog). Non-living things do not grow, feed, or breathe (a rock, water).</p>
+                        <p><strong>5. Resource:</strong> A resource is something from the environment that people use to meet their needs, such as water (for drinking) and trees (for wood, fruit, and shade).</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Focus Question 2: Why and how should we care for our environment?</h3>
+                        <p><strong>6. Three reasons to care:</strong> A clean environment keeps us healthy; a cared-for environment keeps us safe (from floods and landslides); it protects the plants and animals that share it with us.</p>
+                        <p><strong>7. Pollution and its three kinds:</strong> Pollution is harmful or dirty things that spoil the environment. The three kinds are land pollution (rubbish on the ground), water pollution (dirty things in rivers and the sea), and air pollution (smoke and harmful gases in the air).</p>
+                        <p><strong>8. Four ways to care:</strong> Do not litter and keep things clean; plant trees and care for plants; save water and electricity; avoid causing pollution. (Following the three Rs also counts.)</p>
+                        <p><strong>9. The three Rs:</strong> Reduce (use less), reuse (use again), recycle (make old into new). A plastic bottle can be reduced (use one all day), reused (cut into a flower pot), and recycled (made into something new).</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Focus Question 3: How can I persuade others to care for the environment?</h3>
+                        <p><strong>10. What is persuading, and ways to persuade:</strong> To persuade means to use kind, convincing words and actions to help someone do something good. Ways to persuade include making posters, writing songs or jingles, writing poems, giving a speech, writing letters or emails, and setting a good example.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Grade 3 Jamaica Integrated Studies Textbook | Ministry of Education, Youth and Information, Jamaica</p>
+            <p>Term 3, Unit 2: My Physical Environment | Covering all three focus questions as per the National Standards Curriculum.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Tab navigation
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const tabName = button.getAttribute('data-tab');
+
+                // Remove active class from all buttons and contents
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+
+                // Add active class to clicked button and corresponding content
+                button.classList.add('active');
+                document.getElementById(tabName).classList.add('active');
+
+                // Scroll to top
+                window.scrollTo(0, 0);
+            });
+        });
+
+        // Collapsible sections
+        const collapsibles = document.querySelectorAll('.collapsible');
+        collapsibles.forEach(button => {
+            button.addEventListener('click', function() {
+                this.classList.toggle('active');
+                const content = this.nextElementSibling;
+                if (content && content.classList.contains('collapsible-content')) {
+                    content.classList.toggle('show');
+                }
+            });
+        });
+
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

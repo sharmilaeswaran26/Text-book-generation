@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade 3 Jamaica Language Arts Textbook</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .nav-tabs {
+            display: flex;
+            background: #f8f9fa;
+            border-bottom: 2px solid #ddd;
+            overflow-x: auto;
+            flex-wrap: wrap;
+        }
+
+        .nav-tabs button {
+            flex: 1;
+            padding: 15px 20px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 500;
+            color: #666;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+            min-width: 150px;
+        }
+
+        .nav-tabs button:hover {
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        .nav-tabs button.active {
+            color: #2a5298;
+            border-bottom-color: #2a5298;
+            background: white;
+        }
+
+        .content {
+            padding: 30px;
+            min-height: 600px;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 1.8em;
+            color: #1e3c72;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .subsection {
+            background: #f8f9fa;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 4px solid #667eea;
+            border-radius: 5px;
+        }
+
+        .subsection h3 {
+            color: #2a5298;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+
+        .learning-objectives {
+            background: #e3f2fd;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #2196F3;
+        }
+
+        .learning-objectives h4 {
+            color: #1565c0;
+            margin-bottom: 10px;
+        }
+
+        .learning-objectives ul {
+            margin-left: 20px;
+        }
+
+        .learning-objectives li {
+            margin: 8px 0;
+            color: #333;
+        }
+
+        .activity-box {
+            background: #fff3e0;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #ff9800;
+        }
+
+        .activity-box h4 {
+            color: #e65100;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .activity-box h4::before {
+            content: "✏️";
+            font-size: 1.2em;
+        }
+
+        .assessment-box {
+            background: #f3e5f5;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #9c27b0;
+        }
+
+        .assessment-box h4 {
+            color: #6a1b9a;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .assessment-box h4::before {
+            content: "📋";
+            font-size: 1.2em;
+        }
+
+        .extension-box {
+            background: #e8f5e9;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #4caf50;
+        }
+
+        .extension-box h4 {
+            color: #2e7d32;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .extension-box h4::before {
+            content: "⭐";
+            font-size: 1.2em;
+        }
+
+        .teacher-notes {
+            background: #ffe0b2;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #ff6f00;
+        }
+
+        .teacher-notes h4 {
+            color: #bf360c;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .teacher-notes h4::before {
+            content: "👨‍🏫";
+            font-size: 1.2em;
+        }
+
+        .content-text {
+            margin: 15px 0;
+            text-align: justify;
+        }
+
+        .content-text strong {
+            color: #1e3c72;
+        }
+
+        .diagram {
+            background: #f0f0f0;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            text-align: center;
+            border: 2px dashed #ddd;
+        }
+
+        .diagram img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+        }
+
+        table th {
+            background: #2a5298;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+
+        table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        table tr:hover {
+            background: #f5f5f5;
+        }
+
+        .key-terms {
+            background: #f5f5f5;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .key-terms h4 {
+            color: #1e3c72;
+            margin-bottom: 10px;
+        }
+
+        .term {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+
+        .term strong {
+            color: #2a5298;
+        }
+
+        .learning-outcomes {
+            background: #c8e6c9;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .learning-outcomes h4 {
+            color: #1b5e20;
+            margin-bottom: 10px;
+        }
+
+        .learning-outcomes ul {
+            margin-left: 20px;
+        }
+
+        .learning-outcomes li {
+            margin: 8px 0;
+            color: #333;
+        }
+
+        .checklist {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-left: 3px solid #2a5298;
+        }
+
+        .checklist input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        footer {
+            background: #1e3c72;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            .nav-tabs button {
+                min-width: 120px;
+                padding: 12px 15px;
+                font-size: 0.9em;
+            }
+        }
+
+        .collapsible {
+            background: #e3f2fd;
+            cursor: pointer;
+            padding: 15px;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 1em;
+            color: #1565c0;
+            font-weight: bold;
+            border-radius: 5px;
+            margin: 10px 0;
+            width: 100%;
+            transition: 0.3s;
+        }
+
+        .collapsible:hover {
+            background: #bbdefb;
+        }
+
+        .collapsible-content {
+            padding: 0 15px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .collapsible-content.show {
+            max-height: 1000px;
+        }
+
+        .print-btn {
+            background: #2a5298;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            margin: 20px 0;
+            transition: 0.3s;
+        }
+
+        .print-btn:hover {
+            background: #1e3c72;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            .nav-tabs {
+                display: none;
+            }
+            .print-btn {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📚 Grade 3 Language Arts Textbook</h1>
+            <p>Jamaica National Standards Curriculum - Term 2, Unit 1</p>
+            <p style="font-size: 0.9em; margin-top: 10px;">Speaking &amp; Listening | Word Skills | Comprehension | Grammar | Writing</p>
+            <p style="margin-top:14px;"><a href="../../index.html" style="color:#fff; background:rgba(255,255,255,0.15); padding:6px 14px; border-radius:5px; text-decoration:none; font-size:0.9em;">← Language Arts Home</a></p>
+        </header>
+
+        <div class="nav-tabs">
+            <button class="tab-btn active" data-tab="speaking-listening">Speaking &amp; Listening</button>
+            <button class="tab-btn" data-tab="word-skills">Word Skills</button>
+            <button class="tab-btn" data-tab="comprehension">Comprehension</button>
+            <button class="tab-btn" data-tab="grammar">Grammar</button>
+            <button class="tab-btn" data-tab="writing">Writing</button>
+            <button class="tab-btn" data-tab="glossary">Word Power</button>
+            <button class="tab-btn" data-tab="answers">Answer Key</button>
+        </div>
+
+        <div class="content">
+            <!-- SPEAKING & LISTENING -->
+            <div id="speaking-listening" class="tab-content active">
+                <button class="print-btn" onclick="window.print()">🖨️ Print This Section</button>
+
+                <div class="section">
+                    <h2 class="section-title">Speaking &amp; Listening</h2>
+
+                    <div class="subsection">
+                        <h3>Listening with Your Whole Self</h3>
+                        <div class="content-text">
+                            <p>Listening is more than just hearing. You hear many sounds all day — birds, cars, the school bell — but <strong>listening</strong> means really paying attention to what someone is saying so that you understand it.</p>
+                            <p>A good listener does a few simple things. You look at the person who is speaking. You keep your mouth quiet and your ears open. You think about the words you hear. And you wait until the speaker is finished before you talk.</p>
+                            <p>Imagine your teacher says, "Take out your blue book, turn to page ten, and underline the first word." If you are listening carefully, you can follow all three steps in the right order. But if your mind was wandering, you might only catch one part and get muddled. That is why good listening helps you follow instructions and learn new things.</p>
+                        </div>
+                        <div class="learning-objectives">
+                            <h4>Quick Check</h4>
+                            <p>Name two things a good listener does. Which one do you find easiest to do?</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Speaking So Others Understand</h3>
+                        <div class="content-text">
+                            <p>When it is your turn to speak, your job is to help your listeners understand you. You do this by speaking clearly, not too fast and not too soft. You look at the people you are talking to. And you stay on your topic, so your listeners do not get lost.</p>
+                            <p>Speaking clearly is useful in many places. You might ask a question in class, give a vote of thanks at a school programme, or explain a game to a friend. Each time, the clearer you speak, the better people understand.</p>
+                            <p>Here is something fun to try with a partner. One of you draws a simple picture in secret — perhaps a house with a tree beside it. Then, without showing the picture, you give your partner careful instructions: "Draw a square in the middle. Put a triangle on top for the roof." Your partner draws only what you say. When you are done, compare the two pictures. If they look alike, you gave clear instructions and your partner listened well!</p>
+                        </div>
+                        <div class="key-terms">
+                            <h4>Let's Explore</h4>
+                            <p>Think of a game you love to play. How would you explain its rules to someone who has never played it before? Practise saying it out loud.</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Asking and Answering Questions</h3>
+                        <div class="content-text">
+                            <p>Good talkers are also good question-askers. When you do not understand something, asking a question is a smart and brave thing to do. And when someone asks you a question, answering it kindly helps everyone learn.</p>
+                            <p>Picture your class looking at a safety sign that shows a person slipping on a wet floor. One student might ask, "What does this sign warn us about?" Another answers, "It warns us that the floor is wet and slippery, so we must walk carefully." By asking and answering, the whole class understands the sign better than before.</p>
+                        </div>
+                        <div class="learning-objectives">
+                            <h4>Think About It</h4>
+                            <p>What is a good question you could ask about a "No Smoking" sign? What might the answer be?</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Telling a Story in Order</h3>
+                        <div class="content-text">
+                            <p>One of the most important speaking skills is retelling a story by putting its events in <strong>sequence</strong>. The word <em>sequence</em> means the right order, from what happened first to what happened last.</p>
+                            <p>Think about getting ready for school. First you wake up. Next you brush your teeth. Then you get dressed. After that you eat your breakfast. Finally you walk to school. These events happen in a sequence. If you mixed them up — eating breakfast before you woke up — the story would not make sense!</p>
+                            <p>Stories work the same way. When you retell a story, words like <strong>first</strong>, <strong>next</strong>, <strong>then</strong>, <strong>after that</strong>, and <strong>finally</strong> are your helpers. They show your listeners the order of events. For example: <em>A little girl named Asha planted a seed. First, she dug a small hole. Next, she dropped in the seed and covered it. Then, every day, she watered it. After many days, a tiny green shoot pushed up. Finally, the plant bloomed into a bright flower.</em></p>
+                        </div>
+                        <div class="key-terms">
+                            <h4>Remember</h4>
+                            <p>Listening carefully, speaking clearly, and telling events in the right order all help others understand you.</p>
+                        </div>
+                    </div>
+
+                    <div class="activity-box">
+                        <h4>Let's Practice</h4>
+                        <p>Retell what you did after you came home from school yesterday. Use the words <strong>first</strong>, <strong>next</strong>, <strong>then</strong>, and <strong>finally</strong> to keep your events in order. Then tell it to a partner and see if they can picture each step.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- WORD SKILLS -->
+            <div id="word-skills" class="tab-content">
+                <button class="print-btn" onclick="window.print()">🖨️ Print This Section</button>
+
+                <div class="section">
+                    <h2 class="section-title">Word Skills</h2>
+
+                    <div class="subsection">
+                        <h3>Diphthongs: When Two Vowels Glide Together</h3>
+                        <div class="content-text">
+                            <p>Say the word <em>coin</em> slowly. Listen to the middle sound: <strong>oi</strong>. Did you notice how your mouth seems to slide from one sound into another, all in one breath? That sliding sound is called a <strong>diphthong</strong>.</p>
+                            <p>A diphthong happens when two vowel sounds glide together to make one smooth, sliding sound. It is a little like a slide in the playground — you start at the top and glide to the bottom in one swoop.</p>
+                            <p>The <strong>oi</strong> and <strong>oy</strong> sound is in words like <em>coin, oil, soil, boy,</em> and <em>toy</em>. The <strong>ou</strong> and <strong>ow</strong> sound is in words like <em>cloud, mouth, house, cow, owl,</em> and <em>town</em>. Read these aloud and listen for the slide: <em>The boy found a coin in the soil. A brown owl sat on the house and looked at the cloud.</em></p>
+                        </div>
+                        <div class="key-terms">
+                            <h4>Word Power</h4>
+                            <div class="term"><strong>Diphthong:</strong> Two vowel sounds that glide together into one sliding sound, like the <em>ou</em> in <em>mouth</em> or the <em>oy</em> in <em>toy</em>.</div>
+                        </div>
+                        <div class="learning-objectives">
+                            <h4>Quick Check</h4>
+                            <p>Which words have a diphthong — <em>cat, cow, sun, oil, town</em>? (Hint: listen for the sliding sound.)</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Inflectional Endings: Little Endings That Change Words</h3>
+                        <div class="content-text">
+                            <p>Sometimes we add a small ending to the end of a word. These small endings are called <strong>inflectional endings</strong>, and they can change the meaning of a word.</p>
+                            <p>Look at the word <em>play</em>. It becomes <em>plays</em> (one person does it now), <em>playing</em> (it is happening right now), and <em>played</em> (it already happened). The endings <strong>-s</strong>, <strong>-ing</strong>, and <strong>-ed</strong> tell us <em>when</em> something happens and <em>how many</em> people are doing it.</p>
+                            <p>When you read a hard word, look for these endings. If you cover the ending with your finger, you might find a smaller word you already know hiding underneath. For example, in <em>jumping</em>, cover <em>-ing</em> and you find <em>jump</em>!</p>
+                        </div>
+                        <div class="key-terms">
+                            <h4>Did You Know?</h4>
+                            <p>When you see a long word like <em>walking</em> or <em>helped</em>, you can often find a shorter, easier word inside it. Spotting that little word helps you read the big one.</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Context Clues: Reading Like a Detective</h3>
+                        <div class="content-text">
+                            <p>What do you do when you meet a word you do not know? You do not have to give up. A good word detective looks for <strong>context clues</strong> — hints hidden in the other words around the hard word.</p>
+                            <p>Read this sentence: <em>The hungry dog gobbled up its food in seconds.</em> Suppose you did not know <em>gobbled</em>. The clues are that the dog was <em>hungry</em> and it ate <em>in seconds</em>. So <em>gobbled</em> must mean to eat quickly and greedily. You solved the puzzle without a dictionary!</p>
+                            <p>Here is another: <em>The path was so narrow that we had to walk one behind the other.</em> The clue "walk one behind the other" tells you the path must be very thin. So <em>narrow</em> means thin or not wide. If you are still unsure, you can always check a dictionary.</p>
+                        </div>
+                        <div class="learning-objectives">
+                            <h4>Think About It</h4>
+                            <p>Read this sentence: <em>The weather was so humid that our clothes felt damp and sticky.</em> What clues help you guess what <em>humid</em> means?</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Reading Smoothly and Knowing Your Sight Words</h3>
+                        <div class="content-text">
+                            <p>Some words appear so often that we should know them on sight, without sounding them out. We call these <strong>sight words</strong>. Words like <em>the, said, come, because, would,</em> and <em>friend</em> are sight words. When you know them instantly, your reading becomes smooth and quick.</p>
+                            <p>Reading smoothly is called reading with <strong>fluency</strong>. A fluent reader does not stop and start at every word — the reading flows, and the story comes alive. The best way to become fluent is the simplest one: read a little every day, and read your favourite parts aloud.</p>
+                        </div>
+                        <div class="learning-objectives">
+                            <h4>Look Around You</h4>
+                            <p>Find a sign, a label, or a book near you. How many words can you read in one second, without sounding them out? Those are your sight words.</p>
+                        </div>
+                    </div>
+
+                    <div class="activity-box">
+                        <h4>Let's Practice</h4>
+                        <p>Say these words aloud and clap once each time you hear a diphthong — that sliding vowel sound: <em>boy, cat, cloud, sun, oil, town, dog, mouth</em>. Then use the clues to guess the hard word: <em>The tiny kitten was so timid that it hid under the bed whenever a visitor came.</em> What do you think <em>timid</em> means?</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- COMPREHENSION -->
+            <div id="comprehension" class="tab-content">
+                <button class="print-btn" onclick="window.print()">🖨️ Print This Section</button>
+
+                <div class="section">
+                    <h2 class="section-title">Comprehension</h2>
+
+                    <div class="subsection">
+                        <h3>The Main Idea</h3>
+                        <div class="content-text">
+                            <p>Every story and every paragraph is mostly about one big thing. That big thing is called the <strong>main idea</strong>. The main idea is like the trunk of a tree — it is the most important part that everything else grows from.</p>
+                            <p>Read this paragraph: <em>Dogs make wonderful pets. They are loyal and will protect your home. They love to play and keep you company. A dog will always be happy to see you when you come home.</em> What is this paragraph mostly about? It is about dogs making wonderful pets. That is the main idea. To find it, ask yourself: "What is this mostly about?"</p>
+                        </div>
+                        <div class="key-terms">
+                            <h4>Word Power</h4>
+                            <div class="term"><strong>Main idea:</strong> The most important point a story or paragraph is telling us. Ask, "What is this mostly about?" to find it.</div>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Details That Help</h3>
+                        <div class="content-text">
+                            <p>If the main idea is the tree trunk, then the <strong>details</strong> are the branches. Details are the smaller pieces of information that tell us more about the main idea and help to prove it.</p>
+                            <p>Look again at the paragraph about dogs. The main idea is that dogs make wonderful pets. The details are the reasons that show this: they are loyal, they protect your home, they love to play, and they are happy to see you. Each detail supports the main idea.</p>
+                        </div>
+                        <div class="learning-objectives">
+                            <h4>Quick Check</h4>
+                            <p>In the dog paragraph, name one detail that tells us why dogs make wonderful pets.</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Sequencing a Story's Events</h3>
+                        <div class="content-text">
+                            <p>Just as you retell a story in order when you speak, you must follow events in order when you read. Putting story events in the right order is called <strong>sequencing</strong>. Remember the helper words: <em>first, next, then, after that,</em> and <em>finally</em>.</p>
+                            <p>Read this story: <em>Marcus wanted to make a kite. First, he gathered some sticks, paper, and string. Next, he tied the sticks into a cross. Then, he glued the paper over the frame. After that, he attached a long tail. Finally, he ran across the field and watched his kite soar into the sky.</em> If someone asked, "What did Marcus do right after he tied the sticks?" you could answer: "He glued the paper over the frame."</p>
+                        </div>
+                        <div class="learning-objectives">
+                            <h4>Think About It</h4>
+                            <p>In the kite story, what was the very first thing Marcus did, and what was the very last thing?</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Enjoying a Poem</h3>
+                        <div class="content-text">
+                            <p>Not everything we read is a story. Sometimes we read <strong>poems</strong>. A poem uses fewer words than a story, and many poems have words at the ends of lines that rhyme, or sound alike. Poems often paint a picture in your mind.</p>
+                            <p>Read this poem aloud: <em>The rain comes down, pitter-patter, / Splashing puddles, what a clatter! / I jump and play and laugh and shout, / Then run inside when sun comes out.</em> Did you hear the rhyming words — <em>patter</em> and <em>clatter</em>, <em>shout</em> and <em>out</em>? Even a short poem has a main idea (a child enjoying the rain) and a sequence of events (the rain falls, the child plays, then the sun comes out).</p>
+                        </div>
+                        <div class="key-terms">
+                            <h4>Remember</h4>
+                            <p>To understand what you read, find the main idea by asking "What is this mostly about?", look for the details that support it, and follow the events in order.</p>
+                        </div>
+                    </div>
+
+                    <div class="activity-box">
+                        <h4>Let's Practice</h4>
+                        <p>Read this paragraph and find the main idea together: <em>The library is a special place. It is full of books on every subject. It is quiet, so you can read in peace. The librarian helps you find just what you need.</em> What is this paragraph mostly about? Now name two details that support the main idea.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GRAMMAR -->
+            <div id="grammar" class="tab-content">
+                <button class="print-btn" onclick="window.print()">🖨️ Print This Section</button>
+
+                <div class="section">
+                    <h2 class="section-title">Grammar</h2>
+
+                    <div class="subsection">
+                        <h3>Nouns: Naming Words</h3>
+                        <div class="content-text">
+                            <p>A <strong>noun</strong> is a naming word. It names a person, a place, an animal, or a thing. Almost everything around you has a name, and that name is a noun.</p>
+                            <p><em>Teacher, doctor, mother,</em> and <em>friend</em> are nouns that name people. <em>School, market, beach,</em> and <em>Jamaica</em> name places. <em>Dog, goat, fish,</em> and <em>bird</em> name animals. <em>Book, pencil, table,</em> and <em>mango</em> name things. In the sentence <em>The boy gave a mango to his teacher at school</em>, the nouns are <em>boy, mango, teacher,</em> and <em>school</em>.</p>
+                        </div>
+                        <div class="key-terms">
+                            <h4>Word Power</h4>
+                            <div class="term"><strong>Noun:</strong> A naming word for a person, place, animal, or thing, such as <em>girl, town, cat,</em> or <em>chair</em>.</div>
+                        </div>
+                        <div class="learning-objectives">
+                            <h4>Look Around You</h4>
+                            <p>Look up from this page. Can you name three things you can see? Each one is a noun. Can you name one person and one place too?</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Synonyms: Words That Mean the Same</h3>
+                        <div class="content-text">
+                            <p>Sometimes two different words mean the same thing, or very nearly the same. These are called <strong>synonyms</strong>. Synonyms are like two friends who agree with each other.</p>
+                            <p>The word <em>big</em> and the word <em>large</em> mean the same thing. So do <em>happy</em> and <em>glad</em>, <em>small</em> and <em>little</em>, <em>fast</em> and <em>quick</em>, and <em>pretty</em> and <em>beautiful</em>. Synonyms let us choose just the right word and keep our writing interesting.</p>
+                        </div>
+                        <div class="learning-objectives">
+                            <h4>Quick Check</h4>
+                            <p>Can you think of a synonym for the word <em>cold</em>? (Hint: when ice cream is very cold, we might also call it...)</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Antonyms: Words That Mean the Opposite</h3>
+                        <div class="content-text">
+                            <p>An <strong>antonym</strong> is a word that means the opposite of another word. If synonyms are friends who agree, antonyms are like two ends of a seesaw — they point in opposite directions.</p>
+                            <p>Think of <em>hot</em> and <em>cold</em>. They are opposites, so they are antonyms. So are <em>up</em> and <em>down</em>, <em>big</em> and <em>small</em>, <em>day</em> and <em>night</em>, <em>happy</em> and <em>sad</em>, and <em>fast</em> and <em>slow</em>.</p>
+                        </div>
+                        <div class="learning-objectives">
+                            <h4>Think About It</h4>
+                            <p>What is the antonym (the opposite) of <em>open</em>? What about the opposite of <em>tall</em>?</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Homophones: Words That Sound Alike</h3>
+                        <div class="content-text">
+                            <p>Some words sound exactly the same when you say them, but they have different meanings and different spellings. These are called <strong>homophones</strong> (you may also hear them called homonyms).</p>
+                            <p>The most famous example sounds like "too" and is spelled three ways: <strong>to</strong> (<em>I am going to the shop</em>), <strong>too</strong> (meaning also, as in <em>I want to come too</em>), and <strong>two</strong> (the number, as in <em>I have two hands</em>). Here are more pairs: <em>sea</em> (the ocean) and <em>see</em> (to look); <em>sun</em> (the star in the sky) and <em>son</em> (a boy child); <em>here</em> (in this place) and <em>hear</em> (to listen).</p>
+                        </div>
+                        <div class="key-terms">
+                            <h4>Did You Know?</h4>
+                            <p>Because homophones sound the same, the only way to know which one to use is to think about the meaning of your sentence. Is it the <em>sea</em> full of water, or <em>see</em> with your eyes?</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Past Tense: Talking About Yesterday</h3>
+                        <div class="content-text">
+                            <p>When something happened in the past, we use the <strong>past tense</strong> of a verb. A verb is an action word, like <em>walk</em> or <em>jump</em>. To talk about the past, the verb often changes.</p>
+                            <p>For many verbs, we simply add <strong>-ed</strong>. <em>Walk</em> becomes <em>walked</em>, <em>play</em> becomes <em>played</em>, <em>jump</em> becomes <em>jumped</em>. But watch out: some verbs change in their own special way. <em>Run</em> becomes <em>ran</em> (not "runned"), <em>eat</em> becomes <em>ate</em>, <em>go</em> becomes <em>went</em>, and <em>see</em> becomes <em>saw</em>. So today I <em>eat</em> my lunch, but yesterday I <em>ate</em> my lunch.</p>
+                        </div>
+                        <div class="key-terms">
+                            <h4>Word Power</h4>
+                            <div class="term"><strong>Past tense:</strong> The form of a verb we use for something that already happened. Many verbs add <em>-ed</em> (<em>played</em>), but some change in their own way (<em>ate, ran, went</em>).</div>
+                        </div>
+                        <div class="learning-objectives">
+                            <h4>Look Around You</h4>
+                            <p>Think of something you did this morning. Say it using a past tense verb, like "I <em>brushed</em> my teeth" or "I <em>ate</em> breakfast."</p>
+                        </div>
+                    </div>
+
+                    <div class="activity-box">
+                        <h4>Let's Practice</h4>
+                        <p>Match each word to its synonym — <em>big, happy, fast</em> (choose from: <em>quick, large, glad</em>). Then match each word to its antonym — <em>hot, up, day</em> (choose from: <em>night, cold, down</em>). Finally, change these verbs to the past tense: <em>play, jump, eat, run</em>.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- WRITING -->
+            <div id="writing" class="tab-content">
+                <button class="print-btn" onclick="window.print()">🖨️ Print This Section</button>
+
+                <div class="section">
+                    <h2 class="section-title">Writing</h2>
+
+                    <div class="subsection">
+                        <h3>Planning Before You Write</h3>
+                        <div class="content-text">
+                            <p>A wise writer plans before writing, just as a builder plans before building a house. Planning helps you decide what to say and in what order to say it.</p>
+                            <p>One helpful planning tool is a <strong>graphic organiser</strong> — simply a chart or web that helps you gather your ideas. You might draw a big circle in the middle of your page with your topic inside it — say, "My Pet" — and then draw smaller circles around it, each holding one idea: "she is brown," "she likes to run," "she sleeps on my bed." Now your ideas are gathered and ready to use. This is sometimes called brainstorming or webbing.</p>
+                        </div>
+                        <div class="key-terms">
+                            <h4>Let's Explore</h4>
+                            <p>Pick a topic you love — your family, your favourite food, or a fun day. Draw a circle, write your topic inside, and add three idea-bubbles around it.</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Writing a Paragraph</h3>
+                        <div class="content-text">
+                            <p>A <strong>paragraph</strong> is a group of sentences that all tell about one main idea. A good paragraph has three parts. First comes the <strong>topic sentence</strong>, which tells the reader what the paragraph is about: <em>My dog Brownie is the best pet in the world.</em> Next come the <strong>detail sentences</strong>, which give more information: <em>She is gentle and never bites. She loves to chase a ball in the yard. Every evening she waits for me by the gate.</em> Finally comes the <strong>closing sentence</strong>: <em>I am so happy that Brownie is my pet.</em></p>
+                            <p>Put together, every sentence is about Brownie. That is what makes it one good paragraph — all the sentences share one main idea.</p>
+                        </div>
+                        <div class="key-terms">
+                            <h4>Did You Know?</h4>
+                            <p>A paragraph is like a sandwich. The topic sentence is the top slice of bread, the details are the filling, and the closing sentence is the bottom slice that holds it all together.</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Writing Events in Order</h3>
+                        <div class="content-text">
+                            <p>When you write about something that happened, put your events in <strong>sequence</strong>, just as you do when speaking and reading. Use your order words — <em>first, next, then, after that,</em> and <em>finally</em> — to guide your reader from beginning to end.</p>
+                            <p>Here is a paragraph that tells events in order: <em>Yesterday my class made fruit salad. First, we washed our hands carefully. Next, we cut up bananas, oranges, and pawpaw. Then, we mixed all the fruit in a big bowl. After that, we shared it into small cups. Finally, we sat together and enjoyed our tasty treat.</em></p>
+                        </div>
+                        <div class="learning-objectives">
+                            <h4>Think About It</h4>
+                            <p>Think of something you made or did recently. What happened first, and what happened last?</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Writing a Simple Poem</h3>
+                        <div class="content-text">
+                            <p>Writing a poem is a playful kind of writing. A simple poem does not need to be long. Many short poems have lines that rhyme, where the last words sound alike.</p>
+                            <p>Here is a tiny poem about the sea: <em>Down by the sea I love to play, / Splashing in the waves all day. / I build a castle in the sand, / The finest castle in the land.</em> Notice the rhyming pairs: <em>play</em> and <em>day</em>, <em>sand</em> and <em>land</em>. To write your own, pick a topic you enjoy, think of a few words that rhyme, and build short lines around them.</p>
+                        </div>
+                        <div class="key-terms">
+                            <h4>Remember</h4>
+                            <p>Good writing starts with a plan, grows into a neat paragraph with a topic sentence, details, and a closing, and uses order words when telling events in sequence.</p>
+                        </div>
+                    </div>
+
+                    <div class="activity-box">
+                        <h4>Let's Practice</h4>
+                        <p>Plan and write a short paragraph about your favourite food. First, draw a quick web of your ideas. Then begin with a topic sentence, add two or three detail sentences, and end with a closing sentence. Read it aloud to a partner when you are done.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- WORD POWER (GLOSSARY) -->
+            <div id="glossary" class="tab-content">
+                <button class="print-btn" onclick="window.print()">🖨️ Print This Section</button>
+
+                <div class="section">
+                    <h2 class="section-title">Word Power</h2>
+
+                    <div class="key-terms">
+                        <h4>Important Words from This Unit</h4>
+                        <div class="term"><strong>Sequence:</strong> To put things in the right order, from first to last. <em>We put the pictures in sequence to tell the story.</em></div>
+                        <div class="term"><strong>Diphthong:</strong> Two vowel sounds that glide together into one sliding sound, like the <em>oi</em> in <em>coin</em>. <em>The word "cow" has a diphthong.</em></div>
+                        <div class="term"><strong>Inflectional ending:</strong> A small ending added to a word, such as <em>-s</em>, <em>-ing</em>, or <em>-ed</em>, that changes its meaning. <em>"Jump" becomes "jumped."</em></div>
+                        <div class="term"><strong>Context clue:</strong> A hint in the words around a hard word that helps you guess its meaning. <em>I used a context clue to work out the new word.</em></div>
+                        <div class="term"><strong>Sight word:</strong> A word we know at a glance, without sounding it out, such as <em>the</em>, <em>said</em>, or <em>friend</em>.</div>
+                        <div class="term"><strong>Fluency:</strong> Reading smoothly and quickly, so the story flows. <em>She read the page with fluency.</em></div>
+                        <div class="term"><strong>Main idea:</strong> The most important point a story or paragraph is about. <em>The main idea of the story is helping others.</em></div>
+                        <div class="term"><strong>Detail:</strong> A small piece of information that tells us more about the main idea. <em>One detail is that the boy shared his lunch.</em></div>
+                        <div class="term"><strong>Noun:</strong> A naming word for a person, place, animal, or thing. <em>Teacher, school, dog, and book are all nouns.</em></div>
+                        <div class="term"><strong>Synonym:</strong> A word that means the same, or nearly the same, as another word. <em>"Big" and "large" are synonyms.</em></div>
+                        <div class="term"><strong>Antonym:</strong> A word that means the opposite of another word. <em>"Hot" and "cold" are antonyms.</em></div>
+                        <div class="term"><strong>Homophone:</strong> A word that sounds the same as another word but has a different meaning and spelling. <em>"Sea" and "see" are homophones.</em></div>
+                        <div class="term"><strong>Past tense:</strong> The form of a verb we use to talk about something that already happened. <em>Yesterday I walked to school.</em></div>
+                        <div class="term"><strong>Paragraph:</strong> A group of sentences about one main idea. <em>I wrote a paragraph about my pet.</em></div>
+                        <div class="term"><strong>Topic sentence:</strong> The opening sentence of a paragraph that tells what it will be about.</div>
+                        <div class="term"><strong>Graphic organiser:</strong> A chart or web that helps you gather and arrange your ideas before writing.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ANSWER KEY -->
+            <div id="answers" class="tab-content">
+                <button class="print-btn" onclick="window.print()">🖨️ Print This Section</button>
+
+                <div class="section">
+                    <h2 class="section-title">Answer Key</h2>
+
+                    <div class="subsection">
+                        <h3>Speaking &amp; Listening</h3>
+                        <div class="content-text">
+                            <p><strong>Quick Check (good listener):</strong> A good listener looks at the speaker, keeps quiet, thinks about the words, and waits until the speaker is finished. (Any two of these are correct.)</p>
+                            <p><strong>Think About It (No Smoking sign):</strong> A good question is "What does this sign tell us not to do?" The answer is "It tells us that we must not smoke in this place."</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Word Skills</h3>
+                        <div class="content-text">
+                            <p><strong>Quick Check (diphthongs):</strong> <em>cow, oil,</em> and <em>town</em> have a diphthong. <em>Cat</em> and <em>sun</em> do not.</p>
+                            <p><strong>Think About It (humid):</strong> The clues "damp and sticky" tell us that <em>humid</em> means that the air is wet and moist.</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Comprehension</h3>
+                        <div class="content-text">
+                            <p><strong>Quick Check (dog detail):</strong> Any one of these: dogs are loyal; they protect your home; they love to play; they are happy to see you.</p>
+                            <p><strong>Think About It (kite story):</strong> The very first thing Marcus did was gather sticks, paper, and string. The very last thing was run across the field and watch his kite soar.</p>
+                            <p><strong>Let's Practice (library):</strong> The main idea is that the library is a special place. Two details: it is full of books on every subject; it is quiet so you can read; the librarian helps you find what you need. (Any two.)</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Grammar</h3>
+                        <div class="content-text">
+                            <p><strong>Quick Check (synonym for cold):</strong> A synonym is <em>cool</em> (or <em>chilly</em>, <em>icy</em>).</p>
+                            <p><strong>Think About It (antonyms):</strong> The opposite of <em>open</em> is <em>closed</em> (or <em>shut</em>). The opposite of <em>tall</em> is <em>short</em>.</p>
+                            <p><strong>Let's Practice (synonyms):</strong> big — large; happy — glad; fast — quick.</p>
+                            <p><strong>Let's Practice (antonyms):</strong> hot — cold; up — down; day — night.</p>
+                            <p><strong>Let's Practice (past tense):</strong> play — played; jump — jumped; eat — ate; run — ran.</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Writing</h3>
+                        <div class="content-text">
+                            <p><strong>Paragraph about your favourite food:</strong> Answers will vary. A good paragraph has a topic sentence (for example, <em>My favourite food is curry chicken</em>), two or three detail sentences telling more about it, and a closing sentence. Check that every sentence is about the same food.</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Try It Yourself (from the textbook)</h3>
+                        <div class="content-text">
+                            <p><strong>2. Homophones:</strong> <em>I can <strong>see</strong> the <strong>sun</strong> shining in the sky.</em></p>
+                            <p><strong>3. Past tense:</strong> play — played; jump — jumped; eat — ate; run — ran.</p>
+                            <p><strong>1, 4, 5:</strong> Answers will vary. Check that nouns name people, places, animals, or things; that the retelling uses <em>first, next, then,</em> and <em>finally</em> in order; and that the paragraph has a topic sentence, details, and a closing sentence.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Grade 3 Jamaica Language Arts Textbook | Ministry of Education, Youth and Information, Jamaica</p>
+            <p>Term 2, Unit 1 — Speaking &amp; Listening, Word Skills, Comprehension, Grammar, and Writing, as per the National Standards Curriculum.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Tab navigation
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const tabName = button.getAttribute('data-tab');
+
+                // Remove active class from all buttons and contents
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+
+                // Add active class to clicked button and corresponding content
+                button.classList.add('active');
+                document.getElementById(tabName).classList.add('active');
+
+                // Scroll to top
+                window.scrollTo(0, 0);
+            });
+        });
+
+        // Collapsible sections
+        const collapsibles = document.querySelectorAll('.collapsible');
+        collapsibles.forEach(button => {
+            button.addEventListener('click', function() {
+                this.classList.toggle('active');
+                const content = this.nextElementSibling;
+                if (content && content.classList.contains('collapsible-content')) {
+                    content.classList.toggle('show');
+                }
+            });
+        });
+
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

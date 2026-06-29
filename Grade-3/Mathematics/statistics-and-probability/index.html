@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade 3 Mathematics Textbook - Statistics and Probability</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .nav-tabs {
+            display: flex;
+            background: #f8f9fa;
+            border-bottom: 2px solid #ddd;
+            overflow-x: auto;
+            flex-wrap: wrap;
+        }
+
+        .nav-tabs button {
+            flex: 1;
+            padding: 15px 20px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 500;
+            color: #666;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+            min-width: 150px;
+        }
+
+        .nav-tabs button:hover {
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        .nav-tabs button.active {
+            color: #2a5298;
+            border-bottom-color: #2a5298;
+            background: white;
+        }
+
+        .content {
+            padding: 30px;
+            min-height: 600px;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 1.8em;
+            color: #1e3c72;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .subsection {
+            background: #f8f9fa;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 4px solid #667eea;
+            border-radius: 5px;
+        }
+
+        .subsection h3 {
+            color: #2a5298;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+
+        .learning-objectives {
+            background: #e3f2fd;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #2196F3;
+        }
+
+        .learning-objectives h4 {
+            color: #1565c0;
+            margin-bottom: 10px;
+        }
+
+        .learning-objectives ul {
+            margin-left: 20px;
+        }
+
+        .learning-objectives li {
+            margin: 8px 0;
+            color: #333;
+        }
+
+        .activity-box {
+            background: #fff3e0;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #ff9800;
+        }
+
+        .activity-box h4 {
+            color: #e65100;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .activity-box h4::before {
+            content: "✏️";
+            font-size: 1.2em;
+        }
+
+        .assessment-box {
+            background: #f3e5f5;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #9c27b0;
+        }
+
+        .assessment-box h4 {
+            color: #6a1b9a;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .assessment-box h4::before {
+            content: "📋";
+            font-size: 1.2em;
+        }
+
+        .extension-box {
+            background: #e8f5e9;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #4caf50;
+        }
+
+        .extension-box h4 {
+            color: #2e7d32;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .extension-box h4::before {
+            content: "⭐";
+            font-size: 1.2em;
+        }
+
+        .teacher-notes {
+            background: #ffe0b2;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #ff6f00;
+        }
+
+        .teacher-notes h4 {
+            color: #bf360c;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .teacher-notes h4::before {
+            content: "👨‍🏫";
+            font-size: 1.2em;
+        }
+
+        .content-text {
+            margin: 15px 0;
+            text-align: justify;
+        }
+
+        .content-text strong {
+            color: #1e3c72;
+        }
+
+        .diagram {
+            background: #f0f0f0;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            text-align: center;
+            border: 2px dashed #ddd;
+        }
+
+        .diagram img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+        }
+
+        table th {
+            background: #2a5298;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+
+        table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        table tr:hover {
+            background: #f5f5f5;
+        }
+
+        .key-terms {
+            background: #f5f5f5;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .key-terms h4 {
+            color: #1e3c72;
+            margin-bottom: 10px;
+        }
+
+        .term {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+
+        .term strong {
+            color: #2a5298;
+        }
+
+        .learning-outcomes {
+            background: #c8e6c9;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .learning-outcomes h4 {
+            color: #1b5e20;
+            margin-bottom: 10px;
+        }
+
+        .learning-outcomes ul {
+            margin-left: 20px;
+        }
+
+        .learning-outcomes li {
+            margin: 8px 0;
+            color: #333;
+        }
+
+        .checklist {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-left: 3px solid #2a5298;
+        }
+
+        .checklist input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        footer {
+            background: #1e3c72;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            .nav-tabs button {
+                min-width: 120px;
+                padding: 12px 15px;
+                font-size: 0.9em;
+            }
+        }
+
+        .collapsible {
+            background: #e3f2fd;
+            cursor: pointer;
+            padding: 15px;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 1em;
+            color: #1565c0;
+            font-weight: bold;
+            border-radius: 5px;
+            margin: 10px 0;
+            width: 100%;
+            transition: 0.3s;
+        }
+
+        .collapsible:hover {
+            background: #bbdefb;
+        }
+
+        .collapsible-content {
+            padding: 0 15px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .collapsible-content.show {
+            max-height: 1000px;
+        }
+
+        .print-btn {
+            background: #2a5298;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            margin: 20px 0;
+            transition: 0.3s;
+        }
+
+        .print-btn:hover {
+            background: #1e3c72;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            .nav-tabs {
+                display: none;
+            }
+            .print-btn {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📚 Grade 3 Mathematics Textbook</h1>
+            <p>Jamaica National Standards Curriculum - Content Strand: Statistics and Probability</p>
+            <p style="font-size: 0.9em; margin-top: 10px;">Collecting Data | Graphs & Charts | Probability</p>
+            <p style="margin-top:14px;"><a href="../index.html" style="color:#fff; background:rgba(255,255,255,0.15); padding:6px 14px; border-radius:5px; text-decoration:none; font-size:0.9em;">← Mathematics Home</a></p>
+        </header>
+
+        <div class="nav-tabs">
+            <button class="tab-btn active" data-tab="collecting-data">Collecting Data</button>
+            <button class="tab-btn" data-tab="graphs">Graphs &amp; Charts</button>
+            <button class="tab-btn" data-tab="probability">Probability</button>
+            <button class="tab-btn" data-tab="glossary">Word Power</button>
+            <button class="tab-btn" data-tab="answers">Answer Key</button>
+        </div>
+
+        <div class="content">
+            <!-- COLLECTING DATA -->
+            <div id="collecting-data" class="tab-content active">
+                <button class="print-btn" onclick="window.print()">🖨️ Print This Section</button>
+
+                <div class="section">
+                    <h2 class="section-title">Collecting and Organising Data</h2>
+
+                    <div class="content-text">
+                        <p>Have you ever wanted to find out something about your class? Perhaps you have wondered which fruit your friends like best, or how most children get to school in the morning. There is a clever way to answer questions like these: you can collect <strong>information</strong>. When you ask a question and gather everyone's answers, you are collecting little pieces of information that mathematicians call <strong>data</strong>. In this chapter you will become a real data detective.</p>
+                    </div>
+
+                    <div class="learning-objectives">
+                        <h4>What You Will Learn</h4>
+                        <ul>
+                            <li>Ask a question and collect information (data) about your class.</li>
+                            <li>Tell the difference between attribute data (words) and numeric data (numbers).</li>
+                            <li>Record your data neatly using tally marks.</li>
+                            <li>Organise your data in a table with clear headings.</li>
+                        </ul>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Lesson 1: Collecting Data</h3>
+
+                        <div class="content-text">
+                            <p>Every good investigation begins with a question. Before you can find out anything, you must decide exactly what you want to know. Imagine you want to find out the favourite fruit of the children in your class. Your question might be: <strong>"What is your favourite fruit — mango, banana, or orange?"</strong> This question is clear, and it even gives a few choices, called <strong>categories</strong>, so everyone knows what kind of answer you are looking for.</p>
+
+                            <p>Once you have your question, the next step is to gather the answers. You could ask each child, one at a time. Each answer a child gives is one little piece of information. When you put all those pieces together, you have your <strong>data</strong>.</p>
+
+                            <p>The data you collect can be of two kinds. Sometimes you collect words, such as colours, types of cars, or favourite movies. We call this <strong>attribute data</strong>, because it describes what something is like. Other times you collect numbers, such as how many brothers and sisters each child has. We call this <strong>numeric data</strong>, because it counts amounts. Both kinds can be sorted and shown in graphs.</p>
+                        </div>
+
+                        <div class="learning-objectives">
+                            <h4>Think About It</h4>
+                            <p>If you wanted to find out how the children in your class travel to school, what question would you ask? What categories, or choices, might you give them — walk, bus, car, bicycle?</p>
+                        </div>
+
+                        <div class="key-terms">
+                            <h4>Did You Know?</h4>
+                            <p>Grown-ups collect data all the time. Shopkeepers count which sweets sell the most, nurses record how tall children grow, and weather watchers gather data about rain and sunshine. Collecting data helps people make good decisions.</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Lesson 2: Tally Charts and Tables</h3>
+
+                        <div class="content-text">
+                            <p>When you ask many children a question, the answers come quickly, one after another. How can you keep count without getting muddled? The answer is to use <strong>tally marks</strong>.</p>
+
+                            <p>A tally mark is a simple upright line. Each time someone gives an answer, you make one mark next to that answer. But here is the clever part: when you reach five, you do not draw five separate lines. Instead, you draw four upright lines and then a fifth line straight across them, like a little gate. This makes a neat bundle of five that is very easy to count. Counting in bundles of five is a great trick, because you can count your bundles quickly — five, ten, fifteen, twenty.</p>
+
+                            <p>Suppose you asked your class, "What is your favourite fruit?" and made a tally mark for each answer. When you finished, your tally chart looked like this:</p>
+                        </div>
+
+                        <table>
+                            <tr>
+                                <th>Fruit</th>
+                                <th>Tally</th>
+                                <th>Number</th>
+                            </tr>
+                            <tr>
+                                <td>Mango</td>
+                                <td>||||&#822; |||</td>
+                                <td>8</td>
+                            </tr>
+                            <tr>
+                                <td>Banana</td>
+                                <td>||||&#822;</td>
+                                <td>5</td>
+                            </tr>
+                            <tr>
+                                <td>Orange</td>
+                                <td>|||</td>
+                                <td>3</td>
+                            </tr>
+                        </table>
+
+                        <div class="content-text">
+                            <p>Look carefully. For mango there is one full bundle of five and three more single marks, which makes 5 + 3 = 8. For banana there is one bundle of five, so that is 5. For orange there are three single marks, so that is 3. A chart like this, with neat rows and columns and clear headings, is called a <strong>table</strong>. Notice the heading at the top of each column — "Fruit," "Tally," and "Number" — so that anyone reading it knows exactly what each part means.</p>
+                        </div>
+
+                        <div class="key-terms">
+                            <h4>Let's Explore</h4>
+                            <p>Make a tally chart of your own. Ask ten classmates whether they like cricket, football, or netball best. Make one tally mark for each answer, remembering to bundle in fives. Then count up and write the total number for each sport.</p>
+                        </div>
+
+                        <div class="learning-objectives">
+                            <h4>Quick Check</h4>
+                            <p>In a tally chart, how many marks are in one full bundle? And how would you show the number seven using tally marks?</p>
+                        </div>
+
+                        <div class="key-terms">
+                            <h4>Remember</h4>
+                            <p>Tally marks help you count one at a time without losing your place, and bundling them in fives makes them quick and easy to add up.</p>
+                        </div>
+                    </div>
+
+                    <div class="activity-box">
+                        <h4>Let's Practice</h4>
+                        <p>Choose one question to ask your class, such as "What is your favourite colour?" Decide on three or four categories before you begin. Then go around and collect everyone's answer, making one tally mark for each and bundling them in fives. Copy your tally chart into a neat table and write the total number for each category in the last column. Finally, talk about your data: which colour was chosen the most, which the least, and how many children were asked in all.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GRAPHS & CHARTS -->
+            <div id="graphs" class="tab-content">
+                <button class="print-btn" onclick="window.print()">🖨️ Print This Section</button>
+
+                <div class="section">
+                    <h2 class="section-title">Showing and Reading Data</h2>
+
+                    <div class="content-text">
+                        <p>A table is neat and useful, but there is an even more exciting way to show your data: you can turn it into a <strong>picture</strong>. When you do this, anyone can look at your data and understand it in a single glance. There are two favourite ways to picture data — pictographs and bar graphs — and you are going to learn both, and then learn how to read them.</p>
+                    </div>
+
+                    <div class="learning-objectives">
+                        <h4>What You Will Learn</h4>
+                        <ul>
+                            <li>Make and label a pictograph using a picture and a key.</li>
+                            <li>Make and label a bar graph using bars of different lengths.</li>
+                            <li>Read a table, a pictograph, and a bar graph to answer questions.</li>
+                            <li>Find which has the most, which has the least, and how many more or fewer.</li>
+                        </ul>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Lesson 3: Pictographs and Bar Graphs</h3>
+
+                        <div class="content-text">
+                            <p>A <strong>pictograph</strong> uses a small picture or symbol to stand for an amount. To make one, you decide on one picture to use, and then decide how many that one picture will stand for. This is called the <strong>key</strong>, and it is very important. For our favourite-fruit data, imagine we choose a small circle to stand for the children, and we decide that <strong>one circle stands for 2 children</strong>. That is our key. Mango had 8 children, so we draw 4 circles, because 4 twos make 8.</p>
+
+                            <p>Every pictograph needs three things to be complete: a <strong>title</strong> that tells what the graph is about, a <strong>label</strong> for each row, and a <strong>key</strong> that tells how much one picture is worth.</p>
+
+                            <p>A <strong>bar graph</strong> uses <strong>bars</strong> of different lengths to show amounts. A long bar means a large amount, and a short bar means a small amount. This makes it very easy to see, just by looking, which thing has the most and which has the least. To make a bar graph of our favourite fruits, we draw a line going up the side with numbers on it, and along the bottom we write the name of each fruit. For each fruit we draw a bar that rises up to the right number. Because mango's bar is the tallest, you can tell in an instant that mango is the most popular fruit, without reading a single number.</p>
+
+                            <p>Like a pictograph, a good bar graph must be labelled. It needs a title at the top, a label on the bottom telling what the bars stand for, and a label on the side telling what the numbers mean. When everything is labelled, your graph tells its story clearly.</p>
+                        </div>
+
+                        <div class="key-terms">
+                            <h4>Did You Know?</h4>
+                            <p>A bar graph can stand up tall, with bars rising upward — we call that a <em>vertical</em> bar graph. Or it can lie on its side, with bars stretching out to the right — we call that a <em>horizontal</em> bar graph. Both show exactly the same data; they just face different ways.</p>
+                        </div>
+
+                        <div class="learning-objectives">
+                            <h4>Look Around You</h4>
+                            <p>Bar graphs and pictographs appear in many places — in newspapers showing how many runs a cricketer scored, on posters in the clinic, and in television weather reports. Once you know how to read them, you will spot them everywhere.</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Lesson 4: Reading Graphs</h3>
+
+                        <div class="content-text">
+                            <p>Making a graph is only half the fun. The real magic happens when you <strong>read</strong> a graph to answer questions. When you read a bar graph or a pictograph, you can find <strong>how many</strong> (look at one bar and find the number it reaches), <strong>which has the most</strong> (find the longest bar), <strong>which has the least</strong> (find the shortest bar), and <strong>how many more or fewer</strong> (find the difference between two bars).</p>
+
+                            <p>Here is a table showing how the children in a Grade 3 class travel to school:</p>
+                        </div>
+
+                        <table>
+                            <tr>
+                                <th>Way to travel</th>
+                                <th>Number of children</th>
+                            </tr>
+                            <tr><td>Walk</td><td>7</td></tr>
+                            <tr><td>Bus</td><td>10</td></tr>
+                            <tr><td>Car</td><td>4</td></tr>
+                            <tr><td>Bicycle</td><td>2</td></tr>
+                        </table>
+
+                        <div class="content-text">
+                            <p>Let us read it like data detectives. <em>How many children ride the bus?</em> We look at the "Bus" row and see 10, so ten children ride the bus. <em>Which way is the most popular?</em> The largest number is 10, beside "Bus," so the bus is the most popular. <em>Which way is the least popular?</em> The smallest number is 2, beside "Bicycle." <em>How many more children walk than ride in a car?</em> Seven walk and four come by car, and 7 &minus; 4 = 3, so three more children walk than ride in a car.</p>
+                        </div>
+
+                        <div class="learning-objectives">
+                            <h4>Think About It</h4>
+                            <p>Why do you think a bar graph makes it so easy to spot the most popular and the least popular answer? What is it about the bars that helps your eyes find the answer fast?</p>
+                        </div>
+
+                        <div class="learning-objectives">
+                            <h4>Quick Check</h4>
+                            <p>Using the travel table above, how many children in all are in the class? (Hint: add up every number.) And how many more children ride the bus than ride a bicycle?</p>
+                        </div>
+
+                        <div class="key-terms">
+                            <h4>Remember</h4>
+                            <p>To find "the most," look for the longest bar or biggest number. To find "the least," look for the shortest bar or smallest number. To compare, find the difference by subtracting.</p>
+                        </div>
+                    </div>
+
+                    <div class="activity-box">
+                        <h4>Let's Practice</h4>
+                        <p>Here is a small table of pets owned by children in a group: Dog &mdash; 5, Cat &mdash; 3, Fish &mdash; 6. Use it to answer: Which pet is owned by the most children? Which by the fewest? How many more children own a fish than own a cat? How many children are in the group altogether? Then think about how you would draw this data as a bar graph, and which bar would be the tallest.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROBABILITY -->
+            <div id="probability" class="tab-content">
+                <button class="print-btn" onclick="window.print()">🖨️ Print This Section</button>
+
+                <div class="section">
+                    <h2 class="section-title">Chance and Probability</h2>
+
+                    <div class="content-text">
+                        <p>Some things in life are sure to happen. Some things might happen. And some things can never happen at all. When mathematicians talk about how likely something is to happen, they are talking about <strong>probability</strong>, which is just a grown-up word for <strong>chance</strong>. In this part you will learn the four special chance words and carry out your own probability experiments.</p>
+                    </div>
+
+                    <div class="learning-objectives">
+                        <h4>What You Will Learn</h4>
+                        <ul>
+                            <li>Use the words certain, likely, unlikely, and impossible to describe chance.</li>
+                            <li>Carry out a probability experiment, such as tossing a coin or rolling a die.</li>
+                            <li>Predict an outcome before an experiment begins.</li>
+                            <li>Record outcomes with tally marks and compare them with your prediction.</li>
+                        </ul>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Lesson 5: The Four Chance Words</h3>
+
+                        <div class="content-text">
+                            <p>To talk about chance, we use four special words. Learning these is like learning a secret code for describing the future.</p>
+
+                            <p>The first word is <strong>certain</strong>. Something is certain when it is sure to happen, every single time. It is certain that the sun will rise in the morning. It is certain that you will grow older.</p>
+
+                            <p>The second word is <strong>likely</strong>. Something is likely when it has a good chance of happening, even though it is not completely sure. It is likely to be hot in Jamaica at midday.</p>
+
+                            <p>The third word is <strong>unlikely</strong>. Something is unlikely when it has only a small chance of happening. It is unlikely that it will snow in Kingston.</p>
+
+                            <p>The fourth word is <strong>impossible</strong>. Something is impossible when it can never, ever happen. It is impossible for a cat to fly on its own. It is impossible to count to the very last number, because numbers never end.</p>
+                        </div>
+
+                        <div class="key-terms">
+                            <h4>Let's Explore</h4>
+                            <p>Sort these into certain, likely, unlikely, or impossible: "A fish will walk to school." "The bell will ring at the end of the day." "I will see a green car on the way home." "Tomorrow will come after today." Talk about your answers with a partner — you may not always agree, and that is part of the fun!</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Lesson 6: Doing a Probability Experiment</h3>
+
+                        <div class="content-text">
+                            <p>The best way to understand chance is to <strong>try it</strong> for yourself. When you do something to see what happens, that is called an <strong>experiment</strong>. What actually happens is called the <strong>outcome</strong>.</p>
+
+                            <p>Think about tossing a coin. A coin has two sides: heads and tails. When you toss it, it must land on one side or the other, so there are exactly two possible outcomes: heads or tails. Before you toss, you cannot be certain which one you will get, but you know it will be one of those two. Each side has the same chance, so we say heads and tails are <em>equally likely</em>.</p>
+
+                            <p>A good data detective always does three things. First, you <strong>predict</strong> — you make a sensible guess about what will happen before you begin. Then you do the experiment and <strong>record the outcome</strong>, writing down what really happened, often with a tally mark. Afterwards, you <strong>compare</strong> your prediction with the real outcomes to see how close your guess was. Suppose you toss a coin ten times and record each outcome:</p>
+                        </div>
+
+                        <table>
+                            <tr>
+                                <th>Outcome</th>
+                                <th>Tally</th>
+                                <th>Number</th>
+                            </tr>
+                            <tr><td>Heads</td><td>||||&#822; |</td><td>6</td></tr>
+                            <tr><td>Tails</td><td>||||</td><td>4</td></tr>
+                        </table>
+
+                        <div class="content-text">
+                            <p>In this experiment, heads came up 6 times and tails came up 4 times. That makes 6 + 4 = 10 tosses in all, which is exactly how many times we tossed — so we know we counted correctly. Heads and tails each have an equal chance, yet they did not come out perfectly even this time. That is the nature of chance: over just a few tosses, one outcome may happen a little more than the other. You can also <strong>roll a die</strong> and record which of the numbers 1 to 6 comes up, or <strong>pick a number</strong> from a bag and record what you draw. Each time, predict first, record with tally marks, then compare.</p>
+                        </div>
+
+                        <div class="key-terms">
+                            <h4>Did You Know?</h4>
+                            <p>Here is a probability game you can play with a partner. Write the numbers 1 to 12 on a sheet of paper. Place twelve counters on the numbers any way you like — you may even put more than one on the same number. Take turns rolling two dice and adding the two numbers together. If you have a counter on that sum, remove one. The first player to remove all their counters wins! Afterwards, talk about why some sums, like 6, 7, and 8, came up more often than 2 or 12.</p>
+                        </div>
+
+                        <div class="learning-objectives">
+                            <h4>Think About It</h4>
+                            <p>Before rolling one die, predict: are you more likely to roll a number less than 7, or a number greater than 7? Look at the numbers 1 to 6 on the die and explain your answer.</p>
+                        </div>
+
+                        <div class="key-terms">
+                            <h4>Remember</h4>
+                            <p>Certain means it will always happen, impossible means it can never happen, and likely and unlikely sit in between. In an experiment, always predict first, record the outcomes, then compare.</p>
+                        </div>
+                    </div>
+
+                    <div class="activity-box">
+                        <h4>Let's Practice</h4>
+                        <p>Toss a coin twenty times. Before you start, predict how many heads and how many tails you think you will get. Make a tally chart with two rows, "Heads" and "Tails," and record each toss with a tally mark, bundling in fives. When you finish, count the totals and check that they add up to twenty. Then compare your results with your prediction. Were you close?</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GLOSSARY -->
+            <div id="glossary" class="tab-content">
+                <button class="print-btn" onclick="window.print()">🖨️ Print This Section</button>
+
+                <div class="section">
+                    <h2 class="section-title">Word Power</h2>
+
+                    <div class="content-text">
+                        <p>Here are the important words you met in this chapter. Each one comes with its meaning and an example to help you remember it.</p>
+                    </div>
+
+                    <div class="key-terms">
+                        <div class="term"><strong>Data:</strong> Pieces of information that you collect. If you ask ten friends their favourite colour and write down each answer, all those answers together are your data.</div>
+                        <div class="term"><strong>Information:</strong> The facts you find out by looking, asking, or counting. "Six children walk to school" is a piece of information.</div>
+                        <div class="term"><strong>Tally:</strong> A small mark you make to count one thing. We draw four upright marks, then a fifth mark across them to make a group of five.</div>
+                        <div class="term"><strong>Table:</strong> A neat way to organise data in rows and columns with headings. A table can list each fruit in one column and how many children chose it in the next.</div>
+                        <div class="term"><strong>Pictograph:</strong> A graph that uses a picture or symbol to stand for an amount. One small apple might stand for two children who like apples.</div>
+                        <div class="term"><strong>Bar graph:</strong> A graph that uses bars of different lengths to show amounts. The longer the bar, the larger the amount.</div>
+                        <div class="term"><strong>Probability:</strong> The chance that something will happen. The probability of getting heads when you toss a coin is one chance out of two.</div>
+                        <div class="term"><strong>Certain:</strong> Sure to happen, every single time. It is certain that the sun will rise tomorrow.</div>
+                        <div class="term"><strong>Likely:</strong> Has a good chance of happening, but is not completely sure. It is likely to be hot in Jamaica at noon.</div>
+                        <div class="term"><strong>Unlikely:</strong> Has only a small chance of happening. It is unlikely that it will snow in Kingston.</div>
+                        <div class="term"><strong>Impossible:</strong> Can never happen, no matter what. It is impossible for a cat to fly on its own.</div>
+                        <div class="term"><strong>Outcome:</strong> What actually happens when you do an experiment. When you toss a coin, "heads" is one possible outcome and "tails" is the other.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ANSWER KEY -->
+            <div id="answers" class="tab-content">
+                <button class="print-btn" onclick="window.print()">🖨️ Print This Section</button>
+
+                <div class="section">
+                    <h2 class="section-title">Answer Key</h2>
+
+                    <div class="content-text">
+                        <p>Check your work against these answers. Remember that some questions ask you to write your own sentences, so your answer may use different words and still be correct.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Collecting Data — Quick Check</h3>
+                        <div class="content-text">
+                            <p>One full bundle has <strong>5</strong> marks. The number seven is shown as one bundle of five and two more single marks: ||||&#822; ||.</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Graphs &amp; Charts — Quick Check and Practice</h3>
+                        <div class="content-text">
+                            <p><strong>Travel table — total children:</strong> 7 + 10 + 4 + 2 = <strong>23</strong> children. The bus (10) is ridden by <strong>8 more</strong> children than the bicycle (2), because 10 &minus; 2 = 8.</p>
+                            <p><strong>Pets practice:</strong> Most children own a <strong>fish</strong> (6). The fewest own a <strong>cat</strong> (3). Three more children own a fish than a cat (6 &minus; 3 = 3). Altogether there are 5 + 3 + 6 = <strong>14</strong> children. The tallest bar would be the <strong>fish</strong> bar.</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Probability — Think About It</h3>
+                        <div class="content-text">
+                            <p>On one die the numbers are 1, 2, 3, 4, 5, and 6. The numbers less than 7 are 1, 2, 3, 4, 5, and 6 — that is every number on the die. The numbers greater than 7 are none. So it is <strong>certain</strong> you will roll a number less than 7, and <strong>impossible</strong> to roll a number greater than 7.</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Try It Yourself (from the chapter)</h3>
+                        <div class="content-text">
+                            <p><strong>1.</strong> Nine shown in tally marks: ||||&#822; |||| (one bundle of five and four single marks).</p>
+                            <p><strong>2.</strong> a) Fish is owned by the most children. b) Cat is owned by the fewest. c) Three more children own a fish than a cat (6 &minus; 3 = 3). d) 5 + 3 + 6 = 14 children altogether.</p>
+                            <p><strong>3.</strong> a) Certain. b) Impossible. c) Likely. d) Unlikely (there is only one chance out of six of rolling a 4 on the first try).</p>
+                            <p><strong>4.</strong> The two possible outcomes are <strong>heads</strong> and <strong>tails</strong>.</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Review Questions</h3>
+                        <div class="content-text">
+                            <p><strong>1.</strong> We call it <strong>data</strong>.</p>
+                            <p><strong>2.</strong> Eight in tally marks: ||||&#822; ||| (one bundle of five and three single marks).</p>
+                            <p><strong>3.</strong> Every good pictograph or bar graph must have a <strong>title</strong>, clear <strong>labels</strong>, and (for a pictograph) a <strong>key</strong> telling how much one picture is worth.</p>
+                            <p><strong>4.</strong> a) Patty is the most popular (9). b) Banana chips are the least popular (4). c) Five more children chose patty than banana chips (9 &minus; 4 = 5).</p>
+                            <p><strong>5.</strong> Answers will vary. Example sentences: It is <em>certain</em> that night follows day. It is <em>likely</em> we will play at break. It is <em>unlikely</em> a parrot will visit our class. It is <em>impossible</em> to touch the sky with your hand.</p>
+                            <p><strong>6.</strong> There are <strong>six</strong> possible outcomes when rolling a die: 1, 2, 3, 4, 5, and 6.</p>
+                            <p><strong>7.</strong> Predicting first lets you compare your guess with what really happens, which helps you learn about chance and check whether your thinking was correct.</p>
+                            <p><strong>8.</strong> 7 + 3 = <strong>10</strong> tosses in all.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Grade 3 Mathematics Textbook | Content Strand: Statistics and Probability | Jamaica National Standards Curriculum</p>
+            <p>This interactive textbook covers collecting and organising data, showing and reading graphs, and basic probability.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Tab navigation
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const tabName = button.getAttribute('data-tab');
+
+                // Remove active class from all buttons and contents
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+
+                // Add active class to clicked button and corresponding content
+                button.classList.add('active');
+                document.getElementById(tabName).classList.add('active');
+
+                // Scroll to top
+                window.scrollTo(0, 0);
+            });
+        });
+
+        // Collapsible sections
+        const collapsibles = document.querySelectorAll('.collapsible');
+        collapsibles.forEach(button => {
+            button.addEventListener('click', function() {
+                this.classList.toggle('active');
+                const content = this.nextElementSibling;
+                if (content && content.classList.contains('collapsible-content')) {
+                    content.classList.toggle('show');
+                }
+            });
+        });
+
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

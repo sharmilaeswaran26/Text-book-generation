@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade 3 Jamaica Integrated Studies Textbook</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .nav-tabs {
+            display: flex;
+            background: #f8f9fa;
+            border-bottom: 2px solid #ddd;
+            overflow-x: auto;
+            flex-wrap: wrap;
+        }
+
+        .nav-tabs button {
+            flex: 1;
+            padding: 15px 20px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 500;
+            color: #666;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+            min-width: 150px;
+        }
+
+        .nav-tabs button:hover {
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        .nav-tabs button.active {
+            color: #2a5298;
+            border-bottom-color: #2a5298;
+            background: white;
+        }
+
+        .content {
+            padding: 30px;
+            min-height: 600px;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 1.8em;
+            color: #1e3c72;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .subsection {
+            background: #f8f9fa;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 4px solid #667eea;
+            border-radius: 5px;
+        }
+
+        .subsection h3 {
+            color: #2a5298;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+
+        .learning-objectives {
+            background: #e3f2fd;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #2196F3;
+        }
+
+        .learning-objectives h4 {
+            color: #1565c0;
+            margin-bottom: 10px;
+        }
+
+        .learning-objectives ul {
+            margin-left: 20px;
+        }
+
+        .learning-objectives li {
+            margin: 8px 0;
+            color: #333;
+        }
+
+        .activity-box {
+            background: #fff3e0;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #ff9800;
+        }
+
+        .activity-box h4 {
+            color: #e65100;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .activity-box h4::before {
+            content: "✏️";
+            font-size: 1.2em;
+        }
+
+        .assessment-box {
+            background: #f3e5f5;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #9c27b0;
+        }
+
+        .assessment-box h4 {
+            color: #6a1b9a;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .assessment-box h4::before {
+            content: "📋";
+            font-size: 1.2em;
+        }
+
+        .extension-box {
+            background: #e8f5e9;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #4caf50;
+        }
+
+        .extension-box h4 {
+            color: #2e7d32;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .extension-box h4::before {
+            content: "⭐";
+            font-size: 1.2em;
+        }
+
+        .teacher-notes {
+            background: #ffe0b2;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #ff6f00;
+        }
+
+        .teacher-notes h4 {
+            color: #bf360c;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .teacher-notes h4::before {
+            content: "👨‍🏫";
+            font-size: 1.2em;
+        }
+
+        .content-text {
+            margin: 15px 0;
+            text-align: justify;
+        }
+
+        .content-text strong {
+            color: #1e3c72;
+        }
+
+        .diagram {
+            background: #f0f0f0;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            text-align: center;
+            border: 2px dashed #ddd;
+        }
+
+        .diagram img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+        }
+
+        table th {
+            background: #2a5298;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+
+        table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        table tr:hover {
+            background: #f5f5f5;
+        }
+
+        .key-terms {
+            background: #f5f5f5;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .key-terms h4 {
+            color: #1e3c72;
+            margin-bottom: 10px;
+        }
+
+        .term {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+
+        .term strong {
+            color: #2a5298;
+        }
+
+        .learning-outcomes {
+            background: #c8e6c9;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .learning-outcomes h4 {
+            color: #1b5e20;
+            margin-bottom: 10px;
+        }
+
+        .learning-outcomes ul {
+            margin-left: 20px;
+        }
+
+        .learning-outcomes li {
+            margin: 8px 0;
+            color: #333;
+        }
+
+        .checklist {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-left: 3px solid #2a5298;
+        }
+
+        .checklist input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        footer {
+            background: #1e3c72;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            .nav-tabs button {
+                min-width: 120px;
+                padding: 12px 15px;
+                font-size: 0.9em;
+            }
+        }
+
+        .collapsible {
+            background: #e3f2fd;
+            cursor: pointer;
+            padding: 15px;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 1em;
+            color: #1565c0;
+            font-weight: bold;
+            border-radius: 5px;
+            margin: 10px 0;
+            width: 100%;
+            transition: 0.3s;
+        }
+
+        .collapsible:hover {
+            background: #bbdefb;
+        }
+
+        .collapsible-content {
+            padding: 0 15px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .collapsible-content.show {
+            max-height: 1000px;
+        }
+
+        .print-btn {
+            background: #2a5298;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            margin: 20px 0;
+            transition: 0.3s;
+        }
+
+        .print-btn:hover {
+            background: #1e3c72;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            .nav-tabs {
+                display: none;
+            }
+            .print-btn {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📚 Grade 3 Integrated Studies Textbook</h1>
+            <p>Jamaica National Standards Curriculum - Term 2, Unit 2: Jamaica and Other Countries</p>
+            <p style="font-size: 0.9em; margin-top: 10px;">Types of Relations | Why Relationships Matter | Alike and Different | Keeping Good Relations</p>
+            <p style="margin-top:14px;"><a href="../../index.html" style="color:#fff; background:rgba(255,255,255,0.15); padding:6px 14px; border-radius:5px; text-decoration:none; font-size:0.9em;">← Subject Home</a></p>
+        </header>
+
+        <div class="nav-tabs">
+            <button class="tab-btn active" data-tab="focus-q1">Focus Q1: Types of Relations</button>
+            <button class="tab-btn" data-tab="focus-q2">Focus Q2: Why It Matters</button>
+            <button class="tab-btn" data-tab="focus-q3">Focus Q3: Alike & Different</button>
+            <button class="tab-btn" data-tab="focus-q4">Focus Q4: Good Relations</button>
+            <button class="tab-btn" data-tab="glossary">Glossary</button>
+            <button class="tab-btn" data-tab="answers">Answer Key</button>
+        </div>
+
+        <div class="content">
+            <!-- FOCUS QUESTION 1 -->
+            <div id="focus-q1" class="tab-content active">
+                <button class="print-btn" onclick="window.print()">🖨️ Print This Section</button>
+
+                <div class="section">
+                    <h2 class="section-title">Focus Question 1: What types of relations do we have with people of other countries?</h2>
+
+                    <div class="subsection">
+                        <h3>What Is a Relationship Between Countries?</h3>
+                        <div class="content-text">
+                            <p>You already know about relationships. You have a relationship with your mother and father, with your teacher, and with your friends at school. A <strong>relationship</strong> is the way two people are connected and the way they treat each other. Countries have relationships too. Just as you and your best friend share things, help each other, and spend time together, two countries can share goods, share ideas, help each other in hard times, and join together for sport, music, and learning.</p>
+                            <p>Almost every country in the world is joined to other countries in one way or another. No country lives completely on its own, just as no person lives completely on their own. We all need one another. There is a special word for the way countries depend on and help each other. We call it <strong>interdependence</strong>. The word "inter" means <em>between</em>, and "dependence" means <em>needing help</em>. So interdependence means that countries need and help one another.</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Trade: Buying and Selling Across the Sea</h3>
+                        <div class="content-text">
+                            <p>One of the most important ways that Jamaica relates to other countries is through <strong>trade</strong>. Trade simply means the buying and selling of goods. When you go to the shop and buy a loaf of bread with money, you are trading. Countries trade with one another too, but on a much bigger scale.</p>
+                            <p>Goods that we send away to sell in other countries are called <strong>exports</strong>. Jamaica exports many things that we grow and make on our island, such as bananas, coffee, sugar, and a special reddish earth called bauxite. Goods that come into Jamaica from other countries are called <strong>imports</strong>. We import cars, computers, machines, and some kinds of food that we do not make here. Remember it this way: <strong>export</strong> sends goods <em>out</em>, and <strong>import</strong> brings goods <em>in</em>.</p>
+                            <p>Imagine a farmer in St. Elizabeth who grows sweet bananas. Some of those bananas are shipped across the sea to be sold in England — those bananas are an export. Then the farmer drives home in a car that was made in Japan — that car is an import. In one single day, this farmer is connected to both England and Japan through trade.</p>
+                        </div>
+                        <div class="key-terms">
+                            <h4>Did You Know?</h4>
+                            <p>When you collect the labels and tags from items around your home, you can find goods that came from many different countries — your toothpaste, your school bag, your toy, and your snacks may each come from a different part of the world. Each label tells a little story of trade.</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Sports: Cheering for Jamaica Around the World</h3>
+                        <div class="content-text">
+                            <p>Another wonderful way that Jamaica relates to other countries is through <strong>sports</strong>. Jamaicans love sport, and we are very good at it. Our athletes travel all over the world to compete, and people in many countries know and admire them.</p>
+                            <p>At big events such as the Olympic Games, athletes from many countries come together to compete. When a Jamaican sprinter races down the track, the whole world watches, and people everywhere learn the name of our small but mighty island. Athletes like Veronica Campbell-Brown have proudly represented Jamaica at the Olympics. We also relate to other countries through games like cricket, football, and netball. In cricket, Jamaica plays alongside other Caribbean countries as part of the West Indies team.</p>
+                        </div>
+                        <div class="learning-objectives">
+                            <h4>Think About It</h4>
+                            <p>Can you name a Jamaican athlete or sports team that has made you feel proud? When that person or team competes abroad, how do you think people in other countries come to feel about Jamaica?</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Music and Culture: Sharing Who We Are</h3>
+                        <div class="content-text">
+                            <p>Jamaica is famous all over the world for its <strong>music</strong>. Our reggae and dancehall are loved in country after country. When people in other lands hear Jamaican music, they learn a little about who we are, and they come to love our island.</p>
+                            <p>Music is part of something larger called <strong>culture</strong>. Culture is the whole way a group of people live — their music, their food, their clothing, their language, and their customs. Jamaica shares its culture with the world, and the world shares its culture with us. Jamaican artists sometimes work together with singers from other countries, mixing our sounds with theirs to make something new. We call this working-together <strong>collaboration</strong>.</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Travel and Tourism: Welcoming the World</h3>
+                        <div class="content-text">
+                            <p>Every day, aeroplanes land at our airports and big cruise ships sail into our harbours, bringing thousands of visitors to Jamaica. A person who travels to visit a country for pleasure or rest is called a <strong>tourist</strong>. The business of welcoming and caring for these visitors is called <strong>tourism</strong>.</p>
+                            <p>People come from all over the world to enjoy Jamaica's warm sunshine, our golden beaches, our friendly people, and our delicious food. When tourists arrive, they stay in our hotels, eat in our restaurants, visit our beaches and waterfalls, and buy crafts made by Jamaican hands. A tourist who has a wonderful time in Jamaica will go home and tell their family and friends, and so our island makes more and more friends across the globe.</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Family, Friends, and Messages Across the Sea</h3>
+                        <div class="content-text">
+                            <p>Many Jamaican families have relatives who live in other countries. Perhaps you have an aunt in New York, a grandmother in England, or a cousin in Canada. Jamaicans live and work in many parts of the world, and together they are called the <strong>Jamaican diaspora</strong> — the Jamaicans who live abroad.</p>
+                            <p>Even when family members live far away, we stay connected by talking on the telephone and sending messages and pictures by email and over the internet. This sharing of messages is called <strong>communication</strong>. You can build relationships with people in other countries too. Children sometimes write to a <strong>pen pal</strong> or an <strong>e-pal</strong> — a friend in another country whom they get to know through letters or email.</p>
+                        </div>
+                    </div>
+
+                    <div class="activity-box">
+                        <h4>Let's Practice</h4>
+                        <p>Look around your home for items with labels that say "Made in" another country. Make a small list of the countries you find. These items are imports that connect your home to the world. Then choose one item and decide: is it an import or an export for Jamaica?</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FOCUS QUESTION 2 -->
+            <div id="focus-q2" class="tab-content">
+                <button class="print-btn" onclick="window.print()">🖨️ Print This Section</button>
+
+                <div class="section">
+                    <h2 class="section-title">Focus Question 2: Why is it important that we relate to other countries of the world?</h2>
+
+                    <div class="subsection">
+                        <h3>We Get Things We Cannot Make Ourselves</h3>
+                        <div class="content-text">
+                            <p>No single country in the whole world can make everything that its people need. Not even the biggest and richest country can do that. Each country has some things it can make or grow well, and other things it cannot.</p>
+                            <p>Jamaica is wonderful at growing bananas, coffee, and sugar, and we are good at mining bauxite. But we do not build large aeroplanes or make most of our cars and computers. So we trade. We sell, or export, the goods we have plenty of, and we use the money to buy, or import, the goods we need from other countries. This is <strong>interdependence</strong> in action. We give other countries what they want from us, and they give us what we want from them, and everyone is better off because of it.</p>
+                        </div>
+                        <div class="learning-objectives">
+                            <h4>Think About It</h4>
+                            <p>Look around the room you are in right now. Can you spot one thing that probably came from another country? How would your day be different if that thing did not exist?</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>We Share, We Learn, and We Grow</h3>
+                        <div class="content-text">
+                            <p>Relationships with other countries do far more than bring us goods. They also help us to learn and to grow. When Jamaica relates to other countries, we get to share our ideas with them, and we get to learn wonderful new things from them.</p>
+                            <p>We learn from other countries in <strong>education</strong>, when our students and teachers share lessons and ideas with people abroad. We learn in <strong>health</strong>, when doctors and nurses share knowledge that keeps people well. We share and learn through music, art, sport, and religion too. A Jamaican child who writes to an e-pal learns about a new way of life, and at the same time teaches that e-pal about Jamaica. Both children grow wiser, and both make a new friend.</p>
+                        </div>
+                        <div class="key-terms">
+                            <h4>Did You Know?</h4>
+                            <p>Even the religions practised in Jamaica show how connected we are to the world. Many of the faiths followed here came to our island long ago from other countries, and Jamaicans of different faiths still feel a bond with people of the same faith living all over the world.</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Tourism Brings Many Good Things</h3>
+                        <div class="content-text">
+                            <p>Why is tourism so important to us? First, tourism brings money into Jamaica. When visitors stay in our hotels, eat our food, and buy our crafts, they spend money here. This money, earned from other countries, is called <strong>foreign exchange</strong>, and it helps our whole country.</p>
+                            <p>Second, tourism gives many Jamaicans <strong>jobs</strong>. Think of all the people needed to care for visitors: hotel workers, cooks, tour guides, taxi drivers, and craft makers. Third, tourism lets us meet people from many different countries and cultures right here at home. People are attracted to Jamaica by our warm weather, our beautiful beaches, our green mountains and waterfalls, our friendly people, our tasty food, and our happy music.</p>
+                            <p>Imagine a hotel near the sea. A family of tourists stays for one week. A Jamaican cook prepares their meals, a Jamaican cleaner keeps their room tidy, a Jamaican guide takes them to a waterfall, and a Jamaican craft seller sells them a souvenir. The money the family spends helps to pay all of these workers. So one happy tourist visit helps many Jamaicans at once.</p>
+                        </div>
+                        <div class="learning-objectives">
+                            <h4>Think About It</h4>
+                            <p>Tourism brings many good things, but it can have some hard sides too, like crowded beaches or extra litter. Why do you think it is wise to think about both the good and the not-so-good sides of anything?</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Friendship and Help Between Nations</h3>
+                        <div class="content-text">
+                            <p>Perhaps the most beautiful reason of all for relating to other countries is friendship. When countries know each other and trade and share together, they become friends. And friends help one another in times of need.</p>
+                            <p>Sometimes a country is struck by a terrible storm, a flood, or an earthquake. When this happens, friendly countries from around the world send help — food, water, medicine, and people to assist. Jamaica has received help from other countries during hard times, and Jamaica has also sent help to others. When nations are friends, the whole world becomes a safer, kinder, and happier place.</p>
+                        </div>
+                        <div class="key-terms">
+                            <h4>Did You Know?</h4>
+                            <p>Jamaica belongs to groups of friendly countries that work together to help one another, especially our neighbours in the Caribbean. When Caribbean countries cooperate, each one becomes stronger than it could ever be alone.</p>
+                        </div>
+                    </div>
+
+                    <div class="activity-box">
+                        <h4>Let's Practice</h4>
+                        <p>Make a short list of five good things that come to Jamaica from relating to other countries. Then circle the one you think is the most important, and be ready to explain why you chose it.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FOCUS QUESTION 3 -->
+            <div id="focus-q3" class="tab-content">
+                <button class="print-btn" onclick="window.print()">🖨️ Print This Section</button>
+
+                <div class="section">
+                    <h2 class="section-title">Focus Question 3: In what ways am I like or different from the people outside of Jamaica with whom I relate?</h2>
+
+                    <div class="subsection">
+                        <h3>In So Many Ways, We Are Alike</h3>
+                        <div class="content-text">
+                            <p>It is easy to think that people in faraway countries must be completely different from us. But when you look closely, you find something beautiful: in the most important ways, people all over the world are very much alike.</p>
+                            <p>Every child in the world, no matter where they live, has the same basic <strong>needs</strong>. We all need food to eat, clean water to drink, clothes to wear, and a safe place to sleep. We all need to be loved and cared for. We are alike in other happy ways too. Children everywhere have <strong>families</strong> they love. Children everywhere like to <strong>play</strong> games and have fun. Children everywhere enjoy food, music, and stories, and they laugh when they are happy and feel sad when they are hurt.</p>
+                        </div>
+                        <div class="learning-objectives">
+                            <h4>Think About It</h4>
+                            <p>Name three things you need to live and be happy. Do you think a child living far away in another country needs those same three things? What does that tell you about people everywhere?</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>In Other Ways, We Are Different</h3>
+                        <div class="content-text">
+                            <p>Even though people share so much, there are also many ways in which we are different from one another — and these differences are part of what makes the world so interesting and colourful.</p>
+                            <p>People in different countries often speak different <strong>languages</strong>. They wear different kinds of <strong>clothing</strong>, especially traditional dress on special days. They eat different <strong>foods</strong>, follow different <strong>customs</strong> and celebrate different holidays, and may follow different <strong>religions</strong>. The <strong>weather</strong> is different from place to place too. Jamaica is warm and sunny almost all year, but some countries have snow and cold winters. None of these differences make one country better than another. Just as a garden is more beautiful when it has many kinds of flowers, the world is more beautiful because it has many different kinds of people.</p>
+                            <p>Imagine you become e-pals with a child named Amara who lives in Nigeria. You discover that you are alike in many ways: you both love your families and enjoy playing football. But you also discover differences. Amara speaks a language you have never heard, eats foods you have never tasted, and celebrates holidays you have never known. By sharing your likenesses and differences, you become good friends.</p>
+                        </div>
+                        <div class="key-terms">
+                            <h4>Did You Know?</h4>
+                            <p>When tourists visit Jamaica, they clearly enjoy our culture — they love our music, our food, and our dances. This shows us that even people who come from very different places can fall in love with the special things that make Jamaica unique.</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Learning From Other Countries</h3>
+                        <div class="content-text">
+                            <p>One of the best ways to learn how you are alike and different from others is to study another country. When you learn about a country's <strong>language</strong>, its main <strong>religion</strong>, its <strong>special holidays</strong>, its <strong>national symbols</strong>, its <strong>money</strong>, its <strong>food</strong>, its <strong>dress</strong>, and its <strong>music and dances</strong>, you begin to see clearly which things are like Jamaica and which things are different.</p>
+                            <p>You might compare the money, or currency, of another country with the Jamaican dollar to see how much things cost there. You might listen to another country's national anthem and stand in the proper, respectful posture for it. You might learn the traditional dances of another country, or play the children's games of another country and discover that children far away enjoy games just as much as you do. Learning all of this helps you to understand and respect people who are different from you, so that the people of the world can live together in peace and harmony.</p>
+                        </div>
+                        <div class="learning-objectives">
+                            <h4>Think About It</h4>
+                            <p>If you could learn about any country in the whole world, which one would you choose, and why? What is one thing you would most like to find out about the children who live there?</p>
+                        </div>
+                    </div>
+
+                    <div class="activity-box">
+                        <h4>Let's Practice</h4>
+                        <p>Think of a child your age in another country. In your notebook, write one way you are alike and one way you might be different. Then write one question you would love to ask that child about their country.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FOCUS QUESTION 4 -->
+            <div id="focus-q4" class="tab-content">
+                <button class="print-btn" onclick="window.print()">🖨️ Print This Section</button>
+
+                <div class="section">
+                    <h2 class="section-title">Focus Question 4: How can I ensure that Jamaica maintains good relations with other countries?</h2>
+
+                    <div class="subsection">
+                        <h3>Good Relations Begin With You</h3>
+                        <div class="content-text">
+                            <p>It is easy to think that keeping Jamaica friendly with other countries is a job only for grown-ups and leaders. But that is not true. Every single Jamaican helps to build our country's good name, and that includes you.</p>
+                            <p>When a tourist meets a kind and helpful Jamaican child, that visitor goes home thinking, "Jamaicans are wonderful people." But when a visitor meets someone rude or unkind, they may go home with a poor opinion of our whole island. Every time you meet a person from another country, you are showing the whole world what Jamaica is like. You are a little ambassador for your country. We call this being a good <strong>representative</strong> of Jamaica.</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Kindness, Respect, and Good Manners</h3>
+                        <div class="content-text">
+                            <p>The simplest way to keep Jamaica's good relations is to treat people with <strong>kindness</strong>, <strong>respect</strong>, and <strong>good manners</strong>. When you meet a visitor, you can greet them warmly and with a smile. You can say "good morning," "please," and "thank you." You can be helpful if someone is lost. You can be patient and friendly, even with people who do things in a different way from you.</p>
+                            <p>It is also important to welcome visitors and to treat tourists well. Sadly, sometimes visitors are bothered or troubled by people who are not kind to them. This is called <strong>tourist harassment</strong>, and it is harmful. When tourists are treated unkindly, they may warn others not to visit Jamaica, and this hurts our whole country, especially the many Jamaicans whose jobs depend on tourism.</p>
+                            <p>Imagine a tourist standing on a street corner, looking confused and holding a map. One child walks past and ignores her. But another child, perhaps like you, stops and says, "Good morning! Are you lost? Let me help you find your way." That evening, the tourist tells her family how kind the people of Jamaica are. Just one small act of kindness from one child helped to make a friend for the whole of Jamaica.</p>
+                        </div>
+                        <div class="key-terms">
+                            <h4>Did You Know?</h4>
+                            <p>Our artists and our sports personalities are some of Jamaica's greatest helpers when it comes to making friends around the world. When they perform and compete with kindness and skill, they win admiration for our island and help to keep our good relations strong.</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Being a Good Friend to Other Countries</h3>
+                        <div class="content-text">
+                            <p>Keeping good relations is a lot like keeping a good friendship. Think about how you keep a friend. You are kind to them, you share with them, and you help them when they are in trouble. Countries keep their friendships in much the same way.</p>
+                            <p>But friendships between countries can be damaged too. If a country is unfriendly, breaks its promises, or treats others badly, the <strong>ties between the countries can be broken</strong>. When that happens, sad things follow. The countries may stop trading, so they can no longer get the goods they need from each other. They may stop helping each other in hard times. Everyone ends up worse off. We keep friendships strong through <strong>shared values and skills</strong> — kindness, fairness, respect, and cooperation — the very same things that keep your own friendships strong.</p>
+                        </div>
+                        <div class="learning-objectives">
+                            <h4>Think About It</h4>
+                            <p>Think of a time you and a friend had a disagreement, and then made up again. What did you do to fix the friendship? How might two countries fix a friendship in a similar way?</p>
+                        </div>
+                    </div>
+
+                    <div class="activity-box">
+                        <h4>Let's Practice</h4>
+                        <p>Think about a visitor coming to your community for the first time. In your notebook, plan three kind things you could do or say to make them feel welcome in Jamaica and to show them what good representatives Jamaicans are.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GLOSSARY -->
+            <div id="glossary" class="tab-content">
+                <button class="print-btn" onclick="window.print()">🖨️ Print This Section</button>
+
+                <div class="section">
+                    <h2 class="section-title">Glossary: Words to Know</h2>
+                    <div class="key-terms">
+                        <div class="term"><strong>Country:</strong> a land with its own people, government, flag, and name, such as Jamaica.</div>
+                        <div class="term"><strong>Relationship (relations):</strong> the way two people, or two countries, are connected to and treat each other.</div>
+                        <div class="term"><strong>Interdependence:</strong> when two countries depend on and help each other, each giving something the other needs.</div>
+                        <div class="term"><strong>Trade:</strong> the buying and selling of goods between people or between countries.</div>
+                        <div class="term"><strong>Import:</strong> goods that come into Jamaica from another country.</div>
+                        <div class="term"><strong>Export:</strong> goods that Jamaica sends out to be sold in another country.</div>
+                        <div class="term"><strong>Tourist:</strong> a person who travels to visit a country for pleasure, rest, or to see new places.</div>
+                        <div class="term"><strong>Tourism:</strong> the business of welcoming and caring for tourists who come to visit.</div>
+                        <div class="term"><strong>Culture:</strong> the way a group of people live: their food, music, dress, language, and customs.</div>
+                        <div class="term"><strong>Communication:</strong> sending and sharing messages, such as by letter, email, telephone, or the internet.</div>
+                        <div class="term"><strong>Cooperation:</strong> working together with others to reach a shared goal.</div>
+                        <div class="term"><strong>Collaboration:</strong> when people from different places work together to create something, such as a song.</div>
+                        <div class="term"><strong>Similarities:</strong> the ways in which two things are alike.</div>
+                        <div class="term"><strong>Differences:</strong> the ways in which two things are not the same.</div>
+                        <div class="term"><strong>Foreign exchange:</strong> the money a country earns from other countries, often from visitors and from exports.</div>
+                        <div class="term"><strong>Diaspora:</strong> the people of a country, such as Jamaicans, who live and work abroad in other countries.</div>
+                        <div class="term"><strong>Representative:</strong> a person whose actions show others what their whole country or group is like.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ANSWER KEY -->
+            <div id="answers" class="tab-content">
+                <button class="print-btn" onclick="window.print()">🖨️ Print This Section</button>
+
+                <div class="section">
+                    <h2 class="section-title">Answer Key</h2>
+
+                    <div class="subsection">
+                        <h3>Let's Practice Answers</h3>
+                        <div class="content-text">
+                            <p><strong>Q1 (Imports at home):</strong> Many household items, such as toothpaste, school bags, toys, and snacks, are made in other countries. Anything made abroad and brought into Jamaica is an <strong>import</strong>. Goods Jamaica sends out to sell, like bananas or coffee, are <strong>exports</strong>.</p>
+                            <p><strong>Q2 (Five good things from relating):</strong> Sensible answers include: we get goods we cannot make ourselves; we share and learn new things; tourism brings money (foreign exchange); tourism brings jobs; and we gain friends who help us in times of need.</p>
+                            <p><strong>Q3 (Alike and different):</strong> We are alike because we all have needs, families, games, and feelings. We may be different in language, dress, food, customs, religion, and weather.</p>
+                            <p><strong>Q4 (Welcoming a visitor):</strong> Good answers include greeting them with a smile, saying "please" and "thank you," helping if they are lost, and showing them something beautiful about Jamaica.</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>End-of-Chapter Review Answers</h3>
+                        <div class="content-text">
+                            <p><strong>1.</strong> A relationship between countries means the two countries are connected and do things together, such as trading goods, sharing ideas, playing sport, and helping each other.</p>
+                            <p><strong>2.</strong> An <strong>import</strong> comes into Jamaica from another country (for example, a car or a computer). An <strong>export</strong> goes out of Jamaica to be sold abroad (for example, bananas or coffee).</p>
+                            <p><strong>3.</strong> Jamaica relates to other countries through trade, sports, music and culture, tourism, and communication with family and friends abroad. (Any one explained, e.g. through trade we export bananas and import cars.)</p>
+                            <p><strong>4.</strong> A tourist is a person who travels to visit a country for pleasure or rest. Tourism is important because it brings money (foreign exchange) and jobs to Jamaica, and lets us meet people from many cultures.</p>
+                            <p><strong>5.</strong> Interdependence means countries depend on and help each other. Example: after a hurricane, friendly countries send food, water, and medicine to help.</p>
+                            <p><strong>6.</strong> We are alike because we all have the same needs (food, water, clothing, shelter, love), we all have families, and we all enjoy games, food, and stories. (Any two.)</p>
+                            <p><strong>7.</strong> We may be different in the language we speak, the clothing we wear, the foods we eat, the customs and holidays we keep, the religion we follow, and the weather where we live. (Any two.)</p>
+                            <p><strong>8.</strong> Learning about other countries helps us understand and respect people who are different from us, so the people of the world can live together in peace and harmony.</p>
+                            <p><strong>9.</strong> Good answers include: greeting visitors warmly with a smile, using good manners like "please" and "thank you," helping a visitor who is lost, being patient and friendly, and never harassing or troubling tourists.</p>
+                            <p><strong>10.</strong> When ties between countries are broken, they may stop trading (so they cannot get goods they need) and stop helping each other in hard times, leaving everyone worse off. Keeping good relations through kindness, fairness, respect, and cooperation prevents this.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Grade 3 Jamaica Integrated Studies Textbook | Ministry of Education, Youth and Information, Jamaica | Term 2, Unit 2: Jamaica and Other Countries</p>
+            <p>This interactive textbook covers all four focus questions for the unit as per the National Standards Curriculum.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Tab navigation
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const tabName = button.getAttribute('data-tab');
+
+                // Remove active class from all buttons and contents
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+
+                // Add active class to clicked button and corresponding content
+                button.classList.add('active');
+                document.getElementById(tabName).classList.add('active');
+
+                // Scroll to top
+                window.scrollTo(0, 0);
+            });
+        });
+
+        // Collapsible sections
+        const collapsibles = document.querySelectorAll('.collapsible');
+        collapsibles.forEach(button => {
+            button.addEventListener('click', function() {
+                this.classList.toggle('active');
+                const content = this.nextElementSibling;
+                if (content && content.classList.contains('collapsible-content')) {
+                    content.classList.toggle('show');
+                }
+            });
+        });
+
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

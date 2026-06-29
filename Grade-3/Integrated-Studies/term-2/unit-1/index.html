@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade 3 Jamaica Integrated Studies Textbook</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .nav-tabs {
+            display: flex;
+            background: #f8f9fa;
+            border-bottom: 2px solid #ddd;
+            overflow-x: auto;
+            flex-wrap: wrap;
+        }
+
+        .nav-tabs button {
+            flex: 1;
+            padding: 15px 20px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 500;
+            color: #666;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+            min-width: 150px;
+        }
+
+        .nav-tabs button:hover {
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        .nav-tabs button.active {
+            color: #2a5298;
+            border-bottom-color: #2a5298;
+            background: white;
+        }
+
+        .content {
+            padding: 30px;
+            min-height: 600px;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 1.8em;
+            color: #1e3c72;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .subsection {
+            background: #f8f9fa;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 4px solid #667eea;
+            border-radius: 5px;
+        }
+
+        .subsection h3 {
+            color: #2a5298;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+
+        .learning-objectives {
+            background: #e3f2fd;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #2196F3;
+        }
+
+        .learning-objectives h4 {
+            color: #1565c0;
+            margin-bottom: 10px;
+        }
+
+        .learning-objectives ul {
+            margin-left: 20px;
+        }
+
+        .learning-objectives li {
+            margin: 8px 0;
+            color: #333;
+        }
+
+        .activity-box {
+            background: #fff3e0;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #ff9800;
+        }
+
+        .activity-box h4 {
+            color: #e65100;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .activity-box h4::before {
+            content: "✏️";
+            font-size: 1.2em;
+        }
+
+        .assessment-box {
+            background: #f3e5f5;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #9c27b0;
+        }
+
+        .assessment-box h4 {
+            color: #6a1b9a;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .assessment-box h4::before {
+            content: "📋";
+            font-size: 1.2em;
+        }
+
+        .extension-box {
+            background: #e8f5e9;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #4caf50;
+        }
+
+        .extension-box h4 {
+            color: #2e7d32;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .extension-box h4::before {
+            content: "⭐";
+            font-size: 1.2em;
+        }
+
+        .teacher-notes {
+            background: #ffe0b2;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #ff6f00;
+        }
+
+        .teacher-notes h4 {
+            color: #bf360c;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .teacher-notes h4::before {
+            content: "👨‍🏫";
+            font-size: 1.2em;
+        }
+
+        .content-text {
+            margin: 15px 0;
+            text-align: justify;
+        }
+
+        .content-text strong {
+            color: #1e3c72;
+        }
+
+        .diagram {
+            background: #f0f0f0;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            text-align: center;
+            border: 2px dashed #ddd;
+        }
+
+        .diagram img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+        }
+
+        table th {
+            background: #2a5298;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+
+        table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        table tr:hover {
+            background: #f5f5f5;
+        }
+
+        .key-terms {
+            background: #f5f5f5;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .key-terms h4 {
+            color: #1e3c72;
+            margin-bottom: 10px;
+        }
+
+        .term {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+
+        .term strong {
+            color: #2a5298;
+        }
+
+        .learning-outcomes {
+            background: #c8e6c9;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .learning-outcomes h4 {
+            color: #1b5e20;
+            margin-bottom: 10px;
+        }
+
+        .learning-outcomes ul {
+            margin-left: 20px;
+        }
+
+        .learning-outcomes li {
+            margin: 8px 0;
+            color: #333;
+        }
+
+        .checklist {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-left: 3px solid #2a5298;
+        }
+
+        .checklist input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        footer {
+            background: #1e3c72;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            .nav-tabs button {
+                min-width: 120px;
+                padding: 12px 15px;
+                font-size: 0.9em;
+            }
+        }
+
+        .collapsible {
+            background: #e3f2fd;
+            cursor: pointer;
+            padding: 15px;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 1em;
+            color: #1565c0;
+            font-weight: bold;
+            border-radius: 5px;
+            margin: 10px 0;
+            width: 100%;
+            transition: 0.3s;
+        }
+
+        .collapsible:hover {
+            background: #bbdefb;
+        }
+
+        .collapsible-content {
+            padding: 0 15px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .collapsible-content.show {
+            max-height: 1000px;
+        }
+
+        .print-btn {
+            background: #2a5298;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            margin: 20px 0;
+            transition: 0.3s;
+        }
+
+        .print-btn:hover {
+            background: #1e3c72;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            .nav-tabs {
+                display: none;
+            }
+            .print-btn {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📚 Grade 3 Integrated Studies Textbook</h1>
+            <p>Jamaica National Standards Curriculum - Term 2, Unit 1: Workers and Community</p>
+            <p style="font-size: 0.9em; margin-top: 10px;">Who provides our goods and services? | How workers develop the community | How rules help workers</p>
+            <p style="margin-top:14px;"><a href="../../index.html" style="color:#fff; background:rgba(255,255,255,0.15); padding:6px 14px; border-radius:5px; text-decoration:none; font-size:0.9em;">← Subject Home</a></p>
+        </header>
+
+        <div class="nav-tabs">
+            <button class="tab-btn active" data-tab="focus-q1">Focus Q1: Providers</button>
+            <button class="tab-btn" data-tab="focus-q2">Focus Q2: Community</button>
+            <button class="tab-btn" data-tab="focus-q3">Focus Q3: Rules</button>
+            <button class="tab-btn" data-tab="glossary">Glossary</button>
+            <button class="tab-btn" data-tab="answers">Answer Key</button>
+        </div>
+
+        <div class="content">
+            <!-- FOCUS QUESTION 1 -->
+            <div id="focus-q1" class="tab-content active">
+                <button class="print-btn" onclick="window.print()">🖨️ Print This Section</button>
+
+                <div class="section">
+                    <h2 class="section-title">Focus Question 1: Who are the providers of goods and services that we need?</h2>
+
+                    <div class="subsection">
+                        <h3>Goods and Services</h3>
+                        <div class="content-text">
+                            <p>The workers in your community provide two kinds of things. We call them <strong>goods</strong> and <strong>services</strong>.</p>
+                            <p><strong>Goods</strong> are things you can hold in your hands and use. A loaf of bread is a good. So is a pair of shoes, a school bag, a wooden chair, a bunch of bananas, and a bottle of water. Goods are things that have been made or grown by somebody. When you go to a shop and buy a tin of milk or a bag of rice, you are buying goods.</p>
+                            <p><strong>Services</strong> are different. A service is not a thing you can hold. A service is helpful work that one person does for another. When a teacher teaches your class, that is a service. When a bus driver carries you safely to school, that is a service. When a doctor makes you better, when a barber cuts your hair, or when a fireman puts out a fire, each of those is a service.</p>
+                            <p>Here is an easy way to remember the difference. If it is a <em>thing</em> you can touch and keep, it is a <strong>good</strong>. If it is <em>help</em> that someone does for you, it is a <strong>service</strong>. We need them both every single day.</p>
+                        </div>
+                        <div class="learning-objectives">
+                            <h4>Think About It</h4>
+                            <p>Look around the room you are in right now. Can you point to three goods that a worker made? Can you think of one service that a worker did for you today?</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Workers Are the Providers</h3>
+                        <div class="content-text">
+                            <p>Goods and services do not appear by magic. Behind every good and every service there is a worker. A worker is a person who does a job, and we call that worker a <strong>provider</strong>, because the worker provides — that means gives — the goods and services we need. The person who uses those goods and services is called a <strong>consumer</strong>.</p>
+                            <p>Imagine a farmer named Mr Brown who grows yam and tomatoes. Mr Brown is a provider, because he provides the food he grows. He sells his food at the market to a lady named Miss Pearl, who buys it. Right now, Miss Pearl is a consumer. But Miss Pearl is a nurse, and at the hospital she provides a service by caring for sick people. So Miss Pearl is a provider too. The farmer feeds the nurse, and the nurse cares for the farmer. That is how a community works.</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Meet the Workers in Our Community</h3>
+                        <div class="content-text">
+                            <p>If you walk around your community with your eyes open, you will see workers everywhere. Some <strong>workers grow and catch our food</strong>. Farmers plant crops like yam, cabbage, and banana, and raise animals. Fishermen sail out early in the morning to catch fish for us to eat.</p>
+                            <p>Some workers <strong>sell us the things we need</strong>. The shopkeeper in the corner shop and the market vendor at the stall sell goods like rice, soap, and fruit.</p>
+                            <p>Some workers <strong>build and fix things</strong>. A carpenter builds chairs and houses out of wood. A mason lays blocks for strong walls. A plumber fixes the pipes that carry our water, and an electrician makes sure our lights and fans work.</p>
+                            <p>Many workers <strong>provide services that help us directly</strong>. A teacher helps you learn. A doctor and a nurse keep us healthy. A police officer keeps us safe. A fire fighter puts out fires. A bus driver and a taxi driver carry people from place to place. A postman brings letters, and a garbage collector keeps our community clean.</p>
+                        </div>
+                        <div class="key-terms">
+                            <h4>Did You Know?</h4>
+                            <p>Some workers live and work right inside your community, like the shopkeeper down the road. Other workers come into the community to do their jobs, like a doctor who travels in to the clinic. And some services can only be found outside the community, such as the workers at an airport or a big hotel. It takes workers from many places, all working together, to give a community everything it needs.</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Needs and Wants</h3>
+                        <div class="content-text">
+                            <p>Some things we truly must have, and some things are simply nice to have. The things we <strong>must</strong> have in order to live are called our <strong>needs</strong>. Food, clean water, clothes, and a safe home are all needs. The things that are pleasant to have, but that we could live without, are called our <strong>wants</strong>. A new toy, a sweet, or a video game are all wants.</p>
+                            <p>Knowing the difference helps us understand which workers are most important of all. The workers who provide our needs — like the farmer who grows our food and the worker who brings us clean water — are doing some of the most important work in the whole community.</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Essential Services and Other Services</h3>
+                        <div class="content-text">
+                            <p>Among all the services in a community, some are so important that the community simply could not manage without them. We call these <strong>essential services</strong>. The word <em>essential</em> means "completely necessary."</p>
+                            <p>Think about what would happen if there were no police to keep us safe, no fire fighters to put out fires, no doctors and nurses at the hospital, and no clean water flowing to our homes. That is why these are called essential services. In fact, the law of Jamaica names certain services as essential.</p>
+                            <p>Other services are helpful and good, but the community could manage for a while without them. A barber who cuts hair and a tailor who sews clothes provide useful <strong>other services</strong>. A community is happiest when it has both — the essential services that keep everyone safe, and the other services that make daily life better.</p>
+                        </div>
+                        <div class="key-terms">
+                            <h4>Did You Know?</h4>
+                            <p>Religious workers and places of worship, such as churches, also provide important services in many Jamaican communities. They comfort people, help families in need, and bring people together.</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Sorting the Workers</h3>
+                        <div class="content-text">
+                            <p>Sorting things into groups helps us understand them better. One way to sort workers is by what they provide. Some workers provide <strong>goods</strong>, like the farmer, the fisherman, the carpenter, and the baker. Other workers provide <strong>services</strong>, like the teacher, the nurse, the bus driver, and the police officer.</p>
+                            <p>Another way is to sort the service workers into those who provide <strong>essential services</strong>, like the police, fire service, and hospital workers, and those who provide <strong>other services</strong>, like the barber and the tailor. When you sort workers in these ways, you start to see just how many different people it takes to keep one community running.</p>
+                        </div>
+                        <div class="learning-objectives">
+                            <h4>Think About It</h4>
+                            <p>Pick three workers you know in your own community. For each one, decide: does this worker provide a good or a service? Is it an essential service or another kind?</p>
+                        </div>
+                    </div>
+
+                    <div class="activity-box">
+                        <h4>Let's Practice</h4>
+                        <p>Take a short walk around your school or your community with a grown-up. Try to spot at least three workers. For each one, decide whether the worker is providing a good or a service, and whether it is an essential service or another kind.</p>
+                        <p>Then try these quick questions:</p>
+                        <ol style="margin-left: 20px;">
+                            <li>What is the difference between a good and a service?</li>
+                            <li>Name two essential services and explain why they are essential.</li>
+                            <li>What is the difference between a need and a want?</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FOCUS QUESTION 2 -->
+            <div id="focus-q2" class="tab-content">
+                <button class="print-btn" onclick="window.print()">🖨️ Print This Section</button>
+
+                <div class="section">
+                    <h2 class="section-title">Focus Question 2: How do workers contribute to the development of my community?</h2>
+
+                    <div class="subsection">
+                        <h3>Why People Work</h3>
+                        <div class="content-text">
+                            <p>People work for several good reasons. The first reason is to earn <strong>income</strong>, which is the money a worker is paid for doing a job. Income is also called wages. With this money, workers can buy the goods and services their own families need, such as food, clothes, and a home.</p>
+                            <p>But money is not the only reason people work. Many people work because they enjoy their job and feel proud of it. A teacher feels proud when a child learns to read. A farmer feels proud of a healthy field of crops. People also work because their work helps other people and makes the whole community a better place to live.</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>We All Depend on One Another</h3>
+                        <div class="content-text">
+                            <p>No worker in a community works alone. Every worker depends on other workers, and other workers depend on them. We call this <strong>interdependence</strong>, which simply means "depending on each other."</p>
+                            <p>Think about the bread you might eat for breakfast. The farmer grows the wheat. The truck driver carries the wheat to the bakery. The baker bakes it into bread. The shopkeeper sells the bread. Your mother or father buys it and brings it home. Not one of these people could give you your bread alone. The baker cannot bake without the farmer's wheat. The shopkeeper has nothing to sell without the baker's bread. That is interdependence.</p>
+                            <p>Because workers depend on one another, they must <strong>cooperate</strong>, which means working together kindly and helpfully. When you work together with your classmates to clean the classroom, you are practising the very same cooperation that grown-up workers use every day.</p>
+                        </div>
+                        <div class="key-terms">
+                            <h4>Did You Know?</h4>
+                            <p>A <strong>resource</strong> is anything useful that helps workers do their jobs, such as wood for the carpenter, water for the farmer, or land for building. Communities share their resources, and workers use them wisely so that everyone can have what they need.</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>How Different Workers Develop the Community</h3>
+                        <div class="content-text">
+                            <p>When workers do their jobs well, the community grows and improves. We say the community <strong>develops</strong>.</p>
+                            <p>Workers in <strong>health and sanitation</strong>, like doctors, nurses, and garbage collectors, keep the people healthy and the streets clean. Workers in <strong>security</strong>, like the police and security guards, keep everyone safe. Workers in <strong>education</strong>, like teachers, help children learn, building the community's future. Workers who provide <strong>utilities</strong>, like those who keep the water flowing and the electricity running, make daily life possible.</p>
+                            <p>When all of these workers do their part, the community becomes a better place to live. Step by step, the hard work of many people helps the whole community to develop.</p>
+                        </div>
+                        <div class="learning-objectives">
+                            <h4>Think About It</h4>
+                            <p>Imagine your community without one group of these workers — say, without anyone collecting the garbage. What do you think would happen over time, and why?</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Fishing Communities and the Workers Who Feed Us</h3>
+                        <div class="content-text">
+                            <p>Jamaica is an island surrounded by the sea, so fishing has always been important work. In many places around our coast there are <strong>fishing communities</strong>, where many people earn their living by catching fish. Early each morning, fishermen take their boats out and cast their nets. When they return, their fresh catch is sold in markets and shops, and it feeds families all over the island.</p>
+                            <p>There is a well-known story called <strong>"The Great Catch"</strong>. In the story, a fisherman named Peter and his friends had fished all night and caught nothing. Then they were told to lower their nets once more, and this time the nets filled with so many fish that they could hardly pull them in. The story shows us that fishing is hard and patient work, and that the fishermen who keep at it provide food and life for their whole community.</p>
+                        </div>
+                        <div class="key-terms">
+                            <h4>Did You Know?</h4>
+                            <p>Old Harbour Bay and Whitehouse are just two of the many fishing communities in Jamaica where workers bring in fresh fish that feeds people across the island.</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Then and Now: How Work Has Changed</h3>
+                        <div class="content-text">
+                            <p>Many jobs have changed a great deal over the years. Long ago, much more work was done by hand. Farmers prepared the soil with simple tools like the hoe, the machete, and the fork. Today, some farmers use machines and engines that do the work faster. Long ago, washing was scrubbed by hand at the riverside; today many people use a washing machine. The <strong>tools</strong> workers use have changed, and so the work itself has changed too.</p>
+                            <p>Some jobs that were common long ago are rarely seen today, while brand-new jobs have appeared, such as jobs working with computers and mobile phones. Another important change is this: long ago, some jobs were thought to be only for men and others only for women. Today we know that most jobs can be done by both men and women, working side by side. When everyone is free to do the work they are good at, the whole community grows stronger.</p>
+                        </div>
+                    </div>
+
+                    <div class="activity-box">
+                        <h4>Let's Practice</h4>
+                        <p>Talk with an older family member about the kind of work people did when they were young. Find out one job or one tool that has changed since then, and tell a friend what you learned.</p>
+                        <p>Then try these quick questions:</p>
+                        <ol style="margin-left: 20px;">
+                            <li>What does the word interdependence mean?</li>
+                            <li>Give one reason why people go to work.</li>
+                            <li>Choose one group of workers and explain how they help the community develop.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FOCUS QUESTION 3 -->
+            <div id="focus-q3" class="tab-content">
+                <button class="print-btn" onclick="window.print()">🖨️ Print This Section</button>
+
+                <div class="section">
+                    <h2 class="section-title">Focus Question 3: How do rules help workers at the workplace?</h2>
+
+                    <div class="subsection">
+                        <h3>What Are Rules?</h3>
+                        <div class="content-text">
+                            <p>A <strong>rule</strong> is something we are expected to do, or expected not to do, so that things are safe and fair for everyone. You follow rules every day. At home, there may be a rule about bedtime, or a rule that you wash your hands before you eat. At school, there are rules about putting up your hand before you speak and walking, not running, in the corridors.</p>
+                            <p>Even your games have rules. When you play cricket, football, or a board game, everyone must follow the rules of the game, or the game falls apart and stops being fun. Rules are everywhere — at home, at school, at church, on the sports field, and in every job. Wherever people do things together, rules help them do it well.</p>
+                        </div>
+                        <div class="learning-objectives">
+                            <h4>Think About It</h4>
+                            <p>Name one rule you follow at home and one rule you follow at school. What do you think each rule is for?</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Why Do We Need Rules?</h3>
+                        <div class="content-text">
+                            <p>Imagine a game of football with no rules. Players could pick up the ball, push each other over, or score in any goal they liked. Very quickly the game would turn into a mess, and nobody would enjoy it. The rules are exactly what make the game fair and fun for everyone.</p>
+                            <p>Rules keep us <strong>safe</strong>, by stopping people from doing dangerous things. Rules keep things <strong>fair</strong>, so that everyone is treated the same way and no one is cheated. Rules help us <strong>get along</strong>, so that people can work and play together without quarrelling. And rules keep things <strong>orderly</strong>, so that work gets done smoothly.</p>
+                            <p>Rules and laws are usually made by people in charge, such as parents at home, teachers at school, and leaders in the community. When rules are broken, there are usually <strong>consequences</strong> — something that happens as a result. A player who breaks the rules may have to sit out. Consequences remind us that rules matter.</p>
+                        </div>
+                        <div class="key-terms">
+                            <h4>Did You Know?</h4>
+                            <p>When people break important rules, it can hurt others, not just themselves. A driver who breaks the rules of the road can cause an accident. This is why obeying rules is a way of caring for the people around us.</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Rules at the Workplace</h3>
+                        <div class="content-text">
+                            <p>The <strong>workplace</strong> is the place where a worker does his or her job — a farm, a shop, a school, a hospital, a building site, or a fishing boat. Every one of these places has rules to help the workers.</p>
+                            <p>The most important reason for workplace rules is <strong>safety</strong>. A worker on a building site must wear a hard hat so that nothing falling can hurt his head. A worker in a kitchen must be careful with sharp knives and hot stoves. These rules protect workers from getting hurt, so that they can go home safely to their families.</p>
+                            <p>Workplace rules also keep things <strong>fair</strong>. There may be rules about arriving on time, treating customers politely, and being honest. Rules also help workers <strong>work together</strong>. When everyone follows the same rules, they can cooperate smoothly, like the players on a well-trained team.</p>
+                        </div>
+                        <div class="learning-objectives">
+                            <h4>Think About It</h4>
+                            <p>Think about a shop or a clinic you have visited. Can you guess one rule the workers there must follow? How does that rule help the workers or the people they serve?</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>When Workers Obey the Rules</h3>
+                        <div class="content-text">
+                            <p>Workers who obey the rules and behave responsibly are not only helping themselves. They are helping their whole workplace, their community, and even their country. When workers follow the rules, the workplace runs smoothly and safely, customers are treated well, accidents are avoided, and good work gets done.</p>
+                            <p>But when rules are broken, things can go wrong. If a worker is careless, someone might get hurt. If a worker is dishonest, customers lose trust. This is why obeying rules is one of the most caring and responsible things a worker can do.</p>
+                            <p>Music shows us this lesson too. When a group of people sing a song together, especially in a round, they must keep in time, keep the right beat and rhythm, and sing in harmony. If everyone sang however they liked, the song would sound like noise. But when everyone follows the rules of the music, the singing becomes beautiful. A workplace is just the same: when everyone follows the rules, everything works in harmony.</p>
+                        </div>
+                        <div class="key-terms">
+                            <h4>Did You Know?</h4>
+                            <p>Many communities have rules and signs that protect everyone, like "No Littering" signs that keep our streets clean. When workers and citizens obey these rules, the whole community stays clean, safe, and pleasant for all.</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Being a Rule-Follower Yourself</h3>
+                        <div class="content-text">
+                            <p>You do not have to wait until you are grown up to practise following rules. When you follow your class rules, take your turn fairly, play games by the rules, and treat others kindly, you are becoming the kind of responsible person who will one day be a trusted worker. The child who learns to obey good rules today grows into the worker who keeps a workplace safe and fair tomorrow.</p>
+                        </div>
+                    </div>
+
+                    <div class="activity-box">
+                        <h4>Let's Practice</h4>
+                        <p>Draw a simple picture of one worker in your community doing their job. Show the tool or thing they use most, and write one sentence under your picture telling why this worker is important.</p>
+                        <p>Then try these quick questions:</p>
+                        <ol style="margin-left: 20px;">
+                            <li>Why do workplaces need rules? Give two reasons.</li>
+                            <li>How do safety rules help a worker on a building site?</li>
+                            <li>How does a worker who obeys the rules help the whole community?</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GLOSSARY -->
+            <div id="glossary" class="tab-content">
+                <button class="print-btn" onclick="window.print()">🖨️ Print This Section</button>
+
+                <div class="section">
+                    <h2 class="section-title">Glossary: Words to Know</h2>
+                    <div class="key-terms">
+                        <div class="term"><strong>Goods:</strong> Things that workers make or grow that you can hold and use, like bread, shoes, or a chair.</div>
+                        <div class="term"><strong>Services:</strong> Helpful work that one person does for another, like teaching, driving a bus, or putting out a fire.</div>
+                        <div class="term"><strong>Provider:</strong> A worker who gives, or provides, the goods or services we need.</div>
+                        <div class="term"><strong>Consumer:</strong> A person who uses the goods and services that workers provide.</div>
+                        <div class="term"><strong>Community:</strong> The place where people live, work, and help one another, such as a town, district, or village.</div>
+                        <div class="term"><strong>Worker:</strong> A person who does a job to provide goods or services.</div>
+                        <div class="term"><strong>Occupation:</strong> The name of the job a person does, such as farmer, nurse, or carpenter.</div>
+                        <div class="term"><strong>Needs:</strong> The things we must have to live, such as food, clean water, clothes, and shelter.</div>
+                        <div class="term"><strong>Wants:</strong> The things that are nice to have but that we can live without, like toys and sweets.</div>
+                        <div class="term"><strong>Essential services:</strong> Services so important that a community cannot do without them, like the police, fire service, and hospital.</div>
+                        <div class="term"><strong>Interdependence:</strong> The way workers and people all depend on one another to live and work.</div>
+                        <div class="term"><strong>Income:</strong> The money a worker earns for doing a job; also called wages.</div>
+                        <div class="term"><strong>Resource:</strong> Anything useful that helps workers do their jobs, such as wood, water, or land.</div>
+                        <div class="term"><strong>Rules:</strong> The things we are expected to do, and not do, so that everyone is safe and fair.</div>
+                        <div class="term"><strong>Workplace:</strong> The place where a worker does his or her job, such as a shop, a farm, or a hospital.</div>
+                        <div class="term"><strong>Cooperation:</strong> Working together kindly to get a job done.</div>
+                        <div class="term"><strong>Consequence:</strong> Something that happens as a result of an action, such as what happens when a rule is broken.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ANSWER KEY -->
+            <div id="answers" class="tab-content">
+                <button class="print-btn" onclick="window.print()">🖨️ Print This Section</button>
+
+                <div class="section">
+                    <h2 class="section-title">Answer Key</h2>
+
+                    <div class="subsection">
+                        <h3>Let's Practice Answers</h3>
+                        <div class="content-text">
+                            <p><strong>Focus Question 1</strong></p>
+                            <p>1. A good is a thing you can hold and use, like bread or shoes. A service is helpful work one person does for another, like teaching or driving a bus.</p>
+                            <p>2. Essential services may include the police, the fire service, and the hospital. They are essential because the community cannot stay safe and well without them.</p>
+                            <p>3. A need is something we must have to live, like food or clean water. A want is something nice to have that we can live without, like a toy or a sweet.</p>
+                            <p><strong>Focus Question 2</strong></p>
+                            <p>1. Interdependence means depending on each other. Workers all depend on one another to do their jobs.</p>
+                            <p>2. People go to work to earn an income (money/wages). They may also work to feel proud or to help others. (Any one reason is correct.)</p>
+                            <p>3. Example: Workers in health and sanitation, like doctors, nurses, and garbage collectors, keep the people healthy and the streets clean, which helps the community develop. (Other correct groups: security, education, utilities.)</p>
+                            <p><strong>Focus Question 3</strong></p>
+                            <p>1. Workplaces need rules to keep workers safe and to keep things fair. (Other correct reasons: to help people work together, to keep things orderly.)</p>
+                            <p>2. A safety rule, like wearing a hard hat, protects the worker from being hurt by anything that might fall, so the worker can go home safely.</p>
+                            <p>3. When a worker obeys the rules, the workplace is safe and fair, customers are treated well, and good work gets done. This makes the whole community a better place.</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>End-of-Chapter Review Answers</h3>
+                        <div class="content-text">
+                            <p>1. Goods are things you can hold and use (examples: bread, shoes). Services are helpful work done for others (examples: teaching, driving a bus).</p>
+                            <p>2. A provider is a worker who gives goods or services. A consumer is a person who uses them. One person can be both — for example, a nurse provides care at the hospital, and at the market she is a consumer who buys food.</p>
+                            <p>3. Answers will vary. Examples: a farmer provides a good; a teacher provides a service; a fisherman provides a good.</p>
+                            <p>4. Essential services are services so important that a community cannot do without them, such as the police, the fire service, and the hospital. A community needs them to stay safe and well.</p>
+                            <p>5. A need is something we must have to live (example: food). A want is something nice but not necessary (example: a toy).</p>
+                            <p>6. People work to earn an income, to feel proud of their work, and to help other people. (Any two are correct.)</p>
+                            <p>7. Interdependence means depending on each other. For bread: the farmer grows the wheat, the driver carries it, the baker bakes it, the shopkeeper sells it — none of them could give us bread alone, so they depend on each other.</p>
+                            <p>8. Answers will vary. Example: Teachers in education help children learn, and those children become the workers of the future, helping the community develop.</p>
+                            <p>9. Answers will vary. Example: Long ago, farmers used a hoe and machete by hand; today some farmers use machines.</p>
+                            <p>10. Workplaces need rules to keep workers safe and to keep things fair. Rules protect workers from harm and make sure everyone is treated fairly. (Any two reasons.)</p>
+                            <p>11. A worker who obeys the rules keeps the workplace safe and fair, avoids accidents, and treats people well, which makes the whole community a better and stronger place.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Grade 3 Integrated Studies | Ministry of Education, Youth and Information, Jamaica</p>
+            <p style="margin-top: 8px; font-size: 0.9em;">Term 2, Unit 1: Workers and Community</p>
+        </footer>
+    </div>
+
+    <script>
+        // Tab navigation
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const tabName = button.getAttribute('data-tab');
+
+                // Remove active class from all buttons and contents
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+
+                // Add active class to clicked button and corresponding content
+                button.classList.add('active');
+                document.getElementById(tabName).classList.add('active');
+
+                // Scroll to top
+                window.scrollTo(0, 0);
+            });
+        });
+
+        // Collapsible sections
+        const collapsibles = document.querySelectorAll('.collapsible');
+        collapsibles.forEach(button => {
+            button.addEventListener('click', function() {
+                this.classList.toggle('active');
+                const content = this.nextElementSibling;
+                if (content && content.classList.contains('collapsible-content')) {
+                    content.classList.toggle('show');
+                }
+            });
+        });
+
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

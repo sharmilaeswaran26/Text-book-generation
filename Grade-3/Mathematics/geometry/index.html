@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade 3 Jamaica Mathematics Textbook - Geometry</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .nav-tabs {
+            display: flex;
+            background: #f8f9fa;
+            border-bottom: 2px solid #ddd;
+            overflow-x: auto;
+            flex-wrap: wrap;
+        }
+
+        .nav-tabs button {
+            flex: 1;
+            padding: 15px 20px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 500;
+            color: #666;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+            min-width: 150px;
+        }
+
+        .nav-tabs button:hover {
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        .nav-tabs button.active {
+            color: #2a5298;
+            border-bottom-color: #2a5298;
+            background: white;
+        }
+
+        .content {
+            padding: 30px;
+            min-height: 600px;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 1.8em;
+            color: #1e3c72;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .subsection {
+            background: #f8f9fa;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 4px solid #667eea;
+            border-radius: 5px;
+        }
+
+        .subsection h3 {
+            color: #2a5298;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+
+        .learning-objectives {
+            background: #e3f2fd;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #2196F3;
+        }
+
+        .learning-objectives h4 {
+            color: #1565c0;
+            margin-bottom: 10px;
+        }
+
+        .learning-objectives ul {
+            margin-left: 20px;
+        }
+
+        .learning-objectives li {
+            margin: 8px 0;
+            color: #333;
+        }
+
+        .activity-box {
+            background: #fff3e0;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #ff9800;
+        }
+
+        .activity-box h4 {
+            color: #e65100;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .activity-box h4::before {
+            content: "✏️";
+            font-size: 1.2em;
+        }
+
+        .assessment-box {
+            background: #f3e5f5;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #9c27b0;
+        }
+
+        .assessment-box h4 {
+            color: #6a1b9a;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .assessment-box h4::before {
+            content: "📋";
+            font-size: 1.2em;
+        }
+
+        .extension-box {
+            background: #e8f5e9;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #4caf50;
+        }
+
+        .extension-box h4 {
+            color: #2e7d32;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .extension-box h4::before {
+            content: "⭐";
+            font-size: 1.2em;
+        }
+
+        .teacher-notes {
+            background: #ffe0b2;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #ff6f00;
+        }
+
+        .teacher-notes h4 {
+            color: #bf360c;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .teacher-notes h4::before {
+            content: "👨‍🏫";
+            font-size: 1.2em;
+        }
+
+        .content-text {
+            margin: 15px 0;
+            text-align: justify;
+        }
+
+        .content-text strong {
+            color: #1e3c72;
+        }
+
+        .diagram {
+            background: #f0f0f0;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            text-align: center;
+            border: 2px dashed #ddd;
+        }
+
+        .diagram img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+        }
+
+        table th {
+            background: #2a5298;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+
+        table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        table tr:hover {
+            background: #f5f5f5;
+        }
+
+        .key-terms {
+            background: #f5f5f5;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .key-terms h4 {
+            color: #1e3c72;
+            margin-bottom: 10px;
+        }
+
+        .term {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+
+        .term strong {
+            color: #2a5298;
+        }
+
+        .learning-outcomes {
+            background: #c8e6c9;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .learning-outcomes h4 {
+            color: #1b5e20;
+            margin-bottom: 10px;
+        }
+
+        .learning-outcomes ul {
+            margin-left: 20px;
+        }
+
+        .learning-outcomes li {
+            margin: 8px 0;
+            color: #333;
+        }
+
+        .checklist {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-left: 3px solid #2a5298;
+        }
+
+        .checklist input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        footer {
+            background: #1e3c72;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            .nav-tabs button {
+                min-width: 120px;
+                padding: 12px 15px;
+                font-size: 0.9em;
+            }
+        }
+
+        .collapsible {
+            background: #e3f2fd;
+            cursor: pointer;
+            padding: 15px;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 1em;
+            color: #1565c0;
+            font-weight: bold;
+            border-radius: 5px;
+            margin: 10px 0;
+            width: 100%;
+            transition: 0.3s;
+        }
+
+        .collapsible:hover {
+            background: #bbdefb;
+        }
+
+        .collapsible-content {
+            padding: 0 15px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .collapsible-content.show {
+            max-height: 1000px;
+        }
+
+        .print-btn {
+            background: #2a5298;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            margin: 20px 0;
+            transition: 0.3s;
+        }
+
+        .print-btn:hover {
+            background: #1e3c72;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            .nav-tabs {
+                display: none;
+            }
+            .print-btn {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📚 Grade 3 Mathematics Textbook</h1>
+            <p>Jamaica National Standards Curriculum - Content Strand: Geometry</p>
+            <p style="font-size: 0.9em; margin-top: 10px;">Flat Shapes | Solid Shapes | Patterns &amp; Symmetry | Area</p>
+            <p style="margin-top:14px;"><a href="../index.html" style="color:#fff; background:rgba(255,255,255,0.15); padding:6px 14px; border-radius:5px; text-decoration:none; font-size:0.9em;">← Mathematics Home</a></p>
+        </header>
+
+        <div class="nav-tabs">
+            <button class="tab-btn active" data-tab="flat-shapes">Flat Shapes</button>
+            <button class="tab-btn" data-tab="solid-shapes">Solid Shapes</button>
+            <button class="tab-btn" data-tab="patterns-symmetry">Patterns &amp; Symmetry</button>
+            <button class="tab-btn" data-tab="glossary">Word Power</button>
+            <button class="tab-btn" data-tab="answers">Answer Key</button>
+        </div>
+
+        <div class="content">
+            <!-- FLAT SHAPES -->
+            <div id="flat-shapes" class="tab-content active">
+                <button class="print-btn" onclick="window.print()">🖨️ Print This Section</button>
+
+                <div class="section">
+                    <h2 class="section-title">Flat Shapes: The Shapes on Paper</h2>
+
+                    <div class="content-text">
+                        <p>Look around the room you are in and you will see shapes everywhere — in windows, doors, road signs, clocks, and books. The study of shapes is called <strong>geometry</strong>, and it is one of the oldest and most useful parts of mathematics. We will begin with <strong>flat shapes</strong>, because they are the easiest shapes to draw and to see.</p>
+                        <p>A flat shape is exactly what its name says: it is flat. You can draw it on a page, trace it with your finger, and cut it out of paper. It has length and width, but no thickness — you cannot lift it off the page and hold it. Mathematicians call flat shapes <strong>2D shapes</strong>, which simply means the shape goes two ways: across and up-and-down. A flat shape and a 2D shape are the very same thing.</p>
+                        <p>When we describe a flat shape, we look at two things: its <strong>sides</strong> and its <strong>corners</strong>. A side is a straight edge of the shape. A corner is the point where two sides meet. If you count the sides and corners of a shape, you can almost always tell exactly which shape it is.</p>
+                    </div>
+
+                    <div class="learning-objectives">
+                        <h4>Look Around You</h4>
+                        <ul>
+                            <li>How many square windows or tiles can you see in your classroom right now?</li>
+                            <li>Find one door — notice it is a rectangle, taller than it is wide.</li>
+                            <li>Look for a clock or a coin — its round face is a circle.</li>
+                            <li>Spot a slice of bread cut corner to corner — it makes two triangles.</li>
+                        </ul>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Lesson 1: The Square and the Rectangle</h3>
+                        <div class="content-text">
+                            <p>The <strong>square</strong> is a very tidy shape. It has <strong>four straight sides</strong>, and all four sides are exactly the <strong>same length</strong>. It also has <strong>four corners</strong>, and every one is a <strong>square corner</strong>, just like the corner of this page. Because a square is so even, it looks the same whichever way you turn it. The face of a dice and a floor tile are squares.</p>
+                            <p>The <strong>rectangle</strong> is a close cousin of the square. Like the square, it has <strong>four straight sides</strong> and <strong>four square corners</strong>. But its sides are <strong>not</strong> all the same length: the two long sides are equal, and the two short sides are equal. So a rectangle is usually longer than it is wide, like a stretched-out square. A door, a desktop, and a sheet of paper are rectangles.</p>
+                            <p>The curriculum asks us to compare them carefully. Four ways they are the <strong>same</strong>: both have four straight sides; both have four corners; every corner in both is a square corner; and both are flat shapes. Two ways they are <strong>different</strong>: in a square all four sides are equal, but in a rectangle only the opposite sides are equal; and a square looks the same whichever way you turn it, while a rectangle usually looks longer one way than the other.</p>
+                        </div>
+                        <div class="learning-objectives">
+                            <h4>Quick Check</h4>
+                            <ul>
+                                <li>Without looking back, say one way a square and a rectangle are the same.</li>
+                                <li>Now say one way they are different. (Hint: look at the lengths of the sides.)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Lesson 2: The Triangle and the Circle</h3>
+                        <div class="content-text">
+                            <p>The <strong>triangle</strong> gives you a clue in its very name. "Tri" means three, and a triangle has <strong>three straight sides</strong> and <strong>three corners</strong>. Some triangles are tall and thin, others short and wide, but every triangle has exactly three sides and three corners. A slice of pizza, the roof of a small house, and the sail of a boat are triangles.</p>
+                            <p>The <strong>circle</strong> is quite different. It is <strong>perfectly round</strong> all the way around. It has <strong>no straight sides</strong> and <strong>no corners</strong> — just one smooth, curving edge. Because it is so round, a circle can roll, which is exactly why wheels are made round. A clock face, a coin, a button, and the top of a tin are circles.</p>
+                        </div>
+                        <div class="key-terms">
+                            <h4>Did You Know?</h4>
+                            <div class="term"><strong>Triangles are strong:</strong> builders use triangles in roofs, bridges, and gate frames because the three sides hold each other firmly and stop the shape from bending.</div>
+                            <div class="term"><strong>The circle is special:</strong> it is the only one of our four flat shapes with no sides and no corners at all.</div>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Lesson 3: Points, Lines, and Paths</h3>
+                        <div class="content-text">
+                            <p>Every shape is really made out of points, lines, and paths. A <strong>point</strong> is a single tiny spot, like the dot you make when you touch your pencil to the paper. A <strong>line</strong> is straight and goes on without bending; when we draw just a small piece of a line, with a start and a stop, we call it a <strong>line segment</strong>. The sides of a square, rectangle, and triangle are all line segments.</p>
+                            <p>A <strong>path</strong> is the way you travel from one place to another, and it can be straight or it can bend. When a path starts at a point, travels all the way around, and comes back to where it began without crossing itself, we call it a <strong>simple closed path</strong>. Every flat shape is made by a simple closed path.</p>
+                        </div>
+                        <div class="key-terms">
+                            <h4>Let's Explore</h4>
+                            <div class="term">Use your finger to trace the path around the edge of this book. You started at one corner, travelled along each side, and came back to where you began. That is a simple closed path, and it traces out a rectangle.</div>
+                        </div>
+                    </div>
+
+                    <div class="activity-box">
+                        <h4>Let's Practice</h4>
+                        <p><strong>Shape Hunt:</strong> Look around your classroom or home and find a real object for each flat shape.</p>
+                        <ol style="margin-left: 20px;">
+                            <li>Find one <strong>square</strong> and write down the object.</li>
+                            <li>Find one <strong>rectangle</strong> and write down the object.</li>
+                            <li>Find one <strong>triangle</strong> and write down the object.</li>
+                            <li>Find one <strong>circle</strong> and write down the object.</li>
+                            <li>For each one, say how many sides and how many corners it has.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SOLID SHAPES -->
+            <div id="solid-shapes" class="tab-content">
+                <button class="print-btn" onclick="window.print()">🖨️ Print This Section</button>
+
+                <div class="section">
+                    <h2 class="section-title">Solid Shapes: The Shapes You Can Hold</h2>
+
+                    <div class="content-text">
+                        <p>Flat shapes live on paper, but the real world is full of shapes you can pick up and hold in your two hands. A ball, a box, a tin, an ice-cream cone — these are not flat. They take up space, they have thickness, and you can turn them all the way around. These are called <strong>solid shapes</strong>.</p>
+                        <p>Just as flat shapes are called "2D shapes," solid shapes are called <strong>3D shapes</strong>, which means the shape goes three ways: across, up-and-down, and front-to-back. A solid shape is one you could wrap up in paper or hold behind your back. The flat sides of a solid shape are called its <strong>faces</strong>.</p>
+                    </div>
+
+                    <div class="learning-objectives">
+                        <h4>Look Around You</h4>
+                        <ul>
+                            <li>Find a dice or a wooden block — it is a cube with six square faces.</li>
+                            <li>Find a cereal box or a brick — it is a cuboid, shaped like a box.</li>
+                            <li>Find a tin of milk — it is a cylinder, round with flat circle ends.</li>
+                            <li>Find an ice-cream cone or a party hat — it is a cone, with a point on top.</li>
+                            <li>Find a ball or an orange — it is a sphere, round all over.</li>
+                        </ul>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Lesson 1: Cubes and Cuboids (Boxes)</h3>
+                        <div class="content-text">
+                            <p>A <strong>cube</strong> is built entirely out of squares. It has <strong>six flat faces</strong>, and every face is a square of exactly the same size. Because all six faces are equal squares, a cube is the same length, width, and height — like a square that has grown thick. A dice and a wooden building block are perfect cubes.</p>
+                            <p>A <strong>cuboid</strong> is shaped like a box, and most people simply call it a box. Like the cube, it has <strong>six flat faces</strong>, but they are flat <strong>rectangles</strong> and they are <strong>not</strong> all the same size. If a cube is a thick square, then a cuboid is a thick rectangle. A cereal box, a brick, a closed book, and a shoebox are all cuboids.</p>
+                        </div>
+                        <div class="learning-objectives">
+                            <h4>Quick Check</h4>
+                            <ul>
+                                <li>A cube and a cuboid both have six flat faces. What is the one big difference between them?</li>
+                                <li>Think about the faces: are they all the same size, or not?</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Lesson 2: Cylinders, Cones, and Spheres</h3>
+                        <div class="content-text">
+                            <p>A <strong>cylinder</strong> is a tall, round solid. It has <strong>two flat ends</strong>, and each end is a <strong>circle</strong>, joined by a smooth curved surface around the middle. A cylinder can stand up straight on one end, and it can also be laid on its side and rolled. A tin of milk, a drinking glass, and a candle are cylinders.</p>
+                            <p>A <strong>cone</strong> is the shape of an ice-cream cone. It has <strong>one flat circle end</strong> and rises up to a single <strong>point</strong> at the top. So it is wide and round at the bottom and narrows to a sharp tip. A party hat and the orange road cones on the street are cones.</p>
+                            <p>A <strong>sphere</strong> is perfectly round all over, like a ball. It has no flat faces, no corners, and no straight edges — just one smooth, curving surface in every direction. Because it is round all over, a sphere rolls whichever way you push it. A football, a marble, and an orange are spheres.</p>
+                        </div>
+                        <div class="key-terms">
+                            <h4>Remember</h4>
+                            <div class="term">Flat shapes lie on paper, but solid shapes take up space and can be held. A circle is flat, but a ball is a <strong>sphere</strong> — and a sphere is a solid you can hold in your hand.</div>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Lesson 3: Telling Solid Shapes Apart</h3>
+                        <div class="content-text">
+                            <p>To name a solid shape, ask yourself a few simple questions. Is it round all over? Then it is a <strong>sphere</strong>. Does it have flat square faces? Then it is a <strong>cube</strong>. Does it have flat rectangle faces like a box? Then it is a <strong>cuboid</strong>. Does it have two flat circle ends and a curved middle? Then it is a <strong>cylinder</strong>. Does it have one circle end and rise to a point? Then it is a <strong>cone</strong>. With those few questions, you can name almost any solid shape you meet.</p>
+                        </div>
+                        <div class="learning-objectives">
+                            <h4>Think About It</h4>
+                            <ul>
+                                <li>A tin of milk and a ball are both round in some way.</li>
+                                <li>One of them can stand up flat on a table and one cannot. Which is which, and why?</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="activity-box">
+                        <h4>Let's Practice</h4>
+                        <p><strong>Solid Shape Hunt:</strong> Find a real, everyday object for each solid shape and write it down.</p>
+                        <ol style="margin-left: 20px;">
+                            <li>Find one <strong>cube</strong>.</li>
+                            <li>Find one <strong>cuboid (box)</strong>.</li>
+                            <li>Find one <strong>cylinder</strong>.</li>
+                            <li>Find one <strong>cone</strong>.</li>
+                            <li>Find one <strong>sphere</strong>.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PATTERNS & SYMMETRY -->
+            <div id="patterns-symmetry" class="tab-content">
+                <button class="print-btn" onclick="window.print()">🖨️ Print This Section</button>
+
+                <div class="section">
+                    <h2 class="section-title">Patterns, Symmetry &amp; Area</h2>
+
+                    <div class="content-text">
+                        <p>Now that you know your shapes, you can do three wonderful things with them: make repeating <strong>patterns</strong>, discover <strong>symmetry</strong> by folding, and measure <strong>area</strong> by covering a surface with squares. Let us explore each one.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Lesson 1: Shape Patterns</h3>
+                        <div class="content-text">
+                            <p>A <strong>pattern</strong> is a group of things arranged in an order that <strong>repeats</strong> again and again. Once you know the order, you can always tell what comes next. Here is a simple pattern made with a circle and a square: <strong>circle, square, circle, square, circle, square, …</strong> The little group "circle, square" repeats over and over, so the next shape must be a circle, then a square.</p>
+                            <p>Patterns can use more shapes too: <strong>triangle, triangle, circle, triangle, triangle, circle, …</strong> Here the repeating group is "triangle, triangle, circle." To continue any pattern, find the group that repeats, then keep adding it on the end. Patterns are all around you — in floor tiles, in printed cloth, and on flags.</p>
+                        </div>
+                        <div class="key-terms">
+                            <h4>Let's Explore</h4>
+                            <div class="term">Look at this pattern: square, circle, circle, square, circle, circle, square, circle, circle. The repeating group is square, circle, circle — so the next three shapes are square, circle, circle.</div>
+                        </div>
+                        <div class="learning-objectives">
+                            <h4>Quick Check</h4>
+                            <ul>
+                                <li>Continue this pattern by saying the next two shapes:</li>
+                                <li>circle, triangle, square, circle, triangle, square, circle, triangle, square, …</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Lesson 2: Symmetry and Lines of Symmetry</h3>
+                        <div class="content-text">
+                            <p>A shape has <strong>symmetry</strong> when its two halves match each other exactly. Think of a butterfly: its left wing and right wing match like a mirror picture. If you folded the butterfly down the middle, the two wings would fit perfectly on top of each other. We say the butterfly is <strong>symmetrical</strong>.</p>
+                            <p>The special fold line that splits a shape into two matching halves is called the <strong>line of symmetry</strong>. The best way to test for it is to <strong>fold</strong>, just as the curriculum asks. If you cut a shape out of paper and fold it along a line, and the two halves match perfectly, the fold <strong>is</strong> a line of symmetry. If one half pokes out past the other, it is <strong>not</strong>.</p>
+                            <p>Some shapes have one line of symmetry, some have several, and some have none. A circle is the most symmetrical of all — fold it through its centre any way and the halves always match. A square has lines of symmetry both up-and-down and side-to-side. Many letters, like A, are symmetrical too.</p>
+                        </div>
+                        <div class="key-terms">
+                            <h4>Let's Explore</h4>
+                            <div class="term">Cut a square out of paper. Fold it down the middle from top to bottom — the two halves match, so that fold is a line of symmetry. Now open it and fold from side to side — the halves match again. A square has more than one line of symmetry!</div>
+                        </div>
+                        <div class="learning-objectives">
+                            <h4>Think About It</h4>
+                            <ul>
+                                <li>Write the capital letter "A" and fold it down the middle from top to bottom. Do the halves match?</li>
+                                <li>Which fold gives a line of symmetry, and which does not?</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Lesson 3: Area — Covering a Flat Surface</h3>
+                        <div class="content-text">
+                            <p><strong>Area</strong> is the amount of flat surface that a shape covers. When you want to know how much surface something takes up — the top of a desk, the floor of a room, the cover of a book — you are asking about its area.</p>
+                            <p>Imagine covering the top of your desk with small square tiles, with no gaps and no overlaps. The number of tiles it takes tells you the <strong>area</strong> of the desk top. To measure area in a simple way, we cover the flat shape with equal squares and count how many it takes. If a rectangle covers 6 little squares, its area is 6 squares. The bigger the surface, the more squares it takes, and so the larger its area.</p>
+                        </div>
+                        <div class="key-terms">
+                            <h4>Remember</h4>
+                            <div class="term">Area is the amount of flat surface a shape covers. We measure area by counting how many equal squares it takes to cover the shape with no gaps and no overlaps.</div>
+                        </div>
+                        <div class="learning-objectives">
+                            <h4>Quick Check</h4>
+                            <ul>
+                                <li>One shape is covered by 8 squares, and another is covered by 12 squares.</li>
+                                <li>Which shape has the larger area, and how do you know?</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="activity-box">
+                        <h4>Let's Practice</h4>
+                        <p><strong>Make and Fold:</strong> Try these three tasks.</p>
+                        <ol style="margin-left: 20px;">
+                            <li>Make your own repeating pattern using three different shapes. Draw or describe the first nine shapes.</li>
+                            <li>Cut a rectangle out of paper. Fold it to find a line of symmetry, then fold a different way to find another. How many can you find?</li>
+                            <li>Place a book on a tiled floor or checked cloth and count how many tiles it covers. That number is the area of the book's cover.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <!-- WORD POWER / GLOSSARY -->
+            <div id="glossary" class="tab-content">
+                <button class="print-btn" onclick="window.print()">🖨️ Print This Section</button>
+
+                <div class="section">
+                    <h2 class="section-title">Word Power</h2>
+
+                    <div class="content-text">
+                        <p>Here are the important geometry words from this chapter. Each one is explained simply, with an everyday example to help you remember it.</p>
+                    </div>
+
+                    <div class="key-terms">
+                        <h4>Shapes and Their Parts</h4>
+                        <div class="term"><strong>Shape:</strong> the form of an object — how its outline looks. Example: the front of a clock has a round shape.</div>
+                        <div class="term"><strong>Side:</strong> a straight edge of a flat shape. Example: a square has four sides.</div>
+                        <div class="term"><strong>Corner:</strong> the point where two sides meet. Example: a rectangle has four corners.</div>
+                        <div class="term"><strong>Flat shape (2D shape):</strong> a flat shape with length and width but no thickness. Example: a triangle drawn on paper.</div>
+                        <div class="term"><strong>Solid shape (3D shape):</strong> a shape you can hold, that takes up space and has thickness. Example: a ball.</div>
+                    </div>
+
+                    <div class="key-terms">
+                        <h4>Flat Shapes</h4>
+                        <div class="term"><strong>Square:</strong> a flat shape with four equal straight sides and four square corners. Example: the face of a number cube.</div>
+                        <div class="term"><strong>Rectangle:</strong> a flat shape with four straight sides and four square corners, where opposite sides are equal. Example: a door.</div>
+                        <div class="term"><strong>Triangle:</strong> a flat shape with three straight sides and three corners. Example: a slice of pizza.</div>
+                        <div class="term"><strong>Circle:</strong> a flat shape that is perfectly round, with no sides and no corners. Example: the top of a tin.</div>
+                    </div>
+
+                    <div class="key-terms">
+                        <h4>Solid Shapes</h4>
+                        <div class="term"><strong>Cube:</strong> a solid shape with six square faces, all the same size. Example: a dice.</div>
+                        <div class="term"><strong>Cuboid (box):</strong> a solid shape with six flat rectangle faces, shaped like a box. Example: a cereal box.</div>
+                        <div class="term"><strong>Cylinder:</strong> a solid shape with two flat circle ends and a curved middle. Example: a tin of milk.</div>
+                        <div class="term"><strong>Cone:</strong> a solid shape with one flat circle end and a point at the top. Example: an ice-cream cone.</div>
+                        <div class="term"><strong>Sphere:</strong> a solid shape that is perfectly round all over, like a ball. Example: an orange.</div>
+                    </div>
+
+                    <div class="key-terms">
+                        <h4>Patterns, Symmetry, Lines, and Area</h4>
+                        <div class="term"><strong>Pattern:</strong> things arranged in an order that repeats. Example: circle, square, circle, square.</div>
+                        <div class="term"><strong>Symmetry:</strong> when two halves of a shape match each other exactly. Example: a butterfly's two wings.</div>
+                        <div class="term"><strong>Line of symmetry:</strong> the line you can fold a shape along so both halves fit exactly on top of each other. Example: a fold down the middle of a heart shape.</div>
+                        <div class="term"><strong>Point:</strong> a single tiny spot that marks a place. Example: the dot made by your pencil tip.</div>
+                        <div class="term"><strong>Line segment:</strong> a straight piece of a line with two ends. Example: one side of a triangle.</div>
+                        <div class="term"><strong>Simple closed path:</strong> a path that goes all the way around and comes back to its start without crossing itself. Example: tracing the edge of a book.</div>
+                        <div class="term"><strong>Area:</strong> the amount of flat surface that a shape covers. Example: the number of square tiles it takes to cover a floor.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ANSWER KEY -->
+            <div id="answers" class="tab-content">
+                <button class="print-btn" onclick="window.print()">🖨️ Print This Section</button>
+
+                <div class="section">
+                    <h2 class="section-title">Answer Key</h2>
+
+                    <div class="content-text">
+                        <p>Here are the answers to the Quick Checks and the Practice tasks from each lesson. Try the questions yourself first, then check your work here.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Flat Shapes — Answers</h3>
+                        <p><strong>Square and rectangle (same):</strong> both have four straight sides; both have four corners; every corner is a square corner; both are flat shapes.</p>
+                        <p><strong>Square and rectangle (different):</strong> a square has four equal sides, but a rectangle has only its opposite sides equal; a square looks the same whichever way you turn it, while a rectangle usually looks longer one way.</p>
+                        <p><strong>Sides and corners:</strong> square — 4 sides, 4 corners; rectangle — 4 sides, 4 corners; triangle — 3 sides, 3 corners; circle — no sides, no corners.</p>
+                        <p><strong>Why a circle rolls but a square does not:</strong> a circle has no corners and a smooth round edge, so it rolls easily; a square has straight sides and corners that catch and stop it.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Solid Shapes — Answers</h3>
+                        <p><strong>Cube vs cuboid:</strong> a cube has six square faces all the same size; a cuboid has six rectangle faces that are not all the same size. Example of a cube: a dice. Example of a cuboid: a cereal box.</p>
+                        <p><strong>Six square faces:</strong> a cube — an everyday example is a dice or a wooden block.</p>
+                        <p><strong>Tin vs ball (Think About It):</strong> the tin of milk is a cylinder; it can stand up flat on a table because it has a flat circle end. The ball is a sphere; it cannot stand still because it is round all over and rolls.</p>
+                        <p><strong>Cylinder vs cone:</strong> a cylinder has two flat circle ends with a curved middle; a cone has only one flat circle end and rises to a point at the top.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Patterns, Symmetry &amp; Area — Answers</h3>
+                        <p><strong>Pattern (circle, triangle, square, …):</strong> the next two shapes are circle, triangle. (The repeating group is circle, triangle, square.)</p>
+                        <p><strong>Pattern (square, circle, circle, …):</strong> the next three shapes are square, circle, circle.</p>
+                        <p><strong>Line of symmetry:</strong> it is the line you can fold a shape along so the two halves fit exactly on top of each other. To test for one, cut the shape from paper and fold it along the line; if the halves match exactly, it is a line of symmetry.</p>
+                        <p><strong>The letter "A":</strong> folded down the middle from top to bottom, the two halves match — so that fold is a line of symmetry.</p>
+                        <p><strong>Area (8 squares vs 12 squares):</strong> the shape covered by 12 squares has the larger area, because it takes more squares to cover it.</p>
+                        <p><strong>Meaning of area:</strong> area is the amount of flat surface a shape covers; we measure it by counting how many equal squares cover the shape with no gaps and no overlaps.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Grade 3 Jamaica Mathematics Textbook | Content Strand: Geometry | Ministry of Education, Youth and Information, Jamaica</p>
+            <p>This interactive textbook covers flat shapes, solid shapes, patterns, symmetry, and area as part of the Geometry strand of the National Standards Curriculum.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Tab navigation
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const tabName = button.getAttribute('data-tab');
+
+                // Remove active class from all buttons and contents
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+
+                // Add active class to clicked button and corresponding content
+                button.classList.add('active');
+                document.getElementById(tabName).classList.add('active');
+
+                // Scroll to top
+                window.scrollTo(0, 0);
+            });
+        });
+
+        // Collapsible sections
+        const collapsibles = document.querySelectorAll('.collapsible');
+        collapsibles.forEach(button => {
+            button.addEventListener('click', function() {
+                this.classList.toggle('active');
+                const content = this.nextElementSibling;
+                if (content && content.classList.contains('collapsible-content')) {
+                    content.classList.toggle('show');
+                }
+            });
+        });
+
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade 7 Jamaica Mathematics Textbook</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .nav-tabs {
+            display: flex;
+            background: #f8f9fa;
+            border-bottom: 2px solid #ddd;
+            overflow-x: auto;
+            flex-wrap: wrap;
+        }
+
+        .nav-tabs button {
+            flex: 1;
+            padding: 15px 20px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 500;
+            color: #666;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+            min-width: 150px;
+        }
+
+        .nav-tabs button:hover {
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        .nav-tabs button.active {
+            color: #2a5298;
+            border-bottom-color: #2a5298;
+            background: white;
+        }
+
+        .content {
+            padding: 30px;
+            min-height: 600px;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 1.8em;
+            color: #1e3c72;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .subsection {
+            background: #f8f9fa;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 4px solid #667eea;
+            border-radius: 5px;
+        }
+
+        .subsection h3 {
+            color: #2a5298;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+
+        .learning-objectives {
+            background: #e3f2fd;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #2196F3;
+        }
+
+        .learning-objectives h4 {
+            color: #1565c0;
+            margin-bottom: 10px;
+        }
+
+        .learning-objectives ul {
+            margin-left: 20px;
+        }
+
+        .learning-objectives li {
+            margin: 8px 0;
+            color: #333;
+        }
+
+        .activity-box {
+            background: #fff3e0;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #ff9800;
+        }
+
+        .activity-box h4 {
+            color: #e65100;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .activity-box h4::before {
+            content: "✏️";
+            font-size: 1.2em;
+        }
+
+        .assessment-box {
+            background: #f3e5f5;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #9c27b0;
+        }
+
+        .assessment-box h4 {
+            color: #6a1b9a;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .assessment-box h4::before {
+            content: "📋";
+            font-size: 1.2em;
+        }
+
+        .extension-box {
+            background: #e8f5e9;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #4caf50;
+        }
+
+        .extension-box h4 {
+            color: #2e7d32;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .extension-box h4::before {
+            content: "⭐";
+            font-size: 1.2em;
+        }
+
+        .teacher-notes {
+            background: #ffe0b2;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #ff6f00;
+        }
+
+        .teacher-notes h4 {
+            color: #bf360c;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .teacher-notes h4::before {
+            content: "👨‍🏫";
+            font-size: 1.2em;
+        }
+
+        .content-text {
+            margin: 15px 0;
+            text-align: justify;
+        }
+
+        .content-text strong {
+            color: #1e3c72;
+        }
+
+        .diagram {
+            background: #f0f0f0;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            text-align: center;
+            border: 2px dashed #ddd;
+        }
+
+        .diagram img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+        }
+
+        table th {
+            background: #2a5298;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+
+        table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        table tr:hover {
+            background: #f5f5f5;
+        }
+
+        .key-terms {
+            background: #f5f5f5;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .key-terms h4 {
+            color: #1e3c72;
+            margin-bottom: 10px;
+        }
+
+        .term {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+
+        .term strong {
+            color: #2a5298;
+        }
+
+        .learning-outcomes {
+            background: #c8e6c9;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .learning-outcomes h4 {
+            color: #1b5e20;
+            margin-bottom: 10px;
+        }
+
+        .learning-outcomes ul {
+            margin-left: 20px;
+        }
+
+        .learning-outcomes li {
+            margin: 8px 0;
+            color: #333;
+        }
+
+        .checklist {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-left: 3px solid #2a5298;
+        }
+
+        .checklist input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        footer {
+            background: #1e3c72;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            .nav-tabs button {
+                min-width: 120px;
+                padding: 12px 15px;
+                font-size: 0.9em;
+            }
+        }
+
+        .collapsible {
+            background: #e3f2fd;
+            cursor: pointer;
+            padding: 15px;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 1em;
+            color: #1565c0;
+            font-weight: bold;
+            border-radius: 5px;
+            margin: 10px 0;
+            width: 100%;
+            transition: 0.3s;
+        }
+
+        .collapsible:hover {
+            background: #bbdefb;
+        }
+
+        .collapsible-content {
+            padding: 0 15px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .collapsible-content.show {
+            max-height: 1000px;
+        }
+
+        .print-btn {
+            background: #2a5298;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            margin: 20px 0;
+            transition: 0.3s;
+        }
+
+        .print-btn:hover {
+            background: #1e3c72;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            .nav-tabs {
+                display: none;
+            }
+            .print-btn {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📚 Grade 7 Mathematics Textbook</h1>
+            <p>Jamaica National Standards Curriculum - Term 1, Unit 5: Geometric Construction</p>
+            <p style="font-size: 0.9em; margin-top: 10px;">Geometric Instruments | Circles &amp; Line Segments | Perpendicular Bisectors | Perpendicular &amp; Parallel Lines</p>
+            <p style="margin-top:14px;"><a href="../../index.html" style="color:#fff; background:rgba(255,255,255,0.15); padding:6px 14px; border-radius:5px; text-decoration:none; font-size:0.9em;">← Mathematics (Grade 7)</a></p>
+        </header>
+
+        <div class="nav-tabs">
+            <button class="tab-btn active" data-tab="instruments-circles">Instruments &amp; Circles</button>
+            <button class="tab-btn" data-tab="segments-bisectors">Segments &amp; Bisectors</button>
+            <button class="tab-btn" data-tab="perpendicular-parallel">Perpendicular &amp; Parallel Lines</button>
+            <button class="tab-btn" data-tab="glossary">Key Vocabulary</button>
+            <button class="tab-btn" data-tab="answers">Answer Key</button>
+        </div>
+
+        <div class="content">
+            <!-- TAB 1: INSTRUMENTS & CIRCLES -->
+            <div id="instruments-circles" class="tab-content active">
+                <button class="print-btn" onclick="window.print()">🖨️ Print This Section</button>
+
+                <div class="section">
+                    <h2 class="section-title">Instruments &amp; Circles</h2>
+
+                    <div class="content-text">
+                        <p>A <strong>construction</strong> is an accurate drawing made using only two basic tools: a <strong>ruler</strong> (used as a straight-edge) and a <strong>pair of compasses</strong>. We do not guess where the lines go and we do not estimate by eye. Instead we follow an exact procedure that gives a correct figure every time. This is the same careful drawing that architects, builders, and engineers use when they design houses, bridges, and machines.</p>
+                    </div>
+
+                    <div class="learning-objectives">
+                        <h4>What You Will Learn in This Section</h4>
+                        <ul>
+                            <li>Name the geometric instruments and use each one correctly and safely.</li>
+                            <li>Construct a circle of a given radius using a pair of compasses.</li>
+                            <li>Form the habit of leaving construction arcs visible as proof of your method.</li>
+                        </ul>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Lesson 1: The Geometric Instruments</h3>
+                        <div class="content-text">
+                            <p><strong>The ruler (straight-edge)</strong> does two jobs. As a measuring tool it gives length in centimetres and millimetres; as a straight-edge it lets you draw a straight line between two points. In a pure construction we use it only as a straight-edge, except to set the compasses or to check the answer at the end. Remember there are 10 mm in 1 cm, so 4.5 cm is the same as 45 mm.</p>
+                            <p><strong>The pair of compasses</strong> is the most important construction tool. One arm has a sharp point and the other holds a pencil; the gap between them sets the radius. Keep the pencil sharp, press lightly, and turn the compasses by the handle at the top so the gap does not change. Once a gap is set, it stays the same until you change it — this is how compasses copy a length perfectly from one place to another.</p>
+                            <p><strong>The protractor</strong> is a semicircular instrument marked from 0° to 180°. We use it mainly to check our right angles and to measure angles, not to make the figure.</p>
+                            <p><strong>The set square</strong> is a flat plastic triangle containing a right angle. It is a quick, practical way to draw perpendicular and parallel lines. We learn the compasses-only methods first because they work even when no set square is available.</p>
+                        </div>
+
+                        <div class="diagram">
+                            <h4>Figure 1</h4>
+                            <p><em>The four geometric instruments — a ruler, a pair of compasses (with sharp point and pencil arm), a semicircular protractor, and a right-angled set square.</em></p>
+                        </div>
+
+                        <div class="key-terms">
+                            <h4>Safety First</h4>
+                            <div class="term"><strong>Handle the compasses carefully:</strong> the point is sharp. Never wave it about, never point it at another student, and store it pointing downward in your geometry set.</div>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Lesson 2: Constructing a Circle of a Given Radius</h3>
+                        <div class="content-text">
+                            <p>A <strong>circle</strong> is the set of all points that are exactly the same distance from a fixed centre. That fixed distance is the <strong>radius</strong>. Because the compasses keep a constant gap as they turn, they draw a circle naturally. To construct a circle of radius 4 cm:</p>
+                            <ol style="margin-left: 40px;">
+                                <li>Use the ruler to open the compasses to a gap of 4 cm (40 mm).</li>
+                                <li>Mark and label the centre point O.</li>
+                                <li>Place the sharp point firmly on O.</li>
+                                <li>Hold the compasses by the handle and turn the pencil all the way around in one smooth movement.</li>
+                                <li>Label the circle. Check: measure from O to any point on the curve — it should equal the radius.</li>
+                            </ol>
+                        </div>
+
+                        <div class="diagram">
+                            <h4>Figure 2</h4>
+                            <p><em>A circle of radius 4 cm — the compass point fixed at centre O, and the pencil sweeping a full curve, every point 4 cm from O.</em></p>
+                        </div>
+
+                        <div class="learning-objectives">
+                            <h4>Helpful Tip</h4>
+                            <ul>
+                                <li>Sharpen your pencil before you begin, work on a flat surface, and steady the paper with your free hand so the compass point does not slip.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="activity-box">
+                        <h4>Practice</h4>
+                        <p><strong>1.</strong> Construct a circle of radius 5 cm. Label the centre O and check the radius in several directions with your ruler.</p>
+                        <p><strong>2.</strong> Construct a circle of radius 3.5 cm inside your first circle, using the same centre. (Two circles with the same centre are called concentric.)</p>
+                        <p><strong>3.</strong> Name the four geometric instruments and state one job each one does.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 2: SEGMENTS & BISECTORS -->
+            <div id="segments-bisectors" class="tab-content">
+                <button class="print-btn" onclick="window.print()">🖨️ Print This Section</button>
+
+                <div class="section">
+                    <h2 class="section-title">Segments &amp; Bisectors</h2>
+
+                    <div class="content-text">
+                        <p>A <strong>line segment</strong> is a straight piece of line with two endpoints and a definite length, such as a segment AB of length 6 cm. In this section you will draw a segment, copy a segment with compasses only, and construct the <strong>perpendicular bisector</strong> — the line that cuts a segment exactly in half at a right angle.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Lesson 3: Drawing and Copying a Line Segment</h3>
+                        <div class="content-text">
+                            <p>To <strong>draw</strong> a segment of a given length, use the ruler to measure and mark, then join the marks. To <strong>copy</strong> a segment whose length you are not told, use the compasses: open them to match the given segment exactly, then move them — without changing the gap — to a new line and mark off the same length. This shows the real power of the compasses; they transfer a length perfectly even when you never measure it in numbers.</p>
+                            <p><strong>To copy segment AB onto a new line:</strong></p>
+                            <ol style="margin-left: 40px;">
+                                <li>Draw a new straight line (a ray) and mark a starting point P on it.</li>
+                                <li>Place the compass point on A and open the pencil to reach exactly to B. Do not change this gap.</li>
+                                <li>Move the compasses to P, place the point on P, and draw a small arc that crosses the new line. Label the crossing point Q.</li>
+                                <li>PQ is now equal in length to AB. Check by measuring both with the ruler.</li>
+                            </ol>
+                        </div>
+
+                        <div class="diagram">
+                            <h4>Figure 3</h4>
+                            <p><em>Copying segment AB onto a ray from P — compasses opened to the length of AB, then the point placed at P to mark off PQ equal to AB.</em></p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Lesson 4: The Perpendicular Bisector</h3>
+                        <div class="content-text">
+                            <p>The <strong>perpendicular bisector</strong> of a segment AB does two things at once: it passes through the exact midpoint of AB (so it <strong>bisects</strong> it), and it crosses AB at a right angle (so it is <strong>perpendicular</strong>).</p>
+                            <p><strong>To construct the perpendicular bisector of AB:</strong></p>
+                            <ol style="margin-left: 40px;">
+                                <li>Draw segment AB.</li>
+                                <li>Open the compasses to more than half the length of AB. Keep this gap for the whole construction.</li>
+                                <li>Place the point on A and draw an arc above AB and an arc below AB.</li>
+                                <li>Without changing the gap, place the point on B and draw an arc above and an arc below, crossing the first two arcs. Label the upper crossing point C and the lower crossing point D.</li>
+                                <li>Use the ruler to draw the straight line through C and D.</li>
+                                <li>The line CD is the perpendicular bisector. Where it crosses AB is the midpoint M. Check: AM and MB are equal, and angle AMC measured with a protractor is 90°.</li>
+                            </ol>
+                        </div>
+
+                        <div class="diagram">
+                            <h4>Figure 4</h4>
+                            <p><em>The perpendicular bisector of AB — equal arcs from A and from B meet at points C above and D below; the line CD crosses AB at right angles through its midpoint M.</em></p>
+                        </div>
+
+                        <div class="learning-objectives">
+                            <h4>Why This Construction Works</h4>
+                            <ul>
+                                <li>An arc drawn from A puts every point on it the same distance from A; an arc of the same gap from B puts every point the same distance from B. Where they cross, the point is the same distance from A and from B — it is <strong>equidistant</strong>.</li>
+                                <li>Every point equidistant from A and B lies on the perpendicular bisector of AB, so the line through the two crossing points <em>is</em> the perpendicular bisector.</li>
+                                <li>Join the four arc-ends and all four sides are equal, forming a <strong>rhombus</strong>. The diagonals of a rhombus always cross at right angles and cut each other in half — and AB and CD are those diagonals.</li>
+                                <li>This is also why the gap must be more than half of AB: if it is too small, the arcs never reach far enough to cross.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="key-terms">
+                        <h4>Common Mistakes to Avoid</h4>
+                        <div class="term"><strong>Rubbing out the arcs:</strong> the arcs are the proof of your method — leave them faint but visible.</div>
+                        <div class="term"><strong>Changing the gap halfway:</strong> when a step says "same gap," the gap must not change; hold the compasses by the handle.</div>
+                        <div class="term"><strong>Opening too small:</strong> for a perpendicular bisector always open to more than half the segment, or the arcs will not cross.</div>
+                    </div>
+
+                    <div class="activity-box">
+                        <h4>Practice</h4>
+                        <p><strong>1.</strong> Draw a segment AB = 7 cm and construct its perpendicular bisector. Mark the midpoint M and check that AM = MB.</p>
+                        <p><strong>2.</strong> Copy a 5.5 cm segment onto a new line using compasses only, then check with a ruler.</p>
+                        <p><strong>3.</strong> Draw a strip of paper, then find its exact midpoint by construction without measuring its length.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 3: PERPENDICULAR & PARALLEL LINES -->
+            <div id="perpendicular-parallel" class="tab-content">
+                <button class="print-btn" onclick="window.print()">🖨️ Print This Section</button>
+
+                <div class="section">
+                    <h2 class="section-title">Perpendicular &amp; Parallel Lines</h2>
+
+                    <div class="content-text">
+                        <p>A <strong>perpendicular</strong> is a line that meets another at a right angle (90°). <strong>Parallel</strong> lines stay exactly the same distance apart and never meet, no matter how far they are extended. The rails of a train track are parallel; the corners of a building are perpendicular. In this section you will construct both, using only a ruler and compasses.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Lesson 5: Perpendicular from a Point on a Line</h3>
+                        <div class="content-text">
+                            <p>When the perpendicular must pass through a point P that lies <strong>on</strong> the line:</p>
+                            <ol style="margin-left: 40px;">
+                                <li>With the compass point on P, draw an arc that cuts the line on both sides of P. Label these points X and Y, so that PX = PY.</li>
+                                <li>Open the compasses wider, to more than the distance PX.</li>
+                                <li>With the point on X draw an arc above the line; with the same gap and the point on Y draw another arc crossing it. Label the crossing point Z.</li>
+                                <li>Draw the straight line through P and Z. PZ is perpendicular to the line at P. Check with a protractor — it should read 90°.</li>
+                            </ol>
+                        </div>
+
+                        <div class="diagram">
+                            <h4>Figure 5</h4>
+                            <p><em>Perpendicular erected at point P on a line — equal points X and Y, arcs meeting at Z, line PZ at right angles.</em></p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Lesson 6: Perpendicular from a Point off the Line</h3>
+                        <div class="content-text">
+                            <p>When the point P lies <strong>off</strong> the line (away from it) — for example, when drawing the height of a triangle from a vertex to the opposite side:</p>
+                            <ol style="margin-left: 40px;">
+                                <li>With the compass point on P, draw an arc that cuts the line at two points. Label them X and Y.</li>
+                                <li>With the point on X and a gap of more than half XY, draw an arc on the far side of the line from P.</li>
+                                <li>With the same gap and the point on Y, draw another arc crossing it. Label the crossing point W.</li>
+                                <li>Draw the straight line through P and W. This line is perpendicular to the given line. Check with a protractor.</li>
+                            </ol>
+                        </div>
+
+                        <div class="diagram">
+                            <h4>Figure 6</h4>
+                            <p><em>Perpendicular dropped from a point P above a line — arc from P cuts the line at X and Y, arcs from X and Y meet at W, line PW at right angles.</em></p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Lesson 7: Constructing Parallel Lines</h3>
+                        <div class="content-text">
+                            <p>Two lines are parallel if they slope the same way, which we guarantee by copying an angle. To construct a line through a point P parallel to a given line:</p>
+                            <ol style="margin-left: 40px;">
+                                <li>Draw any straight line (a transversal) through P that crosses the given line at a point Q.</li>
+                                <li>With the compass point on Q, draw an arc that crosses both the given line and the transversal. Keep this gap.</li>
+                                <li>With the same gap and the point on P, draw a matching arc crossing the transversal above P.</li>
+                                <li>Open the compasses to measure the width of the arc you drew at Q (where it crossed the two lines).</li>
+                                <li>With that gap, mark across the P-arc to locate a point R.</li>
+                                <li>Draw the straight line through P and R. It is parallel to the given line, because you have copied the angle at Q to P (equal corresponding angles). Check by measuring the gap between the lines at each end — it should be the same.</li>
+                            </ol>
+                        </div>
+
+                        <div class="diagram">
+                            <h4>Figure 7</h4>
+                            <p><em>A line through P constructed parallel to a given line by copying the angle at Q — equal corresponding angles show the lines are parallel.</em></p>
+                        </div>
+
+                        <div class="learning-objectives">
+                            <h4>Reasoning and Tips</h4>
+                            <ul>
+                                <li>"Equal arcs make equal distances" is the single idea behind bisectors, perpendiculars, and parallels — once you see it, the steps make sense.</li>
+                                <li>To make a 45° angle, first construct a 90° angle and then bisect it.</li>
+                                <li>Always finish with a check: equal lengths with the ruler, right angles with the protractor.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="activity-box">
+                        <h4>Practice</h4>
+                        <p><strong>1.</strong> Draw a line, mark a point P on it, and construct the perpendicular to the line at P.</p>
+                        <p><strong>2.</strong> Draw a line and mark a point P about 4 cm above it; construct the perpendicular from P to the line.</p>
+                        <p><strong>3.</strong> Construct a line parallel to a given line through a point 3 cm away, then check the distance is equal at both ends.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 4: KEY VOCABULARY -->
+            <div id="glossary" class="tab-content">
+                <button class="print-btn" onclick="window.print()">🖨️ Print This Section</button>
+
+                <div class="section">
+                    <h2 class="section-title">Key Vocabulary</h2>
+
+                    <div class="key-terms">
+                        <h4>Construction Terms</h4>
+                        <div class="term"><strong>Construction:</strong> An accurate drawing made using only a ruler (straight-edge) and a pair of compasses.</div>
+                        <div class="term"><strong>Ruler / straight-edge:</strong> An instrument used to draw straight lines and to measure length.</div>
+                        <div class="term"><strong>Pair of compasses:</strong> An instrument with a sharp point on one arm and a pencil on the other, used to draw circles and arcs.</div>
+                        <div class="term"><strong>Protractor:</strong> An instrument used to measure and draw angles, marked from 0° to 180°.</div>
+                        <div class="term"><strong>Set square:</strong> A flat triangular instrument with a built-in right angle, used to draw perpendicular and parallel lines.</div>
+                        <div class="term"><strong>Arc:</strong> A part of a circle — a curved line drawn by the compasses.</div>
+                    </div>
+
+                    <div class="key-terms">
+                        <h4>Shape and Line Terms</h4>
+                        <div class="term"><strong>Geometry:</strong> The branch of mathematics that studies shape, space, and position.</div>
+                        <div class="term"><strong>Plane:</strong> A flat surface that extends in all directions, such as the page you draw on.</div>
+                        <div class="term"><strong>Circle:</strong> The set of all points that are the same distance (the radius) from a fixed centre.</div>
+                        <div class="term"><strong>Radius:</strong> The distance from the centre of a circle to any point on the circle.</div>
+                        <div class="term"><strong>Line segment:</strong> A straight line with two endpoints and a fixed length.</div>
+                        <div class="term"><strong>Angle:</strong> The amount of turn between two lines that meet at a point, measured in degrees.</div>
+                        <div class="term"><strong>Triangles:</strong> Three-sided plane shapes.</div>
+                        <div class="term"><strong>Quadrilaterals:</strong> Four-sided plane shapes.</div>
+                    </div>
+
+                    <div class="key-terms">
+                        <h4>Relationship Terms</h4>
+                        <div class="term"><strong>Perpendicular:</strong> Two lines that meet at a right angle (90°).</div>
+                        <div class="term"><strong>Parallel:</strong> Two lines that stay the same distance apart and never meet.</div>
+                        <div class="term"><strong>Bisector:</strong> A line that cuts a segment or an angle into two equal parts.</div>
+                        <div class="term"><strong>Perpendicular bisector:</strong> A line that cuts a segment into two equal parts and meets it at a right angle.</div>
+                        <div class="term"><strong>Equidistant:</strong> The same distance from two or more points.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 5: ANSWER KEY -->
+            <div id="answers" class="tab-content">
+                <button class="print-btn" onclick="window.print()">🖨️ Print This Section</button>
+
+                <div class="section">
+                    <h2 class="section-title">Answer Key</h2>
+
+                    <div class="content-text">
+                        <p>Use this answer key to check your work. For "construct" tasks, your drawing is correct if your measured checks match: equal lengths with a ruler and right angles of 90° with a protractor, with the construction arcs left visible.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Part A — Multiple Choice</h3>
+                        <div class="content-text">
+                            <p>1. (b) radius &nbsp;|&nbsp; 2. (c) pair of compasses &nbsp;|&nbsp; 3. (c) 90° &nbsp;|&nbsp; 4. (b) parallel &nbsp;|&nbsp; 5. (c) more than half &nbsp;|&nbsp; 6. (b) protractor</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Part B — True or False</h3>
+                        <div class="content-text">
+                            <p>1. False (leave the arcs visible) &nbsp;|&nbsp; 2. True &nbsp;|&nbsp; 3. True &nbsp;|&nbsp; 4. False (compasses copy it without measuring) &nbsp;|&nbsp; 5. True &nbsp;|&nbsp; 6. False (parallel lines never meet)</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Part C — Fill in the Blanks</h3>
+                        <div class="content-text">
+                            <p>1. perpendicular bisector &nbsp;|&nbsp; 2. radius &nbsp;|&nbsp; 3. perpendicular &nbsp;|&nbsp; 4. equidistant &nbsp;|&nbsp; 5. set square &nbsp;|&nbsp; 6. arc</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Part D — Short Answer</h3>
+                        <div class="content-text">
+                            <p><strong>1.</strong> If the gap is less than half the segment, the arc from A and the arc from B cannot reach far enough to cross, so there are no crossing points to join.</p>
+                            <p><strong>2.</strong> Any two, for example: builders use it for square corners on houses; engineers use it so holes and edges line up on machine parts.</p>
+                            <p><strong>3.</strong> The arcs are the proof that the figure was constructed correctly, not estimated by eye; an examiner wants to see them.</p>
+                            <p><strong>4.</strong> Perpendicular lines meet at a right angle; parallel lines stay the same distance apart and never meet.</p>
+                            <p><strong>5.</strong> Measure the angle with a protractor; it should read exactly 90°.</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Part E — Construct These</h3>
+                        <div class="content-text">
+                            <p><strong>1.</strong> Circle correct if every point measures 5 cm from O.</p>
+                            <p><strong>2.</strong> Bisector correct if AM = MB = 3.5 cm and angle at M = 90°, with arcs visible.</p>
+                            <p><strong>3.</strong> Perpendicular at P correct if the protractor reads 90°.</p>
+                            <p><strong>4.</strong> Perpendicular from P correct if PW meets the line at 90°.</p>
+                            <p><strong>5.</strong> Parallel line correct if the distance between the two lines is equal at both ends.</p>
+                            <p><strong>6.</strong> Copy correct if PQ measures 5.5 cm, the same as the original.</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Challenge Problems</h3>
+                        <div class="content-text">
+                            <p><strong>1.</strong> Bisecting AB (8 cm) and then each half gives 4 equal parts, each 2 cm long.</p>
+                            <p><strong>2.</strong> The distance between the two lines is the same at every point; this proves the two lines are parallel.</p>
+                            <p><strong>3.</strong> Construct a 90° angle, then bisect it to make 45°.</p>
+                            <p><strong>4.</strong> Draw the radius to P, then construct the perpendicular to that radius at P; that perpendicular is the tangent.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Grade 7 Jamaica Mathematics Textbook | Ministry of Education, Youth and Information, Jamaica</p>
+            <p>Term 1, Unit 5: Geometric Construction — an interactive textbook covering geometric instruments, circles, line segments, perpendicular bisectors, and perpendicular and parallel lines.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Tab navigation
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const tabName = button.getAttribute('data-tab');
+
+                // Remove active class from all buttons and contents
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+
+                // Add active class to clicked button and corresponding content
+                button.classList.add('active');
+                document.getElementById(tabName).classList.add('active');
+
+                // Scroll to top
+                window.scrollTo(0, 0);
+            });
+        });
+
+        // Collapsible sections
+        const collapsibles = document.querySelectorAll('.collapsible');
+        collapsibles.forEach(button => {
+            button.addEventListener('click', function() {
+                this.classList.toggle('active');
+                const content = this.nextElementSibling;
+                if (content && content.classList.contains('collapsible-content')) {
+                    content.classList.toggle('show');
+                }
+            });
+        });
+
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

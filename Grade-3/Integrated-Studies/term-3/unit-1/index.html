@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade 3 Jamaica Integrated Studies Textbook</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .nav-tabs {
+            display: flex;
+            background: #f8f9fa;
+            border-bottom: 2px solid #ddd;
+            overflow-x: auto;
+            flex-wrap: wrap;
+        }
+
+        .nav-tabs button {
+            flex: 1;
+            padding: 15px 20px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 500;
+            color: #666;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+            min-width: 150px;
+        }
+
+        .nav-tabs button:hover {
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        .nav-tabs button.active {
+            color: #2a5298;
+            border-bottom-color: #2a5298;
+            background: white;
+        }
+
+        .content {
+            padding: 30px;
+            min-height: 600px;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 1.8em;
+            color: #1e3c72;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .subsection {
+            background: #f8f9fa;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 4px solid #667eea;
+            border-radius: 5px;
+        }
+
+        .subsection h3 {
+            color: #2a5298;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+
+        .learning-objectives {
+            background: #e3f2fd;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #2196F3;
+        }
+
+        .learning-objectives h4 {
+            color: #1565c0;
+            margin-bottom: 10px;
+        }
+
+        .learning-objectives ul {
+            margin-left: 20px;
+        }
+
+        .learning-objectives li {
+            margin: 8px 0;
+            color: #333;
+        }
+
+        .activity-box {
+            background: #fff3e0;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #ff9800;
+        }
+
+        .activity-box h4 {
+            color: #e65100;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .activity-box h4::before {
+            content: "✏️";
+            font-size: 1.2em;
+        }
+
+        .assessment-box {
+            background: #f3e5f5;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #9c27b0;
+        }
+
+        .assessment-box h4 {
+            color: #6a1b9a;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .assessment-box h4::before {
+            content: "📋";
+            font-size: 1.2em;
+        }
+
+        .extension-box {
+            background: #e8f5e9;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #4caf50;
+        }
+
+        .extension-box h4 {
+            color: #2e7d32;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .extension-box h4::before {
+            content: "⭐";
+            font-size: 1.2em;
+        }
+
+        .teacher-notes {
+            background: #ffe0b2;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #ff6f00;
+        }
+
+        .teacher-notes h4 {
+            color: #bf360c;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .teacher-notes h4::before {
+            content: "👨‍🏫";
+            font-size: 1.2em;
+        }
+
+        .content-text {
+            margin: 15px 0;
+            text-align: justify;
+        }
+
+        .content-text strong {
+            color: #1e3c72;
+        }
+
+        .diagram {
+            background: #f0f0f0;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            text-align: center;
+            border: 2px dashed #ddd;
+        }
+
+        .diagram img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+        }
+
+        table th {
+            background: #2a5298;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+
+        table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        table tr:hover {
+            background: #f5f5f5;
+        }
+
+        .key-terms {
+            background: #f5f5f5;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .key-terms h4 {
+            color: #1e3c72;
+            margin-bottom: 10px;
+        }
+
+        .term {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+
+        .term strong {
+            color: #2a5298;
+        }
+
+        .learning-outcomes {
+            background: #c8e6c9;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .learning-outcomes h4 {
+            color: #1b5e20;
+            margin-bottom: 10px;
+        }
+
+        .learning-outcomes ul {
+            margin-left: 20px;
+        }
+
+        .learning-outcomes li {
+            margin: 8px 0;
+            color: #333;
+        }
+
+        .checklist {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-left: 3px solid #2a5298;
+        }
+
+        .checklist input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        footer {
+            background: #1e3c72;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            .nav-tabs button {
+                min-width: 120px;
+                padding: 12px 15px;
+                font-size: 0.9em;
+            }
+        }
+
+        .collapsible {
+            background: #e3f2fd;
+            cursor: pointer;
+            padding: 15px;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 1em;
+            color: #1565c0;
+            font-weight: bold;
+            border-radius: 5px;
+            margin: 10px 0;
+            width: 100%;
+            transition: 0.3s;
+        }
+
+        .collapsible:hover {
+            background: #bbdefb;
+        }
+
+        .collapsible-content {
+            padding: 0 15px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .collapsible-content.show {
+            max-height: 1000px;
+        }
+
+        .print-btn {
+            background: #2a5298;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            margin: 20px 0;
+            transition: 0.3s;
+        }
+
+        .print-btn:hover {
+            background: #1e3c72;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            .nav-tabs {
+                display: none;
+            }
+            .print-btn {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📚 Grade 3 Integrated Studies Textbook</h1>
+            <p>Jamaica National Standards Curriculum - Term 3, Unit 1: Living and Non-Living Things</p>
+            <p style="font-size: 0.9em; margin-top: 10px;">Telling Living from Non-Living | Habitats | Changes in the Environment | Depending on Non-Living Things</p>
+            <p style="margin-top:14px;"><a href="../../index.html" style="color:#fff; background:rgba(255,255,255,0.15); padding:6px 14px; border-radius:5px; text-decoration:none; font-size:0.9em;">← Subject Home</a></p>
+        </header>
+
+        <div class="nav-tabs">
+            <button class="tab-btn active" data-tab="focus-q1">Focus Q1: Living Things</button>
+            <button class="tab-btn" data-tab="focus-q2">Focus Q2: Habitats</button>
+            <button class="tab-btn" data-tab="focus-q3">Focus Q3: Changes</button>
+            <button class="tab-btn" data-tab="focus-q4">Focus Q4: Depending</button>
+            <button class="tab-btn" data-tab="glossary">Glossary</button>
+            <button class="tab-btn" data-tab="answers">Answer Key</button>
+        </div>
+
+        <div class="content">
+            <!-- FOCUS QUESTION 1 -->
+            <div id="focus-q1" class="tab-content active">
+                <button class="print-btn" onclick="window.print()">🖨️ Print This Section</button>
+
+                <div class="section">
+                    <h2 class="section-title">Focus Question 1: How can I tell if something in my environment is living?</h2>
+
+                    <div class="subsection">
+                        <h3>Two Great Families of Things</h3>
+                        <div class="content-text">
+                            <p>Take a moment to look around you. The world is full of all kinds of things. Some of them are bursting with life, and others have never been alive at all. Everything in your <strong>environment</strong>, which means everything that is around us, can be sorted into one of two great families.</p>
+                            <p>The first family is the <strong>living things</strong>. A mango tree, a goat, a john crow flying in the sky, a tiny ant, and you yourself are all living things, because you are all alive. The second family is the <strong>non-living things</strong>. A stone in the river, a glass of water, the air around you, a desk, and a metal gate are all non-living things, because they were never alive.</p>
+                            <p>At first it might seem easy to tell them apart. Of course a dog is living and a rock is not! But sometimes it is trickier than you think. Is a dead leaf living or non-living? Is flowing water alive because it moves? To answer questions like these, scientists do not just guess. They look for special signs.</p>
+                        </div>
+                        <div class="learning-objectives">
+                            <h4>Think About It</h4>
+                            <p>Look around the room you are in right now. Can you name three living things and three non-living things that you can see?</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>The Signs of Life</h3>
+                        <div class="content-text">
+                            <p>All living things share certain signs, and we call these the <strong>characteristics of living things</strong>. If something shows these signs, it is alive. If it does not show them, it is not alive. There are six main signs to look for.</p>
+                            <p>The first sign is <strong>movement</strong>. Living things can move by themselves. A cat can run, a fish can swim, and a bird can fly. Even plants move, though so slowly we cannot see it; a sunflower turns to face the sun. A stone cannot move itself at all.</p>
+                            <p>The second sign is <strong>feeding</strong>. Living things need food to give them energy and to help them grow. A cow eats grass, and a lizard eats insects. Plants are clever, for they make their own food using sunlight. A chair never needs to eat.</p>
+                            <p>The third sign is <strong>growth</strong>. Living things grow and change as time passes. A tiny seed grows into a tall tree, and a puppy grows into a big dog. A stone stays the same size, year after year.</p>
+                            <p>The fourth sign is <strong>reproduction</strong>. Living things can make young ones that are like themselves. A hen lays eggs that hatch into chicks, and a mango tree makes seeds that grow into new trees. A bicycle can never make another little bicycle.</p>
+                            <p>The fifth sign is <strong>breathing</strong>, which scientists also call respiration. Living things take in air to stay alive. You breathe with your lungs, and a fish takes air from the water with its gills. A brick does not breathe.</p>
+                            <p>The sixth sign is <strong>sensitivity</strong>. Living things notice and respond to what happens around them. A leaf of the shame-o-lady plant folds up when you touch it, and a dog turns its head towards a loud noise. Non-living things cannot feel or respond in this way.</p>
+                        </div>
+                        <div class="key-terms">
+                            <h4>Did You Know?</h4>
+                            <p>A handy way to remember the signs of life is to look for these things: a living thing moves, feeds, grows, makes young, breathes, and responds to the world around it. If something does all of these things, you can be sure it is alive.</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Putting the Signs Together</h3>
+                        <div class="content-text">
+                            <p>Now that you know the six signs of life, you can be a real living-things detective. Whenever you are not sure whether something is living, you simply check it against the signs. Does it move on its own? Does it feed and grow? Can it make young ones? Does it breathe and respond to the world? If the answer is yes, then it is a living thing.</p>
+                            <p>Imagine you find a lizard sunning itself on a wall. It moves, because it darts away when you come close. It feeds on insects. It grew from a baby lizard into a bigger one. It can lay eggs. It breathes air. And it responds to you by running away. Every single sign says yes, so the lizard is most certainly a living thing.</p>
+                            <p>Now think about the wall the lizard rested on. Does the wall move by itself, feed, grow, make young ones, or breathe? No, no, no, no, and no. The wall shows none of the signs of life, so we know the wall is a non-living thing.</p>
+                        </div>
+                        <div class="learning-objectives">
+                            <h4>Think About It</h4>
+                            <p>A car can move, and it needs petrol just as you need food. Yet a car is not a living thing. Using the six signs of life, can you think of which signs a car is missing? Here is a clue: can a car grow, or make a baby car, or breathe?</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Watching a Seed Come to Life</h3>
+                        <div class="content-text">
+                            <p>One of the best ways to see the signs of life with your very own eyes is to watch a seed grow. If you take a few peas or corn seeds and place them on damp paper inside a clear container, and keep the paper moist, something amazing happens after a few days. The seed swells up and splits open. A tiny white root pushes its way down, and a small green shoot reaches up toward the light.</p>
+                            <p>Day by day, the little plant grows taller. This is <strong>growth</strong> happening right before your eyes. As you watch your seed each day, you can measure how tall the shoot has grown and write it down. This careful watching and writing down is exactly what scientists do.</p>
+                        </div>
+                        <div class="key-terms">
+                            <h4>Did You Know?</h4>
+                            <p>People who study plants are called botanists, and people who study animals are called zoologists. When you watch your seed grow and write down what you see, you are doing real science, just like they do.</p>
+                        </div>
+                        <div class="activity-box">
+                            <h4>Let's Practice</h4>
+                            <p>Go outside, if you can, and look carefully at your environment. Try to find five living things and five non-living things. For each living thing, see if you can spot a sign of life, such as movement, feeding, or growth. Then plant a few peas or corn seeds on damp paper in a clear cup, keep the paper moist, and watch how the seed changes over the next two weeks.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FOCUS QUESTION 2 -->
+            <div id="focus-q2" class="tab-content">
+                <button class="print-btn" onclick="window.print()">🖨️ Print This Section</button>
+
+                <div class="section">
+                    <h2 class="section-title">Focus Question 2: Why do living things need specific habitats?</h2>
+
+                    <div class="subsection">
+                        <h3>What Is a Habitat?</h3>
+                        <div class="content-text">
+                            <p>The special place where a plant or an animal lives is called its <strong>habitat</strong>. A habitat is much more than just a spot on the ground. It is a home that gives a living thing everything it needs to stay alive and well.</p>
+                            <p>Think about what you need in your own home. You need food to eat, water to drink, a roof to keep you safe from the rain and sun, and a place where you feel protected. A habitat does the very same thing for a plant or an animal. A good habitat gives a living thing four important gifts: <strong>food</strong> to eat, <strong>water</strong> to drink, <strong>shelter</strong> to keep it safe from bad weather, and <strong>safety</strong> from danger.</p>
+                            <p>Different living things need different habitats, because they need different things. A fish needs a habitat full of water, for a fish cannot live out of the water. A bird needs trees where it can build its nest. A worm needs cool, damp soil where it can dig and feed. Each living thing has its own perfect home.</p>
+                        </div>
+                        <div class="learning-objectives">
+                            <h4>Think About It</h4>
+                            <p>Think about an animal you know well, such as a dog, a goat, or a fish. Where does it live? What does its home give it that helps it to stay alive and happy?</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Homes of All Kinds</h3>
+                        <div class="content-text">
+                            <p>If you go for a walk around your school yard or your community, you will discover habitats all around you. Some animals live in the trees, where birds build their nests high in the branches. Some animals live in the soil, like the worms and ants that dig their homes in the cool, dark earth. Some animals live in the water, like the fish, crabs, and tadpoles that make their homes in rivers, ponds, and the sea. And some animals live in and around our houses, like a lizard on a wall or a spider in a quiet corner.</p>
+                            <p>Plants have their habitats too. A water lily floats on a pond, a cactus lives happily in dry, sandy places, and a great cotton tree spreads its roots deep into the rich soil. Each plant grows best in the place that gives it the right amount of water, sunlight, and soil.</p>
+                            <p>People build homes too, in all shapes and sizes, to suit the places where they live. In very cold lands, some people once built houses called igloos out of blocks of ice. Right here in Jamaica, we build houses of wood and concrete to keep us safe from the sun and the heavy rains.</p>
+                        </div>
+                        <div class="key-terms">
+                            <h4>Did You Know?</h4>
+                            <p>A bird does not build its nest just anywhere. It chooses a safe branch, gathers twigs and grass, and weaves them together into a cosy home. Each kind of bird builds its own special kind of nest, perfectly suited to its needs.</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Why the Right Habitat Matters</h3>
+                        <div class="content-text">
+                            <p>A living thing needs the right habitat, and only the right one will do. If a living thing is taken away from its proper home and put somewhere it does not belong, it can become very unhappy, and it may not be able to survive at all.</p>
+                            <p>Imagine a fish swimming happily in a river. The river is its habitat. It gives the fish water to breathe through its gills, tiny creatures to eat, and cool places to hide. Now imagine that someone takes the fish out of the river and places it on the dry grass. The fish could not breathe out of the water. It would flap and struggle, and it could not live for long. This shows us how very important the right habitat is. The fish was made for the water, not for dry land.</p>
+                            <p>This is why we must take great care of the natural homes of living things. When people cut down too many trees, throw rubbish into rivers, or pollute the air, they damage the habitats that living things depend on. By keeping our environment clean and protecting natural places, we help every living thing to keep its home.</p>
+                        </div>
+                        <div class="learning-objectives">
+                            <h4>Think About It</h4>
+                            <p>Why do you think a polar animal that lives in the snow would find it very hard to live in hot, sunny Jamaica? What would it be missing from its proper habitat?</p>
+                        </div>
+                        <div class="activity-box">
+                            <h4>Let's Practice</h4>
+                            <p>Choose an animal you know well, such as a fish, a bird, or a goat. Draw its habitat and label the things it gets from its home, such as food, water, shelter, and safety. Then think of one way you could help to keep that habitat clean and safe.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FOCUS QUESTION 3 -->
+            <div id="focus-q3" class="tab-content">
+                <button class="print-btn" onclick="window.print()">🖨️ Print This Section</button>
+
+                <div class="section">
+                    <h2 class="section-title">Focus Question 3: How are living and non-living things affected by changes in the environment?</h2>
+
+                    <div class="subsection">
+                        <h3>The Environment Is Always Changing</h3>
+                        <div class="content-text">
+                            <p>The world around you is always changing. Some changes are small and gentle, like a soft breeze or a quiet sound. Others are large and powerful, like a roaring hurricane or a shaking earthquake. Nothing in your environment stays exactly the same forever. Day turns into night, the hot dry season gives way to the rainy season, and a calm afternoon can turn into a stormy evening.</p>
+                            <p>Some changes come from the living world, and some come from the non-living world. A change can be small, like a leaf falling from a tree, or it can be large, like a flood that covers a whole field. As you read on, you will learn about the sounds we hear, the things that move, the pushes and pulls of forces, and the great events of nature.</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Sounds All Around Us</h3>
+                        <div class="content-text">
+                            <p>Close your eyes for a moment and listen. Perhaps you hear birds singing, a dog barking, the wind rustling the leaves, or a car passing by. All of these are <strong>sounds</strong>, and our environment is full of them.</p>
+                            <p>A sound is made when something moves or shakes the air around it. When a bird sings, it shakes the air with its throat. When rain falls on a zinc roof, it makes a loud pattering sound. Some sounds are made by living things, like the chirping of a cricket or the croaking of a frog at night. Other sounds are made by non-living things, like thunder rumbling in the sky or water rushing over rocks.</p>
+                            <p>We can even make our own musical sounds to copy the sounds of the environment. By clapping our hands, tapping a drum, or shaking a shaker, we can pretend to be falling rain, a buzzing bee, or a gentle stream.</p>
+                        </div>
+                        <div class="key-terms">
+                            <h4>Did You Know?</h4>
+                            <p>At night in Jamaica, you can hear a chorus of sounds from living things, like the chirping of crickets and the whistling of the whistling frog. Each little creature is making a sound to tell others where it is.</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Things That Move</h3>
+                        <div class="content-text">
+                            <p>Look around your environment, and you will see that many things are moving. A <strong>force</strong> is a push or a pull that makes something move, or stop, or change its direction. Forces are at work all around us, every single day.</p>
+                            <p>When you kick a football, your foot gives the ball a push, and the ball flies through the air. That push is a force. When a fast-moving cricket ball comes flying towards a batsman, a force sends it speeding along, and a force from the bat sends it flying back. When you pull a cart or push a swing, you are using a force to make it move.</p>
+                            <p>Forces are not only made by people. The wind is a force that can push a kite high into the sky or bend the branches of a tree. Flowing water is a force that can carry a leaf downstream. Even when you drop a stone and it falls to the ground, a force is pulling it down.</p>
+                        </div>
+                        <div class="learning-objectives">
+                            <h4>Think About It</h4>
+                            <p>Think of a game you like to play. Where do you use a push or a pull in that game? How does the force make something move?</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>The Great Events of Nature</h3>
+                        <div class="content-text">
+                            <p>Some of the biggest changes in our environment come from the powerful events of nature. A <strong>hurricane</strong> is a giant storm with howling winds and heavy rain. When a hurricane comes, the strong wind can blow down trees, the heavy rain can cause flooding, and the rough sea can wash away the shore. It affects living things, because animals lose their homes, and it affects non-living things, because rivers swell and the land itself is changed.</p>
+                            <p>An <strong>earthquake</strong> is a sudden shaking of the ground. Deep below us, the earth can shift and tremble, cracking the land and shaking down buildings. Like a hurricane, an earthquake affects both the living and the non-living world.</p>
+                            <p>Even gentler events bring change. When the rain falls during the rainy season, the dry land soaks up the water, the rivers grow full, and the plants turn green. When the hot, dry season comes, the rivers grow low and the soil becomes dry and cracked. These changes follow the <strong>seasons</strong>, which are the different times of the year. In Jamaica, the months from June to November are the time when hurricanes are most likely to come. When the environment changes, living things must respond, finding new places to nest or searching harder for water.</p>
+                        </div>
+                        <div class="key-terms">
+                            <h4>Did You Know?</h4>
+                            <p>In 1988, a very powerful hurricane called Hurricane Gilbert struck Jamaica. It blew down many trees and houses and changed parts of the land. People still remember it today, and it reminds us how strong the events of nature can be.</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Caring for Our Environment</h3>
+                        <div class="content-text">
+                            <p>Because the environment can change so easily, it is our job to take care of it. People sometimes cause harmful changes without thinking. When people throw rubbish on the ground or into rivers, they make the environment dirty. This is called littering, and it harms both living and non-living things. Plastic bottles and old cans left lying about can hurt animals, block streams, and make a place ugly and unhealthy.</p>
+                            <p>The good news is that we can all help. We can put our rubbish in bins instead of throwing it on the ground. We can pick up litter we find in the school yard. We can plant trees and care for plants. When each of us does our small part, we help to keep our environment clean and healthy for every living and non-living thing.</p>
+                        </div>
+                        <div class="activity-box">
+                            <h4>Let's Practice</h4>
+                            <p>Make a small sound picture of your environment. Use your hands, your voice, or simple instruments to copy three sounds you hear around you, such as falling rain, a bird, or the wind. Then look around your school yard or home and think of one thing you could do this week to help keep your environment clean.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FOCUS QUESTION 4 -->
+            <div id="focus-q4" class="tab-content">
+                <button class="print-btn" onclick="window.print()">🖨️ Print This Section</button>
+
+                <div class="section">
+                    <h2 class="section-title">Focus Question 4: In what ways are living things dependent on non-living things?</h2>
+
+                    <div class="subsection">
+                        <h3>What Does It Mean to Depend on Something?</h3>
+                        <div class="content-text">
+                            <p>When one thing needs another thing in order to live or to work, we say that it <strong>depends</strong> on it. You depend on your family to care for you and feed you. A plant depends on the rain to give it water. To depend on something means you cannot do without it.</p>
+                            <p>Living things depend on many non-living things every single day. The non-living world gives living things the sunlight, the air, the water, and the soil that they need to stay alive. Without these non-living gifts, no plant or animal could survive.</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>The Gifts of the Non-Living World</h3>
+                        <div class="content-text">
+                            <p>The first great gift is <strong>sunlight</strong>. The sun is a non-living thing, far away in the sky, yet every living thing depends on it. Plants use the light of the sun to make their food. Without sunlight, plants could not grow, and the animals that eat plants would have nothing to eat. The sun also gives us warmth and light.</p>
+                            <p>The second great gift is <strong>air</strong>. The air is all around us, even though we cannot see it. You breathe in air with your lungs, a fish takes air from the water with its gills, and plants take in air too. Without air, no living thing could breathe.</p>
+                            <p>The third great gift is <strong>water</strong>. Every living thing needs water to stay alive. You drink water every day, animals search for water in rivers and ponds, and plants drink water through their roots. Jamaica is sometimes called the "Land of Wood and Water" because it has so many rivers, springs, and streams.</p>
+                            <p>The fourth great gift is <strong>soil</strong>. A plant pushes its roots into the soil to hold itself up, and it drinks water and takes goodness from the soil to help it grow. Since so many animals and people depend on plants for food, the soil helps to feed the whole living world.</p>
+                        </div>
+                        <div class="key-terms">
+                            <h4>Did You Know?</h4>
+                            <p>Almost all the food you eat begins with a plant that grew in the soil, drank the water, breathed the air, and soaked up the sunlight. Your breakfast, your lunch, and your dinner all depend on the non-living world.</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Living Things Depend on Each Other Too</h3>
+                        <div class="content-text">
+                            <p>Living things do not only depend on non-living things. They also depend on one another. Think about a simple meal of rice and stewed chicken with a slice of pumpkin. The rice came from a rice plant, which grew in the soil, drank the water, breathed the air, and used the sunlight. The chicken ate grains and corn, which are also plants. The pumpkin grew on a vine in the warm Jamaican earth.</p>
+                            <p>So when you eat your dinner, you are depending on living things like plants and animals, and they in turn depended on non-living things like soil, water, air, and sunlight. Everything is joined together, like links in a chain. The plants need the soil, the water, the air, and the sun. The animals need the plants and the water and the air. And people need the plants, the animals, and all the gifts of the non-living world.</p>
+                        </div>
+                        <div class="learning-objectives">
+                            <h4>Think About It</h4>
+                            <p>Imagine if there were suddenly no water in the world at all. What would happen to the plants, the animals, and the people? Why is water such an important non-living thing?</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Being Thankful and Taking Care</h3>
+                        <div class="content-text">
+                            <p>When we understand how much living things depend on non-living things, we begin to feel thankful for the world around us. The sunlight, the air, the water, and the soil are gifts that keep us alive every day.</p>
+                            <p>Because we depend so much on the non-living world, it is our job to take care of it. We should not waste water, for it is precious. We should not dirty the air or the rivers, for living things need them to be clean. We should care for the soil, so that plants can keep growing. When we look after the non-living world, we are really looking after every living thing, including ourselves.</p>
+                        </div>
+                        <div class="activity-box">
+                            <h4>Let's Practice</h4>
+                            <p>Make a list of five non-living things you used today, such as water, air, sunlight, soil, or something made from them. Beside each one, write a short sentence to explain how a living thing depends on it. Then draw a picture of a meal you enjoy and label the living and non-living things that helped to make it.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GLOSSARY -->
+            <div id="glossary" class="tab-content">
+                <div class="section">
+                    <h2 class="section-title">📖 Glossary of Key Terms</h2>
+
+                    <div class="subsection">
+                        <h3>Living and Non-Living Things</h3>
+                        <div class="term"><strong>Living thing:</strong> Something that is alive, like a plant, an animal, or a person</div>
+                        <div class="term"><strong>Non-living thing:</strong> Something that is not alive, like a stone, water, or air</div>
+                        <div class="term"><strong>Environment:</strong> Everything that is around us, both living and non-living</div>
+                        <div class="term"><strong>Characteristics of living things:</strong> The special signs that show something is alive — movement, feeding, growth, reproduction, breathing, and sensitivity</div>
+                        <div class="term"><strong>Movement:</strong> The way living things can move themselves or move parts of their bodies</div>
+                        <div class="term"><strong>Feeding:</strong> The way living things take in food to get energy and to grow</div>
+                        <div class="term"><strong>Growth:</strong> The way living things get bigger and change as they get older</div>
+                        <div class="term"><strong>Reproduction:</strong> The way living things make young ones, or new plants and animals, like themselves</div>
+                        <div class="term"><strong>Breathing:</strong> The way living things take in the air they need to stay alive (also called respiration)</div>
+                        <div class="term"><strong>Sensitivity:</strong> The way living things notice and respond to what happens around them</div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Habitats</h3>
+                        <div class="term"><strong>Habitat:</strong> The special home where a plant or animal lives and gets what it needs</div>
+                        <div class="term"><strong>Shelter:</strong> A safe place that protects a living thing from harm and bad weather</div>
+                        <div class="term"><strong>Safety:</strong> Being protected from danger and harm</div>
+                        <div class="term"><strong>Indigenous:</strong> A plant or animal that naturally belongs to a particular place</div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Changes in the Environment</h3>
+                        <div class="term"><strong>Sound:</strong> Something we hear when things in our environment move or shake the air</div>
+                        <div class="term"><strong>Force:</strong> A push or a pull that can make something move, stop, or change</div>
+                        <div class="term"><strong>Hurricane:</strong> A giant storm with howling winds and heavy rain</div>
+                        <div class="term"><strong>Earthquake:</strong> A sudden shaking of the ground</div>
+                        <div class="term"><strong>Season:</strong> A time of year, such as the rainy season or the dry season</div>
+                        <div class="term"><strong>Littering:</strong> Throwing rubbish on the ground or into rivers instead of in a bin</div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Depending on Non-Living Things</h3>
+                        <div class="term"><strong>Depend:</strong> To need something else in order to live or to work properly</div>
+                        <div class="term"><strong>Sunlight:</strong> The light and warmth from the sun, which plants use to make their food</div>
+                        <div class="term"><strong>Air:</strong> The gas all around us that living things need in order to breathe</div>
+                        <div class="term"><strong>Water:</strong> The liquid that every living thing needs to drink to stay alive</div>
+                        <div class="term"><strong>Soil:</strong> The earth in which plants grow and from which they take goodness</div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Words for Young Scientists</h3>
+                        <div class="term"><strong>Observe:</strong> To watch something carefully and notice its details</div>
+                        <div class="term"><strong>Botanist:</strong> A person who studies plants</div>
+                        <div class="term"><strong>Zoologist:</strong> A person who studies animals</div>
+                        <div class="term"><strong>Predict:</strong> To say what you think will happen before it happens</div>
+                        <div class="term"><strong>Conclusion:</strong> What you decide is true after watching and thinking carefully</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ANSWER KEY -->
+            <div id="answers" class="tab-content">
+                <div class="section">
+                    <h2 class="section-title">Answer Key</h2>
+
+                    <div class="subsection">
+                        <h3>Focus Question 1: Living Things</h3>
+                        <p><strong>1. Name two signs that show that something is a living thing.</strong> Any two of the six signs of life: movement, feeding, growth, reproduction, breathing, and sensitivity (responding to the world).</p>
+                        <p><strong>2. How could you prove that a lizard is living?</strong> A lizard moves, feeds on insects, grows from a baby into an adult, lays eggs to make young, breathes air, and responds to danger by running away. It shows all the signs of life, so it is living.</p>
+                        <p><strong>3. Why is a wall a non-living thing?</strong> A wall does not move by itself, feed, grow, make young, breathe, or respond. It shows none of the signs of life.</p>
+                        <p><strong>4. Which signs of life is a car missing?</strong> A car cannot grow, cannot make a baby car (reproduce), and cannot breathe, so it is not a living thing even though it can move.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Focus Question 2: Habitats</h3>
+                        <p><strong>1. What is a habitat?</strong> A habitat is the special home where a plant or animal lives. It gives the living thing four important things: food, water, shelter, and safety.</p>
+                        <p><strong>2. Why does a fish need water as its habitat?</strong> A fish breathes through its gills using the water, finds its food in the water, and hides there from danger. Out of the water it cannot breathe and would not survive for long.</p>
+                        <p><strong>3. Name places where animals make their homes.</strong> In trees (birds), in the soil (worms and ants), in water (fish, crabs, tadpoles), and in and around houses (lizards, spiders).</p>
+                        <p><strong>4. Why must we protect habitats?</strong> If we cut down trees, pollute rivers, or dirty the air, living things lose the homes they need to survive. Keeping habitats clean helps plants and animals to live well.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Focus Question 3: Changes in the Environment</h3>
+                        <p><strong>1. What is a sound and how is it made?</strong> A sound is what we hear when something moves or shakes the air. A living thing sound is a bird singing or a cricket chirping; a non-living thing sound is thunder or rushing water.</p>
+                        <p><strong>2. What is a force?</strong> A force is a push or a pull that makes something move, stop, or change direction. Kicking a ball is a push; pulling a cart is a pull.</p>
+                        <p><strong>3. How can a hurricane change the environment?</strong> Its strong winds blow down trees and houses, its heavy rain causes flooding, and the rough sea washes away the shore, affecting both living and non-living things.</p>
+                        <p><strong>4. How can an earthquake change the environment?</strong> An earthquake shakes the ground, cracks the land, and can shake down buildings, changing both living and non-living things.</p>
+                        <p><strong>5. How can we care for the environment?</strong> By putting rubbish in bins, picking up litter, not polluting rivers and air, and planting and caring for trees and plants.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Focus Question 4: Depending on Non-Living Things</h3>
+                        <p><strong>1. What does it mean to depend on something?</strong> It means to need something in order to live or to work. You cannot do without it.</p>
+                        <p><strong>2. Name four non-living things that living things depend on.</strong> Sunlight, air, water, and soil.</p>
+                        <p><strong>3. Why is each one important?</strong> Sunlight helps plants make food; air lets living things breathe; water is needed by every living thing to drink; soil holds plants and gives them goodness to grow.</p>
+                        <p><strong>4. How does a meal show that living things depend on non-living things?</strong> Rice, chicken, and pumpkin all began with plants that needed soil, water, air, and sunlight to grow, so eating a meal depends on the non-living world.</p>
+                        <p><strong>5. Why should we take care of the non-living world?</strong> Because every living thing, including ourselves, depends on clean water, clean air, healthy soil, and sunlight to stay alive.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Grade 3 Jamaica Integrated Studies Textbook | Ministry of Education, Youth and Information, Jamaica</p>
+            <p>Term 3, Unit 1: Living and Non-Living Things — covering all four focus questions of the National Standards Curriculum.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Tab navigation
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const tabName = button.getAttribute('data-tab');
+
+                // Remove active class from all buttons and contents
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+
+                // Add active class to clicked button and corresponding content
+                button.classList.add('active');
+                document.getElementById(tabName).classList.add('active');
+
+                // Scroll to top
+                window.scrollTo(0, 0);
+            });
+        });
+
+        // Collapsible sections
+        const collapsibles = document.querySelectorAll('.collapsible');
+        collapsibles.forEach(button => {
+            button.addEventListener('click', function() {
+                this.classList.toggle('active');
+                const content = this.nextElementSibling;
+                if (content && content.classList.contains('collapsible-content')) {
+                    content.classList.toggle('show');
+                }
+            });
+        });
+
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

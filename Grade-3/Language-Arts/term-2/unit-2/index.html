@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade 3 Jamaica Language Arts Textbook</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .nav-tabs {
+            display: flex;
+            background: #f8f9fa;
+            border-bottom: 2px solid #ddd;
+            overflow-x: auto;
+            flex-wrap: wrap;
+        }
+
+        .nav-tabs button {
+            flex: 1;
+            padding: 15px 20px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 500;
+            color: #666;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+            min-width: 150px;
+        }
+
+        .nav-tabs button:hover {
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        .nav-tabs button.active {
+            color: #2a5298;
+            border-bottom-color: #2a5298;
+            background: white;
+        }
+
+        .content {
+            padding: 30px;
+            min-height: 600px;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 1.8em;
+            color: #1e3c72;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .subsection {
+            background: #f8f9fa;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 4px solid #667eea;
+            border-radius: 5px;
+        }
+
+        .subsection h3 {
+            color: #2a5298;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+
+        .learning-objectives {
+            background: #e3f2fd;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #2196F3;
+        }
+
+        .learning-objectives h4 {
+            color: #1565c0;
+            margin-bottom: 10px;
+        }
+
+        .learning-objectives ul {
+            margin-left: 20px;
+        }
+
+        .learning-objectives li {
+            margin: 8px 0;
+            color: #333;
+        }
+
+        .activity-box {
+            background: #fff3e0;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #ff9800;
+        }
+
+        .activity-box h4 {
+            color: #e65100;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .activity-box h4::before {
+            content: "✏️";
+            font-size: 1.2em;
+        }
+
+        .assessment-box {
+            background: #f3e5f5;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #9c27b0;
+        }
+
+        .assessment-box h4 {
+            color: #6a1b9a;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .assessment-box h4::before {
+            content: "📋";
+            font-size: 1.2em;
+        }
+
+        .extension-box {
+            background: #e8f5e9;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #4caf50;
+        }
+
+        .extension-box h4 {
+            color: #2e7d32;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .extension-box h4::before {
+            content: "⭐";
+            font-size: 1.2em;
+        }
+
+        .teacher-notes {
+            background: #ffe0b2;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #ff6f00;
+        }
+
+        .teacher-notes h4 {
+            color: #bf360c;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .teacher-notes h4::before {
+            content: "👨‍🏫";
+            font-size: 1.2em;
+        }
+
+        .content-text {
+            margin: 15px 0;
+            text-align: justify;
+        }
+
+        .content-text strong {
+            color: #1e3c72;
+        }
+
+        .diagram {
+            background: #f0f0f0;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            text-align: center;
+            border: 2px dashed #ddd;
+        }
+
+        .diagram img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+        }
+
+        table th {
+            background: #2a5298;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+
+        table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        table tr:hover {
+            background: #f5f5f5;
+        }
+
+        .key-terms {
+            background: #f5f5f5;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .key-terms h4 {
+            color: #1e3c72;
+            margin-bottom: 10px;
+        }
+
+        .term {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+
+        .term strong {
+            color: #2a5298;
+        }
+
+        .learning-outcomes {
+            background: #c8e6c9;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .learning-outcomes h4 {
+            color: #1b5e20;
+            margin-bottom: 10px;
+        }
+
+        .learning-outcomes ul {
+            margin-left: 20px;
+        }
+
+        .learning-outcomes li {
+            margin: 8px 0;
+            color: #333;
+        }
+
+        .checklist {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-left: 3px solid #2a5298;
+        }
+
+        .checklist input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        footer {
+            background: #1e3c72;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            .nav-tabs button {
+                min-width: 120px;
+                padding: 12px 15px;
+                font-size: 0.9em;
+            }
+        }
+
+        .collapsible {
+            background: #e3f2fd;
+            cursor: pointer;
+            padding: 15px;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 1em;
+            color: #1565c0;
+            font-weight: bold;
+            border-radius: 5px;
+            margin: 10px 0;
+            width: 100%;
+            transition: 0.3s;
+        }
+
+        .collapsible:hover {
+            background: #bbdefb;
+        }
+
+        .collapsible-content {
+            padding: 0 15px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .collapsible-content.show {
+            max-height: 1000px;
+        }
+
+        .print-btn {
+            background: #2a5298;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            margin: 20px 0;
+            transition: 0.3s;
+        }
+
+        .print-btn:hover {
+            background: #1e3c72;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            .nav-tabs {
+                display: none;
+            }
+            .print-btn {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📚 Grade 3 Language Arts Textbook</h1>
+            <p>Jamaica National Standards Curriculum - Term 2, Unit 2</p>
+            <p style="font-size: 0.9em; margin-top: 10px;">Speaking &amp; Listening | Word Skills | Comprehension | Grammar | Writing</p>
+            <p style="margin-top:14px;"><a href="../../index.html" style="color:#fff; background:rgba(255,255,255,0.15); padding:6px 14px; border-radius:5px; text-decoration:none; font-size:0.9em;">← Language Arts Home</a></p>
+        </header>
+
+        <div class="nav-tabs">
+            <button class="tab-btn active" data-tab="speaking-listening">Speaking &amp; Listening</button>
+            <button class="tab-btn" data-tab="word-skills">Word Skills</button>
+            <button class="tab-btn" data-tab="comprehension">Comprehension</button>
+            <button class="tab-btn" data-tab="grammar">Grammar</button>
+            <button class="tab-btn" data-tab="writing">Writing</button>
+            <button class="tab-btn" data-tab="glossary">Word Power</button>
+            <button class="tab-btn" data-tab="answers">Answer Key</button>
+        </div>
+
+        <div class="content">
+
+            <!-- SPEAKING & LISTENING -->
+            <div id="speaking-listening" class="tab-content active">
+                <button class="print-btn" onclick="window.print()">🖨️ Print This Section</button>
+
+                <div class="section">
+                    <h2 class="section-title">Speaking &amp; Listening</h2>
+
+                    <div class="content-text">
+                        <p>Long before children could read or write, people shared poems out loud. A poem is meant to be heard, not only seen. When a poem is read aloud, its words seem to dance — and that is why listening to poems is such a treat. In this strand you will learn to listen to poems, talk about how they make you feel, and speak clearly so that everyone understands you.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Listening to a Poem</h3>
+                        <div class="content-text">
+                            <p>When you listen to a poem, listen with your whole self. Sit still, keep your ears open, and let the words paint pictures in your mind. A good listener notices the <strong>rhythm</strong> — the beat the words make, a little like the beat of a drum or a clap. A good listener also notices the <strong>rhyming words</strong>, the ones that end with the same sound, like <em>cat</em> and <em>hat</em>, or <em>sun</em> and <em>fun</em>.</p>
+                            <p>Read these lines slowly and listen to how they sound:</p>
+                            <p style="background:#f0f0f0; padding:15px; margin:10px 0; border-radius:5px;"><em>The rain comes down, drip-drop, drip-drop,<br>It will not stop, it will not stop.<br>It taps the roof and fills the street,<br>And cools my hot and tired feet.</em></p>
+                            <p>Did you hear the beat? Did you notice that <em>drop</em> rhymes with <em>stop</em>, and <em>street</em> rhymes with <em>feet</em>? That gentle music is one of the things that makes a poem a poem.</p>
+                        </div>
+
+                        <div class="key-terms">
+                            <h4>Did You Know?</h4>
+                            <div class="term">Many of the ring games and clapping rhymes you played as a little child — like "Brown Girl in the Ring" — are really poems set to music. You have been enjoying poems your whole life without even knowing it!</div>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Talking About How a Poem Makes You Feel</h3>
+                        <div class="content-text">
+                            <p>Every poem gives you a feeling. Some poems make you feel happy and want to skip. Some make you feel calm and sleepy. Some make you feel a little sad, and some make you feel excited.</p>
+                            <p>After you listen to a poem, it is good to talk about it. You might say, "This poem made me feel happy, because it talked about playing in the sun." There is no wrong answer, because a poem can make different people feel different things. What matters is that you can say <em>how</em> you feel and <em>why</em> you feel that way.</p>
+                        </div>
+
+                        <div class="learning-objectives">
+                            <h4>Think About It</h4>
+                            <ul>
+                                <li>Think of a song you really love. How does it make you feel when you hear it? Can you say why?</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Speaking Clearly</h3>
+                        <div class="content-text">
+                            <p>Whether you are sharing how a poem made you feel or reading a poem aloud, you want people to understand you. To speak clearly, remember three things. First, do not rush — speak slowly enough that every word can be heard. Second, speak loudly enough to reach the back of the room, but not so loudly that you are shouting. Third, look at the people you are speaking to, and say each word carefully, all the way to the end.</p>
+                            <p>When you read a poem aloud, you can read with <strong>expression</strong>. This means letting your voice show the feeling of the poem. If the poem is happy, let your voice sound bright and cheerful. If it is sad, let your voice grow soft and slow. Reading with expression turns a plain poem into a real treat for everyone who is listening.</p>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Let's Practice</h4>
+                            <p>Read the rain poem above out loud. First, read it in a flat, sleepy voice. Then read it again with lots of expression, tapping your hand softly like falling rain. Which one sounds more like a poem? Talk with a partner about how the two readings were different.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- WORD SKILLS -->
+            <div id="word-skills" class="tab-content">
+                <button class="print-btn" onclick="window.print()">🖨️ Print This Section</button>
+
+                <div class="section">
+                    <h2 class="section-title">Word Skills</h2>
+
+                    <div class="content-text">
+                        <p>When you read, you will often meet a word you have never seen before. This used to feel scary, but not anymore — because you are about to become a word detective. A word detective uses clues to solve the mystery of a new word, all by themselves.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Using Context Clues</h3>
+                        <div class="content-text">
+                            <p>The first and best tool a word detective has is called <strong>context clues</strong>. The word <em>context</em> means the other words and sentences around the tricky word. Very often, those other words leave little clues that help you guess what the tricky word means.</p>
+                            <p>Look at this sentence: <em>She penned a letter to her aunt.</em> Imagine you do not know the word <em>penned</em>. The clues are that she did something with a <em>letter</em>, and she did it to her <em>aunt</em>. What can you do to a letter? You can write it! So <em>penned</em> must mean <em>wrote</em>.</p>
+                            <p>Here is another: <em>The weary traveller sat down to rest after walking all day.</em> The clues are that the traveller <em>sat down to rest</em> after <em>walking all day</em>. A person who walks all day and needs to rest must be very tired. So <em>weary</em> means <em>tired</em>.</p>
+                        </div>
+
+                        <div class="learning-objectives">
+                            <h4>Quick Check</h4>
+                            <ul>
+                                <li>Use context clues to guess the underlined word: <em>The soup was so <u>scrumptious</u> that I asked for a second bowl.</em> Does "scrumptious" mean tasty or horrible? How do you know?</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Inflectional Endings</h3>
+                        <div class="content-text">
+                            <p>Sometimes a word looks tricky only because a small ending has been added to a word you already know. These small endings are called <strong>inflectional endings</strong>. The most common ones are <strong>-s</strong>, <strong>-es</strong>, <strong>-ed</strong>, and <strong>-ing</strong>.</p>
+                            <p>The endings <strong>-s</strong> and <strong>-es</strong> usually mean <em>more than one</em>: one <em>book</em> becomes two <em>books</em>; one <em>box</em> becomes two <em>boxes</em>. The ending <strong>-ed</strong> usually tells us something already happened: today I <em>play</em>, but yesterday I <em>played</em>. The ending <strong>-ing</strong> usually tells us something is happening right now: I am <em>playing</em> at this very moment.</p>
+                            <p>So if you meet the word <em>jumping</em>, just cover the <strong>-ing</strong> with your finger. Underneath, you see <em>jump</em> — a word you know well! Then add the ending back, and you understand the whole word.</p>
+                        </div>
+
+                        <div class="key-terms">
+                            <h4>Remember</h4>
+                            <div class="term">When a word looks long and tricky, look for a small ending like <strong>-s</strong>, <strong>-es</strong>, <strong>-ed</strong>, or <strong>-ing</strong>. Cover the ending and find the smaller word you already know hiding inside.</div>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Reading Fluently with Expression</h3>
+                        <div class="content-text">
+                            <p>A good reader does not only get the words right — a good reader reads <strong>fluently</strong>, which means smoothly and with feeling, so the words flow like water in a river instead of stopping and starting in bumps. Poems are wonderful for practising fluent reading, because their rhythm helps to carry you along.</p>
+                            <p style="background:#f0f0f0; padding:15px; margin:10px 0; border-radius:5px;"><em>Mango, mango, sweet and round,<br>The ripest one falls to the ground.<br>I pick it up and take a bite —<br>Yellow, juicy, pure delight!</em></p>
+                            <p>Read it once to get the words. Then read it again, a little smoother. Then read it a third time with happy expression, as if you are truly enjoying that sweet mango.</p>
+                        </div>
+
+                        <div class="key-terms">
+                            <h4>Did You Know?</h4>
+                            <div class="term">Words that pop up very often when we read — like <em>the</em>, <em>and</em>, <em>said</em>, <em>they</em>, <em>because</em>, and <em>little</em> — are called <strong>sight words</strong>. The more sight words you know at a glance, the more smoothly and quickly you can read.</div>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Let's Practice</h4>
+                            <p>Read these words and find the smaller word hiding inside each one by covering the ending: <em>walking, boxes, jumped, singing, dishes</em>. Then use each word in a sentence of your own.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- COMPREHENSION -->
+            <div id="comprehension" class="tab-content">
+                <button class="print-btn" onclick="window.print()">🖨️ Print This Section</button>
+
+                <div class="section">
+                    <h2 class="section-title">Comprehension</h2>
+
+                    <div class="content-text">
+                        <p>Now we come to one of the most delightful parts of this whole unit — reading and enjoying poems. A poem is a little box of treasures. Once you know how to open it, you will find wonderful things inside: pictures, feelings, and big ideas.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Imagery: Word-Pictures</h3>
+                        <div class="content-text">
+                            <p>The first treasure inside a poem is <strong>imagery</strong>. Imagery is a special word for the word-pictures a poet paints inside your mind. Good imagery makes you <em>see</em>, <em>hear</em>, <em>smell</em>, <em>taste</em>, or <em>feel</em> something, even though you are only reading words on a page.</p>
+                            <p style="background:#f0f0f0; padding:15px; margin:10px 0; border-radius:5px;"><em>The golden sun peeped over the hill,<br>The cool blue river was calm and still,<br>I heard the birds sing sweet and clear,<br>And smelled the roses blooming near.</em></p>
+                            <p>Did you <em>see</em> the golden sun and the blue river? Did you <em>hear</em> the birds singing? Did you almost <em>smell</em> the roses? That is imagery at work. The poet did not just say "it was a nice morning" — instead, the poet used careful words so that you could picture the morning for yourself.</p>
+                        </div>
+
+                        <div class="key-terms">
+                            <h4>Let's Explore</h4>
+                            <div class="term">Read these lines: <em>The cold ice cream melted on my tongue, sweet and sticky in the hot sun.</em> Which senses does this imagery use? Can you feel the cold, taste the sweetness, and feel the hot sun?</div>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Mood: The Feeling of the Poem</h3>
+                        <div class="content-text">
+                            <p>The second treasure is the poem's <strong>mood</strong> — the feeling that the whole poem gives you. Read these two short poems and notice how different they feel:</p>
+                            <p style="background:#f0f0f0; padding:15px; margin:10px 0; border-radius:5px;"><em>Hooray, hooray, it's market day!<br>We laugh and skip along the way.<br>With baskets full and spirits bright,<br>We sing and dance with all our might.</em></p>
+                            <p>That poem has a <em>happy</em>, <em>excited</em> mood. The words <em>hooray</em>, <em>laugh</em>, <em>skip</em>, and <em>dance</em> fill it with joy. Now read this one:</p>
+                            <p style="background:#f0f0f0; padding:15px; margin:10px 0; border-radius:5px;"><em>The empty house stood dark and still,<br>No sound was heard upon the hill.<br>The cold wind sighed a lonely tune,<br>Beneath the pale and silent moon.</em></p>
+                            <p>This second poem has a <em>quiet</em>, <em>lonely</em> mood. The words <em>empty</em>, <em>dark</em>, <em>cold</em>, <em>lonely</em>, and <em>silent</em> give it a sad and still feeling. The poet chooses words carefully to create the mood, just as an artist chooses colours to paint a picture.</p>
+                        </div>
+
+                        <div class="learning-objectives">
+                            <h4>Quick Check</h4>
+                            <ul>
+                                <li>If a poem used words like <em>bright</em>, <em>giggle</em>, <em>sunshine</em>, and <em>play</em>, what kind of mood do you think it would have — happy or sad?</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Theme: What the Poem Is About</h3>
+                        <div class="content-text">
+                            <p>The third treasure is the <strong>theme</strong> — what the poem is mostly about, its big idea. After you read a poem, ask yourself, "What is this poem really about?" The answer is the theme. A poem might have a theme of friendship, nature, family, or being brave.</p>
+                            <p style="background:#f0f0f0; padding:15px; margin:10px 0; border-radius:5px;"><em>When I fall down and hurt my knee,<br>My mother runs to comfort me.<br>She holds me close and dries my eyes,<br>And sings to me sweet lullabies.</em></p>
+                            <p>What is this poem mostly about? It is about a mother caring for her child. So the <em>theme</em> is a mother's love, or family. The imagery and the warm mood both help us to find the theme.</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Finding the Main Idea</h3>
+                        <div class="content-text">
+                            <p>When you read any piece of writing — not only a poem — it helps to find the <strong>main idea</strong>, the most important thing the writer wants to tell you. To find it, ask, "What is this mostly about?" Read this paragraph:</p>
+                            <p style="background:#f0f0f0; padding:15px; margin:10px 0; border-radius:5px;"><em>Dogs make wonderful pets. They are loyal and will stay by your side. They can be trained to do clever tricks. They also keep you safe by barking when a stranger comes near.</em></p>
+                            <p>This paragraph is mostly about why dogs make wonderful pets — that is the main idea. The other sentences are little details that help to prove it.</p>
+                        </div>
+
+                        <div class="key-terms">
+                            <h4>Remember</h4>
+                            <div class="term">To find the main idea or the theme, ask yourself one simple question: "What is this mostly about?"</div>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Let's Practice</h4>
+                            <p>Read a short poem chosen by your teacher. In small groups, talk about (1) the imagery — what word-pictures you can see, hear, or feel; (2) the mood — the feeling the poem gives; and (3) the theme — what the poem is mostly about. Then share your answers with the class.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GRAMMAR -->
+            <div id="grammar" class="tab-content">
+                <button class="print-btn" onclick="window.print()">🖨️ Print This Section</button>
+
+                <div class="section">
+                    <h2 class="section-title">Grammar</h2>
+
+                    <div class="content-text">
+                        <p>Words are like building blocks. When you understand how they fit together, you can build sentences that are clear, interesting, and fun to read. In this strand, we will play with some clever kinds of words.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Synonyms: Words That Mean the Same</h3>
+                        <div class="content-text">
+                            <p>A <strong>synonym</strong> is a word that means the same, or almost the same, as another word. Synonyms let you choose just the right word, and help you avoid using the same word over and over. Instead of always saying <em>happy</em>, you could say <em>glad</em>, <em>cheerful</em>, or <em>joyful</em>.</p>
+                        </div>
+                        <table>
+                            <tr><th>Word</th><th>Synonym (same meaning)</th></tr>
+                            <tr><td>big</td><td>large</td></tr>
+                            <tr><td>small</td><td>tiny</td></tr>
+                            <tr><td>fast</td><td>quick</td></tr>
+                            <tr><td>pretty</td><td>beautiful</td></tr>
+                            <tr><td>cold</td><td>chilly</td></tr>
+                        </table>
+                        <div class="content-text">
+                            <p>So if you write, "The food was nice," you could swap <em>nice</em> for the synonym <em>delicious</em>: "The food was delicious!"</p>
+                        </div>
+                        <div class="key-terms">
+                            <h4>Word Power</h4>
+                            <div class="term"><strong>Synonym:</strong> a word that means the same as another word. Think "<strong>s</strong>ame" starts with <strong>s</strong>, just like <strong>s</strong>ynonym.</div>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Antonyms: Words That Mean the Opposite</h3>
+                        <div class="content-text">
+                            <p>An <strong>antonym</strong> is a word that means the <em>opposite</em> of another word. Antonyms come in pairs and are everywhere once you start looking.</p>
+                        </div>
+                        <table>
+                            <tr><th>Word</th><th>Antonym (opposite meaning)</th></tr>
+                            <tr><td>big</td><td>small</td></tr>
+                            <tr><td>hot</td><td>cold</td></tr>
+                            <tr><td>happy</td><td>sad</td></tr>
+                            <tr><td>day</td><td>night</td></tr>
+                            <tr><td>open</td><td>closed</td></tr>
+                        </table>
+                        <div class="content-text">
+                            <p>Look at this sentence: <em>The ______ man gave all his money away.</em> What kind of man gives all his money away? A <em>rich</em> man! So the antonym of <em>poor</em> fits: <em>The rich man gave all his money away.</em></p>
+                        </div>
+                        <div class="learning-objectives">
+                            <h4>Quick Check</h4>
+                            <ul>
+                                <li>Can you name the antonym of each of these words? <em>Fast, big, happy, up.</em></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Homonyms: Words That Sound the Same</h3>
+                        <div class="content-text">
+                            <p><strong>Homonyms</strong> are words that <em>sound the same</em> but have a different meaning, and sometimes a different spelling. The most famous homonyms are <strong>to</strong>, <strong>too</strong>, and <strong>two</strong>:</p>
+                            <ul style="margin-left:40px;">
+                                <li><strong>two</strong> means the number 2. <em>I have two hands.</em></li>
+                                <li><strong>too</strong> means <em>also</em> or <em>very</em>. <em>I want to come too. The soup is too hot.</em></li>
+                                <li><strong>to</strong> shows direction and many other things. <em>I am going to school.</em></li>
+                            </ul>
+                            <p>Other homonyms include <strong>sea</strong> (the ocean) and <strong>see</strong> (to look) — <em>I see the sea</em>; and <strong>their</strong> (belonging to them) and <strong>there</strong> (a place) — <em>Their house is over there.</em> Because homonyms sound alike, you must think about the <em>meaning</em> of your sentence to choose the right one.</p>
+                        </div>
+                        <div class="key-terms">
+                            <h4>Did You Know?</h4>
+                            <div class="term">Some words are spelled exactly the same but have two different meanings, like <em>back</em> (the part of your body) and <em>back</em> (the opposite of front). You have to look at the rest of the sentence to know which meaning is being used.</div>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Adjectives: Describing Words</h3>
+                        <div class="content-text">
+                            <p>An <strong>adjective</strong> is a describing word. Adjectives tell us more about a person, place, or thing — they are like a box of bright crayons that colour in your sentences. The word <em>mango</em> is plain, but <em>a sweet, juicy, yellow mango</em> makes you almost taste it! The words <em>sweet</em>, <em>juicy</em>, and <em>yellow</em> are adjectives.</p>
+                            <p>Adjectives can tell us about colour (<em>red</em>, <em>blue</em>), size (<em>big</em>, <em>tiny</em>), shape (<em>round</em>, <em>square</em>), or how something feels, sounds, or tastes (<em>soft</em>, <em>loud</em>, <em>sour</em>). We can also use adjectives to <em>compare</em>. To compare two things, we often add <strong>-er</strong> and use <em>than</em>: <em>My mango is sweeter than yours.</em> For longer adjectives, we use <em>more...than</em>: <em>Nadine's house is more beautiful than Gary's.</em></p>
+                        </div>
+                        <div class="learning-objectives">
+                            <h4>Look Around You</h4>
+                            <ul>
+                                <li>Look at something near you right now — maybe your bag, a tree, or the sky. Can you think of three adjectives to describe it?</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Conjunctions: Joining Words</h3>
+                        <div class="content-text">
+                            <p>A <strong>conjunction</strong> is a joining word — a little hook that links two ideas together so you can build longer, more interesting sentences. The three most useful conjunctions are <strong>and</strong>, <strong>but</strong>, and <strong>because</strong>.</p>
+                            <ul style="margin-left:40px;">
+                                <li><strong>and</strong> joins ideas that go together: <em>I like rice and peas.</em></li>
+                                <li><strong>but</strong> joins ideas that are different or surprising: <em>I wanted to play, but it was raining.</em></li>
+                                <li><strong>because</strong> tells us the reason: <em>I was happy because it was my birthday.</em></li>
+                            </ul>
+                            <p>Conjunctions help you join two short, choppy sentences into one smooth one. Instead of <em>I like mangoes. I like oranges.</em> you can write <em>I like mangoes and oranges.</em></p>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Let's Practice</h4>
+                            <p>Join these two sentences with the conjunction <em>but</em>: "The dog was small. It barked loudly." Then join these two with <em>because</em>: "I went to bed early. I was tired." Write your new sentences and read them aloud.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- WRITING -->
+            <div id="writing" class="tab-content">
+                <button class="print-btn" onclick="window.print()">🖨️ Print This Section</button>
+
+                <div class="section">
+                    <h2 class="section-title">Writing</h2>
+
+                    <div class="content-text">
+                        <p>Now it is time to use everything you have learned and become a writer yourself. In this strand, you will learn to plan your work, to write a friendly letter, and to write simple poems of your own.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Planning Your Writing</h3>
+                        <div class="content-text">
+                            <p>Good writing rarely happens by accident. Before they write, smart writers stop to <strong>plan</strong> — to think about their ideas and get them in order. One excellent way to plan is to use a <strong>graphic organiser</strong>, a simple drawing or chart that helps you sort your ideas. You might draw a web, with your main idea in a circle in the middle and your other ideas branching out around it. Or you might simply make a list of all the things you want to say.</p>
+                        </div>
+                        <div class="key-terms">
+                            <h4>Remember</h4>
+                            <div class="term">Plan first, write second. A few minutes of planning saves you from getting stuck later on.</div>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Writing a Friendly Letter</h3>
+                        <div class="content-text">
+                            <p>A <strong>friendly letter</strong> is a warm letter you write to someone you know, such as a friend, a cousin, or a grandparent. A friendly letter has four main parts:</p>
+                            <ol style="margin-left:40px;">
+                                <li><strong>The greeting (with the date):</strong> At the top you write the date. Then comes the greeting, the way you say hello, usually <em>Dear</em> and the person's name.</li>
+                                <li><strong>The body:</strong> The main part, where you write your message in one or more paragraphs.</li>
+                                <li><strong>The closing:</strong> A kind way to say goodbye, such as <em>Your friend,</em> or <em>With love,</em></li>
+                                <li><strong>The signature:</strong> Your name, written under the closing, so the reader knows who the letter is from.</li>
+                            </ol>
+                            <p>Here is a small friendly letter that puts all four parts together. Read it and find each part:</p>
+                            <p style="background:#f0f0f0; padding:15px; margin:10px 0; border-radius:5px;">12 Orange Street, Kingston<br>June 28, 2026<br><br>Dear Auntie Marie,<br><br>Thank you so much for the lovely birthday gift you sent me. The storybook is my favourite already, and I have read it twice! School is going well, and I am learning to write poems. I hope you can come and visit us soon.<br><br>Your loving niece,<br>Keisha</p>
+                            <p>The <em>date</em> is at the top, the <em>greeting</em> is "Dear Auntie Marie," the <em>body</em> is the middle with all the news, the <em>closing</em> is "Your loving niece," and the <em>signature</em> is "Keisha."</p>
+                        </div>
+                        <div class="key-terms">
+                            <h4>Did You Know?</h4>
+                            <div class="term">Friendly letters can be written for many reasons. You might write to <em>invite</em> someone to a party, to say <em>thank you</em> for a gift, or to <em>request</em> something you need. The parts of the letter stay the same — only your message changes.</div>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Writing Organised Paragraphs</h3>
+                        <div class="content-text">
+                            <p>The body of your letter, and most of your writing, is made of <strong>paragraphs</strong>. A paragraph is a group of sentences that all talk about one main idea. A well-organised paragraph usually starts with a sentence that tells the main idea, and then the other sentences add details. Begin each new idea with a new paragraph, and use joining words like <em>and</em>, <em>but</em>, and <em>because</em> to link your sentences. Do not forget your full stops and commas — these little marks help your reader to understand you.</p>
+                        </div>
+                        <div class="learning-objectives">
+                            <h4>Think About It</h4>
+                            <ul>
+                                <li>Why do you think it is helpful to put all the sentences about one idea together in the same paragraph, instead of mixing everything up?</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Writing Simple Poems</h3>
+                        <div class="content-text">
+                            <p>Now for the most exciting part — writing your very own poems! You do not even have to make it rhyme. Start by choosing your <strong>theme</strong> — what your poem will be about, such as the rain, your pet, or your favourite food. Then think of word-pictures (<strong>imagery</strong>) that help the reader see and feel your idea, and choose words that give the <strong>mood</strong> you want. If you would like it to rhyme, choose words that end with the same sound, like <em>cat</em> and <em>hat</em>.</p>
+                            <p style="background:#f0f0f0; padding:15px; margin:10px 0; border-radius:5px;"><em>My kite flies high up in the sky,<br>It dips and dances way up high.<br>The wind takes hold and pulls the string,<br>My happy kite, a lovely thing.</em></p>
+                            <p>Notice the theme (a kite), the imagery (the kite dipping and dancing), and the happy mood. Start small, choose a theme you love, and let your words paint a picture.</p>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Let's Practice</h4>
+                            <p>Write a short friendly letter to a friend or relative. Remember the four parts: the greeting (with date), the body, the closing, and your signature. Then write a simple four-line poem about something you love, and try to include some imagery so the reader can picture it.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- WORD POWER (GLOSSARY) -->
+            <div id="glossary" class="tab-content">
+                <div class="section">
+                    <h2 class="section-title">Word Power</h2>
+
+                    <div class="subsection">
+                        <h3>Poetry Words</h3>
+                        <div class="term"><strong>Poem:</strong> a special kind of writing that often uses rhythm, rhyme, and word-pictures to share a feeling or idea</div>
+                        <div class="term"><strong>Rhythm:</strong> the beat or pattern of sounds in a poem, a little like the beat of a drum</div>
+                        <div class="term"><strong>Rhyme:</strong> words that end with the same sound, like <em>cat</em> and <em>hat</em></div>
+                        <div class="term"><strong>Imagery:</strong> words that help you to see, hear, smell, taste, or feel something in your mind</div>
+                        <div class="term"><strong>Mood:</strong> the feeling that a poem gives you, such as happy, calm, or sad</div>
+                        <div class="term"><strong>Theme:</strong> what a poem is mostly about; its big idea</div>
+                        <div class="term"><strong>Expression:</strong> letting your voice show the feeling of a poem when you read it aloud</div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Word Skills</h3>
+                        <div class="term"><strong>Context clues:</strong> the other words around a tricky word that help you guess its meaning</div>
+                        <div class="term"><strong>Inflectional ending:</strong> a small ending added to a word, such as -s, -es, -ed, or -ing</div>
+                        <div class="term"><strong>Fluently:</strong> reading smoothly and with feeling, so the words flow along</div>
+                        <div class="term"><strong>Sight words:</strong> common words we should know at a glance, like <em>the</em>, <em>and</em>, and <em>said</em></div>
+                        <div class="term"><strong>Main idea:</strong> the most important thing a piece of writing is telling you</div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Grammar Words</h3>
+                        <div class="term"><strong>Synonym:</strong> a word that means the same, or almost the same, as another word (glad / happy)</div>
+                        <div class="term"><strong>Antonym:</strong> a word that means the opposite of another word (big / small)</div>
+                        <div class="term"><strong>Homonym:</strong> a word that sounds the same as another but has a different meaning or spelling (to / too / two)</div>
+                        <div class="term"><strong>Adjective:</strong> a describing word that tells us more about a person, place, or thing (a <em>juicy</em> mango)</div>
+                        <div class="term"><strong>Conjunction:</strong> a joining word such as <em>and</em>, <em>but</em>, or <em>because</em> that links ideas together</div>
+                        <div class="term"><strong>Comparative adjective:</strong> a describing word used to compare, often ending in -er or using <em>more...than</em></div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Writing Words</h3>
+                        <div class="term"><strong>Friendly letter:</strong> a warm letter written to someone you know, such as a friend or relative</div>
+                        <div class="term"><strong>Greeting:</strong> the part of a letter that says hello, usually <em>Dear</em> and a name</div>
+                        <div class="term"><strong>Body:</strong> the main part of a letter, where the message is written</div>
+                        <div class="term"><strong>Closing:</strong> a kind way to say goodbye at the end of a letter, such as <em>Your friend,</em></div>
+                        <div class="term"><strong>Signature:</strong> the writer's name, written at the end of a letter</div>
+                        <div class="term"><strong>Paragraph:</strong> a group of sentences that all talk about one main idea</div>
+                        <div class="term"><strong>Graphic organiser:</strong> a chart or drawing that helps a writer plan and sort ideas</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ANSWER KEY -->
+            <div id="answers" class="tab-content">
+                <div class="section">
+                    <h2 class="section-title">Answer Key</h2>
+
+                    <div class="subsection">
+                        <h3>Speaking &amp; Listening</h3>
+                        <div class="content-text">
+                            <p><strong>Speaking clearly — three things to remember:</strong> (1) Do not rush; speak slowly enough that every word is heard. (2) Speak loudly enough to reach the back of the room, but do not shout. (3) Look at your listeners and say each word carefully to the end.</p>
+                            <p><strong>Reading the rain poem:</strong> The reading with expression sounds more like a poem, because the voice shows the feeling and the rhythm of the falling rain.</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Word Skills</h3>
+                        <div class="content-text">
+                            <p><strong>Quick Check (scrumptious):</strong> It means tasty. The clue is that the person <em>asked for a second bowl</em>, which they would only do if the soup tasted good.</p>
+                            <p><strong>Hidden words inside endings:</strong> walk + ing → walk; box + es → box; jump + ed → jump; sing + ing → sing; dish + es → dish.</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Comprehension</h3>
+                        <div class="content-text">
+                            <p><strong>Ice cream lines:</strong> The imagery uses touch (cold, sticky), taste (sweet), and feeling the hot sun.</p>
+                            <p><strong>Quick Check (mood):</strong> Words like <em>bright</em>, <em>giggle</em>, <em>sunshine</em>, and <em>play</em> would give a <strong>happy</strong> mood.</p>
+                            <p><strong>Dog paragraph main idea:</strong> The paragraph is mostly about why dogs make wonderful pets.</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Grammar</h3>
+                        <div class="content-text">
+                            <p><strong>Antonyms Quick Check:</strong> fast → slow; big → small; happy → sad; up → down.</p>
+                            <p><strong>Conjunctions Let's Practice:</strong> "The dog was small, but it barked loudly." / "I went to bed early because I was tired."</p>
+                            <p><strong>Sample synonyms:</strong> big → large; small → tiny; fast → quick.</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Writing</h3>
+                        <div class="content-text">
+                            <p><strong>Four parts of a friendly letter:</strong> (1) the greeting, with the date; (2) the body; (3) the closing; (4) the signature.</p>
+                            <p><strong>Why one idea per paragraph:</strong> Putting all the sentences about one idea together keeps the writing clear and easy to follow, so the reader does not get confused.</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Review Questions</h3>
+                        <div class="content-text">
+                            <p><strong>1.</strong> Do not rush, speak loudly enough (but do not shout), and say each word carefully while looking at your listeners.</p>
+                            <p><strong>2.</strong> Imagery is the word-pictures a poet paints; it helps you see, hear, smell, taste, or feel what the poem describes.</p>
+                            <p><strong>3.</strong> The mood is the <em>feeling</em> a poem gives you; the theme is what the poem is <em>about</em> (its big idea).</p>
+                            <p><strong>4.</strong> <em>Famished</em> means very hungry — the clue is that the boy ate his whole dinner quickly.</p>
+                            <p><strong>5.</strong> Synonym for <em>big</em>: large. Antonym for <em>big</em>: small.</p>
+                            <p><strong>6.</strong> "I can <em>see</em> the sea from my window."</p>
+                            <p><strong>7.</strong> Example: "I ate a sweet, juicy mango." (Any sentence with two adjectives is correct.)</p>
+                            <p><strong>8.</strong> "I was happy because it was a holiday."</p>
+                            <p><strong>9.</strong> The greeting (with date), the body, the closing, and the signature.</p>
+                            <p><strong>10.</strong> Finding the main idea means deciding what a paragraph is mostly about — its most important point.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <footer>
+            <p>Grade 3 Jamaica Language Arts Textbook | Ministry of Education, Youth and Information, Jamaica</p>
+            <p>Term 2, Unit 2 — The Magic of Words and Poems | Based on the National Standards Curriculum.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Tab navigation
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const tabName = button.getAttribute('data-tab');
+
+                // Remove active class from all buttons and contents
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+
+                // Add active class to clicked button and corresponding content
+                button.classList.add('active');
+                document.getElementById(tabName).classList.add('active');
+
+                // Scroll to top
+                window.scrollTo(0, 0);
+            });
+        });
+
+        // Collapsible sections
+        const collapsibles = document.querySelectorAll('.collapsible');
+        collapsibles.forEach(button => {
+            button.addEventListener('click', function() {
+                this.classList.toggle('active');
+                const content = this.nextElementSibling;
+                if (content && content.classList.contains('collapsible-content')) {
+                    content.classList.toggle('show');
+                }
+            });
+        });
+
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

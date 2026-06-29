@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade 7 Mathematics Textbook - Transformations</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .nav-tabs {
+            display: flex;
+            background: #f8f9fa;
+            border-bottom: 2px solid #ddd;
+            overflow-x: auto;
+            flex-wrap: wrap;
+        }
+
+        .nav-tabs button {
+            flex: 1;
+            padding: 15px 20px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 500;
+            color: #666;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+            min-width: 150px;
+        }
+
+        .nav-tabs button:hover {
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        .nav-tabs button.active {
+            color: #2a5298;
+            border-bottom-color: #2a5298;
+            background: white;
+        }
+
+        .content {
+            padding: 30px;
+            min-height: 600px;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 1.8em;
+            color: #1e3c72;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .subsection {
+            background: #f8f9fa;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 4px solid #667eea;
+            border-radius: 5px;
+        }
+
+        .subsection h3 {
+            color: #2a5298;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+
+        .learning-objectives {
+            background: #e3f2fd;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #2196F3;
+        }
+
+        .learning-objectives h4 {
+            color: #1565c0;
+            margin-bottom: 10px;
+        }
+
+        .learning-objectives ul {
+            margin-left: 20px;
+        }
+
+        .learning-objectives li {
+            margin: 8px 0;
+            color: #333;
+        }
+
+        .activity-box {
+            background: #fff3e0;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #ff9800;
+        }
+
+        .activity-box h4 {
+            color: #e65100;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .activity-box h4::before {
+            content: "✏️";
+            font-size: 1.2em;
+        }
+
+        .assessment-box {
+            background: #f3e5f5;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #9c27b0;
+        }
+
+        .assessment-box h4 {
+            color: #6a1b9a;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .assessment-box h4::before {
+            content: "📋";
+            font-size: 1.2em;
+        }
+
+        .extension-box {
+            background: #e8f5e9;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #4caf50;
+        }
+
+        .extension-box h4 {
+            color: #2e7d32;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .extension-box h4::before {
+            content: "⭐";
+            font-size: 1.2em;
+        }
+
+        .teacher-notes {
+            background: #ffe0b2;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #ff6f00;
+        }
+
+        .teacher-notes h4 {
+            color: #bf360c;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .teacher-notes h4::before {
+            content: "👨‍🏫";
+            font-size: 1.2em;
+        }
+
+        .content-text {
+            margin: 15px 0;
+            text-align: justify;
+        }
+
+        .content-text strong {
+            color: #1e3c72;
+        }
+
+        .diagram {
+            background: #f0f0f0;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            text-align: center;
+            border: 2px dashed #ddd;
+        }
+
+        .diagram img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+        }
+
+        table th {
+            background: #2a5298;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+
+        table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        table tr:hover {
+            background: #f5f5f5;
+        }
+
+        .key-terms {
+            background: #f5f5f5;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .key-terms h4 {
+            color: #1e3c72;
+            margin-bottom: 10px;
+        }
+
+        .term {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+
+        .term strong {
+            color: #2a5298;
+        }
+
+        .learning-outcomes {
+            background: #c8e6c9;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .learning-outcomes h4 {
+            color: #1b5e20;
+            margin-bottom: 10px;
+        }
+
+        .learning-outcomes ul {
+            margin-left: 20px;
+        }
+
+        .learning-outcomes li {
+            margin: 8px 0;
+            color: #333;
+        }
+
+        .checklist {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-left: 3px solid #2a5298;
+        }
+
+        .checklist input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        footer {
+            background: #1e3c72;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            .nav-tabs button {
+                min-width: 120px;
+                padding: 12px 15px;
+                font-size: 0.9em;
+            }
+        }
+
+        .collapsible {
+            background: #e3f2fd;
+            cursor: pointer;
+            padding: 15px;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 1em;
+            color: #1565c0;
+            font-weight: bold;
+            border-radius: 5px;
+            margin: 10px 0;
+            width: 100%;
+            transition: 0.3s;
+        }
+
+        .collapsible:hover {
+            background: #bbdefb;
+        }
+
+        .collapsible-content {
+            padding: 0 15px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .collapsible-content.show {
+            max-height: 1000px;
+        }
+
+        .print-btn {
+            background: #2a5298;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            margin: 20px 0;
+            transition: 0.3s;
+        }
+
+        .print-btn:hover {
+            background: #1e3c72;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            .nav-tabs {
+                display: none;
+            }
+            .print-btn {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📚 Grade 7 Mathematics Textbook</h1>
+            <p>Jamaica National Standards Curriculum - Term 1, Unit 4: Transformations</p>
+            <p style="font-size: 0.9em; margin-top: 10px;">Translations | Reflections | Rotations | Symmetry &amp; Properties</p>
+            <p style="margin-top:14px;"><a href="../../index.html" style="color:#fff; background:rgba(255,255,255,0.15); padding:6px 14px; border-radius:5px; text-decoration:none; font-size:0.9em;">← Mathematics (Grade 7)</a></p>
+        </header>
+
+        <div class="nav-tabs">
+            <button class="tab-btn active" data-tab="translations">Translations</button>
+            <button class="tab-btn" data-tab="reflections">Reflections</button>
+            <button class="tab-btn" data-tab="rotations">Rotations</button>
+            <button class="tab-btn" data-tab="symmetry-properties">Symmetry &amp; Properties</button>
+            <button class="tab-btn" data-tab="glossary">Key Vocabulary</button>
+            <button class="tab-btn" data-tab="answers">Answer Key</button>
+        </div>
+
+        <div class="content">
+            <!-- TRANSLATIONS -->
+            <div id="translations" class="tab-content active">
+                <button class="print-btn" onclick="window.print()">🖨️ Print This Section</button>
+
+                <div class="section">
+                    <h2 class="section-title">Translations (the Slide)</h2>
+
+                    <div class="content-text">
+                        <p>A <strong>transformation</strong> moves a shape from one place to another on a flat surface, or <strong>plane</strong>. The shape we begin with is the <strong>object</strong>, and the shape we end with is the <strong>image</strong>. We label the corners of the image with a small dash, so the image of A is written A′ (read "A dash"). In this unit we meet three transformations that never change a shape's size or shape at all: the translation, the reflection, and the rotation.</p>
+
+                        <p>A <strong>translation</strong> is a slide. Every single point of the shape moves the <strong>same distance</strong> in the <strong>same direction</strong>. Nothing turns and nothing flips. Picture pushing a domino across a table without spinning it — that is a translation.</p>
+                    </div>
+
+                    <div class="key-terms">
+                        <h4>Describing a Translation with a Vector</h4>
+                        <div class="term">A translation is described by a <strong>column vector</strong>, written as two numbers stacked in brackets.</div>
+                        <div class="term">The <strong>top number</strong> tells you how far to move <strong>across</strong> — right if positive, left if negative.</div>
+                        <div class="term">The <strong>bottom number</strong> tells you how far to move <strong>up or down</strong> — up if positive, down if negative.</div>
+                        <div class="term">So (4, 3) written as a column means "4 right and 3 up", and (−2, −5) means "2 left and 5 down".</div>
+                    </div>
+
+                    <div class="content-text">
+                        <p>Translations come in three kinds: <strong>horizontal</strong> (only left or right), <strong>vertical</strong> (only up or down), and <strong>slant</strong> or diagonal (across and up/down together). To translate a point (x, y) by the vector (a, b), simply add: the image is (x + a, y + b). To translate a whole shape, apply this to every corner and join them in the same order.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Worked Example: Translating a Point</h3>
+                        <div class="content-text">
+                            <p>Translate the point A(2, 1) by the vector (4, 3). Add the vector to the coordinates: new x = 2 + 4 = 6, and new y = 1 + 3 = 4. So A′ = (6, 4). <strong>Check:</strong> from (2, 1) move 4 right to x = 6, then 3 up to y = 4. Correct.</p>
+                        </div>
+                        <div class="diagram">
+                            <h4>Figure 1</h4>
+                            <p><em>Point A(2, 1) and its image A′(6, 4) on a grid, with an arrow showing the slide of 4 right and 3 up.</em></p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Worked Example: Translating a Triangle</h3>
+                        <div class="content-text">
+                            <p>Triangle ABC has vertices A(1, 1), B(4, 1), C(1, 3). Translate it by (−3, 2), meaning 3 left and 2 up. Apply (x − 3, y + 2) to each vertex: A(1, 1) → A′(−2, 3); B(4, 1) → B′(1, 3); C(1, 3) → C′(−2, 5). <strong>Check:</strong> side AB ran 3 units long; side A′B′ also runs 3 units long, so the image is the same size as the object.</p>
+                        </div>
+                        <div class="diagram">
+                            <h4>Figure 2</h4>
+                            <p><em>Triangle ABC and its image A′B′C′ after a translation by the vector (−3, 2). The image faces the same way as the object.</em></p>
+                        </div>
+                    </div>
+
+                    <div class="learning-objectives">
+                        <h4>Object and Image: What Stays the Same?</h4>
+                        <ul>
+                            <li>The image is the <strong>same size</strong> and the <strong>same shape</strong> as the object — they are <strong>congruent</strong>.</li>
+                            <li>The image has the <strong>same orientation</strong>: it faces exactly the same way.</li>
+                            <li>Corresponding sides of the object and image are <strong>parallel</strong>.</li>
+                            <li>The image is preserved because every point moves by the very same vector, so no distances change.</li>
+                        </ul>
+                    </div>
+
+                    <div class="activity-box">
+                        <h4>Practice</h4>
+                        <p>1. Translate the point (−1, 4) by the vector (5, −6).</p>
+                        <p>2. Triangle PQR has vertices P(0, 0), Q(2, 0), R(0, 3). Translate it by (3, 1) and write the image coordinates.</p>
+                        <p>3. A tile has its bottom-left corner at (0, 0). The next tile is an exact copy slid 2 units right. Write the vector and the new corner.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- REFLECTIONS -->
+            <div id="reflections" class="tab-content">
+                <button class="print-btn" onclick="window.print()">🖨️ Print This Section</button>
+
+                <div class="section">
+                    <h2 class="section-title">Reflections (the Flip)</h2>
+
+                    <div class="content-text">
+                        <p>A <strong>reflection</strong> flips a shape over a straight line called the <strong>mirror line</strong> (or line of reflection). The image appears on the opposite side of the mirror line, just as your reflection appears in a still pool of water. Reflection is the one transformation in this unit that <strong>reverses orientation</strong>: a shape that faces right will face left, and writing appears back-to-front.</p>
+                    </div>
+
+                    <div class="key-terms">
+                        <h4>Three Facts That Describe a Reflection</h4>
+                        <div class="term">Every point of the object and its image are the <strong>same distance</strong> from the mirror line (they are equidistant from it).</div>
+                        <div class="term">The line joining a point to its image is <strong>perpendicular</strong> to the mirror line.</div>
+                        <div class="term">A point that already lies <strong>on</strong> the mirror line does not move.</div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Rules for Reflecting in the Axes</h3>
+                        <div class="content-text">
+                            <p>Reflecting in the <strong>y-axis</strong> (the vertical axis) keeps the y-coordinate and changes the sign of x: the point (x, y) maps to (−x, y). Reflecting in the <strong>x-axis</strong> (the horizontal axis) keeps the x-coordinate and changes the sign of y: the point (x, y) maps to (x, −y). For a vertical mirror line x = k, the rule is (2k − x, y); for a horizontal line y = k, it is (x, 2k − y).</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Worked Example: Reflecting in the y-axis</h3>
+                        <div class="content-text">
+                            <p>Reflect triangle ABC with A(2, 1), B(5, 1), C(2, 4) in the y-axis. Use (x, y) → (−x, y): A(2, 1) → A′(−2, 1); B(5, 1) → B′(−5, 1); C(2, 4) → C′(−2, 4). <strong>Orientation check:</strong> reading A → B → C we go right then up; reading A′ → B′ → C′ we go left then up — the turning sense is reversed, exactly as a reflection should do.</p>
+                        </div>
+                        <div class="diagram">
+                            <h4>Figure 3</h4>
+                            <p><em>Triangle ABC and its image A′B′C′ after a reflection in the y-axis. The image is the same size and shape, but its orientation is reversed.</em></p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Worked Example: Reflecting in a Mirror Line</h3>
+                        <div class="content-text">
+                            <p>Reflect the point R(1, 2) in the line x = 4. The y-coordinate stays the same. R is 4 − 1 = 3 units to the left of the line, so R′ is 3 units to the right: x = 4 + 3 = 7. Therefore R′ = (7, 2). Using the formula (2k − x, y) with k = 4 gives (8 − 1, 2) = (7, 2). Both methods agree.</p>
+                        </div>
+                    </div>
+
+                    <div class="learning-objectives">
+                        <h4>Reasoning: Why Does Reflection Reverse Orientation?</h4>
+                        <ul>
+                            <li>The image is <strong>congruent</strong> to the object: same size and shape, since every distance to the mirror is preserved.</li>
+                            <li>A reflection swaps left and right, so a clockwise journey round a shape becomes anticlockwise.</li>
+                            <li>This is the same reason writing on a shirt appears back-to-front in a mirror.</li>
+                            <li>If your image faces the <em>same</em> way as the object, you have done a slide, not a flip.</li>
+                        </ul>
+                    </div>
+
+                    <div class="activity-box">
+                        <h4>Practice</h4>
+                        <p>1. Reflect the point (5, −2) in the y-axis.</p>
+                        <p>2. Reflect the point (−4, 5) in the x-axis.</p>
+                        <p>3. Reflect triangle D(1, 2), E(3, 2), F(1, 5) in the x-axis and give the image coordinates.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ROTATIONS -->
+            <div id="rotations" class="tab-content">
+                <button class="print-btn" onclick="window.print()">🖨️ Print This Section</button>
+
+                <div class="section">
+                    <h2 class="section-title">Rotations (the Turn)</h2>
+
+                    <div class="content-text">
+                        <p>A <strong>rotation</strong> turns a shape about a fixed point called the <strong>centre of rotation</strong>. Picture the hands of a clock turning about the centre of the clock face: every point sweeps around that fixed centre, always staying the same distance from it.</p>
+                    </div>
+
+                    <div class="key-terms">
+                        <h4>Describing a Rotation Fully</h4>
+                        <div class="term">The <strong>centre</strong> of rotation — the fixed point the shape turns around.</div>
+                        <div class="term">The <strong>angle</strong> of turn — for example 90° or 180°.</div>
+                        <div class="term">The <strong>direction</strong> — <strong>clockwise</strong> (the way a clock's hands move) or <strong>anticlockwise</strong> (the opposite way).</div>
+                        <div class="term">A turn of 180° is special: clockwise and anticlockwise give the same image, so no direction is needed.</div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Rules for Rotating About the Origin</h3>
+                        <div class="content-text">
+                            <p>For rotations about the origin (0, 0): a turn of <strong>90° anticlockwise</strong> sends (x, y) to (−y, x); a turn of <strong>90° clockwise</strong> sends (x, y) to (y, −x); and a turn of <strong>180°</strong> sends (x, y) to (−x, −y). If you forget a rule, you can trace the object and centre onto tracing paper, hold the centre still, and turn the paper through the required angle.</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Worked Example: Rotating a Point 90° Anticlockwise</h3>
+                        <div class="content-text">
+                            <p>Rotate A(3, 1) by 90° anticlockwise about the origin. Use (x, y) → (−y, x): A(3, 1) → A′(−1, 3). <strong>Check:</strong> A points mostly right and a little up; after a quarter-turn anticlockwise it should point mostly up and a little left — and (−1, 3) does exactly that.</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Worked Example: Rotating a Triangle 90° Clockwise</h3>
+                        <div class="content-text">
+                            <p>Triangle ABC has vertices A(1, 1), B(4, 1), C(1, 3). Rotate it 90° clockwise about the origin using (x, y) → (y, −x): A(1, 1) → A′(1, −1); B(4, 1) → B′(1, −4); C(1, 3) → C′(3, −1). <strong>Check:</strong> side AB had length 3; side A′B′ runs from (1, −1) to (1, −4), also length 3, so the image is congruent to the object.</p>
+                        </div>
+                        <div class="diagram">
+                            <h4>Figure 4</h4>
+                            <p><em>Triangle ABC and its image A′B′C′ after a rotation of 90° clockwise about the origin O.</em></p>
+                        </div>
+                    </div>
+
+                    <div class="learning-objectives">
+                        <h4>Object and Image Under a Rotation</h4>
+                        <ul>
+                            <li>The image is the <strong>same size and shape</strong> as the object — they are <strong>congruent</strong>.</li>
+                            <li>The shape is <strong>not flipped</strong>; it keeps its handedness but faces a new direction.</li>
+                            <li>Every point stays the <strong>same distance</strong> from the centre as it turns.</li>
+                            <li>For 180°, clockwise and anticlockwise give the same result.</li>
+                        </ul>
+                    </div>
+
+                    <div class="activity-box">
+                        <h4>Practice</h4>
+                        <p>1. Rotate the point (2, 3) by 90° anticlockwise about the origin.</p>
+                        <p>2. Rotate the point (2, 5) by 180° about the origin.</p>
+                        <p>3. A Ferris wheel seat is at (0, 6), with the centre at the origin. After a 90° clockwise turn, where is the seat?</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SYMMETRY & PROPERTIES -->
+            <div id="symmetry-properties" class="tab-content">
+                <button class="print-btn" onclick="window.print()">🖨️ Print This Section</button>
+
+                <div class="section">
+                    <h2 class="section-title">Symmetry &amp; Properties of Shapes</h2>
+
+                    <div class="content-text">
+                        <p>Because translations, reflections, and rotations never change a shape's size or shape, the object and image are always <strong>congruent</strong> — exactly the same size and the same shape. This is different from shapes that are <strong>similar</strong>, which have the same shape but may be a different size, like a small photograph and a large poster of the same picture. A useful way to remember it: congruent shapes are identical twins; similar shapes are a parent and child — the same family shape, but different sizes.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Line Symmetry and Rotational Symmetry</h3>
+                        <div class="content-text">
+                            <p>A shape has a <strong>line of symmetry</strong> if a straight line divides it into two halves that are mirror images — if you folded along that line, the halves would match exactly. A shape has <strong>rotational symmetry</strong> if it looks the same after being turned part-way around its centre. The <strong>order</strong> of rotational symmetry is the number of times it looks the same during one full 360° turn. A square, for example, looks the same four times, so it has order 4. Order 1 means a shape has no true rotational symmetry, because every shape matches itself after a full turn.</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Properties of Common Triangles</h3>
+                        <p>In every triangle the three angles add to <strong>180°</strong>.</p>
+                        <table>
+                            <tr><th>Triangle</th><th>Sides</th><th>Angles</th><th>Lines of symmetry</th><th>Rotational symmetry</th></tr>
+                            <tr><td>Equilateral</td><td>all three equal</td><td>all 60°</td><td>3</td><td>order 3</td></tr>
+                            <tr><td>Isosceles</td><td>two equal</td><td>two equal (base angles)</td><td>1</td><td>order 1 (none)</td></tr>
+                            <tr><td>Scalene</td><td>all different</td><td>all different</td><td>0</td><td>order 1 (none)</td></tr>
+                            <tr><td>Right-angled</td><td>may vary</td><td>one angle 90°</td><td>0 (1 if also isosceles)</td><td>order 1 (none)</td></tr>
+                        </table>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Properties of Common Quadrilaterals</h3>
+                        <p>In every quadrilateral the four angles add to <strong>360°</strong>.</p>
+                        <table>
+                            <tr><th>Quadrilateral</th><th>Sides</th><th>Angles</th><th>Lines of symmetry</th><th>Rotational symmetry</th></tr>
+                            <tr><td>Square</td><td>all 4 equal; opposite sides parallel</td><td>all 90°</td><td>4</td><td>order 4</td></tr>
+                            <tr><td>Rectangle</td><td>opposite sides equal and parallel</td><td>all 90°</td><td>2</td><td>order 2</td></tr>
+                            <tr><td>Rhombus</td><td>all 4 equal; opposite sides parallel</td><td>opposite angles equal</td><td>2</td><td>order 2</td></tr>
+                            <tr><td>Parallelogram</td><td>opposite sides equal and parallel</td><td>opposite angles equal</td><td>0</td><td>order 2</td></tr>
+                            <tr><td>Trapezium</td><td>one pair of parallel sides</td><td>vary</td><td>0 (1 if isosceles)</td><td>order 1 (none)</td></tr>
+                            <tr><td>Kite</td><td>two pairs of adjacent equal sides</td><td>one pair of opposite angles equal</td><td>1</td><td>order 1 (none)</td></tr>
+                        </table>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Worked Example: Using Angle Properties</h3>
+                        <div class="content-text">
+                            <p>An isosceles triangle has a top angle of 40°. Find the two equal base angles. The angles add to 180°, and the two base angles are equal, so 40 + x + x = 180, giving 2x = 140 and x = 70. Each base angle is <strong>70°</strong>. <strong>Check:</strong> 40 + 70 + 70 = 180. Correct.</p>
+                        </div>
+                        <div class="diagram">
+                            <h4>Figure 5</h4>
+                            <p><em>An isosceles triangle with apex angle 40° and two equal base angles of 70°, showing its single line of symmetry.</em></p>
+                        </div>
+                    </div>
+
+                    <div class="learning-objectives">
+                        <h4>Real-Life Applications</h4>
+                        <ul>
+                            <li><strong>Tessellations</strong> — patterns of identical shapes that fit with no gaps, built by sliding, flipping, and turning a single tile.</li>
+                            <li><strong>Jamaican craft</strong> — repeating motifs in straw baskets, bandana (madras) plaid, and carved furniture.</li>
+                            <li><strong>Computer graphics and games</strong> — characters are translated as they run, reflected as they turn around, and rotated as they spin.</li>
+                            <li><strong>Nature</strong> — a butterfly's wings show line symmetry; a starfish shows rotational symmetry.</li>
+                        </ul>
+                    </div>
+
+                    <div class="activity-box">
+                        <h4>Practice</h4>
+                        <p>1. A triangle has sides 3 cm, 4 cm, 5 cm; another has sides 6 cm, 8 cm, 10 cm. Are they congruent, similar, or neither?</p>
+                        <p>2. How many lines of symmetry and what order of rotational symmetry does a rectangle (not a square) have?</p>
+                        <p>3. One angle of a parallelogram is 110°. Find the other three angles.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- KEY VOCABULARY -->
+            <div id="glossary" class="tab-content">
+                <button class="print-btn" onclick="window.print()">🖨️ Print This Section</button>
+
+                <div class="section">
+                    <h2 class="section-title">Key Vocabulary</h2>
+
+                    <div class="key-terms">
+                        <div class="term"><strong>Geometry:</strong> the branch of mathematics that studies shapes, lines, angles, and space.</div>
+                        <div class="term"><strong>Transformation:</strong> a change in the position (or sometimes size) of a shape.</div>
+                        <div class="term"><strong>Object:</strong> the original shape, before the transformation.</div>
+                        <div class="term"><strong>Image:</strong> the new shape, after the transformation, marked with a dash such as A′.</div>
+                        <div class="term"><strong>Plane:</strong> a flat surface that extends in all directions, such as graph paper.</div>
+                        <div class="term"><strong>Translation:</strong> a transformation that slides every point the same distance in the same direction.</div>
+                        <div class="term"><strong>Reflection:</strong> a transformation that flips a shape over a mirror line.</div>
+                        <div class="term"><strong>Rotation:</strong> a transformation that turns a shape about a fixed point.</div>
+                        <div class="term"><strong>Mirror line (line of reflection):</strong> the line a shape is flipped over.</div>
+                        <div class="term"><strong>Centre of rotation:</strong> the fixed point a shape is turned about.</div>
+                        <div class="term"><strong>Vector:</strong> an instruction for a translation, showing movement across and up/down.</div>
+                        <div class="term"><strong>Angle:</strong> the amount of turn between two lines that meet, measured in degrees.</div>
+                        <div class="term"><strong>Congruent:</strong> exactly the same size and the same shape.</div>
+                        <div class="term"><strong>Similar:</strong> the same shape but not necessarily the same size.</div>
+                        <div class="term"><strong>Symmetry:</strong> a balanced, matching arrangement of a shape.</div>
+                        <div class="term"><strong>Line of symmetry:</strong> a line dividing a shape into two matching mirror-image halves.</div>
+                        <div class="term"><strong>Rotational symmetry:</strong> a shape has this if it looks the same as it turns part-way around its centre.</div>
+                        <div class="term"><strong>Triangles:</strong> three-sided shapes; their angles add to 180°.</div>
+                        <div class="term"><strong>Quadrilaterals:</strong> four-sided shapes; their angles add to 360°.</div>
+                        <div class="term"><strong>Line / segment:</strong> a straight path; a segment is the part between two endpoints.</div>
+                        <div class="term"><strong>Perpendicular:</strong> meeting at a right angle (90°).</div>
+                        <div class="term"><strong>Parallel:</strong> always the same distance apart and never meeting.</div>
+                        <div class="term"><strong>Bisector:</strong> a line that cuts something exactly in half; a perpendicular bisector cuts a segment in half at a right angle.</div>
+                        <div class="term"><strong>Orientation:</strong> the way a shape faces — whether it reads forwards or backwards.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ANSWER KEY -->
+            <div id="answers" class="tab-content">
+                <button class="print-btn" onclick="window.print()">🖨️ Print This Section</button>
+
+                <div class="section">
+                    <h2 class="section-title">Answer Key</h2>
+
+                    <div class="subsection">
+                        <h3>Translations</h3>
+                        <div class="content-text">
+                            <p>1. (−1 + 5, 4 − 6) = <strong>(4, −2)</strong>.</p>
+                            <p>2. P′(3, 1), Q′(5, 1), R′(3, 4).</p>
+                            <p>3. Vector (2, 0); the bottom-left corner moves from (0, 0) to <strong>(2, 0)</strong>.</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Reflections</h3>
+                        <div class="content-text">
+                            <p>1. (5, −2) in the y-axis → <strong>(−5, −2)</strong>.</p>
+                            <p>2. (−4, 5) in the x-axis → <strong>(−4, −5)</strong>.</p>
+                            <p>3. D′(1, −2), E′(3, −2), F′(1, −5).</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Rotations</h3>
+                        <div class="content-text">
+                            <p>1. (2, 3) by 90° anticlockwise → (−y, x) = <strong>(−3, 2)</strong>.</p>
+                            <p>2. (2, 5) by 180° → (−x, −y) = <strong>(−2, −5)</strong>.</p>
+                            <p>3. (0, 6) by 90° clockwise → (y, −x) = <strong>(6, 0)</strong>.</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Symmetry &amp; Properties</h3>
+                        <div class="content-text">
+                            <p>1. Each side is doubled (3→6, 4→8, 5→10), so the triangles are <strong>similar</strong> but not congruent.</p>
+                            <p>2. A rectangle has <strong>2 lines of symmetry</strong> and rotational symmetry of <strong>order 2</strong>.</p>
+                            <p>3. Opposite angles are equal and co-interior angles add to 180°, so the angles are <strong>110°, 70°, 110°, 70°</strong>.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Grade 7 Mathematics Textbook | Jamaica National Standards Curriculum | Term 1, Unit 4: Transformations</p>
+            <p>This interactive textbook covers translations, reflections, rotations, and the symmetry and properties of triangles and quadrilaterals.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Tab navigation
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const tabName = button.getAttribute('data-tab');
+
+                // Remove active class from all buttons and contents
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+
+                // Add active class to clicked button and corresponding content
+                button.classList.add('active');
+                document.getElementById(tabName).classList.add('active');
+
+                // Scroll to top
+                window.scrollTo(0, 0);
+            });
+        });
+
+        // Collapsible sections
+        const collapsibles = document.querySelectorAll('.collapsible');
+        collapsibles.forEach(button => {
+            button.addEventListener('click', function() {
+                this.classList.toggle('active');
+                const content = this.nextElementSibling;
+                if (content && content.classList.contains('collapsible-content')) {
+                    content.classList.toggle('show');
+                }
+            });
+        });
+
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

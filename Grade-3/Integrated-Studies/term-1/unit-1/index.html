@@ -1,0 +1,2261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade 3 Jamaica Integrated Studies Textbook</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .nav-tabs {
+            display: flex;
+            background: #f8f9fa;
+            border-bottom: 2px solid #ddd;
+            overflow-x: auto;
+            flex-wrap: wrap;
+        }
+
+        .nav-tabs button {
+            flex: 1;
+            padding: 15px 20px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 500;
+            color: #666;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+            min-width: 150px;
+        }
+
+        .nav-tabs button:hover {
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        .nav-tabs button.active {
+            color: #2a5298;
+            border-bottom-color: #2a5298;
+            background: white;
+        }
+
+        .content {
+            padding: 30px;
+            min-height: 600px;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 1.8em;
+            color: #1e3c72;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .subsection {
+            background: #f8f9fa;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 4px solid #667eea;
+            border-radius: 5px;
+        }
+
+        .subsection h3 {
+            color: #2a5298;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+
+        .learning-objectives {
+            background: #e3f2fd;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #2196F3;
+        }
+
+        .learning-objectives h4 {
+            color: #1565c0;
+            margin-bottom: 10px;
+        }
+
+        .learning-objectives ul {
+            margin-left: 20px;
+        }
+
+        .learning-objectives li {
+            margin: 8px 0;
+            color: #333;
+        }
+
+        .activity-box {
+            background: #fff3e0;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #ff9800;
+        }
+
+        .activity-box h4 {
+            color: #e65100;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .activity-box h4::before {
+            content: "✏️";
+            font-size: 1.2em;
+        }
+
+        .assessment-box {
+            background: #f3e5f5;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #9c27b0;
+        }
+
+        .assessment-box h4 {
+            color: #6a1b9a;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .assessment-box h4::before {
+            content: "📋";
+            font-size: 1.2em;
+        }
+
+        .extension-box {
+            background: #e8f5e9;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #4caf50;
+        }
+
+        .extension-box h4 {
+            color: #2e7d32;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .extension-box h4::before {
+            content: "⭐";
+            font-size: 1.2em;
+        }
+
+        .teacher-notes {
+            background: #ffe0b2;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #ff6f00;
+        }
+
+        .teacher-notes h4 {
+            color: #bf360c;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .teacher-notes h4::before {
+            content: "👨‍🏫";
+            font-size: 1.2em;
+        }
+
+        .content-text {
+            margin: 15px 0;
+            text-align: justify;
+        }
+
+        .content-text strong {
+            color: #1e3c72;
+        }
+
+        .diagram {
+            background: #f0f0f0;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            text-align: center;
+            border: 2px dashed #ddd;
+        }
+
+        .diagram img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+        }
+
+        table th {
+            background: #2a5298;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+
+        table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        table tr:hover {
+            background: #f5f5f5;
+        }
+
+        .key-terms {
+            background: #f5f5f5;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .key-terms h4 {
+            color: #1e3c72;
+            margin-bottom: 10px;
+        }
+
+        .term {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+
+        .term strong {
+            color: #2a5298;
+        }
+
+        .learning-outcomes {
+            background: #c8e6c9;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .learning-outcomes h4 {
+            color: #1b5e20;
+            margin-bottom: 10px;
+        }
+
+        .learning-outcomes ul {
+            margin-left: 20px;
+        }
+
+        .learning-outcomes li {
+            margin: 8px 0;
+            color: #333;
+        }
+
+        .checklist {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-left: 3px solid #2a5298;
+        }
+
+        .checklist input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        footer {
+            background: #1e3c72;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            .nav-tabs button {
+                min-width: 120px;
+                padding: 12px 15px;
+                font-size: 0.9em;
+            }
+        }
+
+        .collapsible {
+            background: #e3f2fd;
+            cursor: pointer;
+            padding: 15px;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 1em;
+            color: #1565c0;
+            font-weight: bold;
+            border-radius: 5px;
+            margin: 10px 0;
+            width: 100%;
+            transition: 0.3s;
+        }
+
+        .collapsible:hover {
+            background: #bbdefb;
+        }
+
+        .collapsible-content {
+            padding: 0 15px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .collapsible-content.show {
+            max-height: 1000px;
+        }
+
+        .print-btn {
+            background: #2a5298;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            margin: 20px 0;
+            transition: 0.3s;
+        }
+
+        .print-btn:hover {
+            background: #1e3c72;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            .nav-tabs {
+                display: none;
+            }
+            .print-btn {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📚 Grade 3 Integrated Studies Textbook</h1>
+            <p>Jamaica National Standards Curriculum - Term 1, Unit 1: My Body</p>
+            <p style="font-size: 0.9em; margin-top: 10px;">Why are teeth, stomach and lungs important? | Body Care | Nutrition</p>
+            <p style="margin-top: 14px;"><a href="../../index.html" style="color:#fff; background:rgba(255,255,255,0.15); padding:6px 14px; border-radius:5px; text-decoration:none; font-size:0.9em;">← Subject Home</a></p>
+        </header>
+
+        <div class="nav-tabs">
+            <button class="tab-btn active" data-tab="focus-q1">Focus Q1: Body Parts</button>
+            <button class="tab-btn" data-tab="focus-q2">Focus Q2: Body Care</button>
+            <button class="tab-btn" data-tab="focus-q3">Focus Q3: Nutrition</button>
+            <button class="tab-btn" data-tab="glossary">Glossary</button>
+            <button class="tab-btn" data-tab="answers">Answer Key</button>
+        </div>
+
+        <div class="content">
+            <!-- FOCUS QUESTION 1 -->
+            <div id="focus-q1" class="tab-content active">
+                <button class="print-btn" onclick="window.print()">🖨️ Print This Section</button>
+
+                <div class="section">
+                    <h2 class="section-title">Focus Question 1: Why are teeth, stomach and lungs important parts of my body?</h2>
+
+                    <div class="learning-objectives">
+                        <h4>Learning Objectives</h4>
+                        <ul>
+                            <li>Identify the different types of teeth</li>
+                            <li>Identify the external parts of a tooth</li>
+                            <li>Distinguish between temporary and permanent teeth</li>
+                            <li>Locate the stomach and lungs in the human body</li>
+                            <li>Describe the appearance and structure of teeth, stomach, and lungs</li>
+                            <li>Investigate the functions of these organs</li>
+                            <li>Demonstrate how the lungs work</li>
+                        </ul>
+                    </div>
+
+                    <!-- TEETH SUBSECTION -->
+                    <div class="subsection">
+                        <h3>🦷 Lesson 1: All About Teeth</h3>
+
+                        <div class="content-text">
+                            <p><strong>What are teeth?</strong> Teeth are hard, white structures in your mouth that help you eat food. They break food into smaller pieces so your stomach and digestive system can process it more easily. Teeth also help you speak clearly and give shape to your face.</p>
+
+                            <p><strong>Did you know?</strong> You will have two sets of teeth in your lifetime! The first set is called temporary teeth (also called baby teeth, milk teeth, or primary teeth). These fall out naturally as you grow. The second set is called permanent teeth, which stay with you for the rest of your life.</p>
+                        </div>
+
+                        <div class="key-terms">
+                            <h4>Key Terms to Know:</h4>
+                            <div class="term"><strong>Crown:</strong> The visible white part of the tooth above the gum</div>
+                            <div class="term"><strong>Root:</strong> The part of the tooth under the gum that holds it in place</div>
+                            <div class="term"><strong>Enamel:</strong> The hard, shiny coating that protects the tooth</div>
+                            <div class="term"><strong>Temporary Teeth:</strong> Baby teeth that fall out (also called milk teeth or primary teeth)</div>
+                            <div class="term"><strong>Permanent Teeth:</strong> Adult teeth that replace baby teeth and last a lifetime</div>
+                        </div>
+
+                        <h4>Types of Teeth and Their Functions</h4>
+
+                        <table>
+                            <tr>
+                                <th>Type of Tooth</th>
+                                <th>Common Name</th>
+                                <th>What It Does</th>
+                                <th>Shape</th>
+                            </tr>
+                            <tr>
+                                <td>Incisors</td>
+                                <td>Front teeth</td>
+                                <td>Cut and bite food</td>
+                                <td>Flat and sharp</td>
+                            </tr>
+                            <tr>
+                                <td>Canines</td>
+                                <td>Eye teeth</td>
+                                <td>Tear and grip food</td>
+                                <td>Pointed and sharp</td>
+                            </tr>
+                            <tr>
+                                <td>Molars</td>
+                                <td>Jaw teeth</td>
+                                <td>Crush and grind food</td>
+                                <td>Flat and wide</td>
+                            </tr>
+                        </table>
+
+                        <div class="activity-box">
+                            <h4>Activity 1: Observe Your Own Teeth</h4>
+                            <p><strong>What you need:</strong> Mirror, small notebook, pencil</p>
+                            <p><strong>What to do:</strong></p>
+                            <ol style="margin-left: 20px;">
+                                <li>Use a mirror to look at your teeth</li>
+                                <li>Identify which temporary (baby) teeth you still have</li>
+                                <li>Count your front teeth (incisors)</li>
+                                <li>Find your pointed teeth (canines)</li>
+                                <li>Look at your back teeth (molars)</li>
+                                <li>Record your observations in your notebook</li>
+                                <li>Draw and label a tooth showing the crown, root, and enamel</li>
+                            </ol>
+                            <p><strong>What to think about:</strong> Which of your teeth are temporary? Can you feel any teeth that are loose or trying to come in?</p>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Activity 2: The Chewing Process</h4>
+                            <p><strong>What you need:</strong> Different foods (soft fruit, carrot, bread), your teeth</p>
+                            <p><strong>What to do:</strong></p>
+                            <ol style="margin-left: 20px;">
+                                <li>Eat each food one at a time</li>
+                                <li>Notice which teeth you use first</li>
+                                <li>Count how many times you chew before swallowing</li>
+                                <li>Describe what happens to the food in your mouth</li>
+                            </ol>
+                            <p><strong>Discussion:</strong> Why do different foods need different amounts of chewing?</p>
+                        </div>
+
+                        <div class="assessment-box">
+                            <h4>Assessment 1: Teeth Knowledge</h4>
+                            <div class="checklist">
+                                <input type="checkbox"> Can you identify the three types of teeth and their functions?
+                            </div>
+                            <div class="checklist">
+                                <input type="checkbox"> Can you label the crown, root, and enamel of a tooth?
+                            </div>
+                            <div class="checklist">
+                                <input type="checkbox"> Can you explain the difference between temporary and permanent teeth?
+                            </div>
+                            <div class="checklist">
+                                <input type="checkbox"> Can you describe why each type of tooth is shaped the way it is?
+                            </div>
+                        </div>
+
+                        <div class="extension-box">
+                            <h4>Extension Activities</h4>
+                            <p><strong>Challenge 1:</strong> Create a model of a tooth using clay, play dough, or other materials. Label all the parts clearly.</p>
+                            <p><strong>Challenge 2:</strong> Make a multimedia presentation about the types of teeth and their functions using presentation software.</p>
+                            <p><strong>Challenge 3:</strong> Compose a short song or jingle about taking care of your teeth. Use the tune of a song you know.</p>
+                        </div>
+
+                        <div class="teacher-notes">
+                            <h4>Teacher Notes</h4>
+                            <ul>
+                                <li>Have students bring mirrors to class for Activity 1</li>
+                                <li>Consider scheduling a guest dentist or dental hygienist to visit the class</li>
+                                <li>Arrange a field trip to a local dental clinic if possible</li>
+                                <li>Pre-test Activities before demonstrating them in class</li>
+                                <li>Provide a variety of materials for model-making (clay, play dough, foam, etc.)</li>
+                                <li>Use the multimedia presentation activity to assess ICT skills</li>
+                                <li>Allow students to practice singing jingles using body percussion and classroom instruments</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- STOMACH SUBSECTION -->
+                    <div class="subsection">
+                        <h3>🍽️ Lesson 2: The Stomach</h3>
+
+                        <div class="content-text">
+                            <p><strong>What is the stomach?</strong> The stomach is a muscular organ (part of your body that has a special job) located inside your body. It looks like a small bag or pouch. After you swallow food, it goes down your food pipe and into your stomach.</p>
+
+                            <p><strong>Where is the stomach?</strong> Your stomach is located in the upper part of your belly, just below your ribs. If you place your hand on your belly button and move it up a little, you're near where your stomach is.</p>
+
+                            <p><strong>What does the stomach look like?</strong> The stomach is about the size of a closed fist when it's empty. It has a reddish-brown color and wrinkled walls.</p>
+                        </div>
+
+                        <div class="key-terms">
+                            <h4>Key Terms to Know:</h4>
+                            <div class="term"><strong>Stomach:</strong> A muscular bag-shaped organ that stores and breaks down food</div>
+                            <div class="term"><strong>Elastic:</strong> Able to stretch and return to its original size</div>
+                            <div class="term"><strong>Muscles:</strong> Body tissues that can contract and relax to create movement</div>
+                            <div class="term"><strong>Digest:</strong> To break down food so your body can use it</div>
+                        </div>
+
+                        <div class="content-text">
+                            <h4>Where Is the Stomach?</h4>
+                            <p>The stomach is positioned just below your ribcage, slightly to the left side of your body. Put your hand a little above your belly button and slightly to the left — your stomach is working away inside, right there.</p>
+                        </div>
+
+                        <h4>The Stomach's Important Jobs</h4>
+
+                        <ol style="margin: 20px 0; margin-left: 40px;">
+                            <li><strong>Stores food:</strong> When you eat, food goes into your stomach where it stays while being broken down. Your elastic stomach can stretch to hold more food!</li>
+                            <li><strong>Mixes food:</strong> The muscles of the stomach squeeze and move the food around, mixing it with special juices.</li>
+                            <li><strong>Breaks down food:</strong> These special juices help break the food into very tiny pieces that your body can use.</li>
+                            <li><strong>Pushes food along:</strong> When the food is ready, the stomach pushes it into the small intestine to continue digestion.</li>
+                        </ol>
+
+                        <div class="content-text">
+                            <p><strong>The Elastic Stomach:</strong> Did you know your stomach is very stretchy? It can expand (get bigger) when you eat. When your stomach is empty, it looks wrinkled and flat. But when you eat, it stretches out like a balloon to hold the food. This is why the story of Jonah and the Whale is sometimes used to explain how stomachs can be elastic and stretch to hold things!</p>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Activity 3: Locate Your Stomach</h4>
+                            <p><strong>What to do:</strong></p>
+                            <ol style="margin-left: 20px;">
+                                <li>Stand or sit comfortably</li>
+                                <li>Place your hand on your belly button</li>
+                                <li>Move your hand up toward your ribs—this is near your stomach</li>
+                                <li>Point to show where you think your stomach is</li>
+                                <li>Drink 2-3 cups of water slowly</li>
+                                <li>Notice how your stomach feels fuller</li>
+                                <li>In your notebook, describe how your body feels</li>
+                            </ol>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Activity 4: Demonstrate Stomach Elasticity</h4>
+                            <p><strong>What you need:</strong> Balloons, water</p>
+                            <p><strong>What to do:</strong></p>
+                            <ol style="margin-left: 20px;">
+                                <li>Take an empty balloon and observe its size and shape</li>
+                                <li>Slowly fill it with water or air</li>
+                                <li>Watch how it stretches and changes shape</li>
+                                <li>Notice the wrinkles disappearing as it fills</li>
+                                <li>This is similar to how your stomach stretches when you eat!</li>
+                            </ol>
+                            <p><strong>Write about it:</strong> In a paragraph, describe what happens to the balloon and explain how this shows what happens to your stomach when you eat.</p>
+                        </div>
+
+                        <div class="assessment-box">
+                            <h4>Assessment 2: Stomach Knowledge</h4>
+                            <div class="checklist">
+                                <input type="checkbox"> Can you locate the stomach in the human body?
+                            </div>
+                            <div class="checklist">
+                                <input type="checkbox"> Can you describe what the stomach looks like?
+                            </div>
+                            <div class="checklist">
+                                <input type="checkbox"> Can you explain the four main functions of the stomach?
+                            </div>
+                            <div class="checklist">
+                                <input type="checkbox"> Can you explain what "elastic" means and give examples?
+                            </div>
+                        </div>
+
+                        <div class="extension-box">
+                            <h4>Extension Activities</h4>
+                            <p><strong>Challenge 1:</strong> Create a model of the stomach using clay or play dough. Make it show how it looks when empty and when full.</p>
+                            <p><strong>Challenge 2:</strong> Read the story of Jonah and the Whale. Discuss in groups how this story helps us understand the elastic nature of stomachs.</p>
+                            <p><strong>Challenge 3:</strong> Create a jingle about the stomach and its functions. Perform it for the class.</p>
+                        </div>
+
+                        <div class="teacher-notes">
+                            <h4>Teacher Notes</h4>
+                            <ul>
+                                <li>Pre-test the balloon activity to ensure it works safely</li>
+                                <li>Have students drink water at different times—some first thing, some later—to observe different sensations</li>
+                                <li>Consider using videos or online presentations showing the digestive system</li>
+                                <li>Have students record their observations in electronic or paper journals</li>
+                                <li>When discussing the Jonah story, focus on the elasticity concept</li>
+                                <li>Provide various materials for model creation</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- LUNGS SUBSECTION -->
+                    <div class="subsection">
+                        <h3>💨 Lesson 3: The Lungs</h3>
+
+                        <div class="content-text">
+                            <p><strong>What are lungs?</strong> Lungs are organs (body parts with special jobs) that help you breathe. They take in fresh air and give out used air. Every time you breathe in and breathe out, your lungs are working!</p>
+
+                            <p><strong>Where are your lungs?</strong> Your lungs are located in your chest, protected by your ribcage (the bones around your chest). You have two lungs—one on each side of your heart. They are spongy and light, filled with tiny air sacs.</p>
+
+                            <p><strong>What do lungs look like?</strong> Lungs are pink and spongy organs. They have a bumpy, textured surface. When they fill with air, they get bigger. When they push out the air, they shrink smaller.</p>
+                        </div>
+
+                        <div class="key-terms">
+                            <h4>Key Terms to Know:</h4>
+                            <div class="term"><strong>Lungs:</strong> Organs that take in oxygen and release carbon dioxide</div>
+                            <div class="term"><strong>Breathing:</strong> Taking air in (inhaling) and letting air out (exhaling)</div>
+                            <div class="term"><strong>Oxygen:</strong> A gas in the air that your body needs to live</div>
+                            <div class="term"><strong>Diaphragm:</strong> A muscle below your lungs that helps them expand and contract</div>
+                            <div class="term"><strong>Ribcage:</strong> The bones in your chest that protect your lungs and heart</div>
+                        </div>
+
+                        <div class="content-text">
+                            <h4>Where Are the Lungs?</h4>
+                            <p>The lungs fill most of your chest, with the heart resting between them. You have one lung on each side of your chest, and your ribcage forms a strong cage around them to keep them safe.</p>
+                        </div>
+
+                        <h4>The Lungs' Important Jobs</h4>
+
+                        <ol style="margin: 20px 0; margin-left: 40px;">
+                            <li><strong>Take in oxygen:</strong> When you breathe in, fresh air with oxygen enters your lungs through your nose or mouth.</li>
+                            <li><strong>Release carbon dioxide:</strong> Your body creates a waste gas called carbon dioxide. Your lungs push this out when you breathe out.</li>
+                            <li><strong>Exchange gases:</strong> Oxygen from the air goes into your blood, and carbon dioxide comes out of your blood into your lungs.</li>
+                            <li><strong>Help you speak:</strong> When you push air out of your lungs through your voice box, you can make sounds and speak!</li>
+                        </ol>
+
+                        <div class="content-text">
+                            <p><strong>How do lungs work?</strong> A large muscle called the diaphragm sits below your lungs. When you breathe in, this muscle moves down and pulls your lungs open, filling them with air. Your ribcage also moves out. When you breathe out, the diaphragm moves up and your lungs shrink, pushing the used air out. This happens automatically—you don't have to think about it!</p>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Activity 5: Observe Your Breathing</h4>
+                            <p><strong>What to do:</strong></p>
+                            <ol style="margin-left: 20px;">
+                                <li>Stand with your hands on your chest</li>
+                                <li>Take a deep breath in and notice your chest expanding</li>
+                                <li>Hold the breath for a second</li>
+                                <li>Slowly breathe out and notice your chest getting smaller</li>
+                                <li>Repeat this 5-10 times while observing the changes</li>
+                                <li>In your notebook, describe the changes you felt in your chest</li>
+                                <li>Now try the same activity with your hands on your back and sides to feel the movement</li>
+                            </ol>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Activity 6: Build a Lung Model</h4>
+                            <p><strong>What you need:</strong> Plastic bottle, 2 balloons, straw, tape, scissors, elastic band</p>
+                            <p><strong>What to do:</strong></p>
+                            <ol style="margin-left: 20px;">
+                                <li>Cut the bottom off the plastic bottle</li>
+                                <li>Stretch one balloon across the bottom opening and secure with elastic band or tape</li>
+                                <li>Place one balloon inside the bottle and feed the end of the straw through the neck</li>
+                                <li>Secure the straw with tape so air doesn't escape</li>
+                                <li>Pull down on the stretched balloon at the bottom (this represents the diaphragm)</li>
+                                <li>Watch the balloon inside fill with air (representing your lungs)</li>
+                                <li>Push the stretched balloon up to watch the balloon inside deflate</li>
+                            </ol>
+                            <p><strong>Write about it:</strong> In a paragraph, explain how this model shows how your lungs work.</p>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Activity 7: Breathing Exercises</h4>
+                            <p><strong>What to do:</strong></p>
+                            <ol style="margin-left: 20px;">
+                                <li>Breathe normally and count how many breaths you take in one minute</li>
+                                <li>Now run on the spot for 30 seconds</li>
+                                <li>Count your breaths again—notice how they've increased!</li>
+                                <li>Notice the short, quick breaths (staccato breathing)</li>
+                                <li>Now try slow, smooth, deep breaths (legato breathing)</li>
+                                <li>Try to sing or hum while making long sounds</li>
+                                <li>Discuss: Why do athletes need to practice good breathing?</li>
+                            </ol>
+                        </div>
+
+                        <div class="assessment-box">
+                            <h4>Assessment 3: Lungs Knowledge</h4>
+                            <div class="checklist">
+                                <input type="checkbox"> Can you locate your lungs in your body?
+                            </div>
+                            <div class="checklist">
+                                <input type="checkbox"> Can you describe what happens in your chest when you breathe in and out?
+                            </div>
+                            <div class="checklist">
+                                <input type="checkbox"> Can you explain the four main functions of lungs?
+                            </div>
+                            <div class="checklist">
+                                <input type="checkbox"> Can you demonstrate and explain how the lung model works?
+                            </div>
+                        </div>
+
+                        <div class="extension-box">
+                            <h4>Extension Activities</h4>
+                            <p><strong>Challenge 1:</strong> Create a model of the lungs using clay or other materials.</p>
+                            <p><strong>Challenge 2:</strong> Write a poem or jingle about the lungs and breathing. Illustrate it creatively.</p>
+                            <p><strong>Challenge 3:</strong> Research and create a melody that incorporates short staccato sounds and long legato sounds to represent different breathing patterns.</p>
+                        </div>
+
+                        <div class="teacher-notes">
+                            <h4>Teacher Notes</h4>
+                            <ul>
+                                <li>Pre-test the lung model before demonstrating it in class</li>
+                                <li>Have students create journal entries about their observations</li>
+                                <li>Use videos or multimedia presentations to show lung function</li>
+                                <li>Consider taking students outside for breathing exercises in fresh air</li>
+                                <li>Have students practice breathing exercises multiple times for better understanding</li>
+                                <li>Provide instruments and allow students to practice creating rhythmic and melodic patterns</li>
+                                <li>Ensure all students get a chance to use digital tools for their presentations</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- INTEGRATED ACTIVITIES -->
+                    <div class="subsection">
+                        <h3>🎨 Integrated Learning Activities</h3>
+
+                        <div class="activity-box">
+                            <h4>Music Activity: Create a Jingle</h4>
+                            <p><strong>Task:</strong> In groups, create a jingle (a short song) about teeth, stomach, and lungs. Choose a popular tune you know and write new words. Perform it for the class using body percussion and classroom instruments.</p>
+                            <p><strong>Example melody:</strong> Use the tune of "Twinkle, Twinkle, Little Star" or "Happy Birthday"</p>
+                            <p><strong>What to include in your jingle:</strong></p>
+                            <ul style="margin-left: 20px;">
+                                <li>The name of the body part</li>
+                                <li>Where it is located</li>
+                                <li>What it does</li>
+                                <li>Why it's important</li>
+                            </ul>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Drama Activity: Body System Tableau</h4>
+                            <p><strong>Task:</strong> In small groups, create a frozen scene (tableau) that shows how teeth, stomach, and lungs work together. Use your bodies to represent the movement of food through the digestive system or how oxygen moves through your body.</p>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Language Arts Activity: Write About Your Body</h4>
+                            <p><strong>Task:</strong> Write 2-3 well-constructed paragraphs about why teeth, stomach, and lungs are important. Your paragraphs should have:</p>
+                            <ul style="margin-left: 20px;">
+                                <li>A clear topic sentence</li>
+                                <li>Supporting details</li>
+                                <li>Linking words (like "because," "therefore," "also")</li>
+                                <li>Correct punctuation</li>
+                            </ul>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>ICT Activity: Multimedia Presentation</h4>
+                            <p><strong>Task:</strong> Use presentation software to create a digital presentation about one body part. Include:</p>
+                            <ul style="margin-left: 20px;">
+                                <li>Pictures and diagrams</li>
+                                <li>Text descriptions</li>
+                                <li>Video clips (if available)</li>
+                                <li>Your drawings or animations</li>
+                                <li>Voice narration explaining the content</li>
+                            </ul>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Visual Arts Activity: Create Models</h4>
+                            <p><strong>Task:</strong> Using a variety of materials, create 3D models of a tooth, the stomach, and the lungs. Think about:</p>
+                            <ul style="margin-left: 20px;">
+                                <li>Shape and size</li>
+                                <li>Color</li>
+                                <li>Texture</li>
+                                <li>Accurate labeling of parts</li>
+                            </ul>
+                            <p><strong>Materials:</strong> clay, play dough, foam, papier-mâché, plastic bottles, balloons, etc.</p>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Mathematics Activity: Collect and Graph Data</h4>
+                            <p><strong>Task:</strong> In groups, collect data about teeth, stomach, and lungs in your class:</p>
+                            <ul style="margin-left: 20px;">
+                                <li>How many baby teeth has each student lost?</li>
+                                <li>How many breaths per minute does each student take?</li>
+                                <li>How many times can students chew before swallowing?</li>
+                            </ul>
+                            <p><strong>Create:</strong> Tables and bar graphs to display your findings. Write conclusions about what the data shows.</p>
+                        </div>
+                    </div>
+
+                    <div class="learning-outcomes">
+                        <h4>Learning Outcomes for Focus Question 1</h4>
+                        <p>By the end of this unit, students will be able to:</p>
+                        <ul>
+                            <li>✓ Indicate the type and location of teeth and parts of a tooth</li>
+                            <li>✓ Know the difference between temporary and permanent teeth</li>
+                            <li>✓ Explain the functions of each type of tooth</li>
+                            <li>✓ Explain the functions of the stomach and lungs</li>
+                            <li>✓ Draw conclusions from experiments about the functions of these organs</li>
+                            <li>✓ Explain the changes in the chest cavity when inhaling and exhaling</li>
+                            <li>✓ Manipulate clay and other materials to create accurate models</li>
+                            <li>✓ Work collaboratively in groups</li>
+                            <li>✓ Use technology to create multimedia presentations</li>
+                            <li>✓ Use rhythm, beat, and tempo correctly in musical performances</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FOCUS QUESTION 2 -->
+            <div id="focus-q2" class="tab-content">
+                <button class="print-btn" onclick="window.print()">🖨️ Print This Section</button>
+
+                <div class="section">
+                    <h2 class="section-title">Focus Question 2: Why and how should I care for the different parts of my body?</h2>
+
+                    <div class="learning-objectives">
+                        <h4>Learning Objectives</h4>
+                        <ul>
+                            <li>Explain why we need to care for different parts of our bodies</li>
+                            <li>Illustrate ways we should care for parts of our body</li>
+                            <li>Demonstrate ways we care for our teeth</li>
+                            <li>Differentiate between healthy and unhealthy habits</li>
+                            <li>Recognize the need to care for oneself through a healthy lifestyle</li>
+                            <li>Understand the effects of exercise on the body</li>
+                            <li>Research and appreciate religious perspectives on body care</li>
+                        </ul>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>💪 Lesson 4: Taking Care of Our Bodies</h3>
+
+                        <div class="content-text">
+                            <p><strong>Why should we take care of our bodies?</strong> Your body is like a machine. Just as you need to maintain a bicycle by oiling the chain and checking the tires, your body needs care to work well and keep you healthy and happy.</p>
+
+                            <p><strong>What does "taking care of our bodies" mean?</strong> It means making healthy choices every day in four main areas:</p>
+
+                            <ol style="margin: 20px 0; margin-left: 40px;">
+                                <li><strong>Hygiene:</strong> Keeping your body clean</li>
+                                <li><strong>Diet:</strong> Eating healthy foods</li>
+                                <li><strong>Exercise:</strong> Moving your body and being active</li>
+                                <li><strong>Rest:</strong> Getting enough sleep</li>
+                            </ol>
+                        </div>
+
+                        <div class="key-terms">
+                            <h4>Key Terms to Know:</h4>
+                            <div class="term"><strong>Hygiene:</strong> Keeping yourself and your surroundings clean to prevent illness</div>
+                            <div class="term"><strong>Healthy habit:</strong> A good thing you do regularly that keeps you healthy</div>
+                            <div class="term"><strong>Unhealthy habit:</strong> A bad thing you do that can harm your health</div>
+                            <div class="term"><strong>Exercise:</strong> Physical activity that makes your body stronger</div>
+                            <div class="term"><strong>Nutrition:</strong> Getting the right foods your body needs to grow and be healthy</div>
+                        </div>
+
+                        <h4>The Four Pillars of Body Care</h4>
+
+                        <table>
+                            <tr>
+                                <th>Area of Care</th>
+                                <th>Healthy Habits</th>
+                                <th>Why It's Important</th>
+                            </tr>
+                            <tr>
+                                <td><strong>Hygiene</strong></td>
+                                <td>
+                                    • Brush teeth twice daily<br>
+                                    • Bathe regularly<br>
+                                    • Wash hands before eating<br>
+                                    • Keep nails clean<br>
+                                    • Wash clothes regularly
+                                </td>
+                                <td>Prevents germs and diseases</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Diet</strong></td>
+                                <td>
+                                    • Eat fruits and vegetables<br>
+                                    • Drink water<br>
+                                    • Eat whole grains<br>
+                                    • Limit sugary foods<br>
+                                    • Eat balanced meals
+                                </td>
+                                <td>Gives body energy and helps growth</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Exercise</strong></td>
+                                <td>
+                                    • Play sports<br>
+                                    • Walk or run<br>
+                                    • Dance<br>
+                                    • Play active games<br>
+                                    • Stretch and move daily
+                                </td>
+                                <td>Keeps body strong and healthy</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Rest</strong></td>
+                                <td>
+                                    • Sleep 8-10 hours nightly<br>
+                                    • Rest during the day<br>
+                                    • Relax and take breaks<br>
+                                    • Avoid too much activity
+                                </td>
+                                <td>Helps body repair and grow</td>
+                            </tr>
+                        </table>
+
+                        <div class="activity-box">
+                            <h4>Activity 8: Identify Healthy vs. Unhealthy Habits</h4>
+                            <p><strong>Task:</strong> Think about things you did yesterday or last week. Make two lists:</p>
+                            <ul style="margin-left: 20px;">
+                                <li>List 1: Healthy habits you did (at least 5 things)</li>
+                                <li>List 2: Unhealthy habits you did (at least 5 things)</li>
+                            </ul>
+                            <p><strong>Discussion:</strong> In groups, discuss each habit and why you think it's healthy or unhealthy. Share your findings with the class.</p>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Activity 9: Song Activity - "My Head, My Shoulders, My Knees, My Toes"</h4>
+                            <p><strong>Task:</strong> Sing the traditional song and discuss ways to care for each body part mentioned:</p>
+                            <ul style="margin-left: 20px;">
+                                <li>Head: Protect from bumps, keep clean, avoid sunburn</li>
+                                <li>Shoulders: Stretch, avoid heavy lifting, keep clean</li>
+                                <li>Knees: Protect during sports, avoid strain, stay active</li>
+                                <li>Toes: Keep clean, wear proper footwear, avoid injury</li>
+                            </ul>
+                            <p><strong>Extension:</strong> Write your own verse about caring for other body parts!</p>
+                        </div>
+
+                        <div class="assessment-box">
+                            <h4>Assessment 4: Body Care Knowledge</h4>
+                            <div class="checklist">
+                                <input type="checkbox"> Can you explain why we need to care for our bodies?
+                            </div>
+                            <div class="checklist">
+                                <input type="checkbox"> Can you identify examples of healthy and unhealthy habits?
+                            </div>
+                            <div class="checklist">
+                                <input type="checkbox"> Can you describe proper tooth care techniques?
+                            </div>
+                            <div class="checklist">
+                                <input type="checkbox"> Can you explain how exercise benefits the body?
+                            </div>
+                        </div>
+
+                        <div class="teacher-notes">
+                            <h4>Teacher Notes</h4>
+                            <ul>
+                                <li>Have students bring in news clippings or images of athletes and exercise</li>
+                                <li>Consider inviting a health worker or nutritionist to speak to the class</li>
+                                <li>Assist students in writing letters to the health center requesting a presentation</li>
+                                <li>Record presentations for class discussion and playback</li>
+                                <li>Provide access to technology for creating digital posters and fliers</li>
+                                <li>Discuss the importance of dental health regularly</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>🦷 Lesson 5: Taking Care of Our Teeth</h3>
+
+                        <div class="content-text">
+                            <p><strong>Why is it important to take care of our teeth?</strong> Healthy teeth help us chew food properly, smile confidently, and speak clearly. Taking care of teeth now prevents problems like cavities and tooth decay later in life.</p>
+
+                            <p><strong>What are cavities?</strong> Cavities are holes that form in teeth when sugar and bacteria damage the enamel. They can cause pain and problems eating.</p>
+
+                            <p><strong>How can we prevent cavities?</strong> The best way to prevent cavities is to:</p>
+                            <ol style="margin: 20px 0; margin-left: 40px;">
+                                <li>Brush teeth twice a day (morning and night)</li>
+                                <li>Floss between teeth once a day</li>
+                                <li>Limit sugary foods and drinks</li>
+                                <li>Drink water instead of soda</li>
+                                <li>Visit the dentist every 6 months</li>
+                            </ol>
+                        </div>
+
+                        <h4>How to Brush Your Teeth Properly</h4>
+
+                        <ol style="margin: 20px 0; margin-left: 40px;">
+                            <li><strong>Get your brush ready:</strong> Use a soft-bristled toothbrush and a pea-sized amount of toothpaste</li>
+                            <li><strong>Brush the outer surfaces:</strong> Hold the brush at a 45-degree angle and brush gently from the gum line down</li>
+                            <li><strong>Brush the inner surfaces:</strong> Angle the brush and brush the inside of your teeth</li>
+                            <li><strong>Brush the chewing surface:</strong> Use small back-and-forth motions on the tops of your teeth</li>
+                            <li><strong>Brush your tongue:</strong> Gently brush your tongue to remove bacteria</li>
+                            <li><strong>Rinse well:</strong> Rinse your mouth with water</li>
+                            <li><strong>Time it right:</strong> Spend at least 2-3 minutes brushing</li>
+                        </ol>
+
+                        <div class="activity-box">
+                            <h4>Activity 10: Tooth Care Practice</h4>
+                            <p><strong>What you need:</strong> Toothbrush, toothpaste, mirror, sink/water</p>
+                            <p><strong>Task:</strong> Demonstrate the proper way to brush your teeth using the steps above. In groups, practice together and help each other.</p>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Activity 11: Learn About Flossing</h4>
+                            <p><strong>What you need:</strong> Dental floss, mirror</p>
+                            <p><strong>Task:</strong> In groups with teacher guidance:</p>
+                            <ol style="margin-left: 20px;">
+                                <li>Learn the proper flossing technique</li>
+                                <li>Practice flossing between teeth</li>
+                                <li>Discuss why flossing is important (removes food and plaque between teeth)</li>
+                                <li>Observe any differences before and after flossing</li>
+                            </ol>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Activity 12: Create and Sing a Tooth Care Song</h4>
+                            <p><strong>Suggested Song:</strong> "Brush Your Teeth"</p>
+                            <p style="background: #f0f0f0; padding: 15px; margin: 10px 0; border-radius: 5px;">
+                                Brush your teeth, Brush your teeth<br>
+                                Give them all a treat<br>
+                                Up and down and all around<br>
+                                To keep them clean and sheen<br>
+                                <br>
+                                In the morning and the night<br>
+                                Clean them twice a day<br>
+                                Up and down and all around<br>
+                                Keep cavities away
+                            </p>
+                            <p><strong>Task:</strong> Sing this song with proper rhythm and beat. Use body percussion and classroom instruments for accompaniment.</p>
+                        </div>
+
+                        <div class="teacher-notes">
+                            <h4>Teacher Notes</h4>
+                            <ul>
+                                <li>Consider arranging a visit from a dentist or dental hygienist</li>
+                                <li>Provide real toothbrushes for students to practice with</li>
+                                <li>Arrange a field trip to a local dental clinic if possible</li>
+                                <li>Have dental floss available for hands-on practice</li>
+                                <li>Use videos showing proper brushing and flossing techniques</li>
+                                <li>Create a checklist for daily tooth brushing habits</li>
+                                <li>Allow time for practice singing with instruments</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>🏃 Lesson 6: Exercise and Physical Activity</h3>
+
+                        <div class="content-text">
+                            <p><strong>What is exercise?</strong> Exercise is physical activity that makes your body move and work. It includes sports, dancing, running, walking, or any activity that gets your heart beating faster.</p>
+
+                            <p><strong>Why is exercise important?</strong> Regular exercise:</p>
+                            <ul style="margin-left: 40px;">
+                                <li>Keeps your heart and lungs strong</li>
+                                <li>Makes your muscles stronger</li>
+                                <li>Helps you grow properly</li>
+                                <li>Improves your mood and confidence</li>
+                                <li>Helps you sleep better</li>
+                                <li>Reduces stress and worry</li>
+                                <li>Prevents some diseases</li>
+                            </ul>
+
+                            <p><strong>What are the short-term effects of exercise?</strong> When you exercise, you immediately notice:</p>
+                            <ul style="margin-left: 40px;">
+                                <li>Your heart beating faster</li>
+                                <li>Faster breathing</li>
+                                <li>Sweating</li>
+                                <li>Feeling warm</li>
+                                <li>Muscles feeling tired</li>
+                            </ul>
+
+                            <p><strong>How much exercise do we need?</strong> Children your age need at least 60 minutes of physical activity every day. This can include playing, sports, dancing, or any movement that makes you active.</p>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Activity 13: Exercise and Body Changes</h4>
+                            <p><strong>What to do:</strong></p>
+                            <ol style="margin-left: 20px;">
+                                <li>Before starting: Feel your pulse (count heartbeats for 15 seconds and multiply by 4). Record this number.</li>
+                                <li>Exercise 1: Run on the spot for 30 seconds</li>
+                                <li>Exercise 2: Do 10 bending and toe-touching movements</li>
+                                <li>Exercise 3: Stretch arms above head and touch toes 10 times</li>
+                                <li>After exercise: Feel your pulse again. Notice the difference!</li>
+                                <li>Record observations: breathing rate, sweating, tiredness, temperature</li>
+                            </ol>
+                            <p><strong>Discussion:</strong> Talk about how the body responds to exercise. Why do you think these things happen?</p>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Activity 14: Advantages and Disadvantages of Exercise</h4>
+                            <p><strong>Task:</strong> Look at magazine clippings, newspaper articles, or photos of athletes and people exercising.</p>
+                            <p><strong>Create a table with two columns:</strong></p>
+                            <table>
+                                <tr>
+                                    <th>Advantages of Exercise</th>
+                                    <th>Disadvantages (if done wrong)</th>
+                                </tr>
+                                <tr>
+                                    <td>Makes you stronger</td>
+                                    <td>Can cause injury if not done properly</td>
+                                </tr>
+                                <tr>
+                                    <td>Helps you grow</td>
+                                    <td>Can be tiring</td>
+                                </tr>
+                                <tr>
+                                    <td>Improves mood</td>
+                                    <td></td>
+                                </tr>
+                            </table>
+                            <p><strong>Task:</strong> Complete the table with more examples from your research.</p>
+                        </div>
+
+                        <div class="teacher-notes">
+                            <h4>Teacher Notes</h4>
+                            <ul>
+                                <li>Conduct exercise activities in a safe, open space</li>
+                                <li>Have students measure their pulse before and after activity</li>
+                                <li>Allow students to rest between activities</li>
+                                <li>Consider outdoor activities and fresh air when possible</li>
+                                <li>Discuss proper warm-up and cool-down exercises</li>
+                                <li>Provide opportunities for different types of physical activity</li>
+                                <li>Encourage all students, regardless of fitness level</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>🙏 Lesson 7: Religious Perspectives on Body Care</h3>
+
+                        <div class="content-text">
+                            <p><strong>Do religions teach about taking care of our bodies?</strong> Yes! Many religions around the world have teachings about keeping our bodies healthy and clean. Different religious groups may have special practices or dietary rules that help them care for their bodies.</p>
+
+                            <p><strong>Why would religions care about body health?</strong> Most religions teach that the body is special and should be treated with respect and care.</p>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Activity 15: Research Religious Sayings About Body Care</h4>
+                            <p><strong>Task:</strong> In small groups, research sayings from different religions about keeping the body healthy. Examples might include:</p>
+                            <ul style="margin-left: 20px;">
+                                <li>Christian teachings about health and the body</li>
+                                <li>Jewish dietary laws (Kashrut) that promote health</li>
+                                <li>Islamic teachings about cleanliness</li>
+                                <li>Hindu practices about health</li>
+                            </ul>
+                            <p><strong>What to do:</strong></p>
+                            <ol style="margin-left: 20px;">
+                                <li>Find 2-3 religious sayings about body care</li>
+                                <li>Create decorated stickers for each saying</li>
+                                <li>Label the source (which religion it's from)</li>
+                                <li>Display on personal items or in the classroom</li>
+                            </ol>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Activity 16: Compose Songs/Poems About Religious Sayings</h4>
+                            <p><strong>Task:</strong> Choose a religious saying about body care and create a short song or poem about it.</p>
+                            <p><strong>Requirements:</strong></p>
+                            <ul style="margin-left: 20px;">
+                                <li>The message of the saying should be clear</li>
+                                <li>Use appropriate rhythm and rhyming (if it's a poem)</li>
+                                <li>Practice long and short sounds when singing</li>
+                                <li>Perform for the class</li>
+                            </ul>
+                        </div>
+
+                        <div class="teacher-notes">
+                            <h4>Teacher Notes</h4>
+                            <ul>
+                                <li>Be sensitive to the religious backgrounds of your students</li>
+                                <li>Provide resources about different religions in your school library</li>
+                                <li>Invite religious leaders or community members to share teachings</li>
+                                <li>Focus on similarities rather than differences between religions</li>
+                                <li>Help students understand how different cultures practice body care</li>
+                                <li>Create a respectful, inclusive classroom environment</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>🎲 Lesson 8: Create a Board Game About Body Care</h3>
+
+                        <div class="activity-box">
+                            <h4>Activity 17: Design a "Caring for My Body" Board Game</h4>
+                            <p><strong>Task:</strong> Individually or in groups, design a board game based on behaviors that show caring for the body. You could use a "snakes and ladders" format:</p>
+                            <ul style="margin-left: 20px;">
+                                <li><strong>Forward moves:</strong> Positive actions (eating healthy, exercising, brushing teeth)</li>
+                                <li><strong>Backward moves:</strong> Negative actions (eating junk food, not sleeping, skipping hygiene)</li>
+                            </ul>
+                            <p><strong>What to include:</strong></p>
+                            <ol style="margin-left: 20px;">
+                                <li>A game board with squares or spaces</li>
+                                <li>Clear rules for playing</li>
+                                <li>A set of game cards with "caring" scenarios</li>
+                                <li>Different consequences for positive and negative behaviors</li>
+                                <li>A way to keep score or track progress</li>
+                            </ol>
+                            <p><strong>Steps to create:</strong></p>
+                            <ol style="margin-left: 20px;">
+                                <li>Sketch your board game design</li>
+                                <li>Decide on materials (paper, cardboard, markers)</li>
+                                <li>Write game rules clearly</li>
+                                <li>Create game cards with scenarios</li>
+                                <li>Play-test with a group to see if it works</li>
+                                <li>Make improvements based on feedback</li>
+                            </ol>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Activity 18: Create "Caring for My Body" Cards</h4>
+                            <p><strong>Task:</strong> Create a set of cards showing healthy and unhealthy behaviors.</p>
+                            <p><strong>Each card should have:</strong></p>
+                            <ul style="margin-left: 20px;">
+                                <li>A picture or drawing</li>
+                                <li>A description of the behavior</li>
+                                <li>Whether it's healthy (green) or unhealthy (red)</li>
+                                <li>An explanation of why</li>
+                            </ul>
+                            <p><strong>Example cards:</strong></p>
+                            <ul style="margin-left: 20px;">
+                                <li>Eating vegetables - HEALTHY</li>
+                                <li>Skipping breakfast - UNHEALTHY</li>
+                                <li>Playing sports - HEALTHY</li>
+                                <li>Staying up too late - UNHEALTHY</li>
+                            </ul>
+                        </div>
+
+                        <div class="assessment-box">
+                            <h4>Assessment 5: Body Care Games and Projects</h4>
+                            <div class="checklist">
+                                <input type="checkbox"> Board game accurately portrays healthy and unhealthy behaviors
+                            </div>
+                            <div class="checklist">
+                                <input type="checkbox"> Rules are clear and the game is playable
+                            </div>
+                            <div class="checklist">
+                                <input type="checkbox"> Cards are well-designed and informative
+                            </div>
+                            <div class="checklist">
+                                <input type="checkbox"> The project shows creativity and effort
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="learning-outcomes">
+                        <h4>Learning Outcomes for Focus Question 2</h4>
+                        <p>By the end of this unit, students will be able to:</p>
+                        <ul>
+                            <li>✓ Recognize habits that have healthy and unhealthy effects</li>
+                            <li>✓ Appreciate how and why we need to care for different parts of our bodies</li>
+                            <li>✓ Recognize the effects of exercise on the body</li>
+                            <li>✓ Identify long and short sounds in songs and use their voices effectively</li>
+                            <li>✓ Use long and short sounds to create movement patterns</li>
+                            <li>✓ Combine graphics and texts to enhance design</li>
+                            <li>✓ State advantages and disadvantages of exercising</li>
+                            <li>✓ Create jingles and songs about body care</li>
+                            <li>✓ Make decorated stickers of religious sayings</li>
+                            <li>✓ Design and play a board game about healthy behaviors</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FOCUS QUESTION 3 -->
+            <div id="focus-q3" class="tab-content">
+                <button class="print-btn" onclick="window.print()">🖨️ Print This Section</button>
+
+                <div class="section">
+                    <h2 class="section-title">Focus Question 3: How does food help to make my body healthy?</h2>
+
+                    <div class="learning-objectives">
+                        <h4>Learning Objectives</h4>
+                        <ul>
+                            <li>Identify foods according to their groups and nutrients</li>
+                            <li>Explain ways in which foods help to keep us healthy</li>
+                            <li>Identify problems resulting from not eating a balanced diet</li>
+                            <li>Identify key ways food keeps our bodies healthy</li>
+                            <li>Identify habits that have healthy and unhealthy effects</li>
+                            <li>Use adjectives correctly in writing about food</li>
+                            <li>Measure food quantities accurately</li>
+                            <li>Understand different cultural and religious dietary practices</li>
+                            <li>Conduct surveys and create graphs about nutrition</li>
+                        </ul>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>🍎 Lesson 9: The Five Food Groups</h3>
+
+                        <div class="content-text">
+                            <p><strong>What are food groups?</strong> Food groups are categories of foods that have similar nutrients. There are five main food groups, and eating from all of them helps keep your body healthy and strong.</p>
+
+                            <p><strong>Why do we need all five food groups?</strong> Different foods provide different nutrients that your body needs. By eating from all five groups, you make sure your body gets everything it needs to grow, have energy, and fight off germs.</p>
+                        </div>
+
+                        <h4>The Five Food Groups</h4>
+
+                        <table>
+                            <tr>
+                                <th>Food Group</th>
+                                <th>Examples</th>
+                                <th>Nutrients Provided</th>
+                                <th>What It Does</th>
+                            </tr>
+                            <tr>
+                                <td><strong>Staples</strong><br>(Carbohydrates)</td>
+                                <td>
+                                    Rice, bread, potatoes, pasta, cornmeal, yams, plantains, crackers
+                                </td>
+                                <td>
+                                    Carbohydrates, fiber, B vitamins
+                                </td>
+                                <td>
+                                    Gives you energy for playing and learning (ENERGY - "Go" foods)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Legumes</strong><br>(Proteins)</td>
+                                <td>
+                                    Beans, peas, peanuts, chickpeas, lentils, tofu
+                                </td>
+                                <td>
+                                    Protein, fiber, iron, B vitamins
+                                </td>
+                                <td>
+                                    Builds and maintains muscles and bones (GROWTH - "Grow" foods)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Fruits & Vegetables</strong></td>
+                                <td>
+                                    Oranges, bananas, apples, carrots, lettuce, spinach, tomatoes, broccoli, mangoes, pineapples
+                                </td>
+                                <td>
+                                    Vitamins, minerals, fiber
+                                </td>
+                                <td>
+                                    Keeps body working well and healthy (REGULATION - "Glow" foods)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Animal Protein</strong></td>
+                                <td>
+                                    Chicken, fish, eggs, beef, goat meat, milk, cheese, yogurt
+                                </td>
+                                <td>
+                                    Protein, calcium, iron, B vitamins
+                                </td>
+                                <td>
+                                    Builds body and bones; provides calcium for strong teeth (GROWTH - "Grow" foods)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Fats & Oils</strong></td>
+                                <td>
+                                    Coconut oil, butter, olive oil, nuts, avocado, seeds
+                                </td>
+                                <td>
+                                    Fat-soluble vitamins, essential fatty acids
+                                </td>
+                                <td>
+                                    Helps absorb vitamins and provides energy (small amounts needed)
+                                </td>
+                            </tr>
+                        </table>
+
+                        <div class="key-terms">
+                            <h4>Key Terms to Know:</h4>
+                            <div class="term"><strong>Nutrients:</strong> Substances in food that your body needs to grow and be healthy</div>
+                            <div class="term"><strong>Protein:</strong> A nutrient that builds and repairs muscles and bones</div>
+                            <div class="term"><strong>Carbohydrates:</strong> A nutrient that gives your body energy</div>
+                            <div class="term"><strong>Vitamins:</strong> Nutrients that help your body work properly</div>
+                            <div class="term"><strong>Minerals:</strong> Nutrients like calcium and iron that keep bones and blood healthy</div>
+                            <div class="term"><strong>Balanced Diet:</strong> Eating foods from all groups in the right amounts</div>
+                        </div>
+
+                        <div class="content-text">
+                            <p><strong>The "Go," "Grow," "Glow" Rule:</strong></p>
+                            <ul style="margin-left: 40px;">
+                                <li><strong>"Go" Foods (Energy):</strong> Staples like rice, bread, and pasta give you energy to run, play, and think</li>
+                                <li><strong>"Grow" Foods (Building):</strong> Legumes and animal proteins help you grow tall and strong</li>
+                                <li><strong>"Glow" Foods (Health):</strong> Fruits and vegetables keep your body working well and your skin, hair, and eyes healthy</li>
+                            </ul>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Activity 19: Classify Foods into Food Groups</h4>
+                            <p><strong>What you need:</strong> Pictures of different foods or actual food items, paper, glue</p>
+                            <p><strong>Task:</strong></p>
+                            <ol style="margin-left: 20px;">
+                                <li>Look at pictures of different foods</li>
+                                <li>Classify each food into one of the five groups</li>
+                                <li>Create a table showing your classification</li>
+                                <li>For each food, write a sentence about how it helps your body</li>
+                                <li>Create a colorful collage showing all five food groups</li>
+                            </ol>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Activity 20: Create a Food Groups Song</h4>
+                            <p><strong>Task:</strong> Using a tune you know (like "Happy Birthday" or "Twinkle, Twinkle, Little Star"), create a song about the five food groups.</p>
+                            <p><strong>Your song should include:</strong></p>
+                            <ul style="margin-left: 20px;">
+                                <li>The names of the five food groups</li>
+                                <li>Examples of foods from each group</li>
+                                <li>What nutrients they provide</li>
+                                <li>Why they're important</li>
+                            </ul>
+                            <p><strong>Performance:</strong> Sing your song to the class with proper rhythm and technique.</p>
+                        </div>
+
+                        <div class="teacher-notes">
+                            <h4>Teacher Notes</h4>
+                            <ul>
+                                <li>Provide real food pictures or bring in actual foods for a sensory experience</li>
+                                <li>Discuss food availability in your local area</li>
+                                <li>Consider cultural foods specific to Jamaica and the Caribbean</li>
+                                <li>Have students identify their favorite foods and classify them</li>
+                                <li>Provide poster-making materials for colorful displays</li>
+                                <li>Allow time for students to practice songs with correct singing techniques</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>⚖️ Lesson 10: What is a Balanced Diet?</h3>
+
+                        <div class="content-text">
+                            <p><strong>What is a balanced diet?</strong> A balanced diet means eating the right amounts of food from each food group every day. It's like having the right mix of ingredients in a recipe—too much of one thing and not enough of another doesn't work as well.</p>
+
+                            <p><strong>How do I create a balanced plate?</strong> A good way to think about a balanced diet is to imagine dividing your plate into sections:</p>
+                            <ul style="margin-left: 40px;">
+                                <li>1/4 of your plate: Staples (rice, bread, pasta)</li>
+                                <li>1/4 of your plate: Protein (legumes or animal protein)</li>
+                                <li>1/2 of your plate: Fruits and vegetables</li>
+                                <li>Small amounts: Fats and oils for cooking</li>
+                                <li>Drink water or milk</li>
+                            </ul>
+                        </div>
+
+                        <h4>Why is a Balanced Diet Important?</h4>
+
+                        <div style="background: #f0f0f0; padding: 20px; margin: 20px 0; border-radius: 5px;">
+                            <p><strong>A balanced diet helps you:</strong></p>
+                            <ul style="margin-left: 20px;">
+                                <li>✓ Grow to your full height and weight</li>
+                                <li>✓ Have energy for school, play, and activities</li>
+                                <li>✓ Build strong bones and muscles</li>
+                                <li>✓ Have healthy skin, hair, and teeth</li>
+                                <li>✓ Fight off sickness and germs</li>
+                                <li>✓ Think better in school</li>
+                                <li>✓ Feel happy and healthy</li>
+                            </ul>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Activity 21: Draw a Balanced Plate</h4>
+                            <p><strong>Task:</strong> Draw a large circle (representing a plate) and divide it into four sections:</p>
+                            <ol style="margin-left: 20px;">
+                                <li>Draw pictures of foods in each section based on the balanced diet proportions</li>
+                                <li>Label each section with the food group</li>
+                                <li>Use colors to make it attractive</li>
+                                <li>Write one sentence for each section explaining why that food is important</li>
+                            </ol>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Activity 22: Plan a Balanced Meal</h4>
+                            <p><strong>Task:</strong> In groups, plan a meal that includes:</p>
+                            <ul style="margin-left: 20px;">
+                                <li>One staple (rice, bread, etc.)</li>
+                                <li>One protein (beans or meat)</li>
+                                <li>Two vegetables or fruits</li>
+                                <li>A drink</li>
+                            </ul>
+                            <p><strong>Create:</strong> A menu card showing your balanced meal with drawings of each food.</p>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Activity 23: Calculate Meal Costs</h4>
+                            <p><strong>Task:</strong> Choose a meal you planned and estimate the cost of ingredients:</p>
+                            <ol style="margin-left: 20px;">
+                                <li>List all ingredients needed</li>
+                                <li>Estimate the cost of each item</li>
+                                <li>Calculate the total cost</li>
+                                <li>Discuss whether this meal is affordable for most families</li>
+                            </ol>
+                        </div>
+
+                        <div class="teacher-notes">
+                            <h4>Teacher Notes</h4>
+                            <ul>
+                                <li>Use large paper plates for the plate-drawing activity</li>
+                                <li>Provide colored markers, paints, or collage materials</li>
+                                <li>Discuss local food prices and availability</li>
+                                <li>Help students calculate costs accurately using basic math</li>
+                                <li>Display completed balanced plates in the classroom</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>🚫 Lesson 11: Problems from Unhealthy Eating</h3>
+
+                        <div class="content-text">
+                            <p><strong>What happens when we don't eat a balanced diet?</strong> When people don't eat the right foods in the right amounts, their bodies can develop health problems. Two common problems are malnutrition and obesity.</p>
+
+                            <p><strong>What is malnutrition?</strong> Malnutrition happens when a person doesn't get enough of the nutrients their body needs. This can be because:</p>
+                            <ul style="margin-left: 40px;">
+                                <li>They don't eat enough food</li>
+                                <li>They eat foods that lack important nutrients</li>
+                                <li>Their body can't absorb nutrients properly</li>
+                            </ul>
+
+                            <p><strong>What are signs of malnutrition?</strong> People who are malnourished may:</p>
+                            <ul style="margin-left: 40px;">
+                                <li>Look very thin or have a swollen belly</li>
+                                <li>Have weak muscles and bones</li>
+                                <li>Have skin that looks different (pale or dull)</li>
+                                <li>Have hair that looks thin or discolored</li>
+                                <li>Get sick often</li>
+                                <li>Have trouble learning in school</li>
+                            </ul>
+
+                            <p><strong>What is obesity?</strong> Obesity happens when a person eats too much, especially too many unhealthy foods high in sugar and fat. This can lead to:</p>
+                            <ul style="margin-left: 40px;">
+                                <li>Being overweight</li>
+                                <li>Heart problems</li>
+                                <li>Diabetes (a disease affecting blood sugar)</li>
+                                <li>Difficulty moving and exercising</li>
+                            </ul>
+
+                            <p><strong>What is rickets?</strong> Rickets is a disease that develops when a child doesn't get enough calcium and vitamin D. It causes:</p>
+                            <ul style="margin-left: 40px;">
+                                <li>Weak bones that can bend or break easily</li>
+                                <li>Delayed growth</li>
+                                <li>Bowed legs</li>
+                                <li>Swollen joints</li>
+                            </ul>
+
+                            <p><strong>How can we prevent these problems?</strong> The answer is simple: eat a balanced diet with foods from all five groups!</p>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Activity 24: Examine Pictures of Nutrition Problems</h4>
+                            <p><strong>What you need:</strong> Pictures or videos of malnourished children/adults</p>
+                            <p><strong>Task:</strong></p>
+                            <ol style="margin-left: 20px;">
+                                <li>Observe the pictures carefully</li>
+                                <li>Make observations about:
+                                    <ul style="margin-left: 20px;">
+                                        <li>Shape and size of body parts</li>
+                                        <li>Condition and color of skin</li>
+                                        <li>Appearance of hair</li>
+                                        <li>Overall health appearance</li>
+                                    </ul>
+                                </li>
+                                <li>Discuss effects of lack of food vs. too much food</li>
+                                <li>Write a descriptive paragraph about what you observe</li>
+                            </ol>
+                            <p><strong>Important note:</strong> Treat this activity with sensitivity. Focus on understanding the importance of good nutrition, not on making judgments about people.</p>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Activity 25: Create an Awareness Poster</h4>
+                            <p><strong>Task:</strong> Create a poster that encourages healthy eating and discourages junk food.</p>
+                            <p><strong>Your poster should include:</strong></p>
+                            <ul style="margin-left: 20px;">
+                                <li>A catchy title or slogan</li>
+                                <li>Pictures of healthy foods</li>
+                                <li>Information about what makes food healthy</li>
+                                <li>Colorful, attractive design</li>
+                                <li>Simple, clear messages</li>
+                            </ul>
+                            <p><strong>Option:</strong> Create your poster using digital tools like presentation software.</p>
+                        </div>
+
+                        <div class="teacher-notes">
+                            <h4>Teacher Notes</h4>
+                            <ul>
+                                <li>Be sensitive when discussing malnutrition—it affects real people, including possibly students' families</li>
+                                <li>Use age-appropriate images and videos</li>
+                                <li>Focus on solutions and prevention rather than blame</li>
+                                <li>Discuss food insecurity in your local area respectfully</li>
+                                <li>Provide poster paper and art materials</li>
+                                <li>Display finished posters around the school to promote healthy eating</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>🛒 Lesson 12: Food at the Market</h3>
+
+                        <div class="content-text">
+                            <p><strong>What can we learn at the market?</strong> Markets are great places to explore different foods and learn about nutrition, measurements, and budgeting!</p>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Activity 26: Plan a Market Field Trip</h4>
+                            <p><strong>Before the trip:</strong></p>
+                            <ol style="margin-left: 20px;">
+                                <li>Create a list of foods to look for from each food group</li>
+                                <li>List different units of measure (pounds, kilograms, bundles, etc.)</li>
+                                <li>Plan which foods to purchase</li>
+                            </ol>
+                            <p><strong>At the market:</strong></p>
+                            <ol style="margin-left: 20px;">
+                                <li>Observe different foods available</li>
+                                <li>Note the units used for measuring (lbs, kg, bunches, etc.)</li>
+                                <li>Identify which foods are fresh, dried, canned, or frozen</li>
+                                <li>Observe food color and texture</li>
+                                <li>Purchase selected items</li>
+                                <li>Take photos or videos with a digital device</li>
+                            </ol>
+                            <p><strong>After the trip:</strong></p>
+                            <ol style="margin-left: 20px;">
+                                <li>Compile photos and observations</li>
+                                <li>Create a digital or paper display</li>
+                                <li>Share findings with the class</li>
+                            </ol>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Activity 27: Learn About Units of Measure</h4>
+                            <p><strong>Task:</strong> At the market, identify different units of measure for various foods:</p>
+                            <table>
+                                <tr>
+                                    <th>Food</th>
+                                    <th>Units of Measure</th>
+                                    <th>Examples</th>
+                                </tr>
+                                <tr>
+                                    <td>Rice</td>
+                                    <td>Pounds (lbs), Kilograms (kg)</td>
+                                    <td>2 lbs, 1 kg</td>
+                                </tr>
+                                <tr>
+                                    <td>Vegetables</td>
+                                    <td>Pounds, pieces, bunches</td>
+                                    <td>3 carrots, 1 bunch spinach</td>
+                                </tr>
+                                <tr>
+                                    <td>Milk</td>
+                                    <td>Liters (L), Gallons</td>
+                                    <td>1 L, 1 gallon</td>
+                                </tr>
+                                <tr>
+                                    <td>Eggs</td>
+                                    <td>Dozens, pieces</td>
+                                    <td>1 dozen, 6 eggs</td>
+                                </tr>
+                            </table>
+                            <p><strong>Your task:</strong> Record the units used for at least 10 different foods at the market.</p>
+                        </div>
+
+                        <div class="teacher-notes">
+                            <h4>Teacher Notes</h4>
+                            <ul>
+                                <li>Coordinate with school administration for field trip approval</li>
+                                <li>Choose a nearby market that is accessible and safe</li>
+                                <li>Prepare students with a pre-trip checklist</li>
+                                <li>Arrange transportation and supervision</li>
+                                <li>Take cameras or phones for photo documentation</li>
+                                <li>Plan purchases in advance for budget control</li>
+                                <li>Use the field trip experience for follow-up math and science lessons</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>👨‍🍳 Lesson 13: Food Preparation</h3>
+
+                        <div class="content-text">
+                            <p><strong>Why is food preparation important?</strong> How we prepare food can affect its nutrition and safety. Learning to prepare food properly helps us stay healthy.</p>
+
+                            <p><strong>What are food safety practices?</strong> When preparing food, we must:</p>
+                            <ul style="margin-left: 40px;">
+                                <li>Wash our hands with soap and water before starting</li>
+                                <li>Keep our work area clean</li>
+                                <li>Use clean utensils and cutting boards</li>
+                                <li>Wash fruits and vegetables before use</li>
+                                <li>Avoid touching ready-to-eat foods with bare hands</li>
+                                <li>Cook meat thoroughly</li>
+                            </ul>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Activity 28: Prepare a Simple Healthy Dish</h4>
+                            <p><strong>What you'll make:</strong> Fruit salad or a simple cheese sandwich</p>
+                            <p><strong>Before you start:</strong></p>
+                            <ol style="margin-left: 20px;">
+                                <li>Wash your hands thoroughly with soap and water</li>
+                                <li>Gather all ingredients and utensils</li>
+                                <li>Clean your work area</li>
+                            </ol>
+                            <p><strong>For Fruit Salad:</strong></p>
+                            <ol style="margin-left: 20px;">
+                                <li>Wash each fruit under running water</li>
+                                <li>Peel fruits as needed (teacher assistance if required)</li>
+                                <li>Cut fruit into bite-sized pieces</li>
+                                <li>Combine in a clean bowl</li>
+                                <li>Optional: Add a little honey or lime juice</li>
+                                <li>Mix gently</li>
+                                <li>Serve in clean bowls</li>
+                            </ol>
+                            <p><strong>For Cheese Sandwich:</strong></p>
+                            <ol style="margin-left: 20px;">
+                                <li>Wash your hands again</li>
+                                <li>Gather bread, cheese, lettuce, tomato</li>
+                                <li>Wash vegetables</li>
+                                <li>Slice vegetables if needed (teacher assistance)</li>
+                                <li>Layer bread, cheese, and vegetables</li>
+                                <li>Cut diagonally if desired</li>
+                                <li>Serve on clean plate</li>
+                            </ol>
+                            <p><strong>Writing Activity:</strong> Write a paragraph describing your preparation process, emphasizing hygiene practices.</p>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Activity 29: Demonstrate Hand Washing</h4>
+                            <p><strong>Task:</strong> Show the proper way to wash hands for food preparation:</p>
+                            <ol style="margin-left: 20px;">
+                                <li>Use warm water</li>
+                                <li>Apply soap</li>
+                                <li>Scrub palms and backs of hands</li>
+                                <li>Clean between fingers</li>
+                                <li>Clean under nails</li>
+                                <li>Wash wrists</li>
+                                <li>Rinse thoroughly</li>
+                                <li>Dry with clean towel</li>
+                            </ol>
+                            <p><strong>Time it right:</strong> The whole process should take about 20 seconds (the time it takes to sing "Happy Birthday" twice!).</p>
+                        </div>
+
+                        <div class="teacher-notes">
+                            <h4>Teacher Notes</h4>
+                            <ul>
+                                <li>Have hand-washing supplies available in the classroom</li>
+                                <li>Conduct all food preparation in a clean, safe area</li>
+                                <li>Supervise students carefully with any cutting activities</li>
+                                <li>Consider students with food allergies</li>
+                                <li>Use this activity to teach both nutrition and safety</li>
+                                <li>Allow students to taste the food they prepared (if safe and all agree)</li>
+                                <li>Discuss cultural variations in food preparation</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>🌍 Lesson 14: Food and Religion</h3>
+
+                        <div class="content-text">
+                            <p><strong>Do religions have special food rules?</strong> Yes! Many religions around the world have practices related to food. These practices often help followers stay healthy while honoring their beliefs.</p>
+
+                            <p><strong>Why would religions have food rules?</strong> Religious dietary practices often have health benefits along with spiritual meanings. For example, many religions avoid certain meats or encourage eating certain foods.</p>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Activity 30: Research Religious Dietary Practices</h4>
+                            <p><strong>Task:</strong> In small groups, research dietary practices from different religions:</p>
+                            <ul style="margin-left: 20px;">
+                                <li>Christian practices (fasting, dietary guidelines)</li>
+                                <li>Jewish dietary laws (Kashrut)</li>
+                                <li>Islamic dietary practices (Halal)</li>
+                                <li>Hindu practices (vegetarianism, fasting)</li>
+                                <li>Buddhist practices (mindful eating)</li>
+                            </ul>
+                            <p><strong>What to find out:</strong></p>
+                            <ol style="margin-left: 20px;">
+                                <li>What foods are allowed or not allowed?</li>
+                                <li>Why does the religion have these rules?</li>
+                                <li>Are there health benefits to these practices?</li>
+                                <li>When are special foods eaten?</li>
+                            </ol>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Activity 31: Create a Menu for Each Religious Group</h4>
+                            <p><strong>Task:</strong> Using your research, create a sample menu for a day following the dietary rules of a specific religious group.</p>
+                            <p><strong>Your menu should include:</strong></p>
+                            <ul style="margin-left: 20px;">
+                                <li>Breakfast</li>
+                                <li>Lunch</li>
+                                <li>Dinner</li>
+                                <li>Snacks (optional)</li>
+                            </ul>
+                            <p><strong>Include:</strong> Pictures or drawings of the foods and explanations of why they were chosen.</p>
+                        </div>
+
+                        <div class="teacher-notes">
+                            <h4>Teacher Notes</h4>
+                            <ul>
+                                <li>Be respectful of all religious traditions</li>
+                                <li>Provide accurate, unbiased information sources</li>
+                                <li>Consider inviting community members to speak about their dietary practices</li>
+                                <li>Focus on how these practices promote health and balance</li>
+                                <li>Create a classroom environment where all beliefs are respected</li>
+                                <li>Highlight similarities between different religious practices regarding health</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>📊 Lesson 15: Collect and Analyze Food Data</h3>
+
+                        <div class="activity-box">
+                            <h4>Activity 32: Conduct a School Food Survey</h4>
+                            <p><strong>Task:</strong> Survey students about what they eat at school each day.</p>
+                            <p><strong>Steps:</strong></p>
+                            <ol style="margin-left: 20px;">
+                                <li>Create a survey asking: "What food did you eat at school today?"</li>
+                                <li>Record students' responses for 5 days</li>
+                                <li>Categorize each food into a food group</li>
+                                <li>Count how many times each food was eaten</li>
+                                <li>Create a table showing your data</li>
+                                <li>Make a bar graph displaying the findings</li>
+                            </ol>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Activity 33: Analyze Food Data</h4>
+                            <p><strong>Task:</strong> Look at your survey results and answer these questions:</p>
+                            <ol style="margin-left: 20px;">
+                                <li>Which food group is eaten most often?</li>
+                                <li>Which food group is eaten least often?</li>
+                                <li>Are the foods eaten representing a balanced diet?</li>
+                                <li>What foods should students eat more of?</li>
+                                <li>What foods should students eat less of?</li>
+                            </ol>
+                            <p><strong>Create a jingle:</strong> Write and perform a jingle encouraging students to eat healthy foods based on your findings.</p>
+                        </div>
+
+                        <div class="teacher-notes">
+                            <h4>Teacher Notes</h4>
+                            <ul>
+                                <li>Help students create accurate survey tools</li>
+                                <li>Teach basic data collection techniques</li>
+                                <li>Support students in creating graphs (use graph paper or digital tools)</li>
+                                <li>Discuss findings as a class</li>
+                                <li>Use this activity for math and science integration</li>
+                                <li>Consider sharing findings with school cafeteria staff</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="learning-outcomes">
+                        <h4>Learning Outcomes for Focus Question 3</h4>
+                        <p>By the end of this unit, students will be able to:</p>
+                        <ul>
+                            <li>✓ Name the food groups and state how food keeps bodies healthy</li>
+                            <li>✓ Identify religious dietary laws that guide healthy eating</li>
+                            <li>✓ Appreciate how food choices impact health and growth</li>
+                            <li>✓ Conduct surveys and record information accurately</li>
+                            <li>✓ Construct bar graphs to present nutrition information</li>
+                            <li>✓ Effectively communicate research findings in oral presentations</li>
+                            <li>✓ Demonstrate understanding that foods contain nutrients needed for health</li>
+                            <li>✓ Calculate the cost of menu items</li>
+                            <li>✓ Adhere to proper hygiene when preparing food</li>
+                            <li>✓ Create jingles promoting healthy eating</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GLOSSARY -->
+            <div id="glossary" class="tab-content">
+                <div class="section">
+                    <h2 class="section-title">📖 Glossary of Key Terms</h2>
+
+                    <div class="subsection">
+                        <h3>Body Parts and Functions</h3>
+                        <div class="term"><strong>Teeth:</strong> Hard structures in the mouth used for biting, tearing, and crushing food</div>
+                        <div class="term"><strong>Incisors:</strong> Front teeth with flat edges used for cutting food (also called front teeth)</div>
+                        <div class="term"><strong>Canines:</strong> Pointed teeth used for tearing and gripping food (also called eye teeth)</div>
+                        <div class="term"><strong>Molars:</strong> Large flat teeth at the back used for crushing and grinding food (also called jaw teeth)</div>
+                        <div class="term"><strong>Temporary Teeth:</strong> Baby teeth that fall out and are replaced by adult teeth (also called milk teeth or primary teeth)</div>
+                        <div class="term"><strong>Permanent Teeth:</strong> Adult teeth that last a lifetime</div>
+                        <div class="term"><strong>Crown:</strong> The visible white part of a tooth above the gumline</div>
+                        <div class="term"><strong>Root:</strong> The part of a tooth below the gumline that anchors it in place</div>
+                        <div class="term"><strong>Enamel:</strong> The hard, shiny protective coating on the surface of teeth</div>
+                        <div class="term"><strong>Cavity:</strong> A hole in a tooth caused by decay</div>
+                        <div class="term"><strong>Stomach:</strong> A muscular bag-shaped organ that stores and digests food</div>
+                        <div class="term"><strong>Elastic:</strong> Able to stretch and return to original size without tearing</div>
+                        <div class="term"><strong>Lungs:</strong> Organs in the chest that take in oxygen and release carbon dioxide</div>
+                        <div class="term"><strong>Breathing:</strong> The process of taking in air (inhaling) and releasing air (exhaling)</div>
+                        <div class="term"><strong>Oxygen:</strong> A gas in air that the body needs to survive</div>
+                        <div class="term"><strong>Carbon Dioxide:</strong> A waste gas produced by the body and released through breathing</div>
+                        <div class="term"><strong>Diaphragm:</strong> The large muscle below the lungs that controls breathing</div>
+                        <div class="term"><strong>Ribcage:</strong> The bones in the chest that protect the lungs and heart</div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Health and Care</h3>
+                        <div class="term"><strong>Hygiene:</strong> Keeping yourself and your surroundings clean to stay healthy</div>
+                        <div class="term"><strong>Healthy Habit:</strong> A regular practice that keeps you healthy and strong</div>
+                        <div class="term"><strong>Unhealthy Habit:</strong> A regular practice that can harm your health</div>
+                        <div class="term"><strong>Exercise:</strong> Physical activity that makes your body stronger and healthier</div>
+                        <div class="term"><strong>Diet:</strong> The foods and drinks a person normally consumes</div>
+                        <div class="term"><strong>Nutrition:</strong> The process of getting the nutrients your body needs from food</div>
+                        <div class="term"><strong>Nutrient:</strong> A substance in food that your body needs to grow and function</div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Food and Nutrition</h3>
+                        <div class="term"><strong>Food Group:</strong> A category of foods that have similar nutrients</div>
+                        <div class="term"><strong>Staples:</strong> Foods rich in carbohydrates like rice, bread, and pasta (energy foods)</div>
+                        <div class="term"><strong>Legumes:</strong> Plants that produce protein-rich seeds like beans and peas (growth foods)</div>
+                        <div class="term"><strong>Protein:</strong> A nutrient that builds and repairs muscles and bones</div>
+                        <div class="term"><strong>Carbohydrates:</strong> Nutrients that provide energy for the body</div>
+                        <div class="term"><strong>Vitamins:</strong> Nutrients needed in small amounts to keep the body healthy</div>
+                        <div class="term"><strong>Minerals:</strong> Nutrients like calcium and iron needed for body functions</div>
+                        <div class="term"><strong>Balanced Diet:</strong> Eating the right amounts of foods from all food groups</div>
+                        <div class="term"><strong>Junk Food:</strong> Foods high in sugar and fat that aren't nutritious</div>
+                        <div class="term"><strong>Malnutrition:</strong> A condition caused by not getting enough nutrients</div>
+                        <div class="term"><strong>Obesity:</strong> A condition of being significantly overweight</div>
+                        <div class="term"><strong>Rickets:</strong> A disease caused by not getting enough calcium and vitamin D</div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Music and Performance Terms</h3>
+                        <div class="term"><strong>Jingle:</strong> A short, catchy song, often used in advertising</div>
+                        <div class="term"><strong>Rhythm:</strong> The pattern of sounds and silence in music</div>
+                        <div class="term"><strong>Beat:</strong> The regular pulse in music that you can tap or clap to</div>
+                        <div class="term"><strong>Tempo:</strong> How fast or slow music is played</div>
+                        <div class="term"><strong>Staccato:</strong> Short, detached sounds in music</div>
+                        <div class="term"><strong>Legato:</strong> Long, smooth sounds in music</div>
+                        <div class="term"><strong>Ostinato:</strong> A short rhythmic or melodic pattern that repeats throughout a piece</div>
+                        <div class="term"><strong>Body Percussion:</strong> Using your body (clapping, snapping, tapping) to create rhythm</div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>General Learning Terms</h3>
+                        <div class="term"><strong>Observation:</strong> Carefully watching and noticing details</div>
+                        <div class="term"><strong>Investigation:</strong> A scientific experiment to discover something</div>
+                        <div class="term"><strong>Conclusion:</strong> A decision or opinion based on facts and evidence</div>
+                        <div class="term"><strong>Data:</strong> Information collected during a survey or experiment</div>
+                        <div class="term"><strong>Graph:</strong> A visual way to show and compare data</div>
+                        <div class="term"><strong>Tableau:</strong> A frozen scene or picture made with people's bodies</div>
+                        <div class="term"><strong>Multimedia:</strong> Using more than one type of media (text, pictures, video, sound) together</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ANSWER KEY -->
+            <div id="answers" class="tab-content">
+                <div class="section">
+                    <h2 class="section-title">✅ Answer Key and Assessment Guide</h2>
+
+                    <div class="subsection">
+                        <h3>Assessment 1: Teeth Knowledge</h3>
+                        <p><strong>Expected Answers:</strong></p>
+                        <ul style="margin-left: 20px;">
+                            <li><strong>Types of teeth and functions:</strong> Incisors (cut food), Canines (tear food), Molars (grind food)</li>
+                            <li><strong>Parts of a tooth:</strong> Crown (visible part), Root (below gum), Enamel (protective coating)</li>
+                            <li><strong>Difference between temporary and permanent teeth:</strong> Temporary fall out and are replaced; permanent last lifetime</li>
+                            <li><strong>Why different shapes:</strong> Different shapes help perform different functions in eating</li>
+                        </ul>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Assessment 2: Stomach Knowledge</h3>
+                        <p><strong>Expected Answers:</strong></p>
+                        <ul style="margin-left: 20px;">
+                            <li><strong>Location:</strong> Upper belly, just below the ribs</li>
+                            <li><strong>Appearance:</strong> Reddish-brown, spongy, bag-shaped, wrinkled when empty</li>
+                            <li><strong>Functions:</strong> Stores food, mixes food, breaks down food with special juices, pushes food to small intestine</li>
+                            <li><strong>Elastic:</strong> Can stretch to hold more food, like a balloon filling with water</li>
+                        </ul>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Assessment 3: Lungs Knowledge</h3>
+                        <p><strong>Expected Answers:</strong></p>
+                        <ul style="margin-left: 20px;">
+                            <li><strong>Location:</strong> In the chest, protected by ribcage, one on each side of heart</li>
+                            <li><strong>Breathing changes:</strong> Chest expands when breathing in, shrinks when breathing out</li>
+                            <li><strong>Functions:</strong> Take in oxygen, release carbon dioxide, help with speaking and singing</li>
+                            <li><strong>Lung model:</strong> Shows how diaphragm pulls lungs open (like stretching balloon at bottom of bottle) to fill with air</li>
+                        </ul>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Assessment 4: Body Care Knowledge</h3>
+                        <p><strong>Expected Answers:</strong></p>
+                        <ul style="margin-left: 20px;">
+                            <li><strong>Why we care for our bodies:</strong> To keep healthy, prevent disease, have energy, grow properly, feel good</li>
+                            <li><strong>Healthy habits examples:</strong> Brushing teeth, eating fruits, exercising, sleeping 8 hours, washing hands</li>
+                            <li><strong>Unhealthy habits examples:</strong> Eating too much sugar, not sleeping, not exercising, poor hygiene</li>
+                            <li><strong>Tooth care:</strong> Brush twice daily, floss, limit sugar, visit dentist every 6 months</li>
+                            <li><strong>Exercise benefits:</strong> Stronger heart and lungs, stronger muscles, better mood, helps sleep, prevents disease</li>
+                        </ul>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Assessment 5: Body Care Games and Projects</h3>
+                        <p><strong>Rubric for Evaluation:</strong></p>
+                        <table>
+                            <tr>
+                                <th>Criterion</th>
+                                <th>Excellent</th>
+                                <th>Good</th>
+                                <th>Needs Improvement</th>
+                            </tr>
+                            <tr>
+                                <td>Accuracy of Health/Unhealthy Behaviors</td>
+                                <td>All behaviors correctly identified and explained</td>
+                                <td>Most behaviors correctly identified</td>
+                                <td>Some behaviors incorrectly categorized</td>
+                            </tr>
+                            <tr>
+                                <td>Clarity of Rules/Instructions</td>
+                                <td>Rules are clear and easy to follow</td>
+                                <td>Rules are mostly clear</td>
+                                <td>Rules are confusing or incomplete</td>
+                            </tr>
+                            <tr>
+                                <td>Design and Creativity</td>
+                                <td>Very creative, colorful, well-organized</td>
+                                <td>Creative with good organization</td>
+                                <td>Basic design, limited creativity</td>
+                            </tr>
+                            <tr>
+                                <td>Playability</td>
+                                <td>Game is fun and engaging to play</td>
+                                <td>Game can be played with minor issues</td>
+                                <td>Game is difficult to play</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Food Groups Quiz - Sample Answers</h3>
+                        <p><strong>Question: Name the five food groups and give two examples of each.</strong></p>
+                        <p><strong>Expected Answer:</strong></p>
+                        <ol style="margin-left: 20px;">
+                            <li><strong>Staples:</strong> Rice, bread</li>
+                            <li><strong>Legumes:</strong> Beans, peas</li>
+                            <li><strong>Fruits & Vegetables:</strong> Carrots, oranges</li>
+                            <li><strong>Animal Protein:</strong> Chicken, eggs</li>
+                            <li><strong>Fats & Oils:</strong> Coconut oil, butter</li>
+                        </ol>
+
+                        <p><strong>Question: What does a balanced diet mean?</strong></p>
+                        <p><strong>Expected Answer:</strong> Eating the right amounts of food from each group every day to give your body all the nutrients it needs.</p>
+
+                        <p><strong>Question: Why should we limit junk food?</strong></p>
+                        <p><strong>Expected Answer:</strong> Junk foods are high in sugar and fat, don't have healthy nutrients, and can cause obesity, cavities, and other health problems.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Writing Assessment Rubric</h3>
+                        <table>
+                            <tr>
+                                <th>Criterion</th>
+                                <th>Excellent (4)</th>
+                                <th>Good (3)</th>
+                                <th>Fair (2)</th>
+                                <th>Needs Work (1)</th>
+                            </tr>
+                            <tr>
+                                <td>Topic Sentence</td>
+                                <td>Clear, focused topic sentence</td>
+                                <td>Topic sentence present, mostly clear</td>
+                                <td>Topic sentence unclear or vague</td>
+                                <td>No clear topic sentence</td>
+                            </tr>
+                            <tr>
+                                <td>Supporting Details</td>
+                                <td>Multiple relevant, specific details</td>
+                                <td>Several relevant details</td>
+                                <td>Few or vague details</td>
+                                <td>No supporting details</td>
+                            </tr>
+                            <tr>
+                                <td>Sentence Structure</td>
+                                <td>Varied, well-constructed sentences</td>
+                                <td>Most sentences well-constructed</td>
+                                <td>Some grammatical errors</td>
+                                <td>Many grammatical errors</td>
+                            </tr>
+                            <tr>
+                                <td>Punctuation</td>
+                                <td>Correct punctuation throughout</td>
+                                <td>Mostly correct punctuation</td>
+                                <td>Some punctuation errors</td>
+                                <td>Many punctuation errors</td>
+                            </tr>
+                            <tr>
+                                <td>Spelling</td>
+                                <td>Correct spelling throughout</td>
+                                <td>Mostly correct spelling</td>
+                                <td>Several spelling errors</td>
+                                <td>Many spelling errors</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Project Assessment Tips</h3>
+                        <p><strong>For Models/Artwork:</strong></p>
+                        <ul style="margin-left: 20px;">
+                            <li>Check for accuracy of body part representation</li>
+                            <li>Look for clear labeling of important parts</li>
+                            <li>Assess creativity in material choice and design</li>
+                            <li>Evaluate neatness and effort</li>
+                        </ul>
+
+                        <p><strong>For Presentations:</strong></p>
+                        <ul style="margin-left: 20px;">
+                            <li>Is information accurate?</li>
+                            <li>Is presentation clear and organized?</li>
+                            <li>Does student speak confidently?</li>
+                            <li>Are visuals helpful and appropriate?</li>
+                        </ul>
+
+                        <p><strong>For Group Work:</strong></p>
+                        <ul style="margin-left: 20px;">
+                            <li>Did all students contribute?</li>
+                            <li>Did group work cooperatively?</li>
+                            <li>Is final product collaborative effort?</li>
+                        </ul>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Points to Remember When Assessing</h3>
+                        <ul style="margin-left: 20px;">
+                            <li>Use multiple assessment methods (observation, written work, projects, participation)</li>
+                            <li>Provide clear criteria beforehand so students know expectations</li>
+                            <li>Give specific, constructive feedback</li>
+                            <li>Celebrate effort and improvement, not just correctness</li>
+                            <li>Allow students opportunities to revise and improve work</li>
+                            <li>Involve students in self-assessment when possible</li>
+                            <li>Keep records of student progress over time</li>
+                            <li>Communicate findings with parents/guardians</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Grade 3 Jamaica Integrated Studies Textbook | Ministry of Education, Youth and Information, Jamaica | 2024</p>
+            <p>This interactive textbook covers all three focus questions and integrated subject areas as per the National Standards Curriculum.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Tab navigation
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const tabName = button.getAttribute('data-tab');
+                
+                // Remove active class from all buttons and contents
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+                
+                // Add active class to clicked button and corresponding content
+                button.classList.add('active');
+                document.getElementById(tabName).classList.add('active');
+                
+                // Scroll to top
+                window.scrollTo(0, 0);
+            });
+        });
+
+        // Collapsible sections
+        const collapsibles = document.querySelectorAll('.collapsible');
+        collapsibles.forEach(button => {
+            button.addEventListener('click', function() {
+                this.classList.toggle('active');
+                const content = this.nextElementSibling;
+                if (content && content.classList.contains('collapsible-content')) {
+                    content.classList.toggle('show');
+                }
+            });
+        });
+
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade 3 Jamaica Mathematics Textbook - Measurement</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .nav-tabs {
+            display: flex;
+            background: #f8f9fa;
+            border-bottom: 2px solid #ddd;
+            overflow-x: auto;
+            flex-wrap: wrap;
+        }
+
+        .nav-tabs button {
+            flex: 1;
+            padding: 15px 20px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 500;
+            color: #666;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+            min-width: 150px;
+        }
+
+        .nav-tabs button:hover {
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        .nav-tabs button.active {
+            color: #2a5298;
+            border-bottom-color: #2a5298;
+            background: white;
+        }
+
+        .content {
+            padding: 30px;
+            min-height: 600px;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 1.8em;
+            color: #1e3c72;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .subsection {
+            background: #f8f9fa;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 4px solid #667eea;
+            border-radius: 5px;
+        }
+
+        .subsection h3 {
+            color: #2a5298;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+
+        .learning-objectives {
+            background: #e3f2fd;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #2196F3;
+        }
+
+        .learning-objectives h4 {
+            color: #1565c0;
+            margin-bottom: 10px;
+        }
+
+        .learning-objectives ul {
+            margin-left: 20px;
+        }
+
+        .learning-objectives li {
+            margin: 8px 0;
+            color: #333;
+        }
+
+        .activity-box {
+            background: #fff3e0;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #ff9800;
+        }
+
+        .activity-box h4 {
+            color: #e65100;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .activity-box h4::before {
+            content: "✏️";
+            font-size: 1.2em;
+        }
+
+        .assessment-box {
+            background: #f3e5f5;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #9c27b0;
+        }
+
+        .assessment-box h4 {
+            color: #6a1b9a;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .assessment-box h4::before {
+            content: "📋";
+            font-size: 1.2em;
+        }
+
+        .extension-box {
+            background: #e8f5e9;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #4caf50;
+        }
+
+        .extension-box h4 {
+            color: #2e7d32;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .extension-box h4::before {
+            content: "⭐";
+            font-size: 1.2em;
+        }
+
+        .teacher-notes {
+            background: #ffe0b2;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #ff6f00;
+        }
+
+        .teacher-notes h4 {
+            color: #bf360c;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .teacher-notes h4::before {
+            content: "👨‍🏫";
+            font-size: 1.2em;
+        }
+
+        .content-text {
+            margin: 15px 0;
+            text-align: justify;
+        }
+
+        .content-text strong {
+            color: #1e3c72;
+        }
+
+        .diagram {
+            background: #f0f0f0;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            text-align: center;
+            border: 2px dashed #ddd;
+        }
+
+        .diagram img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+        }
+
+        table th {
+            background: #2a5298;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+
+        table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        table tr:hover {
+            background: #f5f5f5;
+        }
+
+        .key-terms {
+            background: #f5f5f5;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .key-terms h4 {
+            color: #1e3c72;
+            margin-bottom: 10px;
+        }
+
+        .term {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+
+        .term strong {
+            color: #2a5298;
+        }
+
+        .learning-outcomes {
+            background: #c8e6c9;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .learning-outcomes h4 {
+            color: #1b5e20;
+            margin-bottom: 10px;
+        }
+
+        .learning-outcomes ul {
+            margin-left: 20px;
+        }
+
+        .learning-outcomes li {
+            margin: 8px 0;
+            color: #333;
+        }
+
+        .checklist {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-left: 3px solid #2a5298;
+        }
+
+        .checklist input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        footer {
+            background: #1e3c72;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            .nav-tabs button {
+                min-width: 120px;
+                padding: 12px 15px;
+                font-size: 0.9em;
+            }
+        }
+
+        .collapsible {
+            background: #e3f2fd;
+            cursor: pointer;
+            padding: 15px;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 1em;
+            color: #1565c0;
+            font-weight: bold;
+            border-radius: 5px;
+            margin: 10px 0;
+            width: 100%;
+            transition: 0.3s;
+        }
+
+        .collapsible:hover {
+            background: #bbdefb;
+        }
+
+        .collapsible-content {
+            padding: 0 15px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .collapsible-content.show {
+            max-height: 1000px;
+        }
+
+        .print-btn {
+            background: #2a5298;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            margin: 20px 0;
+            transition: 0.3s;
+        }
+
+        .print-btn:hover {
+            background: #1e3c72;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            .nav-tabs {
+                display: none;
+            }
+            .print-btn {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📚 Grade 3 Mathematics Textbook</h1>
+            <p>Jamaica National Standards Curriculum - Content Strand: Measurement</p>
+            <p style="font-size: 0.9em; margin-top: 10px;">Length | Mass &amp; Capacity | Time &amp; Money | Temperature | Area &amp; Perimeter</p>
+            <p style="margin-top:14px;"><a href="../index.html" style="color:#fff; background:rgba(255,255,255,0.15); padding:6px 14px; border-radius:5px; text-decoration:none; font-size:0.9em;">← Mathematics Home</a></p>
+        </header>
+
+        <div class="nav-tabs">
+            <button class="tab-btn active" data-tab="length">Length</button>
+            <button class="tab-btn" data-tab="mass-capacity">Mass &amp; Capacity</button>
+            <button class="tab-btn" data-tab="time-money">Time &amp; Money</button>
+            <button class="tab-btn" data-tab="area-perimeter">Area &amp; Perimeter</button>
+            <button class="tab-btn" data-tab="glossary">Word Power</button>
+            <button class="tab-btn" data-tab="answers">Answer Key</button>
+        </div>
+
+        <div class="content">
+            <!-- LENGTH -->
+            <div id="length" class="tab-content active">
+                <button class="print-btn" onclick="window.print()">🖨️ Print This Section</button>
+
+                <div class="section">
+                    <h2 class="section-title">Length</h2>
+
+                    <div class="subsection">
+                        <h3>What Is Length?</h3>
+                        <div class="content-text">
+                            <p><strong>Length</strong> tells us how long something is, from one end all the way to the other. The length of your pencil, the length of your classroom, the height of a door, and the distance from your home to school are all lengths. When we measure length, we are answering the question: "How long is it?" or "How far is it?"</p>
+                            <p>To measure length neatly and fairly, everyone must use the same <strong>units</strong>. Long ago, people measured using their feet or their hands, but my foot and your foot are not the same size. So today we use units that are exactly the same for everyone. The two main units you will use this year are the <strong>centimetre</strong> and the <strong>metre</strong>.</p>
+                        </div>
+
+                        <div class="key-terms">
+                            <h4>Word Power</h4>
+                            <div class="term"><strong>Centimetre (cm):</strong> a small unit of length, about as wide as your smallest fingernail. We use it for small things like a leaf or a crayon.</div>
+                            <div class="term"><strong>Metre (m):</strong> a larger unit of length, about the width of a doorway. We use it for big things like the height of a door.</div>
+                            <div class="term"><strong>Kilometre (km):</strong> a very large unit for long distances, like the distance between two towns.</div>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Choosing the Right Unit and Tool</h3>
+                        <div class="content-text">
+                            <p>A good mathematician always picks the unit that fits. You would not measure a tiny leaf in metres, and you would not measure a football field in centimetres. Small things go in centimetres; big things go in metres; very long distances go in kilometres.</p>
+                            <p>To measure length we use tools. A <strong>ruler</strong> (usually 30 cm long) is good for small things. A <strong>metre stick</strong> (exactly 1 m long) is good for the height of a door or a child. A <strong>tape measure</strong> is a long, bendy strip that can measure longer things and bend around corners. When you measure, always line up the start of the object with the <strong>0</strong> mark, not the edge of the ruler, then read the number at the other end.</p>
+                        </div>
+
+                        <div class="learning-objectives">
+                            <h4>Think About It</h4>
+                            <ul>
+                                <li>Which unit fits the length of your pencil — cm or m? (cm)</li>
+                                <li>Which unit fits the height of your teacher? (m)</li>
+                                <li>Which unit fits the length of a small leaf? (cm)</li>
+                                <li>Which unit fits the length of the school hall? (m)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Estimate First, Then Measure</h3>
+                        <div class="content-text">
+                            <p>A clever habit is to <strong>estimate</strong> before you measure. To estimate means to make a careful, sensible guess. After you guess, you measure to see how close you were.</p>
+                            <p><strong>Worked Example:</strong> Tara lays her crayon on a ruler. One end is at the 0 mark, and the other end reaches the 9 mark. The crayon stretches from 0 to 9, so its length is <strong>9 cm</strong>. We write the number first and the unit after.</p>
+                            <p><strong>Comparing lengths:</strong> A green ribbon is 24 cm long and a blue ribbon is 30 cm long. The blue ribbon is longer, because 30 is more than 24. To find how much longer, we subtract: 30 cm − 24 cm = <strong>6 cm</strong>. So the blue ribbon is 6 cm longer.</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>How Centimetres and Metres Are Linked</h3>
+                        <div class="content-text">
+                            <p>Here is one of the most important facts in the chapter: <strong>100 cm = 1 m</strong>. One metre is the same length as one hundred centimetres. This lets us change metres into centimetres, because each metre is worth 100 cm.</p>
+                            <p><strong>Worked Example:</strong> How many centimetres are the same as 5 metres? Each metre is 100 cm, so we count in hundreds: 100, 200, 300, 400, 500. So 5 m = 5 × 100 cm = <strong>500 cm</strong>.</p>
+                        </div>
+
+                        <table>
+                            <tr><th>Metres</th><th>Centimetres</th></tr>
+                            <tr><td>1 m</td><td>100 cm</td></tr>
+                            <tr><td>2 m</td><td>200 cm</td></tr>
+                            <tr><td>3 m</td><td>300 cm</td></tr>
+                            <tr><td>10 m</td><td>1000 cm</td></tr>
+                        </table>
+
+                        <div class="learning-objectives">
+                            <h4>Quick Check</h4>
+                            <ul>
+                                <li>How many centimetres are the same as 4 metres? (400 cm)</li>
+                                <li>A red string is 40 cm and a blue string is 55 cm. Which is longer, and by how much? (Blue, by 15 cm)</li>
+                            </ul>
+                        </div>
+
+                        <div class="learning-objectives">
+                            <h4>Look Around You</h4>
+                            <ul>
+                                <li>Find three things in your classroom you would measure in centimetres, and three you would measure in metres. Which group has the bigger things?</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="activity-box">
+                        <h4>Let's Practice</h4>
+                        <p>Write the unit after every answer.</p>
+                        <ol style="margin-left: 20px;">
+                            <li>Which unit, cm or m, would you use to measure the length of your shoe?</li>
+                            <li>A ribbon is 35 cm and another is 28 cm. Which is longer, and by how many centimetres?</li>
+                            <li>How many centimetres are the same as 6 m?</li>
+                            <li>A pencil reaches from 0 to 12 on a ruler. How long is it?</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MASS & CAPACITY -->
+            <div id="mass-capacity" class="tab-content">
+                <button class="print-btn" onclick="window.print()">🖨️ Print This Section</button>
+
+                <div class="section">
+                    <h2 class="section-title">Mass &amp; Capacity</h2>
+
+                    <div class="subsection">
+                        <h3>What Is Mass?</h3>
+                        <div class="content-text">
+                            <p><strong>Mass</strong> tells us how heavy something is — how much "stuff" is packed inside it. A feather feels light, so it has a small mass. A big stone feels heavy, so it has a large mass. When we measure mass, we are answering the question: "How heavy is it?" We use two main units: the <strong>gram</strong> and the <strong>kilogram</strong>.</p>
+                            <p>A <strong>gram (g)</strong> is a small unit, about as heavy as a paper clip. We use grams for light things like a spoon of salt or a letter. A <strong>kilogram (kg)</strong> is a much bigger unit. We use kilograms for heavier things like a bag of rice, a pumpkin, or a baby. To measure mass we use a <strong>balance</strong> or a <strong>scale</strong>.</p>
+                        </div>
+
+                        <div class="key-terms">
+                            <h4>Did You Know?</h4>
+                            <div class="term">When you hold a 1 kg bag of sugar, you are holding exactly 1000 grams. That is a useful weight to remember, so you can guess the mass of other things by comparing them to it.</div>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>How Grams and Kilograms Are Linked</h3>
+                        <div class="content-text">
+                            <p><strong>1000 g = 1 kg.</strong> One kilogram is the same as one thousand grams. A kilogram is a big "bundle" of 1000 grams.</p>
+                            <p><strong>Worked Example:</strong> A bag of flour has a mass of 2 kg. How many grams is that? Each kilogram is 1000 g, so 2 kg = 2 × 1000 g = <strong>2000 g</strong>.</p>
+                            <p><strong>Comparing mass:</strong> A pawpaw has a mass of 900 g and a pineapple has a mass of 1 kg. First change the kilogram into grams so the units match: 1 kg = 1000 g. Now compare: 1000 g is more than 900 g, so the <strong>pineapple is heavier</strong>, by 1000 g − 900 g = 100 g.</p>
+                        </div>
+
+                        <div class="learning-objectives">
+                            <h4>Think About It</h4>
+                            <ul>
+                                <li>Which unit fits a spoon of salt — g or kg? (g)</li>
+                                <li>Which unit fits a truckload of potatoes? (kg)</li>
+                                <li>Which unit fits an envelope? (g)</li>
+                                <li>Which unit fits a watermelon? (kg)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>What Is Capacity?</h3>
+                        <div class="content-text">
+                            <p><strong>Capacity</strong> tells us how much a container can hold when it is full. A small cup has a small capacity; a big bucket has a large capacity. When we measure capacity, we are answering the question: "How much does it hold?" We use two main units: the <strong>millilitre</strong> and the <strong>litre</strong>.</p>
+                            <p>A <strong>millilitre (mL)</strong> is a tiny amount; a spoonful of medicine is about 5 mL. A <strong>litre (L)</strong> is much bigger; a carton of juice often holds 1 L. To measure capacity we use a <strong>measuring cup</strong> or <strong>measuring jug</strong> with lines on the side, and for small amounts a <strong>teaspoon</strong> or measuring spoon.</p>
+                        </div>
+
+                        <div class="key-terms">
+                            <h4>Remember</h4>
+                            <div class="term"><strong>1000 mL = 1 L.</strong> One litre is the same as one thousand millilitres.</div>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Working with Capacity</h3>
+                        <div class="content-text">
+                            <p><strong>Worked Example:</strong> A bottle holds 2 L of water. How many millilitres is that? Each litre is 1000 mL, so 2 L = 2 × 1000 mL = <strong>2000 mL</strong>.</p>
+                            <p><strong>Adding capacity:</strong> Marcus pours 1 L of juice into a jug, then adds 500 mL of water. First make the units match: 1 L = 1000 mL. Now add: 1000 mL + 500 mL = <strong>1500 mL</strong>, which is the same as 1 L and 500 mL.</p>
+                            <p><strong>Choosing the right amount:</strong> Which is about one litre — a baby's bottle of medicine, a bucket of water to wash a car, or a jug of orange juice? The bucket holds far more than a litre, and the medicine bottle far less, so the <strong>jug of orange juice</strong> is about one litre.</p>
+                        </div>
+
+                        <div class="learning-objectives">
+                            <h4>Quick Check</h4>
+                            <ul>
+                                <li>A bunch of bananas has a mass of 3 kg. How many grams is that? (3000 g)</li>
+                                <li>A pot holds 3 L of soup. How many millilitres is that? (3000 mL)</li>
+                            </ul>
+                        </div>
+
+                        <div class="learning-objectives">
+                            <h4>Look Around You</h4>
+                            <ul>
+                                <li>Look at bottles and cartons at home. Find the number printed on the side that tells the capacity. Can you find one that says 1 L, and one that uses mL?</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="activity-box">
+                        <h4>Let's Practice</h4>
+                        <ol style="margin-left: 20px;">
+                            <li>A pumpkin has a mass of 4 kg. How many grams is that?</li>
+                            <li>Which holds more — a teaspoon of medicine or a jug of lemonade?</li>
+                            <li>A bottle holds 2 L. How many millilitres is that?</li>
+                            <li>A bag of rice is 2 kg. How many grams is that?</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TIME & MONEY -->
+            <div id="time-money" class="tab-content">
+                <button class="print-btn" onclick="window.print()">🖨️ Print This Section</button>
+
+                <div class="section">
+                    <h2 class="section-title">Time &amp; Money</h2>
+
+                    <div class="subsection">
+                        <h3>Telling the Time on a Clock</h3>
+                        <div class="content-text">
+                            <p>A <strong>clock</strong> helps us measure <strong>time</strong>. A clock face has the numbers 1 to 12 and two hands. The <strong>short hand</strong> points to the <strong>hour</strong>, and the <strong>long hand</strong> points to the <strong>minutes</strong>. The long hand travels all the way around once every hour, and there are <strong>60 minutes in 1 hour</strong>.</p>
+                            <p><strong>O'clock:</strong> when the long hand points straight up to 12, it is an exact hour. <strong>Half past:</strong> when the long hand points straight down to 6, half an hour (30 minutes) has gone by. <strong>Quarter past:</strong> when the long hand points to 3, it is 15 minutes past. <strong>Quarter to:</strong> when the long hand points to 9, there are 15 minutes left until the next hour.</p>
+                            <p><strong>Worked Example:</strong> The long hand points to the 4. Each number counts 5 minutes (60 ÷ 12 = 5), so count to the 4: 5, 10, 15, 20. The long hand shows 20 minutes. If the short hand is just past 7, the time is <strong>20 minutes past 7</strong>.</p>
+                        </div>
+
+                        <div class="key-terms">
+                            <h4>Remember</h4>
+                            <div class="term"><strong>60 minutes = 1 hour.</strong> Also: 7 days = 1 week, and 12 months = 1 year.</div>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Days, Weeks, Months and the Calendar</h3>
+                        <div class="content-text">
+                            <p>A <strong>calendar</strong> is a chart that shows all the days of a month, sorted into weeks. There are 7 days in a week and 12 months in a year. Most months have 30 or 31 days; February has 28 (or 29 in a leap year).</p>
+                            <p><strong>Worked Example:</strong> Suppose a calendar shows that July 1 is a Monday. What is the date of the second Monday in July? The first Monday is July 1, and the next Monday is one week (7 days) later: 1 + 7 = <strong>July 8</strong>.</p>
+                            <p><strong>Duration:</strong> The time an activity takes is called its duration. Maths class starts at 9:00 and ends at 10:00, so it lasts 1 hour (60 minutes). And if a bus ride takes 45 minutes then you walk for 15 more, the whole trip is 45 + 15 = 60 minutes = <strong>1 hour</strong>.</p>
+                        </div>
+
+                        <div class="key-terms">
+                            <h4>Did You Know?</h4>
+                            <div class="term">The months with 30 days are April, June, September, and November. The old rhyme helps: "Thirty days has September, April, June, and November." All the rest have 31, except February.</div>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Measuring with Money</h3>
+                        <div class="content-text">
+                            <p>In Jamaica, our money is the <strong>Jamaican dollar</strong>, written with the sign <strong>$</strong>. <strong>Coins</strong> are used for smaller amounts ($1, $5, $10, $20) and <strong>notes</strong> for larger amounts ($50, $100, $500, $1000). We can make the same amount in different ways: $30 can be one $20 coin and one $10 coin, or three $10 coins.</p>
+                            <p><strong>Adding prices:</strong> At the shop a patty costs $80 and a box drink costs $50. Altogether they cost $80 + $50 = <strong>$130</strong>.</p>
+                            <p><strong>Giving change:</strong> If you pay with more than the price, the seller gives back the extra, called <strong>change</strong>. A bun costs $70 and you pay with a $100 note, so your change is $100 − $70 = <strong>$30</strong>.</p>
+                            <p><strong>A bigger trip:</strong> You buy bread for $250 and milk for $200, and pay with a $500 note. First add the prices: $250 + $200 = $450. Then find the change: $500 − $450 = <strong>$50</strong>.</p>
+                        </div>
+
+                        <div class="learning-objectives">
+                            <h4>Quick Check</h4>
+                            <ul>
+                                <li>A mango costs $40. You pay with a $50 coin. How much change? ($10)</li>
+                                <li>A dozen means 12. How many eggs is a dozen eggs? (12)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Measuring Temperature</h3>
+                        <div class="content-text">
+                            <p><strong>Temperature</strong> tells us how hot or how cold something is. A cup of hot chocolate is hot; iced water is cold. To measure temperature exactly we use a <strong>thermometer</strong>, which has numbers up the side and a coloured line that rises when things get hotter. Temperature is measured in <strong>degrees</strong>, written <strong>°C</strong>; a warm day might be 28 °C.</p>
+                            <p>Some temperatures to know: water <strong>freezes</strong> at 0 °C (very cold); a warm day is about 28–30 °C; normal body temperature is about 37 °C; a <strong>fever</strong> is hotter than normal; water <strong>boils</strong> at 100 °C (very hot).</p>
+                        </div>
+
+                        <div class="learning-objectives">
+                            <h4>Think About It</h4>
+                            <ul>
+                                <li>A kettle begins to boil. Is the water most likely 0 °C, 30 °C, or 100 °C? (100 °C — boiling)</li>
+                                <li>Is today a hot day or a cool day? If your class has a thermometer, read it in the morning and again at midday. Did the number go up or down?</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="activity-box">
+                        <h4>Let's Practice</h4>
+                        <ol style="margin-left: 20px;">
+                            <li>How many minutes are in half an hour?</li>
+                            <li>If July 1 is a Monday, what date is the second Monday in July?</li>
+                            <li>A bun costs $120 and a drink costs $80. What do they cost altogether?</li>
+                            <li>You buy a snack for $150 and pay with a $200 note. What is your change?</li>
+                            <li>Water boils in a kettle. Is its temperature nearer 0 °C or 100 °C?</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AREA & PERIMETER -->
+            <div id="area-perimeter" class="tab-content">
+                <button class="print-btn" onclick="window.print()">🖨️ Print This Section</button>
+
+                <div class="section">
+                    <h2 class="section-title">Area &amp; Perimeter</h2>
+
+                    <div class="subsection">
+                        <h3>What Is Area?</h3>
+                        <div class="content-text">
+                            <p><strong>Area</strong> is the amount of flat surface a shape covers. The top of your desk, the page of a book, the classroom floor, and a window are all flat surfaces, and the amount of space each covers is its area. When we measure area, we are answering the question: "How much surface does it cover?" A door covers more surface than a window, so the door has a larger area.</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Finding Area by Counting Squares</h3>
+                        <div class="content-text">
+                            <p>One easy way to find the area of a flat shape is to cover it with <strong>squares</strong> that are all the same size, and then <strong>count the squares</strong>. We use squares because they fit together with no gaps. When a shape is drawn on a <strong>grid</strong> of equal squares, we just count how many squares it covers.</p>
+                            <p><strong>Worked Example:</strong> A rag is drawn on a grid. It covers 2 rows of squares, and each row has 4 squares. Count all the squares: 4 + 4 = <strong>8 squares</strong>. So the area of the rag is 8 squares.</p>
+                            <p><strong>Another shape:</strong> A shape covers 3 rows, with 5 squares in each row. Count: 5 + 5 + 5 = <strong>15 squares</strong>.</p>
+                        </div>
+
+                        <div class="key-terms">
+                            <h4>Let's Explore</h4>
+                            <div class="term">On grid paper, draw a mat shaped like a rectangle that covers exactly 10 squares. There is more than one way: 2 rows of 5 squares, or 1 row of 10 squares. Count to check you have exactly 10.</div>
+                        </div>
+
+                        <div class="learning-objectives">
+                            <h4>Quick Check</h4>
+                            <ul>
+                                <li>A floor mat covers 4 rows of squares with 3 squares in each row. What is its area? (12 squares)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>What Is Perimeter?</h3>
+                        <div class="content-text">
+                            <p>The <strong>perimeter</strong> is the distance all the way <strong>around</strong> the edge of a flat shape. Imagine a tiny ant walking right around the edge until it comes back to the start — the whole distance it walks is the perimeter. We find the perimeter by measuring every side and then <strong>adding all the sides together</strong>.</p>
+                            <p><strong>Worked Example:</strong> A garden is shaped like a rectangle with sides 5 m, 3 m, 5 m, and 3 m. Add all four sides: 5 + 3 + 5 + 3 = <strong>16 m</strong>.</p>
+                            <p><strong>Mrs. Ham's land:</strong> A wall goes all the way around Mrs. Ham's land, with sides 5 m, 8 m, 7 m, and 8 m. The wall is the perimeter, so add the sides step by step: 5 + 8 = 13, then 13 + 7 = 20, then 20 + 8 = <strong>28 m</strong>. So the wall is 28 m long.</p>
+                        </div>
+
+                        <div class="key-terms">
+                            <h4>Remember</h4>
+                            <div class="term"><strong>Area</strong> is the surface a shape covers (count the squares inside). <strong>Perimeter</strong> is the distance around the edge (add up all the sides). They are not the same thing!</div>
+                        </div>
+
+                        <div class="learning-objectives">
+                            <h4>Quick Check</h4>
+                            <ul>
+                                <li>A square tile has four sides, each 2 cm long. What is its perimeter? (8 cm)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="activity-box">
+                        <h4>Let's Practice</h4>
+                        <ol style="margin-left: 20px;">
+                            <li>A shape on a grid covers 3 rows of 4 squares. What is its area?</li>
+                            <li>A square has four sides, each 5 cm long. What is its perimeter?</li>
+                            <li>A shape covers 2 rows of squares with 6 squares in each row. What is its area?</li>
+                            <li>A rectangle has sides 4 m, 2 m, 4 m, and 2 m. What is its perimeter?</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GLOSSARY -->
+            <div id="glossary" class="tab-content">
+                <button class="print-btn" onclick="window.print()">🖨️ Print This Section</button>
+
+                <div class="section">
+                    <h2 class="section-title">Word Power</h2>
+
+                    <div class="key-terms">
+                        <h4>Measurement Words to Know</h4>
+                        <div class="term"><strong>Measure:</strong> to find out the size, amount, or how much of something there is.</div>
+                        <div class="term"><strong>Unit:</strong> the special amount we use when we measure, such as a centimetre, a gram, or a litre.</div>
+                        <div class="term"><strong>Estimate:</strong> a careful, sensible guess made before measuring.</div>
+                        <div class="term"><strong>Length:</strong> how long something is from one end to the other.</div>
+                        <div class="term"><strong>Centimetre (cm):</strong> a small unit of length, about the width of your smallest fingernail.</div>
+                        <div class="term"><strong>Metre (m):</strong> a larger unit of length, about the width of a doorway. 100 cm = 1 m.</div>
+                        <div class="term"><strong>Kilometre (km):</strong> a very large unit of length for long distances. 1000 m = 1 km.</div>
+                        <div class="term"><strong>Mass:</strong> how heavy something is, or how much "stuff" is in it.</div>
+                        <div class="term"><strong>Gram (g):</strong> a small unit of mass, about as heavy as a paper clip.</div>
+                        <div class="term"><strong>Kilogram (kg):</strong> a larger unit of mass. 1000 g = 1 kg.</div>
+                        <div class="term"><strong>Capacity:</strong> how much a container can hold when it is full.</div>
+                        <div class="term"><strong>Millilitre (mL):</strong> a small unit of capacity; a spoon of medicine is about 5 mL.</div>
+                        <div class="term"><strong>Litre (L):</strong> a larger unit of capacity. 1000 mL = 1 L.</div>
+                        <div class="term"><strong>Time:</strong> what part of the day it is, measured with a clock. 60 minutes = 1 hour.</div>
+                        <div class="term"><strong>Calendar:</strong> a chart showing the days of a month sorted into weeks.</div>
+                        <div class="term"><strong>Duration:</strong> how long an activity takes, from when it starts to when it ends.</div>
+                        <div class="term"><strong>Money:</strong> coins and notes we use to buy things; in Jamaica we use the Jamaican dollar ($).</div>
+                        <div class="term"><strong>Change:</strong> the extra money the seller gives back when you pay more than the price.</div>
+                        <div class="term"><strong>Dozen:</strong> a group of twelve (12) things.</div>
+                        <div class="term"><strong>Temperature:</strong> how hot or how cold something is, measured in degrees (°C).</div>
+                        <div class="term"><strong>Thermometer:</strong> the tool we use to measure temperature.</div>
+                        <div class="term"><strong>Area:</strong> the amount of flat surface a shape covers; found by counting squares.</div>
+                        <div class="term"><strong>Perimeter:</strong> the distance all the way around the edge of a shape; found by adding the sides.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ANSWER KEY -->
+            <div id="answers" class="tab-content">
+                <button class="print-btn" onclick="window.print()">🖨️ Print This Section</button>
+
+                <div class="section">
+                    <h2 class="section-title">Answer Key</h2>
+
+                    <div class="subsection">
+                        <h3>Length — Let's Practice</h3>
+                        <div class="content-text">
+                            <p>1. Centimetres (cm) — a shoe is a small thing.</p>
+                            <p>2. The 35 cm ribbon is longer, by 35 − 28 = 7 cm.</p>
+                            <p>3. 6 m = 6 × 100 = 600 cm.</p>
+                            <p>4. The pencil reaches from 0 to 12, so it is 12 cm long.</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Mass &amp; Capacity — Let's Practice</h3>
+                        <div class="content-text">
+                            <p>1. 4 kg = 4 × 1000 = 4000 g.</p>
+                            <p>2. A jug of lemonade holds more than a teaspoon of medicine.</p>
+                            <p>3. 2 L = 2 × 1000 = 2000 mL.</p>
+                            <p>4. 2 kg = 2 × 1000 = 2000 g.</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Time &amp; Money — Let's Practice</h3>
+                        <div class="content-text">
+                            <p>1. Half an hour is 30 minutes.</p>
+                            <p>2. The first Monday is July 1; one week later is July 1 + 7 = July 8.</p>
+                            <p>3. $120 + $80 = $200 altogether.</p>
+                            <p>4. $200 − $150 = $50 change.</p>
+                            <p>5. Nearer 100 °C — boiling water is 100 °C.</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Area &amp; Perimeter — Let's Practice</h3>
+                        <div class="content-text">
+                            <p>1. 3 rows of 4 squares: 4 + 4 + 4 = 12 squares.</p>
+                            <p>2. A square has 4 equal sides: 5 + 5 + 5 + 5 = 20 cm.</p>
+                            <p>3. 2 rows of 6 squares: 6 + 6 = 12 squares.</p>
+                            <p>4. 4 + 2 + 4 + 2 = 12 m.</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Review Questions (from the textbook)</h3>
+                        <div class="content-text">
+                            <p>1. Centimetres and metres; use cm for a leaf and m for a doorway.</p>
+                            <p>2. 7 m = 7 × 100 = 700 cm.</p>
+                            <p>3. The 55 cm blue string is longer, by 55 − 40 = 15 cm.</p>
+                            <p>4. 1 kg = 1000 g.</p>
+                            <p>5. Kilograms, because a truckload of potatoes is very heavy.</p>
+                            <p>6. 3 L = 3 × 1000 = 3000 mL.</p>
+                            <p>7. 60 minutes in one hour; 7 days in one week.</p>
+                            <p>8. July 8 (July 1 + 7 days).</p>
+                            <p>9. $60 + $40 = $100, paid with $100, so the change is $0 (no change needed).</p>
+                            <p>10. About 100 °C (boiling).</p>
+                            <p>11. 4 rows of 5 squares: 5 + 5 + 5 + 5 = 20 squares.</p>
+                            <p>12. 6 + 4 + 6 + 4 = 20 m.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Grade 3 Jamaica Mathematics Textbook | Ministry of Education, Youth and Information, Jamaica</p>
+            <p>This interactive textbook covers the Measurement strand: length, mass, capacity, time, money, temperature, area, and perimeter.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Tab navigation
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const tabName = button.getAttribute('data-tab');
+
+                // Remove active class from all buttons and contents
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+
+                // Add active class to clicked button and corresponding content
+                button.classList.add('active');
+                document.getElementById(tabName).classList.add('active');
+
+                // Scroll to top
+                window.scrollTo(0, 0);
+            });
+        });
+
+        // Collapsible sections
+        const collapsibles = document.querySelectorAll('.collapsible');
+        collapsibles.forEach(button => {
+            button.addEventListener('click', function() {
+                this.classList.toggle('active');
+                const content = this.nextElementSibling;
+                if (content && content.classList.contains('collapsible-content')) {
+                    content.classList.toggle('show');
+                }
+            });
+        });
+
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

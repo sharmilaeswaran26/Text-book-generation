@@ -1,0 +1,1257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade 3 Integrated Studies — Term 1, Unit 2: Our Needs</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .nav-tabs {
+            display: flex;
+            background: #f8f9fa;
+            border-bottom: 2px solid #ddd;
+            overflow-x: auto;
+            flex-wrap: wrap;
+        }
+
+        .nav-tabs button {
+            flex: 1;
+            padding: 15px 20px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 500;
+            color: #666;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+            min-width: 150px;
+        }
+
+        .nav-tabs button:hover {
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        .nav-tabs button.active {
+            color: #2a5298;
+            border-bottom-color: #2a5298;
+            background: white;
+        }
+
+        .content {
+            padding: 30px;
+            min-height: 600px;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 1.8em;
+            color: #1e3c72;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .subsection {
+            background: #f8f9fa;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 4px solid #667eea;
+            border-radius: 5px;
+        }
+
+        .subsection h3 {
+            color: #2a5298;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+
+        .learning-objectives {
+            background: #e3f2fd;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #2196F3;
+        }
+
+        .learning-objectives h4 {
+            color: #1565c0;
+            margin-bottom: 10px;
+        }
+
+        .learning-objectives ul {
+            margin-left: 20px;
+        }
+
+        .learning-objectives li {
+            margin: 8px 0;
+            color: #333;
+        }
+
+        .activity-box {
+            background: #fff3e0;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #ff9800;
+        }
+
+        .activity-box h4 {
+            color: #e65100;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .activity-box h4::before {
+            content: "✏️";
+            font-size: 1.2em;
+        }
+
+        .assessment-box {
+            background: #f3e5f5;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #9c27b0;
+        }
+
+        .assessment-box h4 {
+            color: #6a1b9a;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .assessment-box h4::before {
+            content: "📋";
+            font-size: 1.2em;
+        }
+
+        .extension-box {
+            background: #e8f5e9;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #4caf50;
+        }
+
+        .extension-box h4 {
+            color: #2e7d32;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .extension-box h4::before {
+            content: "⭐";
+            font-size: 1.2em;
+        }
+
+        .teacher-notes {
+            background: #ffe0b2;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #ff6f00;
+        }
+
+        .teacher-notes h4 {
+            color: #bf360c;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .teacher-notes h4::before {
+            content: "👨‍🏫";
+            font-size: 1.2em;
+        }
+
+        .content-text {
+            margin: 15px 0;
+            text-align: justify;
+        }
+
+        .content-text strong {
+            color: #1e3c72;
+        }
+
+        .diagram {
+            background: #f0f0f0;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            text-align: center;
+            border: 2px dashed #ddd;
+        }
+
+        .diagram img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+        }
+
+        table th {
+            background: #2a5298;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+
+        table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        table tr:hover {
+            background: #f5f5f5;
+        }
+
+        .key-terms {
+            background: #f5f5f5;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .key-terms h4 {
+            color: #1e3c72;
+            margin-bottom: 10px;
+        }
+
+        .term {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+
+        .term strong {
+            color: #2a5298;
+        }
+
+        .learning-outcomes {
+            background: #c8e6c9;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .learning-outcomes h4 {
+            color: #1b5e20;
+            margin-bottom: 10px;
+        }
+
+        .learning-outcomes ul {
+            margin-left: 20px;
+        }
+
+        .learning-outcomes li {
+            margin: 8px 0;
+            color: #333;
+        }
+
+        .checklist {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-left: 3px solid #2a5298;
+        }
+
+        .checklist input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        footer {
+            background: #1e3c72;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            .nav-tabs button {
+                min-width: 120px;
+                padding: 12px 15px;
+                font-size: 0.9em;
+            }
+        }
+
+        .collapsible {
+            background: #e3f2fd;
+            cursor: pointer;
+            padding: 15px;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 1em;
+            color: #1565c0;
+            font-weight: bold;
+            border-radius: 5px;
+            margin: 10px 0;
+            width: 100%;
+            transition: 0.3s;
+        }
+
+        .collapsible:hover {
+            background: #bbdefb;
+        }
+
+        .collapsible-content {
+            padding: 0 15px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .collapsible-content.show {
+            max-height: 1000px;
+        }
+
+        .print-btn {
+            background: #2a5298;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            margin: 20px 0;
+            transition: 0.3s;
+        }
+
+        .print-btn:hover {
+            background: #1e3c72;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            .nav-tabs {
+                display: none;
+            }
+            .print-btn {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📚 Grade 3 Integrated Studies Textbook</h1>
+            <p>Jamaica National Standards Curriculum - Term 1, Unit 2: Our Needs</p>
+            <p style="font-size: 0.9em; margin-top: 10px;">What is the difference between basic needs and other needs? | How do we satisfy other needs? | How does satisfying other needs make a difference to life?</p>
+            <p style="margin-top: 15px;"><a href="../../index.html" style="color:#fff; background:rgba(255,255,255,0.15); padding:8px 16px; border-radius:20px; text-decoration:none; font-size:0.9em; border:1px solid rgba(255,255,255,0.4);">← Subject Home</a></p>
+        </header>
+
+        <div class="nav-tabs">
+            <button class="tab-btn active" data-tab="focus-q1">Focus Q1: Basic &amp; Other Needs</button>
+            <button class="tab-btn" data-tab="focus-q2">Focus Q2: Satisfying Needs</button>
+            <button class="tab-btn" data-tab="focus-q3">Focus Q3: Making a Difference</button>
+            <button class="tab-btn" data-tab="glossary">Glossary</button>
+            <button class="tab-btn" data-tab="answers">Answer Key</button>
+        </div>
+
+        <div class="content">
+            <!-- FOCUS QUESTION 1 -->
+            <div id="focus-q1" class="tab-content active">
+                <button class="print-btn" onclick="window.print()">🖨️ Print This Section</button>
+
+                <div class="section">
+                    <h2 class="section-title">Focus Question 1: What is the difference between basic needs and other needs?</h2>
+
+                    <div class="learning-objectives">
+                        <h4>Learning Objectives</h4>
+                        <ul>
+                            <li>Distinguish between basic needs and other needs</li>
+                            <li>Tell the difference between a need and a want</li>
+                            <li>Recognise that all persons — regardless of nationality, ethnic background or religious affiliation — share the same desire for basic needs and other needs to be met</li>
+                            <li>Investigate how persons satisfy basic and other needs</li>
+                            <li>Identify the line of symmetry in objects and shapes</li>
+                            <li>Explore how religion plays a key role in helping others and providing for their needs</li>
+                            <li>Communicate information about needs using simple, well-constructed sentences</li>
+                        </ul>
+                    </div>
+
+                    <!-- NEEDS AND WANTS -->
+                    <div class="subsection">
+                        <h3>🤔 Lesson 1: Needs and Wants</h3>
+
+                        <div class="content-text">
+                            <p>Think about everything you used today. You ate food. You drank water. You wore clothes. You lived in a home. You may have hugged a family member or laughed with a friend. All of these things are called <strong>needs</strong>.</p>
+
+                            <p>Before we talk about needs, let's learn the difference between a <strong>need</strong> and a <strong>want</strong>.</p>
+
+                            <p>A <strong>need</strong> is something you <strong>must have</strong> to live and be well. If you do not have it, your body or your feelings will not be okay. A <strong>want</strong> is something you would <strong>like to have</strong>, but you can still live without it.</p>
+
+                            <p><strong>Example:</strong> You <strong>need</strong> water to drink so your body stays alive. You might <strong>want</strong> a fizzy drink, but you do not need it to live. You <strong>need</strong> clothes to keep warm and covered. You might <strong>want</strong> a new pair of fancy sneakers, but your old shoes still work fine.</p>
+
+                            <p>Knowing the difference helps you understand what is truly important.</p>
+                        </div>
+
+                        <div class="key-terms">
+                            <h4>Key Terms to Know:</h4>
+                            <div class="term"><strong>Need:</strong> Something you must have to live and be well</div>
+                            <div class="term"><strong>Want:</strong> Something you would like to have, but can live without</div>
+                        </div>
+
+                        <h4>Needs vs. Wants</h4>
+
+                        <table>
+                            <tr>
+                                <th>Needs (must have)</th>
+                                <th>Wants (nice to have)</th>
+                            </tr>
+                            <tr>
+                                <td>Clean water to drink</td>
+                                <td>A fizzy drink</td>
+                            </tr>
+                            <tr>
+                                <td>Food to eat</td>
+                                <td>Sweets and chocolate</td>
+                            </tr>
+                            <tr>
+                                <td>Clothes to wear</td>
+                                <td>Fancy new sneakers</td>
+                            </tr>
+                            <tr>
+                                <td>A safe home (shelter)</td>
+                                <td>A video game or new bicycle</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <!-- BASIC NEEDS -->
+                    <div class="subsection">
+                        <h3>🏠 Lesson 2: Basic Needs</h3>
+
+                        <div class="content-text">
+                            <p><strong>Basic needs</strong> are the things <strong>every single person</strong> must have to stay alive and healthy. Without these basic needs, a person cannot stay healthy or even stay alive. That is why they are called <strong>basic</strong> — they come first.</p>
+                        </div>
+
+                        <h4>The Four Basic Needs</h4>
+
+                        <table>
+                            <tr>
+                                <th>Basic Need</th>
+                                <th>Why We Need It</th>
+                            </tr>
+                            <tr>
+                                <td><strong>Food</strong></td>
+                                <td>To give your body energy and help you grow</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Water</strong></td>
+                                <td>To drink so your body works well</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Clothing</strong></td>
+                                <td>To keep you warm, cool, and covered</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Shelter</strong></td>
+                                <td>A safe place to live that keeps you safe from rain, sun, and cold</td>
+                            </tr>
+                        </table>
+
+                        <div class="content-text">
+                            <p><strong>Think about it:</strong> Look around your home. Can you point to things that meet your basic needs for food, water, clothing, and shelter?</p>
+                        </div>
+
+                        <div class="key-terms">
+                            <h4>Key Terms to Know:</h4>
+                            <div class="term"><strong>Basic needs:</strong> The things every person must have to stay alive and healthy — food, water, clothing, and shelter</div>
+                            <div class="term"><strong>Shelter:</strong> A safe place to live, such as a house</div>
+                        </div>
+                    </div>
+
+                    <!-- OTHER NEEDS -->
+                    <div class="subsection">
+                        <h3>Lesson 3: Other Needs</h3>
+
+                        <div class="content-text">
+                            <p>People need more than just food and shelter. We also have <strong>other needs</strong>. These are not things you can hold in your hand — they are <strong>feelings and care</strong> that make you happy and help you grow as a person.</p>
+
+                            <p>Some other needs are <strong>love</strong> (giving and receiving love from family and friends), <strong>friendship</strong> (having friends to play and share with), <strong>safety</strong> (feeling protected and free from danger), <strong>respect</strong> (being treated kindly, and treating others kindly), <strong>trust</strong> (trusting others and being trusted), <strong>comfort</strong> (being cared for when you are sad or hurt), and <strong>worship</strong> (for many families, praying or worshipping is an important need).</p>
+
+                            <p><strong>Real-life example:</strong> When you fall and scrape your knee, a hug from a family member helps you feel better. That hug meets your <strong>other need</strong> for love and comfort.</p>
+                        </div>
+
+                        <h4>Basic Needs vs. Other Needs</h4>
+
+                        <table>
+                            <tr>
+                                <th>Basic Needs</th>
+                                <th>Other Needs</th>
+                            </tr>
+                            <tr>
+                                <td>Things you can hold or use</td>
+                                <td>Feelings and care</td>
+                            </tr>
+                            <tr>
+                                <td>Food, water, clothing, shelter</td>
+                                <td>Love, friendship, safety, respect, trust, comfort, worship</td>
+                            </tr>
+                            <tr>
+                                <td>Keep your body alive and healthy</td>
+                                <td>Make you happy and help you grow as a person</td>
+                            </tr>
+                        </table>
+
+                        <div class="key-terms">
+                            <h4>Key Terms to Know:</h4>
+                            <div class="term"><strong>Other needs:</strong> Feelings and care every person needs, like love, friendship, safety, and respect</div>
+                        </div>
+                    </div>
+
+                    <!-- EVERYONE HAS THE SAME NEEDS -->
+                    <div class="subsection">
+                        <h3>🌍 Lesson 4: Everyone Has the Same Needs</h3>
+
+                        <div class="content-text">
+                            <p>Here is something important to remember: <strong>every person in the world has the same needs.</strong> It does not matter what country someone is from, what language they speak, what their skin colour is, or how they worship. We all need food, water, clothing, and shelter. We all need love, friendship, and safety.</p>
+
+                            <p>Knowing this helps us understand and care about other people. When we see someone who does not have their needs met, we can feel kindness and want to help.</p>
+
+                            <p><strong>Think about it:</strong> A child in another country far away still needs the same things you need — food, a home, and love. How are you and that child alike?</p>
+                        </div>
+                    </div>
+
+                    <!-- SHAPES AND SYMMETRY -->
+                    <div class="subsection">
+                        <h3>🔺 Lesson 5: Shapes and Lines of Symmetry</h3>
+
+                        <div class="content-text">
+                            <p>When we make things that meet our needs, we can also see <strong>shapes</strong> all around us. A house has a square or rectangle shape. A folded piece of paper can make many shapes.</p>
+
+                            <p>A <strong>line of symmetry</strong> is a line that cuts a shape into two halves that match exactly — like a mirror. If you fold the shape along that line, the two sides fit perfectly on top of each other. Many objects we use have a line of symmetry, such as a square, a heart, or a butterfly's wings.</p>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Origami and Symmetry</h4>
+                            <p><strong>What to do:</strong></p>
+                            <ol style="margin-left: 20px;">
+                                <li>Take blank sheets of paper and fold them to make origami of things useful in satisfying basic and other needs (a cup, a house, a shirt).</li>
+                                <li>Identify the shapes you can see in your origami.</li>
+                                <li>Highlight the lines of symmetry — the folds where both sides match.</li>
+                                <li>Place your designs in your portfolio.</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <!-- ACTIVITIES -->
+                    <div class="subsection">
+                        <h3>🎨 Suggested Activities</h3>
+
+                        <div class="activity-box">
+                            <h4>Activity 1: Sort Needs and Wants</h4>
+                            <p><strong>Task:</strong> As a class, discuss the difference between needs and wants. Then categorise the needs you find into <strong>basic needs</strong> and <strong>other needs</strong>. Compose an email or write a letter to your parents or teacher explaining what you have learned about basic needs and other needs.</p>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Activity 2: School Yard Tour</h4>
+                            <p><strong>Task:</strong> Take a tour of the school yard and find things in the environment that help satisfy basic and other needs. Illustrate these things. Create a flier showing how the environment satisfies our needs, with a well-constructed paragraph beside each picture.</p>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Activity 3: Pictures of Other Needs</h4>
+                            <p><strong>Task:</strong> Look at and discuss pictures that show other needs people have — giving and receiving love, trusting others, being accepted, giving comfort, worshipping, and keeping safe. Write a paragraph about the needs you identify and how they can be met. Find the adjectives and adverbs you used.</p>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Activity 4: Express Yourself Creatively</h4>
+                            <p><strong>Task:</strong> Use a song, dance, painting, poem, story, or picture collage to show other needs such as friendship, safety, and love. Plan and dramatize a story that shows needs, such as the story of Esau and Jacob. Discuss the needs shown and talk about what the characters did.</p>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Activity 5: A Need in My Family</h4>
+                            <p><strong>Task:</strong> Make a journal entry telling what you would like a family member to do to fill a need you have. Make a drawing to show this need being met.</p>
+                        </div>
+                    </div>
+
+                    <div class="assessment-box">
+                        <h4>Assessment: Basic and Other Needs</h4>
+                        <div class="checklist">
+                            <input type="checkbox"> Can you tell the difference between a need and a want?
+                        </div>
+                        <div class="checklist">
+                            <input type="checkbox"> Can you name the four basic needs and explain why we need each one?
+                        </div>
+                        <div class="checklist">
+                            <input type="checkbox"> Can you give three examples of other needs?
+                        </div>
+                        <div class="checklist">
+                            <input type="checkbox"> Can you explain why all people in the world share the same needs?
+                        </div>
+                        <div class="checklist">
+                            <input type="checkbox"> Can you find the line of symmetry in a shape or object?
+                        </div>
+                    </div>
+
+                    <div class="extension-box">
+                        <h4>Extended Learning</h4>
+                        <p><strong>Challenge:</strong> Create a web or tree diagram that shows basic needs and other needs. Put "Our Needs" in the centre, then draw two branches — one for basic needs and one for other needs — and add examples to each branch.</p>
+                    </div>
+
+                    <div class="teacher-notes">
+                        <h4>Teacher Notes (Points to Note)</h4>
+                        <ul>
+                            <li>Ensure that if technology is available, it is accessible to each student.</li>
+                            <li>Point out that the Creator satisfies the needs of the created.</li>
+                            <li>Ensure that students understand how thought tracking and tableaux are used.</li>
+                            <li>Check prior learning: students should be able to explain how a good education helps in satisfying needs.</li>
+                            <li>Guide students to communicate safely with parents and teachers through email.</li>
+                        </ul>
+                    </div>
+
+                    <div class="learning-outcomes">
+                        <h4>Learning Outcomes for Focus Question 1</h4>
+                        <p>By the end of this focus question, students will be able to:</p>
+                        <ul>
+                            <li>✓ Recognise the difference between needs and wants</li>
+                            <li>✓ Distinguish between basic needs and other needs</li>
+                            <li>✓ Identify pictures displaying basic and other needs</li>
+                            <li>✓ Recognise how religions play a key role in helping others to provide for their needs</li>
+                            <li>✓ Use new words and compose sentences relating to basic needs</li>
+                            <li>✓ Communicate safely with parents and teachers through email</li>
+                            <li>✓ Identify lines of symmetry in objects and shapes</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FOCUS QUESTION 2 -->
+            <div id="focus-q2" class="tab-content">
+                <button class="print-btn" onclick="window.print()">🖨️ Print This Section</button>
+
+                <div class="section">
+                    <h2 class="section-title">Focus Question 2: How do we satisfy other needs?</h2>
+
+                    <div class="learning-objectives">
+                        <h4>Learning Objectives</h4>
+                        <ul>
+                            <li>Share experiences in which friends, other persons, or organisations helped you satisfy needs</li>
+                            <li>Recognise the role of key agencies in satisfying our needs</li>
+                            <li>Relate how religions play a key role in satisfying other needs</li>
+                            <li>Explain the meaning of morals in sacred and other stories</li>
+                            <li>Recognise the importance of moral values in satisfying other needs</li>
+                            <li>Use digital tools to build a database of organisations with their logos and emergency numbers, citing sources correctly</li>
+                            <li>Express yourself creatively in song to show the importance of satisfying other needs</li>
+                        </ul>
+                    </div>
+
+                    <div class="content-text">
+                        <p>We have learned what other needs are. Now let's learn <strong>how</strong> these needs are met. The good news is that we are not alone — many people and groups help us.</p>
+                    </div>
+
+                    <!-- PEOPLE WHO HELP -->
+                    <div class="subsection">
+                        <h3>👪 Lesson 6: People Who Help Us</h3>
+
+                        <div class="content-text">
+                            <p>Our other needs are often met by the people around us:</p>
+                            <ul style="margin-left: 40px;">
+                                <li><strong>Family</strong> gives us love, food, shelter, and comfort.</li>
+                                <li><strong>Friends</strong> give us friendship and someone to play and share with.</li>
+                                <li><strong>Teachers</strong> help us learn and feel safe at school.</li>
+                                <li><strong>Neighbours and community members</strong> help us when we are in trouble.</li>
+                            </ul>
+
+                            <p><strong>Real-life example:</strong> When a friend shares lunch with you because you forgot yours, your friend is helping satisfy your need. A kind thank-you shows that you are grateful.</p>
+                        </div>
+                    </div>
+
+                    <!-- ORGANISATIONS -->
+                    <div class="subsection">
+                        <h3>🚒 Lesson 7: Organisations That Help</h3>
+
+                        <div class="content-text">
+                            <p>Sometimes our needs are bigger than what one person can help with. That is when <strong>organisations</strong> — groups of people who work together to help — step in. These groups are sometimes called <strong>agencies</strong>.</p>
+
+                            <p>It is a good idea to know the <strong>emergency telephone numbers</strong> for these helpers, so a grown-up can call them quickly in an emergency such as a fire, a flood, a sudden illness, or getting lost.</p>
+                        </div>
+
+                        <h4>Helping Organisations and What They Do</h4>
+
+                        <table>
+                            <tr>
+                                <th>Organisation (Agency)</th>
+                                <th>How It Helps</th>
+                            </tr>
+                            <tr>
+                                <td><strong>Fire Brigade</strong></td>
+                                <td>Helps when there is a fire</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Police</strong></td>
+                                <td>Helps keep people safe</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Hospital &amp; Ambulance Service</strong></td>
+                                <td>Helps when someone is sick or hurt</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Charities &amp; Churches</strong></td>
+                                <td>Help families who need food, clothing, or care</td>
+                            </tr>
+                        </table>
+
+                        <div class="key-terms">
+                            <h4>Key Terms to Know:</h4>
+                            <div class="term"><strong>Organisation (agency):</strong> A group of people who work together to help others</div>
+                            <div class="term"><strong>Emergency:</strong> A sudden, dangerous situation that needs help right away</div>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Make a Helping Booklet</h4>
+                            <p><strong>What to do:</strong> Make a little booklet of helping organisations in your community. Write the name of each one, what it helps with, and its emergency phone number. Use online or offline sources to collect the information, and remember to cite your sources correctly. You can also add each organisation's logo.</p>
+                        </div>
+                    </div>
+
+                    <!-- HELPING THE RIGHT WAY -->
+                    <div class="subsection">
+                        <h3>🤝 Lesson 8: Helping Each Other the Right Way</h3>
+
+                        <div class="content-text">
+                            <p>When we help others meet their needs, we should do it with good <strong>moral values</strong> — that means being <strong>kind, honest, caring, and fair</strong>. Many families also learn these good values from religion and from special stories.</p>
+
+                            <p><strong>A story to think about:</strong> In the story of the <em>Good Samaritan</em>, a traveller is hurt and lying by the road. Many people walk past, but one kind man stops to help him. He meets the hurt man's needs for safety and care. The story teaches us that helping others, even strangers, is the kind and right thing to do.</p>
+
+                            <p>There are also happy songs and games that talk about people helping people. When we sing, share, and play together, we help meet each other's need for friendship and joy.</p>
+                        </div>
+
+                        <div class="key-terms">
+                            <h4>Key Terms to Know:</h4>
+                            <div class="term"><strong>Moral values:</strong> Good ways of behaving, like being kind, honest, and helpful</div>
+                        </div>
+                    </div>
+
+                    <!-- ACTIVITIES -->
+                    <div class="subsection">
+                        <h3>🎨 Suggested Activities</h3>
+
+                        <div class="activity-box">
+                            <h4>Activity 1: A Thank-You Letter</h4>
+                            <p><strong>Task:</strong> Tell a story from your own experience in which a friend, an organisation, or another person helped you satisfy a need. Then write a letter thanking that person or group for the help they gave you.</p>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Activity 2: Information Booklet of Agencies</h4>
+                            <p><strong>Task:</strong> Use online or offline sources to collect information about groups or organisations that offer help. Create an information booklet that includes their logos, addresses, and telephone numbers you can use in an emergency such as fire, flood, sudden illness, or getting lost.</p>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Activity 3: Invite a Resource Person</h4>
+                            <p><strong>Task:</strong> Invite someone from a helping agency to talk about the role they play in satisfying needs. Write an advertisement for the organisation with a jingle, and (with the teacher's help) post it on the class web page. Write a short report in your journal about the speech.</p>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Activity 4: A Story and a Collage</h4>
+                            <p><strong>Task:</strong> Share ideas about how religion helps to satisfy other needs. Listen to or read a sacred or other story about needs (such as the Good Samaritan or Cinderella). Identify the need and how it was met, and say why holding moral values is important. Create a collage to illustrate part of the story.</p>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Activity 5: Sing About Helping</h4>
+                            <p><strong>Task:</strong> Work in groups of 4–6 and, using a tune you know, make a simple song from a rhyme or jingle that shows how other needs are satisfied. Perform your song for the class. You can also sing cultural songs such as <em>Colon Man</em>, <em>Under de Coconut Tree</em>, <em>Jane and Louisa</em>, or <em>Brown Girl in de Ring</em>, and say what needs they tell about.</p>
+                        </div>
+                    </div>
+
+                    <div class="assessment-box">
+                        <h4>Assessment: Satisfying Other Needs</h4>
+                        <div class="checklist">
+                            <input type="checkbox"> Can you name people and organisations that help us meet our needs?
+                        </div>
+                        <div class="checklist">
+                            <input type="checkbox"> Can you write a correctly constructed thank-you letter?
+                        </div>
+                        <div class="checklist">
+                            <input type="checkbox"> Can you make a booklet that correctly documents helping organisations and their emergency numbers?
+                        </div>
+                        <div class="checklist">
+                            <input type="checkbox"> Can you explain why moral values are important when helping others?
+                        </div>
+                        <div class="checklist">
+                            <input type="checkbox"> Can you produce a song or jingle that shows how other needs are met?
+                        </div>
+                    </div>
+
+                    <div class="extension-box">
+                        <h4>Extended Learning</h4>
+                        <p><strong>Challenge 1:</strong> Write in your journal poems, verses, and songs about ways you could love, respect, and forgive your friends.</p>
+                        <p><strong>Challenge 2:</strong> Research the customs associated with sports in Jamaica.</p>
+                    </div>
+
+                    <div class="teacher-notes">
+                        <h4>Teacher Notes (Points to Note)</h4>
+                        <ul>
+                            <li>Ensure that contact is made with resource person/s before the lesson.</li>
+                            <li>Ensure that appropriate technology is available for class use.</li>
+                            <li>Ensure students cite online sources correctly.</li>
+                            <li>Check prior learning: students should be able to distinguish between basic needs and other needs.</li>
+                        </ul>
+                    </div>
+
+                    <div class="learning-outcomes">
+                        <h4>Learning Outcomes for Focus Question 2</h4>
+                        <p>By the end of this focus question, students will be able to:</p>
+                        <ul>
+                            <li>✓ Identify ways in which our other needs may be satisfied</li>
+                            <li>✓ Use a creative expression to show how other needs may be satisfied</li>
+                            <li>✓ Create a picture collage to illustrate experiences in which others helped them satisfy needs</li>
+                            <li>✓ Write a report in their journals</li>
+                            <li>✓ Produce songs and jingles depicting how other needs are met</li>
+                            <li>✓ Discuss the needs mentioned in a song they listened to</li>
+                            <li>✓ Compile an information booklet of agencies that help to satisfy other needs</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FOCUS QUESTION 3 -->
+            <div id="focus-q3" class="tab-content">
+                <button class="print-btn" onclick="window.print()">🖨️ Print This Section</button>
+
+                <div class="section">
+                    <h2 class="section-title">Focus Question 3: How does satisfying other needs make a difference to life?</h2>
+
+                    <div class="learning-objectives">
+                        <h4>Learning Objectives</h4>
+                        <ul>
+                            <li>Develop simple sentences stating how other needs are satisfied</li>
+                            <li>Explain specific ways in which people satisfy their need for love, trust, worship, and friendship</li>
+                            <li>Demonstrate ways in which individuals depend on each other, especially during life-threatening situations</li>
+                            <li>Identify organisations on which individuals can depend to make a difference to life</li>
+                            <li>Explain the positive and negative ways of satisfying other needs</li>
+                            <li>Use call-and-response techniques to create simple musical compositions about satisfying other needs</li>
+                            <li>Use movement skills to communicate ideas and feelings</li>
+                        </ul>
+                    </div>
+
+                    <div class="content-text">
+                        <p>When needs are met, life gets better — not just for one person, but for everyone around them. Let's see how.</p>
+                    </div>
+
+                    <!-- WE DEPEND ON EACH OTHER -->
+                    <div class="subsection">
+                        <h3>🆘 Lesson 9: We Depend on Each Other</h3>
+
+                        <div class="content-text">
+                            <p>No one can do everything alone. We all <strong>depend on</strong> each other. This is true every day, and it is especially true during a <strong>life-threatening situation</strong> — a moment of great danger.</p>
+
+                            <p>Think about these dangers: a <strong>fire</strong> in a building, a bad <strong>accident</strong>, a <strong>flood</strong> that covers the roads, or <strong>lightning</strong> during a storm.</p>
+
+                            <p>In times like these, people must <strong>work together</strong> and depend on helpers to stay safe. A firefighter rescues people from a fire. A doctor helps someone who is hurt. Neighbours help each other reach safety. When people cooperate, lives can be saved.</p>
+
+                            <p><strong>Think about it:</strong> Can you think of a time when someone helped you or your family during a hard moment? How did it make a difference?</p>
+                        </div>
+
+                        <div class="key-terms">
+                            <h4>Key Terms to Know:</h4>
+                            <div class="term"><strong>Depend on:</strong> To need someone or something for help</div>
+                            <div class="term"><strong>Emergency:</strong> A sudden, dangerous situation that needs help right away</div>
+                        </div>
+
+                        <h4>Helpers in a Life-Threatening Situation</h4>
+
+                        <table>
+                            <tr>
+                                <th>Dangerous Situation</th>
+                                <th>Who Helps</th>
+                            </tr>
+                            <tr>
+                                <td>A fire in a building</td>
+                                <td>The Fire Brigade rescues people and puts out the fire</td>
+                            </tr>
+                            <tr>
+                                <td>A bad accident or illness</td>
+                                <td>Doctors, nurses, and the ambulance service</td>
+                            </tr>
+                            <tr>
+                                <td>A flood that covers the roads</td>
+                                <td>Neighbours and rescue workers help people reach safety</td>
+                            </tr>
+                            <tr>
+                                <td>Danger or trouble</td>
+                                <td>The Police keep people safe</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <!-- HOW MEETING NEEDS CHANGES LIVES -->
+                    <div class="subsection">
+                        <h3>🌟 Lesson 10: How Meeting Needs Changes Lives</h3>
+
+                        <div class="content-text">
+                            <p>When other needs are met, people feel <strong>happier, safer, and stronger</strong>.</p>
+                            <ul style="margin-left: 40px;">
+                                <li>When a lonely person is given <strong>friendship</strong>, they feel they belong.</li>
+                                <li>When a frightened person is given <strong>safety</strong>, they can relax and feel calm.</li>
+                                <li>When a sad person is given <strong>love and comfort</strong>, they feel better.</li>
+                                <li>When a community works together to solve a <strong>problem</strong>, everyone's life improves.</li>
+                            </ul>
+
+                            <p>Meeting needs the right way brings <strong>positive results</strong>. But not meeting needs, or being unkind, brings <strong>negative results</strong> and makes people feel sad or unsafe. That is why it is so important to help each other in <strong>good, caring ways</strong>.</p>
+
+                            <p><strong>Real-life example:</strong> Imagine your community has a problem — there is no safe place for children to play. If neighbours work together to clean up a field and make a play area, they have met a need and made life better for every child. That is how satisfying needs makes a big difference!</p>
+                        </div>
+
+                        <h4>Positive and Negative Ways of Satisfying Needs</h4>
+
+                        <table>
+                            <tr>
+                                <th>Positive Ways (good results)</th>
+                                <th>Negative Ways (poor results)</th>
+                            </tr>
+                            <tr>
+                                <td>Sharing kindly with someone in need</td>
+                                <td>Being selfish and refusing to help</td>
+                            </tr>
+                            <tr>
+                                <td>Comforting a friend who is sad</td>
+                                <td>Teasing or ignoring someone who is hurting</td>
+                            </tr>
+                            <tr>
+                                <td>Working together to solve a problem</td>
+                                <td>Causing arguments and not cooperating</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <!-- YOU CAN MAKE A DIFFERENCE -->
+                    <div class="subsection">
+                        <h3>💪 Lesson 11: You Can Make a Difference Too</h3>
+
+                        <div class="content-text">
+                            <p>You may be young, but you can still help meet other people's needs every day:</p>
+                            <ul style="margin-left: 40px;">
+                                <li>Share with a friend who has nothing.</li>
+                                <li>Comfort someone who is sad.</li>
+                                <li>Be kind and show respect to everyone.</li>
+                                <li>Tell a grown-up if someone needs help.</li>
+                            </ul>
+
+                            <p>Small acts of kindness make a big difference in the world.</p>
+                        </div>
+                    </div>
+
+                    <!-- ACTIVITIES -->
+                    <div class="subsection">
+                        <h3>🎨 Suggested Activities</h3>
+
+                        <div class="activity-box">
+                            <h4>Activity 1: Organisations We Depend On</h4>
+                            <p><strong>Task:</strong> Identify organisations that individuals can depend on to cope with life-threatening situations. List them under the headings <strong>Governmental</strong> and <strong>Non-Governmental</strong>. Discuss the role each one plays. Relate experiences about life-threatening situations and how you or others were helped, and use ICT tools to voice-record your experiences for playback.</p>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Activity 2: Tableau and Call-and-Response</h4>
+                            <p><strong>Task:</strong> Use tableau and thought tracking to show situations in which the needs of love, trust, respect, and friendship were met. Record the drama and play it back for class discussion. Create a lyrical composition — using call-and-response, clapping, and stomping — that tells how satisfying other needs makes a difference to life.</p>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Activity 3: A Sacred Story and Movement</h4>
+                            <p><strong>Task:</strong> Read a sacred story about how satisfying other needs made a difference in someone's life (such as the account of the man at the Gate Beautiful). Perform a movement sequence to show how the character's reaction made a difference. Create art pieces that share these messages.</p>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Activity 4: Depending on Each Other in a Crisis</h4>
+                            <p><strong>Task:</strong> Work in groups to discuss how individuals depend on each other during crises such as a fire, an accident, crossing a flooded river, lightning, or a water lock-off in a nearby community. Use drama modes to present what your group discussed.</p>
+                        </div>
+
+                        <div class="activity-box">
+                            <h4>Activity 5: A Community Project</h4>
+                            <p><strong>Task:</strong> Conduct a survey to find a need in your community that needs addressing. Plan a community-based project to meet the need, and work out a way to solve the problem so it makes a real difference to people's lives. Create a display that shows your whole plan.</p>
+                        </div>
+                    </div>
+
+                    <div class="assessment-box">
+                        <h4>Assessment: Making a Difference</h4>
+                        <div class="checklist">
+                            <input type="checkbox"> Can you name organisations that individuals depend on to make a difference to life?
+                        </div>
+                        <div class="checklist">
+                            <input type="checkbox"> Can you correctly sort organisations into governmental and non-governmental?
+                        </div>
+                        <div class="checklist">
+                            <input type="checkbox"> Can you explain how people depend on each other during a dangerous situation?
+                        </div>
+                        <div class="checklist">
+                            <input type="checkbox"> Can you explain positive and negative ways of satisfying other needs?
+                        </div>
+                        <div class="checklist">
+                            <input type="checkbox"> Can you dramatize a scene that clearly shows interdependence?
+                        </div>
+                    </div>
+
+                    <div class="extension-box">
+                        <h4>Extended Learning</h4>
+                        <p><strong>Challenge:</strong> Plan and present a community-based project that solves a real need in your area. Strategize how cooperation and planning can make a significant difference to people's lives, and create a display that highlights your plan from start to finish.</p>
+                    </div>
+
+                    <div class="teacher-notes">
+                        <h4>Teacher Notes (Points to Note)</h4>
+                        <ul>
+                            <li>Help students understand how thought tracking and tableaux are used to show feelings and situations.</li>
+                            <li>Conduct movement and drama activities in a safe, open space.</li>
+                            <li>Ensure ICT tools are available so students can voice-record and play back their experiences.</li>
+                            <li>Be sensitive when students relate real life-threatening experiences; create a caring, supportive environment.</li>
+                            <li>Emphasise that some life-threatening situations can be alleviated by planning and cooperation.</li>
+                        </ul>
+                    </div>
+
+                    <div class="learning-outcomes">
+                        <h4>Learning Outcomes for Focus Question 3</h4>
+                        <p>By the end of this focus question, students will be able to:</p>
+                        <ul>
+                            <li>✓ Identify organisations on which individuals can depend to make a difference to life</li>
+                            <li>✓ Dramatize various scenes effectively, conveying the intended message</li>
+                            <li>✓ Recognise the need to work together to address needs</li>
+                            <li>✓ Identify and explain the positive and negative ways of satisfying others' needs</li>
+                            <li>✓ Recognise how art can be used to express emotions and feelings</li>
+                            <li>✓ Recognise that some life-threatening situations can be alleviated by planning and cooperation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GLOSSARY -->
+            <div id="glossary" class="tab-content">
+                <button class="print-btn" onclick="window.print()">🖨️ Print This Section</button>
+
+                <div class="section">
+                    <h2 class="section-title">Glossary — Unit 2 Vocabulary</h2>
+
+                    <div class="content-text">
+                        <p>Here are the important words from Unit 2: Our Needs. Learn what each one means and try to use them in your own sentences.</p>
+                    </div>
+
+                    <div class="key-terms">
+                        <h4>Key Vocabulary</h4>
+                        <div class="term"><strong>Need:</strong> Something you must have to live and be well.</div>
+                        <div class="term"><strong>Want:</strong> Something you would like to have, but can live without.</div>
+                        <div class="term"><strong>Basic needs:</strong> The things every person must have to stay alive and healthy — food, water, clothing, and shelter.</div>
+                        <div class="term"><strong>Other needs:</strong> Feelings and care every person needs, like love, friendship, safety, and respect.</div>
+                        <div class="term"><strong>Shelter:</strong> A safe place to live, such as a house.</div>
+                        <div class="term"><strong>Organisation (agency):</strong> A group of people who work together to help others.</div>
+                        <div class="term"><strong>Emergency:</strong> A sudden, dangerous situation that needs help right away.</div>
+                        <div class="term"><strong>Depend on:</strong> To need someone or something for help.</div>
+                        <div class="term"><strong>Moral values:</strong> Good ways of behaving, like being kind, honest, and helpful.</div>
+                        <div class="term"><strong>Line of symmetry:</strong> A line that cuts a shape into two halves that match exactly, like a mirror.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ANSWER KEY -->
+            <div id="answers" class="tab-content">
+                <button class="print-btn" onclick="window.print()">🖨️ Print This Section</button>
+
+                <div class="section">
+                    <h2 class="section-title">Answer Key</h2>
+
+                    <div class="content-text">
+                        <p>Use this section to check the answers to the practice exercises and review questions. Some questions have more than one correct answer.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Let's Practise — Needs or Wants? (Sorting)</h3>
+                        <p><strong>Sort into needs and wants:</strong> water, a video game, food, a toy car, shelter, sweets, clothing, a new bicycle.</p>
+                        <table>
+                            <tr>
+                                <th>Needs</th>
+                                <th>Wants</th>
+                            </tr>
+                            <tr>
+                                <td>Water, food, shelter, clothing</td>
+                                <td>A video game, a toy car, sweets, a new bicycle</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Practice Exercise A — Write "N" for need or "W" for want</h3>
+                        <ol style="margin-left: 20px;">
+                            <li>A bottle of clean water to drink — <strong>N (need)</strong></li>
+                            <li>A brand-new toy — <strong>W (want)</strong></li>
+                            <li>A safe house to live in — <strong>N (need)</strong></li>
+                            <li>A chocolate bar — <strong>W (want)</strong></li>
+                            <li>Clothes to wear — <strong>N (need)</strong></li>
+                        </ol>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Practice Exercise B — Fill in the blank</h3>
+                        <ol style="margin-left: 20px;">
+                            <li>Food, water, clothing, and shelter are called <strong>basic</strong> needs.</li>
+                            <li>Love, friendship, and safety are called <strong>other</strong> needs.</li>
+                            <li>A safe place to live is called <strong>shelter</strong>.</li>
+                            <li>A group of people who work together to help others is called an <strong>organisation (agency)</strong>.</li>
+                            <li>We all <strong>depend</strong> on each other for help.</li>
+                        </ol>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Practice Exercise C — Short answer</h3>
+                        <ol style="margin-left: 20px;">
+                            <li><strong>Two examples of a basic need:</strong> Any two of — food, water, clothing, shelter.</li>
+                            <li><strong>Two examples of an other need:</strong> Any two of — love, friendship, safety, respect, trust, comfort, worship.</li>
+                            <li><strong>One organisation to call in an emergency:</strong> The Fire Brigade, the Police, or the Hospital/ambulance service (any one).</li>
+                        </ol>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Review Questions</h3>
+                        <ol style="margin-left: 20px;">
+                            <li><strong>What is the difference between a need and a want?</strong> A need is something you must have to live and be well. A want is something you would like to have, but you can live without it.</li>
+                            <li><strong>List the four basic needs that every person must have.</strong> Food, water, clothing, and shelter.</li>
+                            <li><strong>Give three examples of other needs.</strong> Any three of — love, friendship, safety, respect, trust, comfort, worship.</li>
+                            <li><strong>Why do we say that all people in the world have the same needs?</strong> Because no matter what country someone is from, what language they speak, or how they worship, everyone needs food, water, clothing, shelter, love, friendship, and safety. We are all alike in this way.</li>
+                            <li><strong>Name two people or groups that help us meet our needs.</strong> Any two of — family, friends, teachers, neighbours, the Fire Brigade, the Police, the hospital, charities, or churches.</li>
+                            <li><strong>Why is it important to know emergency phone numbers?</strong> So that a grown-up can quickly call for help in an emergency such as a fire, a flood, a sudden illness, or getting lost.</li>
+                            <li><strong>How does helping each other make a difference during a dangerous situation?</strong> When people work together and depend on helpers (like firefighters and doctors), they can stay safe and lives can be saved.</li>
+                            <li><strong>Write down one kind thing you can do to help meet someone's need.</strong> Example answers — share with a friend who has nothing, comfort someone who is sad, be kind and show respect, or tell a grown-up if someone needs help.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Grade 3 Jamaica Integrated Studies Textbook | Ministry of Education, Youth and Information, Jamaica</p>
+            <p>This interactive textbook covers Term 1, Unit 2: Our Needs — all three focus questions, glossary, and answer key, as per the National Standards Curriculum.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Tab navigation
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const tabName = button.getAttribute('data-tab');
+
+                // Remove active class from all buttons and contents
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+
+                // Add active class to clicked button and corresponding content
+                button.classList.add('active');
+                document.getElementById(tabName).classList.add('active');
+
+                // Scroll to top
+                window.scrollTo(0, 0);
+            });
+        });
+
+        // Collapsible sections
+        const collapsibles = document.querySelectorAll('.collapsible');
+        collapsibles.forEach(button => {
+            button.addEventListener('click', function() {
+                this.classList.toggle('active');
+                const content = this.nextElementSibling;
+                if (content && content.classList.contains('collapsible-content')) {
+                    content.classList.toggle('show');
+                }
+            });
+        });
+
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
